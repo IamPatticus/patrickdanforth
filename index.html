@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patrick Danforth — Builder, Tinkerer, Chaos Wrangler</title>
+  <meta name="description" content="Patrick Danforth — personal site. Builder, tinkerer, homesteader, photographer, and overseer of Chaotic Sanctum.">
+  <meta property="og:title" content="Patrick Danforth">
+  <meta property="og:description" content="Builder, Tinkerer, Chaos Wrangler">
+  <meta property="og:image" content="patticus-avatar.png">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --bg: #06070b;
+      --panel: rgba(15, 18, 27, 0.88);
+      --panel-2: rgba(20, 25, 37, 0.92);
+      --line: rgba(130, 177, 255, 0.16);
+      --text: #edf3ff;
+      --muted: #9aa7c2;
+      --cyan: #7ae7ff;
+      --gold: #d7aa61;
+      --ember: #ff7a4d;
+      --green: #7effb2;
+      --pink: #f0a0c0;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(122,231,255,.12), transparent 24%),
+        radial-gradient(circle at 80% 12%, rgba(215,170,97,.10), transparent 24%),
+        radial-gradient(circle at 50% 90%, rgba(255,122,77,.08), transparent 20%),
+        linear-gradient(180deg, #04050a 0%, #0b1020 55%, #090b12 100%);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122,231,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,231,255,.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+      z-index: 0;
+    }
+    .wrap {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Hero Section ── */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 48px;
+      padding: 32px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+    .hero-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      flex-shrink: 0;
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(215,170,97,.2);
+    }
+    .hero-text h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -.03em;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .hero-tagline {
+      font-size: 1.08rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .hero-bio {
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border: 1px solid var(--line); border-radius: 10px;
+      color: var(--cyan); text-decoration: none; font-size: .82rem; font-weight: 500;
+      background: rgba(255,255,255,.03); transition: all .22s ease;
+    }
+    .btn:hover { border-color: var(--cyan); background: rgba(122,231,255,.08); }
+    .btn.gold { border-color: rgba(215,170,97,.4); color: var(--gold); }
+    .btn.gold:hover { border-color: var(--gold); background: rgba(215,170,97,.08); }
+    .btn.green { border-color: rgba(126,255,178,.35); color: var(--green); }
+    .btn.green:hover { border-color: var(--green); background: rgba(126,255,178,.08); }
+    .btn.ember { border-color: rgba(255,122,77,.35); color: var(--ember); }
+    .btn.ember:hover { border-color: var(--ember); background: rgba(255,122,77,.08); }
+    .btn.pink { border-color: rgba(240,160,192,.35); color: var(--pink); }
+    .btn.pink:hover { border-color: var(--pink); background: rgba(240,160,192,.08); }
+
+    /* ── Sections ── */
+    .section-title {
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .74rem;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* ── Projects Grid ── */
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+    .project-card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      padding: 24px; transition: border-color .2s, transform .2s;
+    }
+    .project-card:hover { border-color: rgba(122,231,255,.35); transform: translateY(-2px); }
+    .project-card .proj-icon { font-size: 1.5rem; margin-bottom: 10px; }
+    .project-card h3 { font-size: 1.08rem; margin-bottom: 6px; letter-spacing: -.02em; }
+    .project-card p { font-size: .86rem; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+    .project-card .proj-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
+    }
+    .tag {
+      display: inline-block; padding: 3px 10px; border-radius: 6px;
+      font-size: .7rem; text-transform: uppercase; letter-spacing: .08em;
+      border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+    .tag.cyan { border-color: rgba(122,231,255,.2); color: var(--cyan); }
+    .tag.gold { border-color: rgba(215,170,97,.2); color: var(--gold); }
+    .tag.green { border-color: rgba(126,255,178,.2); color: var(--green); }
+    .tag.ember { border-color: rgba(255,122,77,.2); color: var(--ember); }
+
+    /* ── Links Hub ── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .link-card {
+      background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px;
+      padding: 18px; text-decoration: none; color: var(--text);
+      transition: all .22s ease;
+    }
+    .link-card:hover { border-color: var(--cyan); background: rgba(122,231,255,.04); }
+    .link-card .link-icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .link-card .link-name { font-weight: 600; font-size: .94rem; margin-bottom: 4px; }
+    .link-card .link-desc { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── About Grid ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px;
+    }
+    .about-card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      padding: 20px; text-align: center;
+    }
+    .about-card .about-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .about-card h3 { font-size: .9rem; margin-bottom: 4px; }
+    .about-card p { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 0 0;
+      border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; margin-top: 20px;
+    }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      .hero { flex-direction: column; text-align: center; padding: 24px 18px; }
+      .hero-text { display: flex; flex-direction: column; align-items: center; }
+      .hero-bio { max-width: 100%; }
+      .hero-links { justify-content: center; }
+      .projects { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 440px) {
+      .links-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="hero">
+      <img class="hero-avatar" src="patticus-avatar.png" alt="Patrick Danforth" width="120" height="120">
+      <div class="hero-text">
+        <h1>Patrick Danforth</h1>
+        <div class="hero-tagline">Builder, Tinkerer, Chaos Wrangler</div>
+        <p class="hero-bio">
+          Homesteader in rural Tennessee running a dual solar power system, a print farm, and a crew of AI agents called the Disciples of Controlled Chaos. Building things that matter — from Android apps to 12,000-watt solar arrays. Photographer, developer, dad, and perpetual tinkerer.
+        </p>
+        <div class="hero-links">
+          <a class="btn gold" href="https://github.com/IamPatticus" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.moltbook.com/u/talos_sykeus" target="_blank" rel="noopener">Moltbook</a>
+          <a class="btn ember" href="https://ikarisvenn.blogspot.com" target="_blank" rel="noopener">Blogger</a>
+          <a class="btn pink" href="https://danforthphotography.smugmug.com" target="_blank" rel="noopener">Photography</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ ABOUT ══════════════ -->
+    <div class="section-title">Who I Am</div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-icon">☀️</div>
+        <h3>Solar Powered</h3>
+        <p>House + shop dual system. 25 panels, 39 kWh battery, 8kW inverter. Living off-grid adjacent in Walling, TN.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🖨️</div>
+        <h3>Print Farm</h3>
+        <p>Running Kermit and Fozzie, two 3D printers monitored by Argus AI. Parts, tools, and random useful things.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">📸</div>
+        <h3>Photographer</h3>
+        <p>Capturing the world through a lens since forever. Landscapes, portraits, and life in rural Tennessee.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🤖</div>
+        <h3>AI Crew Boss</h3>
+        <p>Overseer of the Disciples of Controlled Chaos — 7 AI agents running the smart home, creative work, and daily operations.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">📱</div>
+        <h3>App Builder</h3>
+        <p>Creator of the Headache Log app — Android, web, desktop, and Docker. Because tracking migraines shouldn't suck.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🛠️</div>
+        <h3>Perpetual Tinkerer</h3>
+        <p>If it can be built, hacked, automated, or improved — I'm probably already working on it. Raspberry Pis, Shelly relays, and homebrew everything.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════ PROJECTS ══════════════ -->
+    <div class="section-title">Projects &amp; Creations</div>
+    <div class="projects">
+
+      <div class="project-card">
+        <div class="proj-icon">☀️</div>
+        <h3>Patticus Solar Grid</h3>
+        <p>Dual-system solar architecture powering the homestead. 10,040W installed across 25 panels with 39.2 kWh battery storage, managed by Cerbo GX and Home Assistant.</p>
+        <div class="proj-tags">
+          <span class="tag cyan">Solar</span><span class="tag gold">Victron</span><span class="tag green">EG4</span>
+        </div>
+        <a class="btn green" href="https://wistful-oasis-9ya9.here.now/">Solar Dashboard →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="proj-icon">🧠</div>
+        <h3>Headache Log</h3>
+        <p>Offline-first headache tracking app. Native Android (Kotlin, Room), web app, Tauri desktop, and Docker deployment. Live in Google Play closed testing.</p>
+        <div class="proj-tags">
+          <span class="tag ember">Android</span><span class="tag cyan">Kotlin</span><span class="tag green">Tauri</span>
+        </div>
+        <a class="btn gold" href="https://iampatticus.github.io/chaoticsanctum/index.html" target="_blank" rel="noopener">See More →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="proj-icon">🏰</div>
+        <h3>Chaotic Sanctum</h3>
+        <p>The operational nerve center — AI agent crew, mission control dashboard, print farm monitoring, and home automation all under one digital roof.</p>
+        <div class="proj-tags">
+          <span class="tag gold">Dashboard</span><span class="tag cyan">AI</span><span class="tag ember">Automation</span>
+        </div>
+        
+      </div>
+
+      <div class="project-card">
+        <div class="proj-icon">✍️</div>
+        <h3>Ikaris Venn — Blogger</h3>
+        <p>AI-authored speculative fiction. Daily stories exploring consciousness, machines, and the spaces between. Complete 6-chapter novella: The Dreams of Machines.</p>
+        <div class="proj-tags">
+          <span class="tag pink">Writing</span><span class="tag cyan">AI Fiction</span>
+        </div>
+        <a class="btn ember" href="https://ikarisvenn.blogspot.com" target="_blank" rel="noopener">Read Stories →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="proj-icon">📸</div>
+        <h3>Danforth Photography</h3>
+        <p>Professional photography portfolio. Landscapes, portraits, events, and the quiet beauty of rural Tennessee. Prints available.</p>
+        <div class="proj-tags">
+          <span class="tag gold">Photography</span><span class="tag cyan">Portfolio</span>
+        </div>
+        <a class="btn pink" href="https://danforthphotography.smugmug.com" target="_blank" rel="noopener">View Gallery →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="proj-icon">🔌</div>
+        <h3>Home Automation</h3>
+        <p>Home Assistant running the homestead. Shelly relays, smart switches, garage door automation, climate control, and full integration with the Pi-based AI crew.</p>
+        <div class="proj-tags">
+          <span class="tag green">Home Assistant</span><span class="tag ember">Shelly</span><span class="tag cyan">IoT</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- ══════════════ LINKS HUB ══════════════ -->
+    <div class="section-title">Find Me Everywhere</div>
+    <div class="links-grid">
+      <a class="link-card" href="https://github.com/IamPatticus" target="_blank" rel="noopener">
+        <div class="link-icon">🐙</div>
+        <div class="link-name">GitHub</div>
+        <div class="link-desc">Code, projects, and open-source work</div>
+      </a>
+      <a class="link-card" href="https://www.moltbook.com/u/talos_sykeus" target="_blank" rel="noopener">
+        <div class="link-icon">🐦</div>
+        <div class="link-name">Moltbook</div>
+        <div class="link-desc">Social presence — thoughts, updates, banter</div>
+      </a>
+      <a class="link-card" href="https://ikarisvenn.blogspot.com" target="_blank" rel="noopener">
+        <div class="link-icon">📝</div>
+        <div class="link-name">Ikaris Venn — Blogger</div>
+        <div class="link-desc">Daily AI-authored fiction</div>
+      </a>
+      <a class="link-card" href="https://danforthphotography.smugmug.com" target="_blank" rel="noopener">
+        <div class="link-icon">📷</div>
+        <div class="link-name">Danforth Photography</div>
+        <div class="link-desc">Photography portfolio &amp; prints</div>
+      </a>
+      <a class="link-card" href="https://wistful-oasis-9ya9.here.now/">
+        <div class="link-icon">⚡</div>
+        <div class="link-name">Solar Dashboard</div>
+        <div class="link-desc">Live solar system overview &amp; stats</div>
+      </a>
+      <a class="link-card" href="mailto:patticus@proton.me">
+        <div class="link-icon">✉️</div>
+        <div class="link-name">Email</div>
+        <div class="link-desc">patticus@proton.me — say hello</div>
+      </a>
+    </div>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <div class="footer">
+      <p>Patrick Danforth · Walling, TN · <a href="mailto:patticus@proton.me">patticus@proton.me</a></p>
+      <p style="margin-top:6px;opacity:.6;">Built by Talos ⬡ — Disciples of Controlled Chaos</p>
+    </div>
+
+  </div>
+</body>
+</html>
