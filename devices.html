@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devices — Chaotic Sanctum</title>
+  <style>
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif;background:#06070b;color:#edf3ff;margin:0;padding:28px}
+    .wrap{width:min(1100px,calc(100% - 32px));margin:0 auto}
+    h1{margin:0 0 12px}
+    .btn{appearance:none;border:1px solid rgba(130,177,255,.16);background:rgba(255,255,255,.03);color:inherit;padding:8px 12px;border-radius:10px;text-decoration:none}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,.04);text-align:left;font-size:0.95rem}
+    th{color:#9aa7c2;text-transform:uppercase;font-size:0.75rem;letter-spacing:.12em}
+    .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
+    .green{background:#7effb2;box-shadow:0 0 8px #7effb2}
+    .red{background:#ff7a4d;box-shadow:0 0 8px #ff7a4d}
+    .muted{color:#9aa7c2}
+    pre{background:rgba(3,6,12,.78);padding:12px;border-radius:10px;overflow:auto;color:#cbe8ff}
+    .action-btn{margin-right:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="btn" href="./">← Back to Sanctum</a>
+    <h1>Connected Devices</h1>
+    <p class="muted">Served from the Pi; actions are restricted to local/Tailscale clients. Auto-refresh: 30s.</p>
+
+    <div id="content">
+      <p class="muted">Loading…</p>
+    </div>
+
+    <h3 style="margin-top:18px">Raw snapshot</h3>
+    <pre id="raw">Loading…</pre>
+  </div>
+
+  <script>
+    const API_PORT = 8765;
+    const API_BASE = `${location.protocol}//${location.hostname}:${API_PORT}`;
+
+    function actionFetch(path, id) {
+      return fetch(`${API_BASE}${path}?id=${encodeURIComponent(id)}`, {cache:'no-store'})
+        .then(r => r.json())
+        .catch(e => ({ok:false,out:String(e)}));
+    }
+
+    async function fetchSnapshot() {
+      try {
+        const res = await fetch('./devices.json', {cache:'no-store'});
+        const doc = await res.json();
+        const content = document.getElementById('content');
+        const raw = document.getElementById('raw');
+        raw.textContent = doc.raw || JSON.stringify(doc, null, 2);
+
+        if (Array.isArray(doc.devices)) {
+          if (doc.devices.length === 0) { content.innerHTML = '<p class="muted">No devices found.</p>'; return; }
+          const rows = doc.devices.map(d => {
+            const id = d.id || d.device || '';
+            const short = id.slice(0,8) + (id.length>8? '…':'');
+            const roles = Array.isArray(d.roles) ? d.roles.join(', ') : (d.roles||'');
+            const ip = d.ip || '-';
+            const status = d.ip ? 'Online' : 'Unknown';
+            const dot = status === 'Online' ? '<span class="dot green"></span>' : '<span class="dot red"></span>';
+            const last = d.lastSeen || '-';
+            const inspectBtn = `<button class="btn action-btn" onclick="doInspect('${id}', this)">Inspect</button>`;
+            const approveBtn = `<button class="btn action-btn" onclick="doApprove('${id}', this)">Approve</button>`;
+            return `<tr><td>${dot}${d.name||short}</td><td class="muted">${short}</td><td>${roles}</td><td>${ip}</td><td>${last}</td><td>${inspectBtn}${approveBtn}</td></tr>`;
+          }).join('\n');
+          content.innerHTML = `<table><thead><tr><th>Device</th><th class="muted">ID</th><th>Roles</th><th>IP</th><th>Last Seen</th><th>Actions</th></tr></thead><tbody>${rows}</tbody></table>`;
+        } else {
+          content.innerHTML = '<p class="muted">No structured device data available — showing raw snapshot below.</p>';
+        }
+      } catch (e) {
+        document.getElementById('content').innerHTML = '<p class="muted">Failed to load snapshot.</p>';
+        document.getElementById('raw').textContent = String(e);
+      }
+    }
+
+    async function doInspect(id, btn) {
+      btn.disabled = true; const old = btn.textContent; btn.textContent = 'Inspecting…';
+      const r = await actionFetch('/api/inspect', id);
+      alert('Inspect result:\n' + (r.out || JSON.stringify(r)));
+      btn.textContent = old; btn.disabled = false;
+    }
+    async function doApprove(id, btn) {
+      if (!confirm('Approve device ' + id + '?')) return;
+      btn.disabled = true; const old = btn.textContent; btn.textContent = 'Approving…';
+      const r = await actionFetch('/api/approve', id);
+      alert('Approve result:\n' + (r.out || JSON.stringify(r)));
+      btn.textContent = old; btn.disabled = false;
+    }
+
+    fetchSnapshot();
+    setInterval(fetchSnapshot, 30000);
+  </script>
+</body>
+</html>

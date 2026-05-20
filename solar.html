@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solar System — Patticus Power Grid</title>
+  <meta name="description" content="Complete solar power system overview for Patticus homestead.">
+  <style>
+    :root {
+      --bg: #06070b;
+      --panel: rgba(15, 18, 27, 0.88);
+      --panel-2: rgba(20, 25, 37, 0.92);
+      --line: rgba(130, 177, 255, 0.16);
+      --text: #edf3ff;
+      --muted: #9aa7c2;
+      --cyan: #7ae7ff;
+      --gold: #d7aa61;
+      --ember: #ff7a4d;
+      --green: #7effb2;
+      --yellow: #ffd966;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(122,231,255,.12), transparent 24%),
+        radial-gradient(circle at 80% 12%, rgba(215,170,97,.12), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255,122,77,.10), transparent 20%),
+        linear-gradient(180deg, #04050a 0%, #0b1020 55%, #090b12 100%);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122,231,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,231,255,.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+    }
+    .wrap {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+    }
+    .hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .74rem;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border: 1px solid var(--line); border-radius: 8px;
+      color: var(--cyan); text-decoration: none; font-size: .82rem;
+      background: rgba(255,255,255,.03); transition: all .2s;
+    }
+    .btn:hover { border-color: var(--cyan); background: rgba(122,231,255,.08); }
+    .btn.gold { border-color: rgba(215,170,97,.4); color: var(--gold); }
+    .btn.gold:hover { border-color: var(--gold); background: rgba(215,170,97,.08); }
+    .btn.green { border-color: rgba(126,255,178,.35); color: var(--green); }
+    .btn.green:hover { border-color: var(--green); background: rgba(126,255,178,.08); }
+
+    h1 { font-size: 1.5rem; margin: 0 0 6px; letter-spacing: -.02em; }
+    .sub { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .7rem; color: var(--gold); margin-bottom: 6px; }
+
+    /* Stats row */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+      padding: 18px 16px; text-align: center;
+    }
+    .stat-card .val { font-size: 2rem; font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+    .stat-card .val.cyan { color: var(--cyan); }
+    .stat-card .val.gold { color: var(--gold); }
+    .stat-card .val.green { color: var(--green); }
+    .stat-card .val.ember { color: var(--ember); }
+    .stat-card .lbl { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
+
+    /* Two-column system layout */
+    .systems {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;
+    }
+    .system-card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+      padding: 20px; overflow: hidden;
+    }
+    .system-card.house { border-top: 3px solid var(--cyan); }
+    .system-card.shop { border-top: 3px solid var(--ember); }
+    .sys-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .sys-section { margin-bottom: 14px; }
+    .sys-section:last-child { margin-bottom: 0; }
+    .sys-section-title {
+      text-transform: uppercase; letter-spacing: .1em; font-size: .7rem;
+      color: var(--muted); margin-bottom: 6px; padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .spec-row { display: flex; justify-content: space-between; padding: 3px 0; font-size: .88rem; }
+    .spec-row .k { color: var(--muted); }
+    .spec-row .v { font-weight: 500; }
+
+    /* Panel inventory */
+    .panel-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .panel-chip {
+      background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
+      padding: 8px 10px; font-size: .82rem; display: flex; justify-content: space-between; align-items: center;
+    }
+    .panel-chip .watt { font-weight: 600; }
+    .panel-chip .where { color: var(--muted); font-size: .74rem; }
+
+    .planned-badge {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-size: .68rem; text-transform: uppercase; letter-spacing: .08em;
+      background: rgba(255,217,102,.12); color: var(--yellow); border: 1px solid rgba(255,217,102,.25);
+      margin-left: 6px;
+    }
+
+    /* Grand total banner */
+    .total-banner {
+      background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px;
+      padding: 18px 20px; text-align: center; margin-bottom: 24px;
+    }
+    .total-banner .big { font-size: 1.6rem; font-weight: 700; color: var(--gold); }
+    .total-banner .detail { color: var(--muted); font-size: .84rem; margin-top: 4px; }
+
+    /* Notes */
+    .notes {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+      padding: 14px 18px; font-size: .84rem; color: var(--muted); line-height: 1.6;
+    }
+    .notes strong { color: var(--text); }
+
+    @media (max-width: 700px) {
+      .systems { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .panel-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- HUD -->
+    <div class="hud">
+      <span>Solar Grid</span>
+      <span id="hud-time"></span>
+    </div>
+
+    <!-- Header -->
+    <div class="eyebrow">Power Systems</div>
+    <h1>☀️ Patticus Solar Grid</h1>
+    <div class="sub">33 panels installed (13,190W) · 39.2 kWh storage · 11kW+ inverter capacity · Dual-system architecture — all complete</div>
+
+    <!-- Action buttons -->
+    <div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;">
+      <a class="btn" href="https://patrickdanforth.com">← Home</a>
+      <a class="btn gold" href="https://vrm.victronenergy.com/installation-overview" target="_blank">VRM Portal</a>
+      <a class="btn green" href="./status.html">System Status</a>
+    </div>
+
+    <!-- Grand totals -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="val cyan">13,190<span style="font-size:1rem">W</span></div>
+        <div class="lbl">Installed Solar</div>
+      </div>
+      <div class="stat-card">
+        <div class="val gold">39.2<span style="font-size:1rem">kWh</span></div>
+        <div class="lbl">Battery Storage</div>
+      </div>
+      <div class="stat-card">
+        <div class="val green">11<span style="font-size:1rem">kW+</span></div>
+        <div class="lbl">Inverter Capacity</div>
+      </div>
+      <div class="stat-card">
+        <div class="val ember">33<span style="font-size:1rem">/33</span></div>
+        <div class="lbl">Panels (all installed)</div>
+      </div>
+    </div>
+
+    <!-- Two systems -->
+    <div class="systems">
+      <!-- HOUSE -->
+      <div class="system-card house">
+        <div class="sys-title">🏠 House System</div>
+
+        <div class="sys-section">
+          <div class="sys-section-title">Core Power</div>
+          <div class="spec-row"><span class="k">Inverter</span><span class="v">Victron Multiplus II 48/5000/70-120V</span></div>
+          <div class="spec-row"><span class="k">MPPT 1</span><span class="v">SmartSolar 250/85 TR — 8× 385W (3,080W)</span></div>
+          <div class="spec-row"><span class="k">MPPT 2</span><span class="v">SmartSolar 250/85 TR — 4× 370W (1,480W)</span></div>
+          <div class="spec-row"><span class="k">Batteries</span><span class="v">4× V1 + 1× V2 (20 kWh)</span></div>
+          <div class="spec-row"><span class="k">Backup Charger</span><span class="v">EG4 Chargeverter V2 (100A)</span></div>
+          <div class="spec-row"><span class="k">Controller</span><span class="v">Cerbo GX + Smart Shunt</span></div>
+        </div>
+
+        <div class="sys-section">
+          <div class="sys-section-title">Cooling</div>
+          <div class="spec-row"><span class="k">Mini-Split</span><span class="v">EG4 Hybrid 12k BTU + 2× 705W (1,410W)</span></div>
+          <div class="spec-row"><span class="k">Window Unit 1</span><span class="v">EG4 Hybrid 12k + 5× 315W (1,575W) ✅</span></div>
+          <div class="spec-row"><span class="k">Window Unit 2</span><span class="v">EG4 Hybrid 12k + 5× 315W (1,575W) ✅</span></div>
+        </div>
+
+        <div class="sys-section">
+          <div class="sys-section-title">House Totals</div>
+          <div class="spec-row"><span class="k">Main Array</span><span class="v">4,560W (12 panels)</span></div>
+          <div class="spec-row"><span class="k">AC Direct</span><span class="v">4,560W (12 panels, all installed)</span></div>
+          <div class="spec-row" style="font-weight:700;border-top:1px solid rgba(255,255,255,.08);padding-top:6px;"><span class="k">Total House</span><span class="v" style="color:var(--cyan);">9,120W (24 panels)</span></div>
+        </div>
+      </div>
+
+      <!-- SHOP -->
+      <div class="system-card shop">
+        <div class="sys-title">🔧 Shop System</div>
+
+        <div class="sys-section">
+          <div class="sys-section-title">Core Power</div>
+          <div class="spec-row"><span class="k">Inverter</span><span class="v">EG4 3000EHV-48 (3kW / 5kW PV / 500V OC)</span></div>
+          <div class="spec-row"><span class="k">Built-in MPPT</span><span class="v">8× 370W series (2,960W)</span></div>
+          <div class="spec-row"><span class="k">Batteries</span><span class="v">3× V1 + 1× V2 (19.2 kWh)</span></div>
+          <div class="spec-row"><span class="k">Backup Charger</span><span class="v">EG4 Chargeverter (48V/100A/5120W)</span></div>
+          <div class="spec-row"><span class="k">Controller</span><span class="v">Cerbo GX + Smart Shunt</span></div>
+        </div>
+
+        <div class="sys-section">
+          <div class="sys-section-title">Cooling</div>
+          <div class="spec-row"><span class="k">Mini-Split</span><span class="v">EG4 Hybrid 12k BTU + 3× 370W (1,110W)</span></div>
+        </div>
+
+        <div class="sys-section">
+          <div class="sys-section-title">Shop Totals</div>
+          <div class="spec-row"><span class="k">Main Array</span><span class="v">2,960W (8 panels)</span></div>
+          <div class="spec-row"><span class="k">AC Direct</span><span class="v">1,110W (3 panels)</span></div>
+          <div class="spec-row" style="font-weight:700;border-top:1px solid rgba(255,255,255,.08);padding-top:6px;"><span class="k">Total Shop</span><span class="v" style="color:var(--ember);">4,070W (11 panels)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Inventory -->
+    <section class="system-card" style="margin-bottom:24px;border-top:3px solid var(--yellow);background:var(--panel);">
+      <div class="sys-title">📋 Panel Inventory</div>
+      <div class="panel-list">
+        <div class="panel-chip"><span class="watt">8× 385W</span><span class="where">House MPPT 1</span></div>
+        <div class="panel-chip"><span class="watt">4× 370W</span><span class="where">House MPPT 2</span></div>
+        <div class="panel-chip"><span class="watt">8× 370W</span><span class="where">Shop MPPT (built-in)</span></div>
+        <div class="panel-chip"><span class="watt">2× 705W</span><span class="where">House mini-split</span></div>
+        <div class="panel-chip"><span class="watt">3× 370W</span><span class="where">Shop mini-split</span></div>
+        <div class="panel-chip"><span class="watt">10× 315W</span><span class="where">House window units ✅</span></div>
+      </div>
+    </section>
+
+    <!-- Combined totals -->
+    <div class="total-banner">
+      <div class="big">⚡ 13,190W Total Solar (33 panels — all installed)</div>
+      <div class="detail">
+        13,190W installed (33 panels) · 39.2 kWh battery (9× Lifepower4) · 11kW+ inverter ·
+        2× Cerbo GX · 2× Chargeverters · 4× EG4 Hybrid AC units (all installed)
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="notes">
+      <strong>⚡ Architecture note:</strong> House and shop are <strong>independent systems</strong> — not interconnected. Each has its own Cerbo GX, Smart Shunt, battery bank, and inverter.<br><br>
+      <strong>❄️ Cooling:</strong> All AC units are EG4 Hybrid (AC/DC). Solar-direct panels bypass the inverter and batteries entirely — they power cooling directly during sunny hours but contribute nothing to battery charging. The units can also run from grid/battery via their AC side when solar isn't available.<br><br>
+      <strong>📡 Monitoring:</strong> Both Cerbo GX devices run Venus OS and are accessible on the local network. VRM Portal provides remote monitoring at <a href="https://vrm.victronenergy.com" target="_blank" style="color:var(--cyan);">vrm.victronenergy.com</a>.
+    </div>
+  </div>
+
+  <script>
+    // Hud clock
+    (function tick() {
+      const el = document.getElementById('hud-time');
+      if (el) el.textContent = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago', weekday:'short', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' });
+      setTimeout(tick, 30000);
+    })();
+
+    // Restore base path for back navigation
+    document.querySelectorAll('a[href]').forEach(a => {
+      if (a.href.startsWith('./')) {
+        const base = document.querySelector('base');
+        if (base) return; // base tag handles it
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Print Farm — Chaotic Sanctum</title>
+  <style>
+    :root {
+      --bg: #06070b;
+      --panel: rgba(15, 18, 27, 0.88);
+      --panel-2: rgba(20, 25, 37, 0.92);
+      --line: rgba(130, 177, 255, 0.16);
+      --line-hi: rgba(122, 231, 255, 0.30);
+      --text: #edf3ff;
+      --muted: #9aa7c2;
+      --cyan: #7ae7ff;
+      --gold: #d7aa61;
+      --ember: #ff7a4d;
+      --green: #7effb2;
+      --red: #ff4d4d;
+      --amber: #ffcc4d;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(122,231,255,.12), transparent 24%),
+        radial-gradient(circle at 80% 12%, rgba(215,170,97,.12), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255,122,77,.10), transparent 20%),
+        linear-gradient(180deg, #04050a 0%, #0b1020 55%, #090b12 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122,231,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,231,255,.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+    }
+    .wrap {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    /* ── HUD ── */
+    .hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .88rem;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      transition: border-color .2s, color .2s;
+    }
+    .back-link:hover { border-color: var(--line-hi); color: var(--cyan); }
+    .layout-bar {
+      display: flex;
+      gap: 4px;
+    }
+    .layout-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .layout-btn:hover { border-color: var(--line-hi); color: var(--text); }
+    .layout-btn.active {
+      border-color: var(--cyan);
+      background: rgba(122,231,255,.10);
+      color: var(--cyan);
+      box-shadow: 0 0 12px rgba(122,231,255,.25);
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      font-size: .74rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .status-badge .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    /* ── Hero ── */
+    .page-hero {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10,14,24,.85), rgba(14,18,29,.95));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(122,231,255,.08), transparent 30%),
+        radial-gradient(circle at 85% 30%, rgba(215,170,97,.10), transparent 25%);
+      pointer-events: none;
+    }
+    .page-hero > * { position: relative; z-index: 1; }
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .70rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .page-hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: .95;
+    }
+    .sub { color: var(--muted); font-size: .92rem; line-height: 1.6; }
+
+    /* ── Grid layouts ── */
+    .printers {
+      display: grid;
+      gap: 16px;
+      transition: all .35s ease;
+    }
+    .printers.layout-single {
+      grid-template-columns: 1fr;
+    }
+    .printers.layout-side {
+      grid-template-columns: 1fr 1fr;
+    }
+    .printers.layout-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .printers.layout-grid .printer-card:nth-child(3) {
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 700px) {
+      .printers.layout-side,
+      .printers.layout-grid {
+        grid-template-columns: 1fr;
+      }
+      .printers.layout-grid .printer-card:nth-child(3) {
+        grid-column: auto;
+      }
+    }
+
+    /* ── Printer card ── */
+    .printer-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10,14,24,.88), rgba(14,18,29,.95));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: border-color .3s;
+    }
+    .printer-card:hover { border-color: var(--line-hi); }
+
+    /* ── Card header ── */
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    .printer-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+    .printer-meta { flex: 1; min-width: 0; }
+    .printer-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 3px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .model-name {
+      font-size: .72rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .state-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .state-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .state-dot.online    { background: var(--green);    box-shadow: 0 0 7px var(--green); }
+    .state-dot.offline   { background: var(--red);      box-shadow: 0 0 7px var(--red); }
+    .state-dot.printing  { background: var(--cyan);     box-shadow: 0 0 7px var(--cyan); animation: pulse 2s ease-in-out infinite; }
+    .state-dot.idle      { background: var(--amber);     box-shadow: 0 0 7px var(--amber); }
+    .state-dot.complete  { background: var(--green);    box-shadow: 0 0 7px var(--green); }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .state-text {
+      font-size: .70rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .state-text.online   { color: var(--green); }
+    .state-text.printing { color: var(--cyan); }
+    .state-text.offline  { color: var(--red); }
+    .state-text.idle     { color: var(--amber); }
+    .state-text.complete { color: var(--green); }
+
+    /* ── Video feed ── */    /* ── Progress section ── */
+    .progress-section {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .circular-progress {
+      width: 64px;
+      height: 64px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .circular-progress svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+    .circular-progress circle {
+      fill: none;
+      stroke-width: 5.5;
+      stroke-linecap: round;
+    }
+    .circular-progress .track { stroke: rgba(130,177,255,.12); }
+    .circular-progress .fill {
+      stroke: var(--cyan);
+      transition: stroke-dashoffset .9s ease;
+    }
+    .circular-progress .pct-label {
+      position: relative;
+      z-index: 1;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .circular-progress.done .fill { stroke: var(--green); }
+    .circular-progress.done .pct-label { color: var(--green); }
+    .circular-progress.filament-ring .fill { stroke: var(--gold); }
+    .circular-progress.filament-ring .pct-label { color: var(--gold); font-size: .70rem; }
+
+    .progress-info { flex: 1; min-width: 0; }
+    .progress-filename {
+      font-size: .78rem;
+      color: var(--text);
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 4px;
+    }
+    .progress-meta {
+      display: flex;
+      gap: 14px;
+      font-size: .75rem;
+      color: var(--muted);
+    }
+    .progress-meta strong { color: var(--text); }
+    .progress-meta span { display: flex; align-items: center; gap: 4px; }
+
+    /* ── Card body ── */
+    .card-body { padding: 14px 18px; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stat {
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(130,177,255,.08);
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+    .stat-label {
+      font-size: .60rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .stat-value { font-size: .85rem; font-weight: 700; color: var(--text); }
+    .stat-value.hot  { color: var(--ember); }
+    .stat-value.warn { color: var(--amber); }
+    .stat-value.good { color: var(--green); }
+
+    /* ── Filament bar ── */    /* ── Actions ── */
+    .card-actions { display: flex; gap: 7px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      text-decoration: none;
+      font-size: .74rem;
+      font-weight: 600;
+      transition: border-color .2s, transform .15s;
+      cursor: pointer;
+    }
+    .btn:hover { border-color: var(--line-hi); transform: translateY(-1px); }
+    .btn svg { opacity: .6; }
+
+    /* ── Footer ── */
+    .updated-row {
+      text-align: center;
+      font-size: .70rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+      margin-top: 18px;
+    }
+
+    /* ── Idle state (no video, no progress) ── */
+    .printer-idle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255,204,77,.08);
+      border: 1px solid rgba(255,204,77,.20);
+      color: var(--amber);
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin: 12px 18px;
+    }
+
+    @media (max-width: 500px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .progress-meta { flex-direction: column; gap: 3px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hud">
+      <a class="back-link" href="./">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M11.5 1L5 7.5l6.5 6.5"/></svg>
+        Sanctum
+      </a>
+      <div class="layout-bar">
+        <button class="layout-btn active" data-layout="single" title="Single column">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="2" width="12" height="12" rx="2"/></svg>
+        </button>
+        <button class="layout-btn" data-layout="side" title="Side by side">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="6" height="12" rx="1.5"/><rect x="9" y="2" width="6" height="12" rx="1.5"/></svg>
+        </button>
+        <button class="layout-btn" data-layout="grid" title="Grid">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg>
+        </button>
+      </div>
+      <div class="status-badge">
+        <span class="dot"></span>
+        Chaotic Sanctum
+      </div>
+    </div>
+
+    <div class="page-hero">
+      <div class="eyebrow">Chaotic Sanctum — Operations</div>
+      <h1>Print Farm</h1>
+      <div class="sub">Two machines, one mission — turn filament into form. Live video and real-time stats below.</div>
+    </div>
+
+    <div class="printers layout-single" id="printers"><!-- JS renders here --></div>
+    <div class="updated-row" id="updated">Loading…</div>
+  </div>
+
+  <script>
+    const STATE_URL = './printfarm-status.json';
+    const CIRCUMF = 2 * Math.PI * 18.8; // r=18.8
+
+    const AVATARS = {
+      kermit: './avatars/kermit-avatar.png',
+      fozzie: './avatars/fozzie-avatar.png'
+    };
+
+    const HOST_URLS = {
+      kermit: 'http://sonicpad.tail4695cd.ts.net/',
+      fozzie: 'http://ender3-s1-pro.tail4695cd.ts.net/'
+    };
+    const MODELS = {
+      kermit: 'Creality Ender-3 V2 (SonicPad)',
+      fozzie: 'Creality Ender-3 S1 Pro'
+    };
+
+    // ── Layout persistence ──────────────────────────────
+    const grid = document.getElementById('printers');
+    function setLayout(name) {
+      grid.className = 'printers layout-' + name;
+      localStorage.setItem('pf-layout', name);
+      document.querySelectorAll('.layout-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.layout === name);
+      });
+    }
+    document.querySelectorAll('.layout-btn').forEach(b => {
+      b.addEventListener('click', () => setLayout(b.dataset.layout));
+    });
+    const saved = localStorage.getItem('pf-layout');
+    if (saved) setLayout(saved);
+
+    // ── Formatters ──────────────────────────────────────
+    function tempColor(actual, target) {
+      if (!target || target === 0) return '';
+      const d = actual - target;
+      return Math.abs(d) < 3 ? 'good' : d > 10 ? 'hot' : 'warn';
+    }
+
+    function fmt_time(s) {
+      if (!s || s <= 0) return '—';
+      const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
+      return h > 0 ? `${h}h ${m}m` : `${m}m`;
+    }
+
+    function fmt_filament(mm) {
+      if (!mm) return '—';
+      return mm >= 1000 ? (mm / 1000).toFixed(2) + ' m' : Math.round(mm) + ' mm';
+    }
+
+    function cleanName(fn) {
+      if (!fn) return '';
+      return fn.replace(/\.gcode$/i, '')
+               .replace(/_[A-Z]{3,4}_[0-9]+[hm](?:[0-9]+m)?$/i, '')
+               .replace(/^[-_]+/, '')
+               .replace(/_/g, ' ')
+               .trim();
+    }
+
+    // ── Render ──────────────────────────────────────────
+    function render(data) {
+      const container = document.getElementById('printers');
+      let html = '';
+
+      for (const [name, info] of Object.entries(data)) {
+        const state = (info.state || 'unknown').toLowerCase();
+        const isPrinting = state === 'printing';
+        const isComplete = state === 'complete';
+        const isOnline = info.status === 'Online';
+        const dotClass = !isOnline ? 'offline' : isPrinting ? 'printing' : isComplete ? 'complete' : 'idle';
+
+        const avatar = AVATARS[name] || '';
+
+        const hostUrl = HOST_URLS[name] || '';
+        const model = MODELS[name] || name;
+        const filename = info.filename || '';
+        const cleanFn = cleanName(filename);
+        const progress = info.progress != null ? info.progress : 0;
+        const timeLeft = info.timeLeft || '—';
+        const nozzle = info.nozzle || '—';
+        const bed = info.bed || '—';
+        const filament = fmt_filament(info.filamentUsed);
+        const elapsed = fmt_time(info.printDuration);
+        const zPos = info.zPos != null ? info.zPos.toFixed(1) + ' mm' : '—';
+        const fan = info.fanSpeed != null ? Math.round(info.fanSpeed * 100) + '%' : '—';
+        const filPct = info.filamentPct != null ? Math.min(100, info.filamentPct) : null;
+        const stateText = isComplete ? 'Complete' : (info.state || 'Unknown');
+        const progId = 'ring-' + name;
+
+        html += `<article class="printer-card">
+          <div class="card-header">
+            <img class="printer-avatar" src="${avatar}" alt="${name}" onerror="this.style.display='none'">
+            <div class="printer-meta">
+              <div class="printer-name">${name.charAt(0).toUpperCase() + name.slice(1)}</div>
+              <div class="model-name">${model}</div>
+              <div class="state-row">
+                <span class="state-dot ${dotClass}"></span>
+                <span class="state-text ${dotClass}">${stateText}</span>
+              </div>
+            </div>
+          </div>
+
+          ${isPrinting ? `
+          <div class="progress-section">
+            <div class="circular-progress${isComplete ? ' done' : ''}" id="${progId}">
+              <svg viewBox="0 0 44 44">
+                <circle class="track" cx="22" cy="22" r="18.8"/>
+                <circle class="fill" cx="22" cy="22" r="18.8"/>
+              </svg>
+              <span class="pct-label">${Math.round(progress)}%</span>
+            </div>
+            <div class="progress-info">
+              <div class="progress-filename" title="${filename}">${cleanFn}</div>
+              <div class="progress-meta">
+                <span><strong>${timeLeft}</strong> left</span>
+                <span>⏱ ${elapsed}</span>
+              </div>
+            </div>
+            ${filPct != null ? `
+            <div class="circular-progress filament-ring" id="filring-${name}" title="Filament: ${filPct}%">
+              <svg viewBox="0 0 44 44">
+                <circle class="track" cx="22" cy="22" r="18.8"/>
+                <circle class="fill" cx="22" cy="22" r="18.8"/>
+              </svg>
+              <span class="pct-label">${filPct}%</span>
+            </div>` : ''}
+          </div>` : ''}
+
+          ${!isPrinting && isOnline ? `<div class="printer-idle-badge">✓ Idle — awaiting next print</div>` : ''}
+          ${!isOnline ? `<div class="printer-idle-badge" style="color:var(--red);border-color:rgba(255,77,77,.2);background:rgba(255,77,77,.08)">✕ Offline</div>` : ''}
+
+          <div class="card-body">
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="stat-label">Nozzle</div>
+                <div class="stat-value ${tempColor(info.nozzleTemp, info.nozzleTarget)}">${nozzle}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Bed</div>
+                <div class="stat-value ${tempColor(info.bedTemp, info.bedTarget)}">${bed}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Fan</div>
+                <div class="stat-value">${fan}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Z Height</div>
+                <div class="stat-value">${zPos}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Print Time</div>
+                <div class="stat-value">${elapsed}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Filament</div>
+                <div class="stat-value">${filament}</div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              ${hostUrl ? `<a class="btn" href="${hostUrl}" target="_blank">
+                <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="9" rx="1.5"/><path d="M5 14h6M8 12v2"/></svg>
+                Fluidd
+              </a>` : ''}
+            </div>
+          </div>
+        </article>`;
+      }
+      container.innerHTML = html;
+
+      // Animate rings
+      for (const [name, info] of Object.entries(data)) {
+        const ring = document.getElementById('ring-' + name);
+        if (ring) {
+          const circle = ring.querySelector('.fill');
+          const pct = Math.min(parseFloat(info.progress) || 0, 100);
+          circle.style.strokeDasharray = CIRCUMF.toFixed(2);
+          circle.style.strokeDashoffset = (CIRCUMF * (1 - pct / 100)).toFixed(2);
+        }
+        const filRing = document.getElementById('filring-' + name);
+        if (filRing) {
+          const circle = filRing.querySelector('.fill');
+          const pct = Math.min(parseFloat(info.filamentPct) || 0, 100);
+          circle.style.strokeDasharray = CIRCUMF.toFixed(2);
+          circle.style.strokeDashoffset = (CIRCUMF * (1 - pct / 100)).toFixed(2);
+        }
+      }
+    }
+
+    // ── Load ────────────────────────────────────────────
+    async function load() {
+      try {
+        const r = await fetch(STATE_URL + '?t=' + Date.now());
+        const data = await r.json();
+        render(data);
+        document.getElementById('updated').textContent =
+          'Last updated: ' + new Date().toLocaleTimeString('en-US',
+            { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      } catch(e) {
+        document.getElementById('printers').innerHTML =
+          '<p style="color:var(--muted);padding:24px 20px">Could not load printer data.</p>';
+      }
+    }
+
+    load();
+    setInterval(load, 30 * 1000); // refresh every 30s
+  </script>
+</body>
+</html>
