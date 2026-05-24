@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+  <title>Chaotic Thoughts &amp; Ideas — Patrick Danforth</title>
+  <meta name="description" content="Half-baked ideas, solar builds, tech experiments, and whatever else rattles around in Patticus's head.">
+  <meta property="og:title" content="Chaotic Thoughts &amp; Ideas">
+  <meta property="og:description" content="Solar builds, tech experiments, and half-baked ideas from the Chaotic Sanctum workshop.">
+  <style>
+    :root {
+      --bg: #06070b;
+      --panel: rgba(15, 18, 27, 0.88);
+      --panel-2: rgba(20, 25, 37, 0.92);
+      --line: rgba(130, 177, 255, 0.16);
+      --text: #edf3ff;
+      --muted: #9aa7c2;
+      --cyan: #7ae7ff;
+      --gold: #d7aa61;
+      --ember: #ff7a4d;
+      --green: #7effb2;
+      --pink: #f0a0c0;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at 70% 15%, rgba(122,231,255,.10), transparent 24%),
+        radial-gradient(circle at 20% 40%, rgba(215,170,97,.08), transparent 20%),
+        radial-gradient(circle at 50% 85%, rgba(255,122,77,.06), transparent 20%),
+        linear-gradient(180deg, #04050a 0%, #0b1020 40%, #090b12 100%);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122,231,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,231,255,.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+      z-index: 0;
+    }
+    .wrap {
+      width: min(720px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      margin-bottom: 48px;
+    }
+    .page-header .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .82rem;
+      margin-bottom: 16px;
+      transition: color .2s;
+    }
+    .page-header .back-link:hover {
+      color: var(--cyan);
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -.03em;
+      margin-bottom: 6px;
+    }
+    .page-header .subtitle {
+      color: var(--gold);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .page-header .desc {
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.7;
+      margin-top: 10px;
+      max-width: 600px;
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gold), var(--cyan), var(--ember), transparent 90%);
+      opacity: .35;
+    }
+
+    .thought-entry {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: border-color .2s, transform .2s;
+    }
+    .thought-entry:hover {
+      border-color: rgba(122,231,255,.25);
+      transform: translateX(3px);
+    }
+    .thought-entry::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 28px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 10px rgba(215,170,97,.3);
+    }
+    .thought-entry .entry-date {
+      display: inline-block;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+      padding: 3px 10px;
+      border: 1px solid rgba(215,170,97,.2);
+      border-radius: 6px;
+      background: rgba(215,170,97,.06);
+    }
+    .thought-entry h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -.02em;
+    }
+    .thought-entry p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .thought-entry p:last-child {
+      margin-bottom: 0;
+    }
+    .thought-entry .entry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+    .tag.solar { border-color: rgba(255,122,77,.25); color: var(--ember); }
+    .tag.tech { border-color: rgba(122,231,255,.25); color: var(--cyan); }
+    .tag.build { border-color: rgba(126,255,178,.25); color: var(--green); }
+    .tag.idea { border-color: rgba(240,160,192,.25); color: var(--pink); }
+    .tag.done { border-color: rgba(126,255,178,.4); color: var(--green); background: rgba(126,255,178,.06); }
+
+    .thought-entry .entry-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 8px;
+      color: var(--cyan);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .thought-entry .entry-link:hover {
+      color: var(--text);
+    }
+
+    /* ── Empty state ── */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+    }
+    .empty-state .empty-icon {
+      font-size: 2.5rem;
+      margin-bottom: 14px;
+    }
+    .empty-state h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+    .empty-state p {
+      font-size: .86rem;
+      color: var(--muted);
+      opacity: .6;
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 32px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .78rem;
+      margin-top: 20px;
+    }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 500px) {
+      .timeline { padding-left: 24px; }
+      .thought-entry::before { left: -22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ══════════════ HEADER ══════════════ -->
+    <div class="page-header">
+      <a class="back-link" href="./index.html">← Back to main site</a>
+      <h1>Chaotic Thoughts &amp; Ideas</h1>
+      <div class="subtitle">Solar builds, tech experiments, and half-baked brilliance</div>
+      <p class="desc">
+        A living notebook of whatever I'm building, thinking about, or getting ready to break.
+        Blueprints, sketches, prototypes, and ideas that haven't found their final form yet.
+        Updated whenever inspiration strikes — or when Talos nags me about it.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+        <span class="tag solar">☀️ Solar</span>
+        <span class="tag tech">⚡ Tech</span>
+        <span class="tag build">🛠️ Build</span>
+        <span class="tag idea">💡 Idea</span>
+        <span class="tag done">✅ Complete</span>
+      </div>
+    </div>
+
+    <!-- ══════════════ TIMELINE ══════════════ -->
+    <div class="timeline">
+
+      <!-- ── Entry 1 ── -->
+      <div class="thought-entry">
+        <div class="entry-date">2026-05-24</div>
+        <h3>Rolling Solar Canopy — Awning + F3800 Charger</h3>
+        <p>
+          Blueprint complete for a rolling solar array on the deck. Three 39"×77" panels on a
+          wheeled 2×6 lumber frame, 15° tilt, walk-under height (6'6" at the low edge).
+          Charges the Anker Solix F3800 via XT-60. Dual-purpose: sun harvesting + deck shade.
+        </p>
+        <div class="entry-tags">
+          <span class="tag solar">Solar</span>
+          <span class="tag build">Build</span>
+          <span class="tag done">Blueprint Complete</span>
+        </div>
+        <a class="entry-link" href="#">View Blueprint →</a>
+      </div>
+
+      <!-- ── Entry 2 ── -->
+      <div class="thought-entry">
+        <div class="entry-date">2026-05-24</div>
+        <h3>This Page</h3>
+        <p>
+          Kicked off the Chaotic Thoughts &amp; Ideas page. A place to log builds, ideas, and
+          experiments as they happen — not polished portfolio pieces, just real shit I'm working on.
+        </p>
+        <div class="entry-tags">
+          <span class="tag tech">Tech</span>
+          <span class="tag idea">Idea</span>
+          <span class="tag done">Live</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <div class="footer">
+      <p>
+        <a href="./index.html">Patrick Danforth</a>
+        — Chaotic Sanctum Solar Works
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
