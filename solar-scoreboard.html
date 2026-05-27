@@ -4,56 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Solar Scoreboard — Patrick Danforth</title>
-  <meta name="description" content="Live solar energy dashboard — House, Shop, and AC cooling arrays. Real-time data from Home Assistant.">
   <meta property="og:title" content="Solar Scoreboard — Patrick Danforth">
-  <meta property="og:description" content="Live solar energy dashboard: 13,190W installed, 39.2 kWh storage, 4 AC units. Real-time production, battery levels, and consumption.">
+  <meta property="og:description" content="Live solar energy dashboard: 13,190W installed, 39.2 kWh storage, 4 AC units.">
+  <meta http-equiv="refresh" content="0;url=https://mellow-oyster-t9ct.here.now/">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #06070b;
-      color: #edf3ff;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      border-bottom: 1px solid rgba(130,177,255,0.16);
-      background: rgba(10,14,20,0.9);
-    }
-    .header-bar a {
-      color: #7ae7ff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .header-bar a:hover { text-decoration: underline; }
-    iframe {
-      flex: 1;
-      width: 100%;
-      border: none;
-    }
-    .footer-note {
-      text-align: center;
-      padding: 12px;
-      font-size: 12px;
-      color: #788898;
-      border-top: 1px solid rgba(130,177,255,0.16);
-      background: rgba(10,14,20,0.9);
-    }
+    body { background: #06070b; color: #edf3ff; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 24px; }
+    a { color: #7ae7ff; }
+    .loader { font-size: 48px; margin-bottom: 16px; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
   </style>
 </head>
 <body>
-  <div class="header-bar">
-    <a href="https://patrickdanforth.com">← patrickdanforth.com</a>
-    <span style="font-size:13px;color:#788898;">☀️ Solar Scoreboard — Live</span>
-  </div>
-  <iframe src="https://mellow-oyster-t9ct.here.now/" title="Solar Scoreboard" allow="autoplay"></iframe>
-  <div class="footer-note">
-    Data refreshes every 60 seconds · Backend snapshot every 5 minutes
-  </div>
+  <div class="loader">☀️</div>
+  <p>Loading Solar Scoreboard…</p>
+  <p style="color:#788898;font-size:13px;margin-top:8px;">If you aren't redirected, <a href="https://mellow-oyster-t9ct.here.now/">click here</a>.</p>
 </body>
 </html>
