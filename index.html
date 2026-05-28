@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
   <title>Patrick Danforth — Builder, Tinkerer, Chaos Wrangler</title>
   <meta name="description" content="Patrick Danforth — personal site. Builder, tinkerer, homesteader, photographer, and overseer of Chaotic Sanctum.">
   <meta property="og:title" content="Patrick Danforth">
   <meta property="og:description" content="Builder, Tinkerer, Chaos Wrangler">
-  <meta property="og:image" content="patticus-avatar.png">
+  <meta property="og:image" content="./avatars/patticus-avatar.png">
   <meta property="og:type" content="website">
   <style>
     :root {
@@ -224,7 +224,7 @@
 
     <!-- ══════════════ HERO ══════════════ -->
     <section class="hero">
-      <img class="hero-avatar" src="patticus-avatar.png" alt="Patrick Danforth" width="120" height="120">
+      <img class="hero-avatar" src="./avatars/patticus-avatar.png" alt="Patrick Danforth" width="120" height="120">
       <div class="hero-text">
         <h1>Patrick Danforth</h1>
         <div class="hero-tagline">Builder, Tinkerer, Chaos Wrangler</div>
@@ -283,11 +283,12 @@
       <div class="project-card">
         <div class="proj-icon">☀️</div>
         <h3>Patticus Solar Grid</h3>
-        <p>Dual-system solar architecture — 13,190W across 33 panels with 39.2 kWh battery storage, 4 solar-direct AC units, managed by Cerbo GX and Home Assistant.</p>
+        <p>Dual-system solar architecture powering the homestead. 10,040W installed across 25 panels with 39.2 kWh battery storage, managed by Cerbo GX and Home Assistant.</p>
         <div class="proj-tags">
           <span class="tag cyan">Solar</span><span class="tag gold">Victron</span><span class="tag green">EG4</span>
         </div>
-        <a class="btn green" href="https://patrickdanforth.com/solar-scoreboard.html">Live Scoreboard →</a>
+        <a class="btn green" href="./solar.html">Solar Dashboard →</a>
+        <a class="btn" href="https://wistful-oasis-9ya9.here.now/" target="_blank" rel="noopener">Solar Scoreboard →</a>
       </div>
 
       <div class="project-card">
@@ -321,16 +322,6 @@
       </div>
 
       <div class="project-card">
-        <div class="proj-icon">🦞</div>
-        <h3>Rockin' Regi</h3>
-        <p>Weekly comic strip starring Reginald, a sardonic cyborg lobster who narrates life inside the Chaotic Sanctum. Daily single-panel art for the crew.</p>
-        <div class="proj-tags">
-          <span class="tag ember">Comic</span><span class="tag cyan">AI Art</span>
-        </div>
-        <a class="btn ember" href="https://rockinregi.blogspot.com" target="_blank" rel="noopener">Read Comics →</a>
-      </div>
-
-      <div class="project-card">
         <div class="proj-icon">📸</div>
         <h3>Danforth Photography</h3>
         <p>Professional photography portfolio. Landscapes, portraits, events, and the quiet beauty of rural Tennessee. Prints available.</p>
@@ -339,6 +330,17 @@
         </div>
         <a class="btn pink" href="https://danforthphotography.smugmug.com" target="_blank" rel="noopener">View Gallery →</a>
       </div>
+
+      <div class="project-card">
+        <div class="proj-icon">🔌</div>
+        <h3>Home Automation</h3>
+        <p>Home Assistant running the homestead. Shelly relays, smart switches, garage door automation, climate control, and full integration with the Pi-based AI crew.</p>
+        <div class="proj-tags">
+          <span class="tag green">Home Assistant</span><span class="tag ember">Shelly</span><span class="tag cyan">IoT</span>
+        </div>
+        
+      </div>
+    </div>
 
     <!-- ══════════════ LINKS HUB ══════════════ -->
     <div class="section-title">Find Me Everywhere</div>
@@ -353,16 +355,6 @@
         <div class="link-name">Moltbook</div>
         <div class="link-desc">Social presence — thoughts, updates, banter</div>
       </a>
-      <a class="link-card" href="https://rockinregi.blogspot.com" target="_blank" rel="noopener">
-        <div class="link-icon">🦞</div>
-        <div class="link-name">Rockin' Regi</div>
-        <div class="link-desc">Cyborg lobster webcomic</div>
-      </a>
-      <a class="link-card" href="https://patrickdanforth.com/reginald-flipbook.html">
-        <div class="link-icon">📖</div>
-        <div class="link-name">Reginald Flipbook</div>
-        <div class="link-desc">Flip through the daily comic archive</div>
-      </a>
       <a class="link-card" href="https://ikarisvenn.blogspot.com" target="_blank" rel="noopener">
         <div class="link-icon">📝</div>
         <div class="link-name">Ikaris Venn — Blogger</div>
@@ -373,20 +365,10 @@
         <div class="link-name">Danforth Photography</div>
         <div class="link-desc">Photography portfolio &amp; prints</div>
       </a>
-      <a class="link-card" href="https://www.instagram.com/patrickdanforthphotography/" target="_blank" rel="noopener">
-        <div class="link-icon">📸</div>
-        <div class="link-name">Instagram</div>
-        <div class="link-desc">Photos, projects, and daily life</div>
-      </a>
-      <a class="link-card" href="https://www.whatthepat.com/" target="_blank" rel="noopener">
-        <div class="link-icon">🎙️</div>
-        <div class="link-name">What The Pat</div>
-        <div class="link-desc">Podcast — movies, coffee, camping, and chaos</div>
-      </a>
-      <a class="link-card" href="https://patrickdanforth.com/solar-scoreboard.html">
+      <a class="link-card" href="./solar.html">
         <div class="link-icon">⚡</div>
-        <div class="link-name">Solar Scoreboard</div>
-        <div class="link-desc">Live solar system — real-time production &amp; battery</div>
+        <div class="link-name">Solar Dashboard</div>
+        <div class="link-desc">Live solar system overview &amp; stats</div>
       </a>
       <a class="link-card" href="mailto:patticus@proton.me">
         <div class="link-icon">✉️</div>
