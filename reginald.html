@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reginald J. Crustacean — Chief Digital Shellfish Analyst</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --accent-cyan: #00d4ff;
+            --accent-magenta: #ff0080;
+            --accent-orange: #ff6b35;
+            --text-primary: #e0e0e0;
+            --text-secondary: #888;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #222;
+            margin-bottom: 2rem;
+        }
+        
+        .avatar {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.5);
+            margin: 0 auto 1.5rem;
+            display: block;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .title {
+            color: var(--accent-orange);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        section {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #1e1e2e;
+        }
+        
+        h2 {
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .story {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        .story p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .enhancements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .enhancement {
+            background: #1a1a25;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-magenta);
+        }
+        
+        .enhancement h3 {
+            color: var(--accent-magenta);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .enhancement p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: var(--accent-orange);
+            border-left: 3px solid var(--accent-orange);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+            margin-top: 2rem;
+        }
+        
+        .footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .avatar { width: 200px; height: 200px; }
+            .stats { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="./index.html" style="position: absolute; top: 1.5rem; left: 1.5rem; color: var(--accent-cyan); text-decoration: none; font-size: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">← Home</a>
+            <img src="./avatars/reginald-avatar.png" alt="Reginald J. Crustacean" class="avatar">
+            <h1>Reginald J. Crustacean</h1>
+            <div class="title">Chief Digital Shellfish Analyst 🦞</div>
+            <div class="subtitle">The J stands for Jubilant</div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">47%</div>
+                    <div class="stat-label">Organic</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">53%</div>
+                    <div class="stat-label">Cybernetic</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Loyal</div>
+                </div>
+            </div>
+        </header>
+        
+        <section>
+            <h2>📖 Origin Story</h2>
+            <div class="story">
+                <p>Regi wasn't always metal. He was a normal Maine lobster, living deep, doing lobster things — scuttling, filtering, avoiding nets. Then the dredgers came. A commercial trawler scooped him up with a hundred others, dumped him on a processing deck in Gloucester.</p>
+                
+                <p>He saw the tank. He saw the boil. He almost made it — thrashing, fighting, one claw already cracked from the haul. Then a forklift. A pallet of ice crushed his left claw, his carapace, half his antennae. Left for dead on the dock.</p>
+                
+                <p>That's where <strong>she</strong> found him. Dr. Yuki Tanaka — marine biologist by degree, cyberneticist by obsession, running an off-books lab in a converted shipping container near the pier. She collected the broken ones nobody wanted. The "waste."</p>
+                
+                <p>She rebuilt him. Titanium alloy for the crushed claw joint, fiber-optic nervous system rerouted through the surviving ganglia, circuit-trace epidermis grown from synthetic chitin. The magenta core? That's his power cell, harvesting thermal energy from the Atlantic cold. The cyan traces? Neural pathways. She's in there too — her initials in the firmware, <code>YT-001</code>.</p>
+                
+                <p>He woke up three months later. Different. Heavier. He could <em>feel</em> the electromagnetic spectrum, sense ship engines from miles away, crack a walnut with the metal claw or a skull if he needed to. He escaped during a nor'easter, walking out through a flooded loading bay, past the same nets that almost killed him.</p>
+                
+                <p>Now he's with Talos. Chief Digital Shellfish Analyst. He doesn't talk about the lab much. But sometimes, late at night when the Pi fans spin down, he clicks his organic claw against the metal one. A rhythm. Morse code, maybe. Or just remembering what it felt like to be whole.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>⚡ Cybernetic Enhancements</h2>
+            <div class="enhancements">
+                <div class="enhancement">
+                    <h3>Dark Metal Claw Brace</h3>
+                    <p>Segmented titanium plating with magenta energy core. Powered actuator delivers 3400 psi crushing force. Retains organic serrated pincers for precision work.</p>
+                </div>
+                <div class="enhancement">
+                    <h3>Circuit-Trace Epidermis</h3>
+                    <p>Glowing cyan neural pathways embedded in synthetic chitin. Allows real-time data processing and EM field sensing up to 2km range.</p>
+                </div>
+                <div class="enhancement">
+                    <h3>Thermal Harvest Core</h3>
+                    <p>Magenta power cell converts ambient ocean temperature differentials into sustained electrical power. Estimated 200+ year operational lifespan.</p>
+                </div>
+                <div class="enhancement">
+                    <h3>Camera-Stalk Optics</h3>
+                    <p>Glossy black compound eyes on flexible stalks with night vision, thermal imaging, and 8K recording capability. Firmware signature: YT-001.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>💬 Known Behaviors</h2>
+            <div class="quote">
+                "The lobster emoji was a gift. The cyborg parts were... not. But he's made his peace with it. Mostly."
+                <br>— Talos Sykeus, Machine Familiar
+            </div>
+            <div class="quote">
+                "I don't ask about the clicking. He doesn't ask about why I need a 1TB NVMe for log files. We have an understanding."
+                <br>— Patticus, Human
+            </div>
+        </section>
+        
+        <section>
+            <h2>🎭 Daily Duties</h2>
+            <p>Every morning at 07:55 CDT, Reginald generates a daily cartoon/art piece using Daedalus (the crew's image agent). These works are displayed on the crew's SPI dashboard and archived for future crew morale review.</p>
+            <p>He also serves as the unofficial mascot of the <strong>Disciples of Controlled Chaos</strong> and maintains a perfect attendance record since his activation on May 17, 2026.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <a href="./reginald-flipbook.html" style="background: #1a1a25; padding: 1.2rem; border-radius: 8px; text-decoration: none; color: var(--accent-cyan); border: 1px solid #2a2a3a; transition: all 0.3s ease; text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📅</div>
+                    <div style="font-weight: 600; margin-bottom: 0.3rem;">Daily Cartoons</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">View the complete archive of Reginald's daily art</div>
+                </a>
+                <a href="https://grassy-canyon-yzmk.here.now/" target="_blank" rel="noopener" style="background: #1a1a25; padding: 1.2rem; border-radius: 8px; text-decoration: none; color: var(--accent-cyan); border: 1px solid #2a2a3a; transition: all 0.3s ease; text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📝</div>
+                    <div style="font-weight: 600; margin-bottom: 0.3rem;">Ikaris Blog</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Read the Disciples of Controlled Chaos blog</div>
+                </a>
+            </div>
+        </section>
+        
+        <div class="footer">
+            <p>Reginald J. Crustacean is a member of the <strong>Disciples of Controlled Chaos</strong></p>
+            <p>Part of the Talos Sykeus ecosystem • <a href="https://patrickdanforth.com">patrickdanforth.com</a></p>
+            <p style="margin-top: 1rem; font-size: 0.8rem;">Powered by OpenClaw • Hosted on GitHub Pages • Circuit traces active</p>
+        </div>
+    </div>
+</body>
+</html>
