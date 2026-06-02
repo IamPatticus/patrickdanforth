@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+  <title>Vanny Van — Cargo Van Camper Conversion</title>
+  <meta name="description" content="Vanny Van — a cargo van turned camper. Solar, build notes, and adventure specs.">
+  <style>
+    :root {
+      --bg: #06070b;
+      --panel: rgba(15, 18, 27, 0.88);
+      --panel-2: rgba(20, 25, 37, 0.92);
+      --line: rgba(130, 177, 255, 0.16);
+      --text: #edf3ff;
+      --muted: #9aa7c2;
+      --cyan: #7ae7ff;
+      --gold: #d7aa61;
+      --ember: #ff7a4d;
+      --green: #7effb2;
+      --yellow: #ffd966;
+      --pink: #f0a0c0;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(122,231,255,.12), transparent 24%),
+        radial-gradient(circle at 80% 12%, rgba(215,170,97,.10), transparent 24%),
+        radial-gradient(circle at 50% 90%, rgba(255,122,77,.08), transparent 20%),
+        linear-gradient(180deg, #04050a 0%, #0b1020 55%, #090b12 100%);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122,231,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,231,255,.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+      z-index: 0;
+    }
+    .wrap {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Nav / Home ── */
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 28px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 10px;
+      border: 1px solid var(--line); background: var(--panel);
+      color: var(--text); text-decoration: none; font-size: .9rem; font-weight: 600;
+      transition: all .22s ease;
+    }
+    .nav-home:hover { border-color: var(--cyan); background: rgba(122,231,255,.06); }
+    .nav-title { font-size: 1.1rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center; padding: 36px 24px;
+      background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero-icon { font-size: 3rem; margin-bottom: 12px; }
+    .hero h1 { font-size: 2rem; margin-bottom: 8px; }
+    .hero-tagline { color: var(--gold); font-size: 1.1rem; font-weight: 500; margin-bottom: 12px; }
+    .hero-bio { color: var(--muted); font-size: .95rem; max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+    /* ── Sections ── */
+    .section-title {
+      font-size: .82rem; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--cyan); margin: 32px 0 14px;
+      border-bottom: 1px solid var(--line); padding-bottom: 8px;
+    }
+
+    /* ── Cards / Panels ── */
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      padding: 22px; margin-bottom: 16px;
+    }
+    .panel h3 { font-size: 1rem; margin-bottom: 12px; color: var(--gold); }
+    .panel p, .panel li { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .panel ul { padding-left: 20px; margin-top: 8px; }
+    .panel li { margin-bottom: 6px; }
+
+    /* ── Table ── */
+    table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+    }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { color: var(--cyan); font-weight: 600; text-transform: uppercase; font-size: .72rem; letter-spacing: .06em; }
+    td { color: var(--muted); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(122,231,255,.03); }
+
+    /* ── Tags ── */
+    .tag {
+      display: inline-block; padding: 4px 10px; border-radius: 6px;
+      font-size: .72rem; font-weight: 600; text-transform: uppercase;
+      margin-right: 6px; margin-bottom: 6px;
+    }
+    .tag.cyan { background: rgba(122,231,255,.12); color: var(--cyan); }
+    .tag.gold { background: rgba(215,170,97,.12); color: var(--gold); }
+    .tag.green { background: rgba(126,255,178,.12); color: var(--green); }
+    .tag.ember { background: rgba(255,122,77,.12); color: var(--ember); }
+    .tag.yellow { background: rgba(255,217,102,.12); color: var(--yellow); }
+
+    /* ── Status Badges ── */
+    .status { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .72rem; font-weight: 600; }
+    .status.done { background: rgba(126,255,178,.15); color: var(--green); }
+    .status.todo { background: rgba(154,167,194,.15); color: var(--muted); }
+    .status.wip { background: rgba(255,217,102,.15); color: var(--yellow); }
+
+    /* ── Grid ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 24px 0 0; margin-top: 24px;
+      border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem;
+    }
+
+    @media (max-width: 700px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ═══════ NAV ═══════ -->
+    <nav class="nav">
+      <a class="nav-home" href="./index.html">← Home</a>
+      <div class="nav-title">Vanny Van</div>
+    </nav>
+
+    <!-- ═══════ HERO ═══════ -->
+    <section class="hero">
+      <div class="hero-icon">🚐</div>
+      <h1>Vanny Van</h1>
+      <div class="hero-tagline">Cargo Van → Camper Conversion</div>
+      <p class="hero-bio">
+        A work-in-progress van build. Solar on the roof, battery in the back, and a bed somewhere in between.
+        Named with love. Built with chaos.
+      </p>
+    </section>
+
+    <!-- ═══════ ELECTRICAL / SOLAR ═══════ -->
+    <div class="section-title">⚡ Electrical &amp; Solar</div>
+    <div class="panel">
+      <table>
+        <thead>
+          <tr><th>Component</th><th>Spec</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Solar Panels</td><td>2× 100W mono (22.79V<sub>oc</sub>, 5.31A<sub>sc</sub>)</td><td><span class="status done">Installed</span></td></tr>
+          <tr><td>Panel Config</td><td>Parallel (2P) — ~22.8V<sub>oc</sub>, ~10.6A<sub>sc</sub></td><td><span class="status done">Wired</span></td></tr>
+          <tr><td>Panel Disconnect</td><td>550V DC / 63A PV disconnect (IP65)</td><td><span class="status done">Ordered</span></td></tr>
+          <tr><td>Charge Controller</td><td>Victron SmartSolar MPPT 100/30</td><td><span class="status done">Installed</span></td></tr>
+          <tr><td>MPPT Breaker</td><td>C65H-DC 2P C63A (poles in series)</td><td><span class="status done">Installed</span></td></tr>
+          <tr><td>Battery Bank</td><td>TBD — 12V LiFePO4 planned</td><td><span class="status todo">TBD</span></td></tr>
+          <tr><td>Inverter</td><td>TBD — pure sine likely</td><td><span class="status todo">TBD</span></td></tr>
+          <tr><td>DC Distribution</td><td>TBD — lights, fan, outlets</td><td><span class="status todo">TBD</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h3>🔌 Wiring Notes</h3>
+        <ul>
+          <li>Panels parallel → combined current doubles, voltage stays put</li>
+          <li>550V disconnect is overkill but properly rated for PV circuits</li>
+          <li>C65H-DC breaker: both poles wired in series for clean DC breaking</li>
+          <li>Battery side = 12V, so 63A is generous headroom on a 30A max MPPT</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>📊 Solar Math</h3>
+        <ul>
+          <li><strong>Array wattage:</strong> 200W (2× 100W)</li>
+          <li><strong>V<sub>oc</sub> (parallel):</strong> 22.79V</li>
+          <li><strong>I<sub>sc</sub> (parallel):</strong> 10.62A</li>
+          <li><strong>Max charge current:</strong> 30A (MPPT limit)</li>
+          <li><strong>Battery voltage:</strong> 12V nominal</li>
+          <li><strong>Estimated daily yield:</strong> ~600-800Wh (sunny day)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ═══════ BUILD ═══════ -->
+    <div class="section-title">🛠️ Build &amp; Layout</div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Interior</h3>
+        <ul>
+          <li>Insulation — <span class="status todo">TBD</span></li>
+          <li>Flooring — <span class="status todo">TBD</span></li>
+          <li>Walls / ceiling — <span class="status todo">TBD</span></li>
+          <li>Bed platform — <span class="status todo">TBD</span></li>
+          <li>Cabinetry — <span class="status todo">TBD</span></li>
+          <li>Window covers — <span class="status todo">TBD</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Systems</h3>
+        <ul>
+          <li>Fresh water tank — <span class="status todo">TBD</span></li>
+          <li>Grey water — <span class="status todo">TBD</span></li>
+          <li>Water pump — <span class="status todo">TBD</span></li>
+          <li>Sink — <span class="status todo">TBD</span></li>
+          <li>Fridge — <span class="status todo">TBD</span></li>
+          <li>Vent / fan — <span class="status todo">TBD</span></li>
+          <li>Heater — <span class="status todo">TBD</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ═══════ LOG ═══════ -->
+    <div class="section-title">📅 Build Log</div>
+    <div class="panel">
+      <table>
+        <thead>
+          <tr><th>Date</th><th>What Happened</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026-06-01</td><td>Named her Vanny Van. Confirmed solar layout: 2× 100W parallel, 100/30 MPPT, C65H-DC breaker, 550V disconnect ordered.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <div class="footer">
+      Built with controlled chaos · <a href="./index.html" style="color:var(--cyan);text-decoration:none;">← Back Home</a>
+    </div>
+
+  </div>
+</body>
+</html>
