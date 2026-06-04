@@ -65,7 +65,17 @@
       color: var(--text); text-decoration: none; font-size: .9rem; font-weight: 600;
       transition: all .22s ease;
     }
-    .nav-home:hover { border-color: var(--cyan); background: rgba(122,231,255,.06); }
+    .nav-links {
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .nav-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--panel);
+      color: var(--text); text-decoration: none; font-size: .82rem; font-weight: 600;
+      transition: all .22s ease;
+    }
+    .nav-link:hover { border-color: var(--cyan); background: rgba(122,231,255,.06); }
     .nav-title { font-size: 1.1rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
 
     /* ── Hero ── */
@@ -145,6 +155,9 @@
     <!-- ═══════ NAV ═══════ -->
     <nav class="nav">
       <a class="nav-home" href="./index.html">← Home</a>
+      <div class="nav-links">
+        <a class="nav-link" href="https://www.youtube.com/@vannyvanlife" target="_blank" rel="noopener">📺 YouTube</a>
+      </div>
       <div class="nav-title">Vanny Van</div>
     </nav>
 
