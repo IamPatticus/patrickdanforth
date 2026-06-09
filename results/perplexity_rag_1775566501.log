@@ -1,0 +1,11 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotic Sanctum dashboard documentation says the service is considered **“Produktiv”**, implemented with **Smashing**, and deployed automatically from the **master branch** of the GitLab project; it also notes the dashboard runs on a **container on gallifrey**, though an inline comment questions whether that is still accurate and suggests it may now be **case** instead. Critically, the same page states **“Aktuell laufen die Dashboards nicht”** (“currently the dashboards are not running”), so the present status appears to be **down/nonfunctional** despite its documented production designation. The docs also mention dashboard instances such as **litfass** and **Augenpruefraum**, plus supporting jobs/widgets for displayed data. [1]
+
+Sources used:
+1. [1] infrastruktur:container:dashboard [Chaotikum e.V.] (https://wiki.chaotikum.org/infrastruktur:container:dashboard)
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1775566507.json

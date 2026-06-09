@@ -1,0 +1,11 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotikum dashboard is documented as a production service running on server **case**, implemented with **Smashing**, with deployments from the GitLab **master** branch occurring immediately [1]. However, the page also explicitly states that **the dashboards are currently not running**, and some notes indicate parts of the documentation may be outdated or uncertain [1]. It provides dashboard URLs under `https://dashboard.chaotikum.org/NAME-DES-DASHBOARDS` and mentions specific displays such as **litfass** and **Augenpruefraum**, each tied to Raspberry Pi clients on internal IPs [1]. The source does not give a clear OS or version, so a fuller status summary is not possible from the provided material [1].
+
+Sources:
+1. infrastruktur:container:dashboard [Chaotikum e.V.] — https://wiki.chaotikum.org/infrastruktur:container:dashboard
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1774875307.json

@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The sources do not provide a direct “status” readout for a “Chaotic Sanctum” dashboard, so the available evidence is limited. One source identifies **`com.sanctum.dashboard`** as the **Command Center**, a web dashboard for **service status, agent activity, and system health**, and notes that disabled services are excluded from the dashboard while enabled services are checked by a watchdog every 10 minutes for health. Separately, the ChaoticMC dashboard is described only as a **server management portal** with access to punishment records, staff resources, and server information, but no live status details are given. Therefore, a concise summary is that a Sanctum dashboard exists to monitor service and system health, but the provided sources do not show its current operational state or a specific “Chaotic Sanctum” dashboard status.  
+
+Sources used:
+1. [2] Services | Le Sanctum — https://www.sanctum.run/architecture/services/
+2. [3] ChaoticMC Dashboard — http://chaoticadmin.cc
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1779972914.json

@@ -25,7 +25,7 @@ from datetime import datetime
 # ── Configuration ──────────────────────────────────────────────
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-BLOGGER_BLOG_ID = "17325791"
+BLOGGER_BLOG_ID = "4981317665682488817"
 GOOGLE_CREDS_PATH = Path.home() / ".config" / "google" / "credentials.json"
 GOOGLE_TOKEN_PATH = Path.home() / ".config" / "google" / "token.json"
 IMGUR_CLIENT_ID = os.environ.get("IMGUR_CLIENT_ID", "")

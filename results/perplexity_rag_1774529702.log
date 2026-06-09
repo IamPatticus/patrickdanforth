@@ -1,0 +1,11 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotikum dashboard is documented as **production (“Produktiv”)**, hosted on **server `case`**, and implemented with **Smashing**; updates pushed to the **master branch** in GitLab are said to deploy immediately, though the page itself questions whether some hosting details are outdated. Despite that status, the documentation explicitly states that **“Aktuell laufen die Dashboards nicht”** (“currently the dashboards are not running”). It also notes dashboard instances such as **litfass** and **Augenpruefraum**, shown on Raspberry Pis at specific internal IPs, while one section says **“Das Dashboard ist noch nicht aufgesetzt,”** indicating the documentation may be inconsistent or partially stale. Overall, the dashboard appears intended as a production Smashing-based service, but the current documented status is that it is **not functioning/running at present**.  
+
+Sources used:
+1. [1] infrastruktur:container:dashboard [Chaotikum e.V.]
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1774529708.json

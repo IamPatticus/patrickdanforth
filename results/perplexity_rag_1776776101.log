@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+Chaotic Sanctum’s dashboard appears to center on the **Command Center** at port **1111**, which serves as the web dashboard for **service status, agent activity, and system health**; the broader platform also includes a separate **Health Center** dashboard for family wellness data. The service catalog says the dashboard is **authoritative for enabled services**, and if any core service fails, “**the dashboard goes red**,” while a **watchdog** checks enabled services every 10 minutes and auto-heals failures. Related status surfaces include **live server status, player count, and connection details** on the ChaoticMC dashboard, though that page notes some areas are **restricted** without an account. Overall, the available sources suggest Chaotic Sanctum has active dashboarding and health monitoring infrastructure, but they do **not provide a live current status snapshot**, so the present dashboard state cannot be confirmed from these sources alone. [2][3]
+
+Sources used:
+1. [2] ChaoticMC Dashboard — https://chaoticadmin.cc
+2. [3] Services | Le Sanctum — https://www.sanctum.run/architecture/services/
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1776776107.json

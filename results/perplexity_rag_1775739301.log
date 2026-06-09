@@ -1,0 +1,11 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotic Sanctum/Chaotikum dashboard is documented as a **production** service implemented with **Smashing**, with dashboard changes in GitLab reportedly deployed immediately from the `master` branch; it is hosted on server/container infrastructure associated with **case/gallifrey**, though the page itself contains uncertainty about whether that host information is current. The dashboard is accessed under `https://dashboard.chaotikum.org/NAME-DES-DASHBOARDS`, and specific boards such as **litfass** and **Augenpruefraum** are described, with data supplied by background jobs and some widgets pulling from APIs like **pegelonline** or a fork of **Public Transport API**. However, the current status note explicitly says: **“Aktuell laufen die Dashboards nicht”** (“currently the dashboards are not running”), and another note says one dashboard is **“noch nicht aufgesetzt”** (“not yet set up”). [1]
+
+Sources used:
+1. infrastruktur:container:dashboard [Chaotikum e.V.] (https://wiki.chaotikum.org/infrastruktur:container:dashboard)
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1775739308.json

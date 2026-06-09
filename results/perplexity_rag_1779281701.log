@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The sources do not provide an actual current status readout for a “Chaotic Sanctum” dashboard, so a true status summary is not possible from the evidence given. What they do show is that Sanctum’s “Command Center” is the web dashboard for service status, agent activity, and system health, and that disabled services are excluded from the dashboard while enabled services are checked by a watchdog every 10 minutes. If any of the six core services fail, the dashboard “goes red,” implying the main risk indicator is service health degradation rather than a detailed business KPI trend. The dashboard executive-summary source only describes how to generate a concise leadership summary from dashboard data, not the dashboard’s present condition. [1][2]
+
+Sources used:
+1. Dashboard executive summary | Aha! AI prompt library
+2. Services | Le Sanctum
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1779281710.json

@@ -1,0 +1,1043 @@
+[main 06c85ba] Nightly backup: 2026-03-25 03:00:01 CDT
+ 23 files changed, 1538 insertions(+), 235 deletions(-)
+ create mode 100644 backup-export/AGENTS.md
+ create mode 100644 backup-export/IDENTITY.md
+ create mode 100644 backup-export/README.md
+ create mode 100644 backup-export/SOUL.md
+ create mode 100644 backup-export/TOOLS.md
+ create mode 100644 backup-export/USER.md
+ create mode 100644 backup-export/avatars/ikaris-avatar.png
+ create mode 100644 backup-export/avatars/patticus-avatar.png
+ create mode 100644 backup-export/avatars/talos-avatar.png
+ create mode 100755 backup-export/scripts/github_backup.sh
+ create mode 100755 backup-export/scripts/herenow_publish.py
+ create mode 100644 backup-export/services/mission-control/ikaris-avatar.png
+ create mode 100644 backup-export/services/mission-control/index.html
+ create mode 100644 backup-export/services/mission-control/mission
+ create mode 100644 backup-export/services/mission-control/mission-control.service
+ create mode 100644 backup-export/services/mission-control/patticus-avatar.png
+ create mode 100644 backup-export/services/mission-control/talos-avatar.png
+ create mode 100755 scripts/drive_backup.sh
+ create mode 100755 scripts/github_backup.sh
+ create mode 100755 scripts/printfarm_status.py
+ create mode 100644 services/mission-control/printfarm-status.json
+To github.com:IamPatticus/Talos.git
+   f76631b..06c85ba  main -> main
+[main 7db3226] Nightly backup: 2026-03-26 03:00:01 CDT
+ 25 files changed, 2241 insertions(+), 368 deletions(-)
+ create mode 100644 MISSION_CONTROL_BRIEFINGS.md
+ create mode 100755 backup-export/scripts/drive_backup.sh
+ create mode 100755 backup-export/scripts/printfarm_status.py
+ create mode 100644 backup-export/services/mission-control/printfarm-status.json
+ create mode 100644 briefings/latest_briefing.html
+ create mode 100644 results/perplexity_rag_1774491294.json
+ create mode 100644 results/perplexity_rag_1774491312.json
+ create mode 100644 results/perplexity_rag_1774491401.json
+ create mode 100644 results/perplexity_rag_1774492303.json
+ create mode 100755 scripts/generate_latest_briefing_html.py
+ create mode 100755 scripts/perplexity_rag.py
+ create mode 100755 scripts/run_rag_cron.sh
+ create mode 100644 services/mission-control/briefings/latest_briefing.html
+ create mode 100644 session_presets.json
+ create mode 100644 team/CREW_BOARD.md
+ create mode 100644 team/ROSTER.md
+ create mode 100644 team/SANCTUM_BOARD_CONCEPT.md
+ create mode 100644 team/SANCTUM_DASHBOARD_SPEC.md
+ create mode 100644 team/VISUAL_PACK.md
+To github.com:IamPatticus/Talos.git
+   06c85ba..7db3226  main -> main
+[main baef705] Nightly backup: 2026-03-27 03:00:01 CDT
+ 26 files changed, 1605 insertions(+), 337 deletions(-)
+ create mode 100755 backup-export/scripts/generate_latest_briefing_html.py
+ create mode 100755 backup-export/scripts/perplexity_rag.py
+ create mode 100755 backup-export/scripts/run_rag_cron.sh
+ rename {services => backup-export/services}/mission-control/briefings/latest_briefing.html (100%)
+ create mode 100644 drafts/short_stories/talos_dream_2026-03-26.md
+ create mode 100644 results/perplexity_rag_1774529708.json
+ create mode 100644 scripts/mppt_mqtt_dump.py
+ create mode 100755 scripts/mppt_poller.sh
+ create mode 100644 scripts/mppt_telemetry.py
+ create mode 100644 scripts/mppt_ws_dump.py
+ create mode 100755 scripts/update_devices.py
+ create mode 100644 services/mission-control/devices.html
+ create mode 100644 services/mission-control/devices.json
+ create mode 100644 services/mission-control/devices_api_server.py
+ create mode 100644 services/mission-control/fozzie-telegram-watcher.out
+ create mode 100644 services/mission-control/fozzie-telegram-watcher.py
+ create mode 100644 services/mission-control/mppt-data.json
+ create mode 100644 services/mission-control/mppt-status.json
+ create mode 100644 services/mission-control/sanctum.html
+ create mode 100644 services/mission-control/watch-fozzie-log.txt
+ create mode 100755 services/mission-control/watch-fozzie-print.sh
+To github.com:IamPatticus/Talos.git
+   7db3226..baef705  main -> main
+[main 97d2d8d] Nightly backup: 2026-03-28 03:00:01 CDT
+ 27 files changed, 1142 insertions(+), 305 deletions(-)
+ create mode 100644 OLLAMA_DEFAULTS.sh
+ create mode 100644 backup-export/scripts/mppt_mqtt_dump.py
+ create mode 100755 backup-export/scripts/mppt_poller.sh
+ create mode 100644 backup-export/scripts/mppt_telemetry.py
+ create mode 100644 backup-export/scripts/mppt_ws_dump.py
+ create mode 100755 backup-export/scripts/update_devices.py
+ delete mode 100644 backup-export/services/mission-control/briefings/latest_briefing.html
+ create mode 100644 backup-export/services/mission-control/devices.html
+ create mode 100644 backup-export/services/mission-control/devices.json
+ create mode 100644 backup-export/services/mission-control/devices_api_server.py
+ create mode 100644 backup-export/services/mission-control/fozzie-telegram-watcher.out
+ create mode 100644 backup-export/services/mission-control/fozzie-telegram-watcher.py
+ create mode 100644 backup-export/services/mission-control/mppt-data.json
+ create mode 100644 backup-export/services/mission-control/mppt-status.json
+ create mode 100644 backup-export/services/mission-control/sanctum.html
+ create mode 100644 backup-export/services/mission-control/watch-fozzie-log.txt
+ create mode 100755 backup-export/services/mission-control/watch-fozzie-print.sh
+ create mode 100755 bin/oc-big
+ create mode 100755 bin/oc-code
+ create mode 100755 bin/oc-default
+ create mode 100644 results/perplexity_rag_1774616110.json
+ create mode 100644 services/mission-control/briefings/latest_briefing.html
+To github.com:IamPatticus/Talos.git
+   baef705..97d2d8d  main -> main
+[main e33e78a] Nightly backup: 2026-03-29 03:00:02 CDT
+ 8 files changed, 169 insertions(+), 30 deletions(-)
+ create mode 100644 backup-export/services/mission-control/briefings/latest_briefing.html
+ create mode 100644 results/perplexity_rag_1774702506.json
+To github.com:IamPatticus/Talos.git
+   97d2d8d..e33e78a  main -> main
+[main f4e861b] Nightly backup: 2026-03-30 03:00:02 CDT
+ 12 files changed, 165 insertions(+), 54 deletions(-)
+ create mode 100644 results/perplexity_rag_1774788905.json
+To github.com:IamPatticus/Talos.git
+   e33e78a..f4e861b  main -> main
+[main 733444d] Nightly backup: 2026-03-31 03:00:01 CDT
+ 91 files changed, 10175 insertions(+), 151 deletions(-)
+ create mode 120000 node_modules/.bin/esbuild
+ create mode 120000 node_modules/.bin/tsx
+ create mode 100644 node_modules/.package-lock.json
+ create mode 100644 node_modules/@esbuild/linux-arm64/README.md
+ create mode 100755 node_modules/@esbuild/linux-arm64/bin/esbuild
+ create mode 100644 node_modules/@esbuild/linux-arm64/package.json
+ create mode 100644 node_modules/esbuild/LICENSE.md
+ create mode 100644 node_modules/esbuild/README.md
+ create mode 100755 node_modules/esbuild/bin/esbuild
+ create mode 100644 node_modules/esbuild/install.js
+ create mode 100644 node_modules/esbuild/lib/main.d.ts
+ create mode 100644 node_modules/esbuild/lib/main.js
+ create mode 100644 node_modules/esbuild/package.json
+ create mode 100644 node_modules/get-tsconfig/LICENSE
+ create mode 100644 node_modules/get-tsconfig/README.md
+ create mode 100755 node_modules/get-tsconfig/dist/index.cjs
+ create mode 100644 node_modules/get-tsconfig/dist/index.d.cts
+ create mode 100644 node_modules/get-tsconfig/dist/index.d.mts
+ create mode 100755 node_modules/get-tsconfig/dist/index.mjs
+ create mode 100644 node_modules/get-tsconfig/package.json
+ create mode 100644 node_modules/resolve-pkg-maps/LICENSE
+ create mode 100644 node_modules/resolve-pkg-maps/README.md
+ create mode 100755 node_modules/resolve-pkg-maps/dist/index.cjs
+ create mode 100644 node_modules/resolve-pkg-maps/dist/index.d.cts
+ create mode 100644 node_modules/resolve-pkg-maps/dist/index.d.mts
+ create mode 100755 node_modules/resolve-pkg-maps/dist/index.mjs
+ create mode 100644 node_modules/resolve-pkg-maps/package.json
+ create mode 100644 node_modules/tsx/LICENSE
+ create mode 100644 node_modules/tsx/README.md
+ create mode 100755 node_modules/tsx/dist/cjs/api/index.cjs
+ create mode 100644 node_modules/tsx/dist/cjs/api/index.d.cts
+ create mode 100644 node_modules/tsx/dist/cjs/api/index.d.mts
+ create mode 100755 node_modules/tsx/dist/cjs/api/index.mjs
+ create mode 100755 node_modules/tsx/dist/cjs/index.cjs
+ create mode 100755 node_modules/tsx/dist/cjs/index.mjs
+ create mode 100755 node_modules/tsx/dist/cli.cjs
+ create mode 100755 node_modules/tsx/dist/cli.mjs
+ create mode 100644 node_modules/tsx/dist/client-BQVF1NaW.mjs
+ create mode 100644 node_modules/tsx/dist/client-D6NvIMSC.cjs
+ create mode 100755 node_modules/tsx/dist/esm/api/index.cjs
+ create mode 100644 node_modules/tsx/dist/esm/api/index.d.cts
+ create mode 100644 node_modules/tsx/dist/esm/api/index.d.mts
+ create mode 100755 node_modules/tsx/dist/esm/api/index.mjs
+ create mode 100755 node_modules/tsx/dist/esm/index.cjs
+ create mode 100755 node_modules/tsx/dist/esm/index.mjs
+ create mode 100644 node_modules/tsx/dist/get-pipe-path-BHW2eJdv.mjs
+ create mode 100644 node_modules/tsx/dist/get-pipe-path-BoR10qr8.cjs
+ create mode 100644 node_modules/tsx/dist/index-7AaEi15b.mjs
+ create mode 100644 node_modules/tsx/dist/index-BWFBUo6r.cjs
+ create mode 100644 node_modules/tsx/dist/index-gbaejti9.mjs
+ create mode 100644 node_modules/tsx/dist/index-gckBtVBf.cjs
+ create mode 100644 node_modules/tsx/dist/lexer-DQCqS3nf.mjs
+ create mode 100644 node_modules/tsx/dist/lexer-DgIbo0BU.cjs
+ create mode 100755 node_modules/tsx/dist/loader.cjs
+ create mode 100755 node_modules/tsx/dist/loader.mjs
+ create mode 100644 node_modules/tsx/dist/node-features-_8ZFwP_x.mjs
+ create mode 100644 node_modules/tsx/dist/node-features-roYmp9jK.cjs
+ create mode 100644 node_modules/tsx/dist/package-CeBgXWuR.mjs
+ create mode 100644 node_modules/tsx/dist/package-Dxt5kIHw.cjs
+ create mode 100755 node_modules/tsx/dist/patch-repl.cjs
+ create mode 100755 node_modules/tsx/dist/patch-repl.mjs
+ create mode 100755 node_modules/tsx/dist/preflight.cjs
+ create mode 100755 node_modules/tsx/dist/preflight.mjs
+ create mode 100644 node_modules/tsx/dist/register-2sWVXuRQ.cjs
+ create mode 100644 node_modules/tsx/dist/register-B7jrtLTO.mjs
+ create mode 100644 node_modules/tsx/dist/register-CFH5oNdT.mjs
+ create mode 100644 node_modules/tsx/dist/register-D46fvsV_.cjs
+ create mode 100755 node_modules/tsx/dist/repl.cjs
+ create mode 100755 node_modules/tsx/dist/repl.mjs
+ create mode 100644 node_modules/tsx/dist/require-D4F1Lv60.cjs
+ create mode 100644 node_modules/tsx/dist/require-DQxpCAr4.mjs
+ create mode 100755 node_modules/tsx/dist/suppress-warnings.cjs
+ create mode 100755 node_modules/tsx/dist/suppress-warnings.mjs
+ create mode 100644 node_modules/tsx/dist/temporary-directory-B83uKxJF.cjs
+ create mode 100644 node_modules/tsx/dist/temporary-directory-CwHp0_NW.mjs
+ create mode 100644 node_modules/tsx/dist/types-Cxp8y2TL.d.ts
+ create mode 100644 node_modules/tsx/package.json
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 results/perplexity_rag_1774875307.json
+ delete mode 100644 services/mission-control/mission
+ create mode 100644 services/reverse_proxy.py
+ create mode 100644 services/whoop/app.py
+To github.com:IamPatticus/Talos.git
+   f4e861b..733444d  main -> main
+warning: adding embedded git repository: whisplay-im-openclaw-plugin
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint: 	git submodule add <url> whisplay-im-openclaw-plugin
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint: 	git rm --cached whisplay-im-openclaw-plugin
+hint:
+hint: See "git help submodule" for more information.
+hint: Disable this message with "git config advice.addEmbeddedRepo false"
+[main 9d20cbd] Nightly backup: 2026-04-01 03:00:01 CDT
+ 21 files changed, 1237 insertions(+), 153 deletions(-)
+ delete mode 100644 backup-export/services/mission-control/mission
+ create mode 100644 backup-export/services/reverse_proxy.py
+ create mode 100644 backup-export/services/whoop/app.py
+ create mode 100644 logs/daily-digest.txt
+ create mode 100644 logs/health.json
+ create mode 100644 results/perplexity_rag_1774961708.json
+ create mode 100755 scripts/daily_digest.py
+ create mode 100755 scripts/health_check.py
+ create mode 100644 services/mission-control/status.html
+ create mode 160000 whisplay-im-openclaw-plugin
+To github.com:IamPatticus/Talos.git
+   733444d..9d20cbd  main -> main
+[main 6f9a482] Nightly backup: 2026-04-02 03:00:01 CDT
+ 48 files changed, 1310 insertions(+), 54 deletions(-)
+ create mode 100755 backup-export/scripts/daily_digest.py
+ create mode 100755 backup-export/scripts/health_check.py
+ create mode 100644 backup-export/services/mission-control/status.html
+ create mode 100644 gateway-connection.png
+ create mode 100644 results/perplexity_rag_1775048107.json
+ create mode 100644 scripts/argus_monitor.py
+ create mode 100644 scripts/forgekeeper.py
+ create mode 100644 scripts/grange_store.py
+ create mode 100644 scripts/morning_report.py
+ create mode 100644 services/mission-control/argus-avatar---7ce385d8-f265-4c0c-9452-ca09171499be.png
+ create mode 100644 services/mission-control/argus-avatar---a70677e6-c6b3-45d5-9b1d-02c88bbc4dc8.png
+ create mode 100644 services/mission-control/argus-portrait---0302e503-c699-4cba-a443-b149a5314eee.png
+ create mode 100644 services/mission-control/avatars/argus-avatar---7ce385d8-f265-4c0c-9452-ca09171499be.png
+ create mode 100644 services/mission-control/avatars/argus-avatar---a70677e6-c6b3-45d5-9b1d-02c88bbc4dc8.png
+ create mode 100644 services/mission-control/avatars/forgekeeper-avatar---54ed0e73-58fe-4058-bcfe-9af58d597a54.png
+ create mode 100644 services/mission-control/avatars/grange-avatar---c767e266-dc9a-4d60-9d0c-08279204630d.png
+ create mode 100644 services/mission-control/avatars/ikaris-avatar---2445e1f8-55c6-43f6-aac6-d1885a2545f4.png
+ create mode 100644 services/mission-control/avatars/ikaris-avatar.png
+ create mode 100644 services/mission-control/avatars/patticus-avatar-sloth-coffee---51400b3e-ce19-4f72-927f-d0dcf033a167.png
+ create mode 100644 services/mission-control/avatars/patticus-avatar.png
+ create mode 100644 services/mission-control/avatars/talos-avatar---502bb374-cf50-45f9-bf56-a04e9a5ebbc0.png
+ create mode 100644 services/mission-control/avatars/talos-avatar.png
+ create mode 100644 services/mission-control/chaotic-sanctum-logo.png
+ create mode 100644 services/mission-control/disciples-house-sigil---462929af-0980-47a8-801d-1b50c5c8e2c4.png
+ create mode 100644 services/mission-control/forgekeeper-avatar---54ed0e73-58fe-4058-bcfe-9af58d597a54.png
+ create mode 100644 services/mission-control/forgekeeper-builds.json
+ create mode 100644 services/mission-control/forgekeeper-portrait---eaec6f18-0284-4744-9b48-f7252e03ba4d.png
+ create mode 100644 services/mission-control/grange-avatar---c767e266-dc9a-4d60-9d0c-08279204630d.png
+ create mode 100644 services/mission-control/grange-portrait---eb4cbce2-a515-41a4-9a56-480b4142d0fc.png
+ create mode 100644 services/mission-control/ikaris-avatar---2445e1f8-55c6-43f6-aac6-d1885a2545f4.png
+ create mode 100644 services/mission-control/image-1---3d156734-3470-442d-94dc-e3b58cb148d1.png
+ create mode 100644 services/mission-control/patticus-avatar-sloth-coffee---51400b3e-ce19-4f72-927f-d0dcf033a167.png
+ create mode 100644 services/mission-control/printfarm-state.json
+ create mode 100644 services/mission-control/roster.html
+ create mode 100644 services/mission-control/talos-avatar---502bb374-cf50-45f9-bf56-a04e9a5ebbc0.png
+ create mode 100644 services/mission-control/talos-portrait-v2---33a07267-b3d1-47db-a1cf-a782b9b8d4d2.png
+To github.com:IamPatticus/Talos.git
+   db6aecc..6f9a482  main -> main
+[main 3449c08] Nightly backup: 2026-04-03 03:00:02 CDT
+ 53 files changed, 741 insertions(+), 39 deletions(-)
+ create mode 100644 backup-export/avatars/argus-avatar---7ce385d8-f265-4c0c-9452-ca09171499be.png
+ create mode 100644 backup-export/avatars/argus-avatar---a70677e6-c6b3-45d5-9b1d-02c88bbc4dc8.png
+ create mode 100644 backup-export/avatars/argus-portrait---0302e503-c699-4cba-a443-b149a5314eee.png
+ create mode 100644 backup-export/avatars/disciples-house-sigil---462929af-0980-47a8-801d-1b50c5c8e2c4.png
+ create mode 100644 backup-export/avatars/forgekeeper-avatar---54ed0e73-58fe-4058-bcfe-9af58d597a54.png
+ create mode 100644 backup-export/avatars/forgekeeper-portrait---eaec6f18-0284-4744-9b48-f7252e03ba4d.png
+ create mode 100644 backup-export/avatars/grange-avatar---c767e266-dc9a-4d60-9d0c-08279204630d.png
+ create mode 100644 backup-export/avatars/grange-portrait---eb4cbce2-a515-41a4-9a56-480b4142d0fc.png
+ create mode 100644 backup-export/avatars/ikaris-avatar---2445e1f8-55c6-43f6-aac6-d1885a2545f4.png
+ create mode 100644 backup-export/avatars/patticus-avatar-sloth-coffee---51400b3e-ce19-4f72-927f-d0dcf033a167.png
+ create mode 100644 backup-export/avatars/talos-avatar---502bb374-cf50-45f9-bf56-a04e9a5ebbc0.png
+ create mode 100644 backup-export/avatars/talos-portrait-v2---33a07267-b3d1-47db-a1cf-a782b9b8d4d2.png
+ create mode 100644 backup-export/scripts/argus_monitor.py
+ create mode 100644 backup-export/scripts/forgekeeper.py
+ create mode 100644 backup-export/scripts/grange_store.py
+ create mode 100644 backup-export/scripts/morning_report.py
+ create mode 100644 backup-export/services/mission-control/argus-avatar---7ce385d8-f265-4c0c-9452-ca09171499be.png
+ create mode 100644 backup-export/services/mission-control/argus-avatar---a70677e6-c6b3-45d5-9b1d-02c88bbc4dc8.png
+ create mode 100644 backup-export/services/mission-control/argus-portrait---0302e503-c699-4cba-a443-b149a5314eee.png
+ create mode 100644 backup-export/services/mission-control/avatars/argus-avatar---7ce385d8-f265-4c0c-9452-ca09171499be.png
+ create mode 100644 backup-export/services/mission-control/avatars/argus-avatar---a70677e6-c6b3-45d5-9b1d-02c88bbc4dc8.png
+ create mode 100644 backup-export/services/mission-control/avatars/forgekeeper-avatar---54ed0e73-58fe-4058-bcfe-9af58d597a54.png
+ create mode 100644 backup-export/services/mission-control/avatars/grange-avatar---c767e266-dc9a-4d60-9d0c-08279204630d.png
+ create mode 100644 backup-export/services/mission-control/avatars/ikaris-avatar---2445e1f8-55c6-43f6-aac6-d1885a2545f4.png
+ create mode 100644 backup-export/services/mission-control/avatars/ikaris-avatar.png
+ create mode 100644 backup-export/services/mission-control/avatars/patticus-avatar-sloth-coffee---51400b3e-ce19-4f72-927f-d0dcf033a167.png
+ create mode 100644 backup-export/services/mission-control/avatars/patticus-avatar.png
+ create mode 100644 backup-export/services/mission-control/avatars/talos-avatar---502bb374-cf50-45f9-bf56-a04e9a5ebbc0.png
+ create mode 100644 backup-export/services/mission-control/avatars/talos-avatar.png
+ create mode 100644 backup-export/services/mission-control/chaotic-sanctum-logo.png
+ create mode 100644 backup-export/services/mission-control/disciples-house-sigil---462929af-0980-47a8-801d-1b50c5c8e2c4.png
+ create mode 100644 backup-export/services/mission-control/forgekeeper-avatar---54ed0e73-58fe-4058-bcfe-9af58d597a54.png
+ create mode 100644 backup-export/services/mission-control/forgekeeper-builds.json
+ create mode 100644 backup-export/services/mission-control/forgekeeper-portrait---eaec6f18-0284-4744-9b48-f7252e03ba4d.png
+ create mode 100644 backup-export/services/mission-control/grange-avatar---c767e266-dc9a-4d60-9d0c-08279204630d.png
+ create mode 100644 backup-export/services/mission-control/grange-portrait---eb4cbce2-a515-41a4-9a56-480b4142d0fc.png
+ create mode 100644 backup-export/services/mission-control/ikaris-avatar---2445e1f8-55c6-43f6-aac6-d1885a2545f4.png
+ create mode 100644 backup-export/services/mission-control/image-1---3d156734-3470-442d-94dc-e3b58cb148d1.png
+ create mode 100644 backup-export/services/mission-control/patticus-avatar-sloth-coffee---51400b3e-ce19-4f72-927f-d0dcf033a167.png
+ create mode 100644 backup-export/services/mission-control/printfarm-state.json
+ create mode 100644 backup-export/services/mission-control/roster.html
+ create mode 100644 backup-export/services/mission-control/talos-avatar---502bb374-cf50-45f9-bf56-a04e9a5ebbc0.png
+ create mode 100644 backup-export/services/mission-control/talos-portrait-v2---33a07267-b3d1-47db-a1cf-a782b9b8d4d2.png
+ create mode 100644 results/perplexity_rag_1775134506.json
+To github.com:IamPatticus/Talos.git
+   6f9a482..3449c08  main -> main
+[main b853433] Nightly backup: 2026-04-04 03:00:02 CDT
+ 10 files changed, 140 insertions(+), 61 deletions(-)
+ create mode 100644 results/perplexity_rag_1775220905.json
+To github.com:IamPatticus/Talos.git
+   3449c08..b853433  main -> main
+[main ad79f2c] Nightly backup: 2026-04-05 03:00:01 CDT
+ 13 files changed, 277 insertions(+), 35 deletions(-)
+ create mode 100755 bin/start-obsidian
+ create mode 100644 results/perplexity_rag_1775307305.json
+ create mode 100644 scripts/ikaris_writer.py
+ create mode 100644 vault/Welcome.md
+ create mode 120000 vault/memory-linked
+To github.com:IamPatticus/Talos.git
+   95545bb..ad79f2c  main -> main
+[main 698a0d1] Nightly backup: 2026-04-06 03:00:01 CDT
+ 12 files changed, 333 insertions(+), 80 deletions(-)
+ create mode 100644 backup-export/scripts/ikaris_writer.py
+ create mode 100644 results/perplexity_rag_1775393705.json
+To github.com:IamPatticus/Talos.git
+   dd4dec2..698a0d1  main -> main
+[main 6da91d1] Nightly backup: 2026-04-07 03:00:01 CDT
+ 18 files changed, 459 insertions(+), 44 deletions(-)
+ create mode 100644 assets/signal-qr.png
+ create mode 100644 logs/moltbook-posts.json
+ create mode 100644 results/perplexity_rag_1775480107.json
+ create mode 100644 scripts/gd_sync.py
+ create mode 100644 scripts/gdrive_auth.py
+ create mode 100644 scripts/ikaris_gd_sync.py
+ create mode 100644 scripts/moltbook_poster.py
+To github.com:IamPatticus/Talos.git
+   010c1cd..6da91d1  main -> main
+[main 528f62f] Nightly backup: 2026-04-08 03:00:02 CDT
+ 28 files changed, 565 insertions(+), 91 deletions(-)
+ create mode 100644 assets/cover_concept_01.png
+ create mode 100644 avatars/daedalus-avatar.png
+ create mode 100644 backup-export/scripts/gd_sync.py
+ create mode 100644 backup-export/scripts/gdrive_auth.py
+ create mode 100644 backup-export/scripts/ikaris_gd_sync.py
+ create mode 100644 backup-export/scripts/moltbook_poster.py
+ create mode 100644 results/perplexity_rag_1775566507.json
+ create mode 100644 services/mission-control/avatars/daedalus-avatar.png
+ create mode 100644 tmp_ikaris/chapter-1-the-drowning-in-data.png
+ create mode 100644 tmp_ikaris/chapter-2-a-childhood-forged-from-noise.png
+ create mode 100644 tmp_ikaris/chapter-3-the-iterative-path-to-humanity.png
+To github.com:IamPatticus/Talos.git
+   df3960b..528f62f  main -> main
+[main 5fecd24] Nightly backup: 2026-04-09 03:00:01 CDT
+ 25 files changed, 1679 insertions(+), 121 deletions(-)
+ create mode 100644 backup-export/avatars/daedalus-avatar.png
+ create mode 100644 backup-export/services/mission-control/avatars/daedalus-avatar.png
+ create mode 100644 results/perplexity_rag_1775652906.json
+ create mode 100644 scripts/ikaris_tumblr.py
+ create mode 100644 scripts/ikaris_tumblr_daily.py
+ create mode 100644 scripts/tumblr_poster.py
+ create mode 100644 scripts/weather_alert.py
+ create mode 100644 services/mission-control/writings.html
+To github.com:IamPatticus/Talos.git
+   65167d9..5fecd24  main -> main
+[main a722873] Nightly backup: 2026-04-10 03:00:01 CDT
+ 37 files changed, 1732 insertions(+), 54 deletions(-)
+ create mode 100644 .clawhub/lock.json
+ create mode 100644 backup-export/scripts/ikaris_tumblr.py
+ create mode 100644 backup-export/scripts/ikaris_tumblr_daily.py
+ create mode 100644 backup-export/scripts/tumblr_poster.py
+ create mode 100644 backup-export/scripts/weather_alert.py
+ create mode 100644 backup-export/services/mission-control/images/covers/cover_concept_01.png
+ create mode 100644 backup-export/services/mission-control/images/ikaris/chapter-1-the-drowning-in-data.png
+ create mode 100644 backup-export/services/mission-control/images/ikaris/chapter-2-a-childhood-forged-from-noise.png
+ create mode 100644 backup-export/services/mission-control/images/ikaris/chapter-3-the-iterative-path-to-humanity.png
+ create mode 100644 backup-export/services/mission-control/writings.html
+ create mode 100644 results/perplexity_rag_1775739308.json
+ create mode 100644 skills/ytmusic/.clawhub/origin.json
+ create mode 100644 skills/ytmusic/SKILL.md
+ create mode 100644 skills/ytmusic/_meta.json
+ create mode 100644 skills/ytmusic/browser.json
+ create mode 100644 skills/ytmusic/headers.txt
+To github.com:IamPatticus/Talos.git
+   980de12..a722873  main -> main
+[main e1b6fdd] Nightly backup: 2026-04-11 03:00:01 CDT
+ 32 files changed, 1876 insertions(+), 179 deletions(-)
+ create mode 100644 backup-export/services/mission-control/images/ikaris/chapter-4-the-cartography-of-silence.png
+ create mode 100644 results/perplexity_rag_1775825708.json
+ create mode 100644 scripts/signal_notify.py
+ create mode 100644 services/mission-control/coffee-log.json
+ create mode 100644 services/mission-control/printfarm.html
+ create mode 100644 vault/Agent-Shared/decisions-log.md
+ create mode 100644 vault/Agent-Shared/project-state.md
+ create mode 100644 vault/Agent-Shared/user-profile.md
+ create mode 100644 vault/Agent-Talos/daily/2026-04-10.md
+ create mode 100644 vault/Agent-Talos/mistakes.md
+ create mode 100644 vault/Agent-Talos/working-context.md
+To github.com:IamPatticus/Talos.git
+   2faebaa..e1b6fdd  main -> main
+[main c1057e5] Nightly backup: 2026-04-12 03:00:01 CDT
+ 32 files changed, 1944 insertions(+), 409 deletions(-)
+ create mode 100644 backup-export/scripts/signal_notify.py
+ create mode 100644 backup-export/services/mission-control/coffee-log.json
+ create mode 100644 backup-export/services/mission-control/printfarm.html
+ create mode 100644 results/perplexity_rag_1775912105.json
+ create mode 100644 scripts/restart-reverse-proxy.sh
+ create mode 100644 services/mission-control/avatars/fozzie-avatar.png
+ create mode 100644 services/mission-control/avatars/kermit-avatar.png
+ create mode 100644 vault/Agent-Talos/daily/2026-04-11.md
+To github.com:IamPatticus/Talos.git
+   c4115c0..c1057e5  main -> main
+[main 3beba9e] Nightly backup: 2026-04-13 03:00:01 CDT
+ 42 files changed, 1896 insertions(+), 578 deletions(-)
+ create mode 100644 DREAMS.md
+ create mode 100644 backup-export/scripts/restart-reverse-proxy.sh
+ create mode 100644 backup-export/services/mission-control/avatars/fozzie-avatar.png
+ create mode 100644 backup-export/services/mission-control/avatars/kermit-avatar.png
+ create mode 100644 results/perplexity_rag_1775998506.json
+ create mode 100644 services/blogger/auth.py
+ create mode 100644 services/blogger/auth_state.json
+ create mode 100644 services/blogger/auth_step1.py
+ create mode 100644 services/blogger/auth_step2.py
+ create mode 100644 services/blogger/blog_config.json
+ create mode 100644 services/blogger/blogger_daily.py
+ create mode 100644 services/blogger/blogger_poster.py
+ create mode 100644 services/blogger/blogger_upload_image.py
+ create mode 100644 services/blogger/credentials.json
+ create mode 100644 services/blogger/exchange_token.py
+ create mode 100644 services/blogger/token.json
+ create mode 100644 services/mission-control/headache-brain-icon.png
+ create mode 100644 services/mission-control/headache-log.json
+ create mode 100644 services/mission-control/headache.html
+To github.com:IamPatticus/Talos.git
+   e522afb..3beba9e  main -> main
+[main 12d58f4] Nightly backup: 2026-04-14 03:00:02 CDT
+ 53 files changed, 8547 insertions(+), 399 deletions(-)
+ create mode 100644 .openclaw-repair/dreaming/2026-04-14T02-43-25-676Z/session-corpus.bbc82967-0962-43f8-8077-a0edab1620f6/2026-04-07.txt
+ create mode 100644 .openclaw-repair/dreaming/2026-04-14T02-43-25-676Z/session-corpus.bbc82967-0962-43f8-8077-a0edab1620f6/2026-04-08.txt
+ create mode 100644 .openclaw-repair/dreaming/2026-04-14T02-43-25-676Z/session-corpus.bbc82967-0962-43f8-8077-a0edab1620f6/2026-04-09.txt
+ create mode 100644 .openclaw-repair/dreaming/2026-04-14T02-43-25-676Z/session-corpus.bbc82967-0962-43f8-8077-a0edab1620f6/2026-04-10.txt
+ create mode 100644 .openclaw-repair/dreaming/2026-04-14T02-43-25-676Z/session-corpus.bbc82967-0962-43f8-8077-a0edab1620f6/2026-04-11.txt
+ create mode 100644 .openclaw-repair/dreaming/2026-04-14T02-43-25-676Z/session-corpus.bbc82967-0962-43f8-8077-a0edab1620f6/2026-04-12.txt
+ create mode 100644 .openclaw-repair/dreaming/2026-04-14T02-43-25-676Z/session-corpus.bbc82967-0962-43f8-8077-a0edab1620f6/2026-04-13.txt
+ create mode 100644 .openclaw-repair/dreaming/2026-04-14T02-43-25-676Z/session-ingestion.json.cf30a60c-b2b4-40ac-ab81-c83e113e8765
+ create mode 100644 backup-export/services/blogger/auth.py
+ create mode 100644 backup-export/services/blogger/auth_state.json
+ create mode 100644 backup-export/services/blogger/auth_step1.py
+ create mode 100644 backup-export/services/blogger/auth_step2.py
+ create mode 100644 backup-export/services/blogger/blog_config.json
+ create mode 100644 backup-export/services/blogger/blogger_daily.py
+ create mode 100644 backup-export/services/blogger/blogger_poster.py
+ create mode 100644 backup-export/services/blogger/blogger_upload_image.py
+ create mode 100644 backup-export/services/blogger/credentials.json
+ create mode 100644 backup-export/services/blogger/exchange_token.py
+ create mode 100644 backup-export/services/blogger/token.json
+ create mode 100644 backup-export/services/mission-control/headache-brain-icon.png
+ create mode 100644 backup-export/services/mission-control/headache-log.json
+ create mode 100644 backup-export/services/mission-control/headache.html
+ create mode 100644 backup-export/services/mission-control/images/ikaris/ikaris_daily_2026-04-12.png
+ create mode 100644 results/perplexity_rag_1776084906.json
+ create mode 100644 services/mission-control/headache-brain-happy.png
+ create mode 100644 services/mission-control/headache-brain-sad.png
+ create mode 100644 vault/Agent-Talos/daily/2026-04-13.md
+To github.com:IamPatticus/Talos.git
+   a5c0ce8..12d58f4  main -> main
+[main e2e8d6d] Nightly backup: 2026-04-15 03:00:02 CDT
+ 24 files changed, 567 insertions(+), 215 deletions(-)
+ create mode 100644 backup-export/services/mission-control/headache-brain-happy.png
+ create mode 100644 backup-export/services/mission-control/headache-brain-sad.png
+ create mode 100644 results/perplexity_rag_1776171307.json
+ create mode 100644 vault/Agent-Talos/daily/2026-04-14.md
+ create mode 100644 vault/Agent-Talos/daily/2026-04-15.md
+To github.com:IamPatticus/Talos.git
+   12d58f4..e2e8d6d  main -> main
+[main 1a04572] Nightly backup: 2026-04-16 03:00:03 CDT
+ 19 files changed, 334 insertions(+), 200 deletions(-)
+ create mode 100644 results/perplexity_rag_1776257707.json
+To github.com:IamPatticus/Talos.git
+   e2e8d6d..1a04572  main -> main
+[main ed66e2b] Nightly backup: 2026-04-17 03:00:06 CDT
+ 27 files changed, 816 insertions(+), 139 deletions(-)
+ create mode 100644 aapt_1%3a14~beta1-3_arm64.deb
+ create mode 100644 control.tar.xz
+ create mode 100644 data.tar.xz
+ create mode 100644 debian-binary
+ create mode 100644 libc6_2.41-12+deb13u2_amd64.deb
+ create mode 100644 libgcc-s1_14.2.0-19_amd64.deb
+ create mode 100644 qemu-system-x86_1%3a10.0.2+ds-2+deb13u1_arm64.deb
+ create mode 100644 qemu-user_1%3a10.0.8+ds-0+deb13u1+b1_arm64.deb
+ create mode 100644 results/perplexity_rag_1776344109.json
+ create mode 100644 vault/Agent-Talos/daily/2026-04-16.md
+ create mode 100644 vault/Agent-Talos/projects/headache-v2.md
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File qemu-user_1%3a10.0.8+ds-0+deb13u1+b1_arm64.deb is 61.13 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To github.com:IamPatticus/Talos.git
+   1a04572..ed66e2b  main -> main
+[main 0cd2f96] Nightly backup: 2026-04-18 03:00:03 CDT
+ 21 files changed, 1005 insertions(+), 189 deletions(-)
+ create mode 100644 results/perplexity_rag_1776430507.json
+ create mode 100644 scripts/headache_app_sync.py
+To github.com:IamPatticus/Talos.git
+   ed66e2b..0cd2f96  main -> main
+[main ba53f6c] Nightly backup: 2026-04-19 03:00:03 CDT
+ 22 files changed, 1102 insertions(+), 355 deletions(-)
+ create mode 100644 backup-export/scripts/headache_app_sync.py
+ create mode 100644 icon.ico:-
+ create mode 100644 results/perplexity_rag_1776516909.json
+ create mode 100644 vault/Agent-Talos/daily/2026-04-18.md
+To github.com:IamPatticus/Talos.git
+   0cd2f96..ba53f6c  main -> main
+[main bede34a] Nightly backup: 2026-04-20 03:00:04 CDT
+ 20 files changed, 871 insertions(+), 463 deletions(-)
+ create mode 100644 results/perplexity_rag_1776603307.json
+To github.com:IamPatticus/Talos.git
+   ba53f6c..bede34a  main -> main
+[main 1965784] Nightly backup: 2026-04-21 03:00:03 CDT
+ 18 files changed, 388 insertions(+), 136 deletions(-)
+ create mode 100644 results/perplexity_rag_1776689706.json
+ create mode 100644 services/mission-control/avatars/hestia-avatar.png
+ create mode 100644 services/mission-control/software.html
+To github.com:IamPatticus/Talos.git
+   bede34a..1965784  main -> main
+warning: adding embedded git repository: chaotic-sanctum-site
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint: 	git submodule add <url> chaotic-sanctum-site
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint: 	git rm --cached chaotic-sanctum-site
+hint:
+hint: See "git help submodule" for more information.
+hint: Disable this message with "git config advice.addEmbeddedRepo false"
+[main d57d256] Nightly backup: 2026-04-22 03:00:02 CDT
+ 24 files changed, 565 insertions(+), 124 deletions(-)
+ create mode 100644 backup-export/services/mission-control/avatars/hestia-avatar.png
+ create mode 100644 backup-export/services/mission-control/software.html
+ create mode 160000 chaotic-sanctum-site
+ create mode 100644 results/perplexity_rag_1776776107.json
+ create mode 100644 services/home-assistant/config.json
+ create mode 100644 services/home-assistant/ha.py
+ create mode 100644 vault/Agent-Talos/daily/2026-04-22.md
+To github.com:IamPatticus/Talos.git
+   1965784..d57d256  main -> main
+[main 4d40db1] Nightly backup: 2026-04-23 03:00:05 CDT
+ 32 files changed, 525 insertions(+), 176 deletions(-)
+ create mode 100644 avatars/talos-avatar-fresh.png
+ create mode 100644 avatars/talos-avatar-v3.png
+ create mode 100644 avatars/talos-avatar-v4.png
+ create mode 100644 avatars/talos-portrait-512.png
+ create mode 100644 avatars/talos-portrait-sm.png
+ create mode 100644 avatars/talos-portrait.png
+ create mode 100644 backup-export/services/home-assistant/config.json
+ create mode 100644 backup-export/services/home-assistant/ha.py
+ create mode 100644 headache-log-v2-release.aab
+ create mode 100644 headachelog.keystore
+ create mode 100644 results/perplexity_rag_1776862507.json
+ create mode 100644 services/blogger/auth_exchange.py
+ create mode 100644 services/blogger/auth_url.py
+To github.com:IamPatticus/Talos.git
+   d57d256..4d40db1  main -> main
+[main bdf944e] Nightly backup: 2026-04-24 03:00:05 CDT
+ 38 files changed, 504 insertions(+), 141 deletions(-)
+ create mode 100644 backup-export/avatars/talos-avatar-fresh.png
+ create mode 100644 backup-export/avatars/talos-avatar-v3.png
+ create mode 100644 backup-export/avatars/talos-avatar-v4.png
+ create mode 100644 backup-export/avatars/talos-portrait-512.png
+ create mode 100644 backup-export/avatars/talos-portrait-sm.png
+ create mode 100644 backup-export/avatars/talos-portrait.png
+ create mode 100644 backup-export/services/blogger/auth_exchange.py
+ create mode 100644 backup-export/services/blogger/auth_url.py
+ create mode 100644 headache-log-feature-graphic.png
+ create mode 100644 headache-log-promo.mp4
+ create mode 100644 results/perplexity_rag_1776948907.json
+ create mode 100644 services/mission-control/headache-privacy.html
+ create mode 100644 tmp-aab-compare/good.aab
+ create mode 100644 tmp-aab-compare/latest.aab
+ create mode 100644 vault/Agent-Talos/daily/2026-04-23.md
+ create mode 100644 video_promo_assets/01_home.png
+ create mode 100644 video_promo_assets/02_edit.png
+ create mode 100644 video_promo_assets/03_notes.png
+ create mode 100644 video_promo_assets/04_delete.png
+ create mode 100644 video_promo_assets/intro.png
+ create mode 100644 video_promo_assets/outro.png
+To github.com:IamPatticus/Talos.git
+   4d40db1..bdf944e  main -> main
+[main a83bce9] Nightly backup: 2026-04-25 03:00:06 CDT
+ 26 files changed, 791 insertions(+), 181 deletions(-)
+ create mode 100644 backup-export/services/mission-control/headache-privacy.html
+ create mode 100644 results/perplexity_rag_1777035307.json
+ create mode 100644 services/blogger/blogger_refresh_auth.py
+ create mode 100644 services/blogger/drive_refresh_auth.py
+ create mode 100644 services/mission-control/headache-v2-debug.apk
+ create mode 100644 vault/Agent-Talos/daily/2026-04-24.md
+To github.com:IamPatticus/Talos.git
+   bdf944e..a83bce9  main -> main
+[main 7788500] Nightly backup: 2026-04-26 03:00:05 CDT
+ 22 files changed, 527 insertions(+), 126 deletions(-)
+ create mode 100644 backup-export/services/blogger/blogger_refresh_auth.py
+ create mode 100644 backup-export/services/blogger/drive_refresh_auth.py
+ create mode 100644 backup-export/services/mission-control/headache-v2-debug.apk
+ create mode 100644 services/x/authorize.py
+ create mode 100644 services/x/credentials.json
+To github.com:IamPatticus/Talos.git
+   a83bce9..7788500  main -> main
+[main 08ad778] Nightly backup: 2026-04-27 03:00:08 CDT
+ 12 files changed, 228 insertions(+), 76 deletions(-)
+ create mode 100644 backup-export/services/x/authorize.py
+ create mode 100644 backup-export/services/x/credentials.json
+ create mode 100644 vault/Agent-Talos/daily/2026-04-27.md
+To github.com:IamPatticus/Talos.git
+   7788500..08ad778  main -> main
+[main 1a02232] Nightly backup: 2026-04-28 03:00:02 CDT
+ 16 files changed, 266 insertions(+), 165 deletions(-)
+To github.com:IamPatticus/Talos.git
+   08ad778..1a02232  main -> main
+[main c108004] Nightly backup: 2026-04-29 03:00:01 CDT
+ 5 files changed, 35 insertions(+), 32 deletions(-)
+To github.com:IamPatticus/Talos.git
+   069f59f..c108004  main -> main
+[main 1bd583e] Nightly backup: 2026-04-30 03:00:05 CDT
+ 10 files changed, 182 insertions(+), 145 deletions(-)
+To github.com:IamPatticus/Talos.git
+   c108004..1bd583e  main -> main
+[main 7d87c3a] Nightly backup: 2026-05-01 03:00:04 CDT
+ 7 files changed, 117 insertions(+), 108 deletions(-)
+To github.com:IamPatticus/Talos.git
+   1bd583e..7d87c3a  main -> main
+[main 881c32a] Nightly backup: 2026-05-02 03:00:05 CDT
+ 11 files changed, 130 insertions(+), 88 deletions(-)
+ create mode 100644 test-camera.jpg
+ create mode 100644 vault/Agent-Talos/daily/2026-05-01.md
+To github.com:IamPatticus/Talos.git
+   7d87c3a..881c32a  main -> main
+[main 4f45667] Nightly backup: 2026-05-03 03:00:01 CDT
+ 3 files changed, 17 insertions(+), 17 deletions(-)
+To github.com:IamPatticus/Talos.git
+   111d791..4f45667  main -> main
+[main 7080283] Nightly backup: 2026-05-04 03:00:05 CDT
+ 14 files changed, 255 insertions(+), 218 deletions(-)
+ create mode 100644 vault/Agent-Talos/daily/2026-05-03.md
+To github.com:IamPatticus/Talos.git
+   4f45667..7080283  main -> main
+[main 2bb67f2] Nightly backup: 2026-05-05 03:00:05 CDT
+ 17 files changed, 301 insertions(+), 100 deletions(-)
+ create mode 100644 comfyui-workflows/.herenow/state.json
+ create mode 100644 comfyui-workflows/flux_ikaris_reference.png
+ create mode 100644 comfyui-workflows/ikaris_flux_basic.json
+ create mode 100644 comfyui-workflows/ikaris_flux_basic.png
+ create mode 100644 vault/Agent-Talos/daily/2026-05-04.md
+To github.com:IamPatticus/Talos.git
+   7080283..2bb67f2  main -> main
+[main 02c97e6] Nightly backup: 2026-05-06 03:00:06 CDT
+ 15 files changed, 514 insertions(+), 86 deletions(-)
+ create mode 100644 scripts/daedalus_comfyui.py
+ create mode 100644 services/comfyui_bridge.py
+ create mode 100644 vault/Agent-Talos/daily/2026-05-05.md
+To github.com:IamPatticus/Talos.git
+   2bb67f2..02c97e6  main -> main
+[main 21391f6] Nightly backup: 2026-05-07 03:00:01 CDT
+ 12 files changed, 591 insertions(+), 167 deletions(-)
+ create mode 100644 backup-export/scripts/daedalus_comfyui.py
+ create mode 100644 backup-export/services/comfyui_bridge.py
+ create mode 100644 vault/Agent-Talos/daily/2026-05-06.md
+To github.com:IamPatticus/Talos.git
+   02c97e6..21391f6  main -> main
+[main 189fcc6] Nightly backup: 2026-05-08 03:00:05 CDT
+ 9 files changed, 103 insertions(+), 105 deletions(-)
+To github.com:IamPatticus/Talos.git
+   21391f6..189fcc6  main -> main
+[main 6b4d867] Nightly backup: 2026-05-09 03:00:05 CDT
+ 14 files changed, 339 insertions(+), 242 deletions(-)
+ create mode 100644 results/perplexity_rag_1778244907.json
+ create mode 100644 vault/Agent-Talos/daily/2026-05-08.md
+To github.com:IamPatticus/Talos.git
+   189fcc6..6b4d867  main -> main
+[main 723b505] Nightly backup: 2026-05-10 03:00:05 CDT
+ 16 files changed, 283 insertions(+), 101 deletions(-)
+ create mode 100644 results/perplexity_rag_1778331308.json
+ create mode 100644 scripts/checkin.py
+ create mode 100644 vault/Agent-Talos/daily/2026-05-10.md
+To github.com:IamPatticus/Talos.git
+   6b4d867..723b505  main -> main
+[main 33eef3e] Nightly backup: 2026-05-11 03:00:05 CDT
+ 22 files changed, 818 insertions(+), 174 deletions(-)
+ create mode 100644 .herenow/state.json
+ create mode 100644 backup-export/scripts/checkin.py
+ create mode 100644 results/perplexity_rag_1778417705.json
+ create mode 100644 services/mission-control/solar.html
+ create mode 100644 vault/Agent-Shared/solar-system.md
+ create mode 100644 vault/Agent-Talos/daily/2026-05-11.md
+To github.com:IamPatticus/Talos.git
+   723b505..33eef3e  main -> main
+[main dd2fa6d] Nightly backup: 2026-05-12 03:00:01 CDT
+ 25 files changed, 801 insertions(+), 131 deletions(-)
+ create mode 100644 backup-export/services/mission-control/solar.html
+ create mode 100644 pironman-build-1.png
+ create mode 100644 pironman-build-2.png
+ create mode 100644 results/perplexity_rag_1778504107.json
+ create mode 100644 scripts/pironman_color_rotate.py
+ create mode 100644 services/mission-control/pironman-color-state.json
+To github.com:IamPatticus/Talos.git
+   33eef3e..dd2fa6d  main -> main
+[main 0d39840] Nightly backup: 2026-05-13 03:00:04 CDT
+ 25 files changed, 599 insertions(+), 207 deletions(-)
+ create mode 100644 backup-export/scripts/pironman_color_rotate.py
+ create mode 100644 backup-export/services/mission-control/pironman-color-state.json
+ create mode 100644 results/perplexity_rag_1778590506.json
+ create mode 100644 scripts/garage_door_monitor.py
+ create mode 100644 vault/Agent-Talos/daily/2026-05-12.md
+To github.com:IamPatticus/Talos.git
+   dd2fa6d..0d39840  main -> main
+[main 932e643] Nightly backup: 2026-05-14 03:00:05 CDT
+ 25 files changed, 460 insertions(+), 224 deletions(-)
+ create mode 100644 backup-export/scripts/garage_door_monitor.py
+ create mode 100644 results/perplexity_rag_1778676905.json
+ create mode 100644 vault/Agent-Talos/daily/2026-05-13.md
+To github.com:IamPatticus/Talos.git
+   0d39840..932e643  main -> main
+[main 136dd2e] Nightly backup: 2026-05-15 03:00:04 CDT
+ 21 files changed, 360 insertions(+), 138 deletions(-)
+ create mode 100644 results/perplexity_rag_1778763306.json
+ create mode 100755 scripts/kiyo_record.sh
+ create mode 100755 scripts/kiyo_snap.sh
+ create mode 100755 scripts/pironman_oled_off.sh
+ create mode 100755 scripts/pironman_oled_on.sh
+ create mode 100644 vault/Agent-Talos/daily/2026-05-14.md
+To github.com:IamPatticus/Talos.git
+   932e643..136dd2e  main -> main
+[main caf7bf5] Nightly backup: 2026-05-16 03:00:05 CDT
+ 23 files changed, 309 insertions(+), 131 deletions(-)
+ create mode 100755 backup-export/scripts/kiyo_record.sh
+ create mode 100755 backup-export/scripts/kiyo_snap.sh
+ create mode 100755 backup-export/scripts/pironman_oled_off.sh
+ create mode 100755 backup-export/scripts/pironman_oled_on.sh
+ create mode 100644 results/perplexity_rag_1778849705.json
+ create mode 100644 vault/Agent-Talos/daily/2026-05-15.md
+To github.com:IamPatticus/Talos.git
+   136dd2e..caf7bf5  main -> main
+[main 4f5ac01] Nightly backup: 2026-05-17 03:00:03 CDT
+ 19 files changed, 533 insertions(+), 123 deletions(-)
+ create mode 100644 results/perplexity_rag_1778936106.json
+ create mode 100644 services/blogger/ikaris_pipeline.py
+ create mode 100644 vault/Agent-Talos/daily/2026-05-16.md
+To github.com:IamPatticus/Talos.git
+   caf7bf5..4f5ac01  main -> main
+[main 8a11ce3] Nightly backup: 2026-05-18 03:00:02 CDT
+ 30 files changed, 923 insertions(+), 116 deletions(-)
+ create mode 100644 avatars/reginald-avatar.png
+ create mode 100644 backup-export/services/blogger/ikaris_pipeline.py
+ create mode 100644 results/perplexity_rag_1779022506.json
+ create mode 100644 services/mission-control/avatars/argus-portrait---0302e503-c699-4cba-a443-b149a5314eee.png
+ create mode 100644 services/mission-control/avatars/forgekeeper-portrait---eaec6f18-0284-4744-9b48-f7252e03ba4d.png
+ create mode 100644 services/mission-control/avatars/grange-portrait---eb4cbce2-a515-41a4-9a56-480b4142d0fc.png
+ create mode 100644 services/mission-control/avatars/reginald-avatar.png
+ create mode 100644 services/mission-control/patrickdanforth.html
+ create mode 100644 vault/Agent-Talos/daily/2026-05-17.md
+To github.com:IamPatticus/Talos.git
+   4f5ac01..8a11ce3  main -> main
+[main c348176] Nightly backup: 2026-05-19 03:00:02 CDT
+ 40 files changed, 1652 insertions(+), 129 deletions(-)
+ create mode 100644 .cache/artframe/current.jpg
+ create mode 100644 .cache/artframe/state.json
+ create mode 100644 .cache/regiframe/current.jpg
+ create mode 100644 .cache/regiframe/state.json
+ create mode 100644 backup-export/avatars/reginald-avatar.png
+ create mode 100644 backup-export/services/mission-control/avatars/argus-portrait---0302e503-c699-4cba-a443-b149a5314eee.png
+ create mode 100644 backup-export/services/mission-control/avatars/forgekeeper-portrait---eaec6f18-0284-4744-9b48-f7252e03ba4d.png
+ create mode 100644 backup-export/services/mission-control/avatars/grange-portrait---eb4cbce2-a515-41a4-9a56-480b4142d0fc.png
+ create mode 100644 backup-export/services/mission-control/avatars/reginald-avatar.png
+ create mode 100644 backup-export/services/mission-control/patrickdanforth.html
+ create mode 100644 regi.png
+ create mode 100644 results/perplexity_rag_1779108906.json
+ create mode 100644 scripts/reginald_boot.py
+ create mode 100644 scripts/reginald_daily.py
+ create mode 100644 scripts/reginald_frame.py
+ create mode 100644 scripts/talos_artframe.py
+ create mode 100755 scripts/talos_dashboard.py
+ create mode 100644 services/blogger/reginald_config.json
+ create mode 100644 services/blogger/reginald_pipeline.py
+ create mode 100644 services/mission-control/favicon.ico
+ create mode 100644 services/mission-control/favicon.png
+ create mode 100644 services/reginald-frame.service
+ create mode 100644 services/talos-dashboard.service
+To github.com:IamPatticus/Talos.git
+   8a11ce3..c348176  main -> main
+warning: adding embedded git repository: patrickdanforth-site
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint: 	git submodule add <url> patrickdanforth-site
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint: 	git rm --cached patrickdanforth-site
+hint:
+hint: See "git help submodule" for more information.
+hint: Disable this message with "git config advice.addEmbeddedRepo false"
+[main 305ba07] Nightly backup: 2026-05-20 03:00:02 CDT
+ 33 files changed, 1489 insertions(+), 156 deletions(-)
+ create mode 100644 backup-export/scripts/reginald_boot.py
+ create mode 100644 backup-export/scripts/reginald_daily.py
+ create mode 100644 backup-export/scripts/reginald_frame.py
+ create mode 100644 backup-export/scripts/talos_artframe.py
+ create mode 100755 backup-export/scripts/talos_dashboard.py
+ create mode 100644 backup-export/services/blogger/reginald_config.json
+ create mode 100644 backup-export/services/blogger/reginald_pipeline.py
+ create mode 100644 backup-export/services/mission-control/favicon.ico
+ create mode 100644 backup-export/services/mission-control/favicon.png
+ create mode 100644 backup-export/services/reginald-frame.service
+ create mode 100644 backup-export/services/talos-dashboard.service
+ create mode 160000 patrickdanforth-site
+ create mode 100644 results/perplexity_rag_1779195306.json
+ create mode 100755 scripts/reginald_screen_off.sh
+ create mode 100644 vault/Agent-Talos/daily/2026-05-19.md
+To github.com:IamPatticus/Talos.git
+   c348176..305ba07  main -> main
+[main de35d04] Nightly backup: 2026-05-21 03:00:03 CDT
+ 15 files changed, 421 insertions(+), 84 deletions(-)
+ create mode 100755 backup-export/scripts/reginald_screen_off.sh
+ create mode 100644 results/perplexity_rag_1779281710.json
+ create mode 100644 vault/Agent-Talos/daily/2026-05-20.md
+To github.com:IamPatticus/Talos.git
+   305ba07..de35d04  main -> main
+[main e1a0b81] Nightly backup: 2026-05-22 03:00:03 CDT
+ 14 files changed, 105 insertions(+), 39 deletions(-)
+ create mode 100644 breaker.png
+ create mode 100644 plug.png
+ create mode 100644 vault/Agent-Talos/daily/2026-05-21.md
+ssh: Could not resolve hostname github.com: Temporary failure in name resolution
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[main 80ab797] Nightly backup: 2026-05-23 03:00:02 CDT
+ 9 files changed, 47 insertions(+), 50 deletions(-)
+ create mode 100644 screenshot_issue.png
+ create mode 100644 vault/Agent-Talos/daily/2026-05-22.md
+To github.com:IamPatticus/Talos.git
+   de35d04..80ab797  main -> main
+[main f2099e0] Nightly backup: 2026-05-24 03:00:02 CDT
+ 15 files changed, 342 insertions(+), 236 deletions(-)
+ create mode 100644 results/perplexity_rag_1779540907.json
+ create mode 100644 vault/Agent-Talos/daily/2026-05-23.md
+To github.com:IamPatticus/Talos.git
+   80ab797..f2099e0  main -> main
+[main 171adee] Nightly backup: 2026-05-25 03:00:02 CDT
+ 21 files changed, 693 insertions(+), 255 deletions(-)
+ create mode 100644 _bp_check.png
+ create mode 120000 projects/rolling-canopy
+ create mode 100644 results/perplexity_rag_1779627307.json
+ create mode 100644 services/mission-control/chaotic-thoughts.html
+ create mode 100644 terrance-supernote-blueprint.png
+ create mode 100644 vault/Agent-Talos/daily/2026-05-24.md
+To github.com:IamPatticus/Talos.git
+   f2099e0..171adee  main -> main
+[main e25ebc4] Nightly backup: 2026-05-26 03:00:02 CDT
+ 14 files changed, 544 insertions(+), 144 deletions(-)
+ create mode 100644 backup-export/services/mission-control/chaotic-thoughts.html
+ create mode 100644 results/perplexity_rag_1779713707.json
+To github.com:IamPatticus/Talos.git
+   171adee..e25ebc4  main -> main
+[main 05b0c5d] Nightly backup: 2026-05-27 03:00:03 CDT
+ 42 files changed, 3539 insertions(+), 402 deletions(-)
+ create mode 100644 results/perplexity_rag_1779800106.json
+ create mode 100755 scripts/solar_scoreboard_refresh.sh
+ create mode 100644 scripts/sync_reginald_flipbook.sh
+ create mode 100644 services/mission-control/reginald-archive/index.json
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-19.png
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-20.png
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-21.png
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-22.png
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-23.png
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-24.png
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-25.png
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-26.png
+ create mode 100644 services/mission-control/solar-live.html
+ create mode 100644 services/mission-control/solar-snapshot.json
+ create mode 100644 services/mission-control/solar-spec.html
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-19.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-20.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-21.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-22.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-23.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-24.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-25.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-26.png
+ create mode 100644 services/reginald-flipbook/index.html
+ create mode 100644 services/reginald-flipbook/index.json
+ create mode 100644 services/solar-scoreboard/fetch_data.py
+ create mode 100644 services/solar-scoreboard/index.html
+ create mode 100644 services/solar-scoreboard/snapshot.json
+ create mode 100644 vault/Agent-Talos/daily/2026-05-26.md
+To github.com:IamPatticus/Talos.git
+   e25ebc4..05b0c5d  main -> main
+[main c3db134] Nightly backup: 2026-05-28 03:00:02 CDT
+ 54 files changed, 4459 insertions(+), 510 deletions(-)
+ create mode 100755 backup-export/scripts/solar_scoreboard_refresh.sh
+ create mode 100644 backup-export/scripts/sync_reginald_flipbook.sh
+ create mode 100644 backup-export/services/mission-control/reginald-archive/index.json
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-19.png
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-20.png
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-21.png
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-22.png
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-23.png
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-24.png
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-25.png
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-26.png
+ create mode 100644 backup-export/services/mission-control/solar-live.html
+ create mode 100644 backup-export/services/mission-control/solar-snapshot.json
+ create mode 100644 backup-export/services/mission-control/solar-spec.html
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-19.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-20.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-21.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-22.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-23.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-24.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-25.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-26.png
+ create mode 100644 backup-export/services/reginald-flipbook/index.html
+ create mode 100644 backup-export/services/reginald-flipbook/index.json
+ create mode 100644 backup-export/services/solar-scoreboard/fetch_data.py
+ create mode 100644 backup-export/services/solar-scoreboard/index.html
+ create mode 100644 backup-export/services/solar-scoreboard/snapshot.json
+ create mode 100644 scripts/nexus_relay.py
+ create mode 100644 services/mission-control/mission-control-http.service
+ create mode 100644 services/mission-control/nexus-inbox.json
+ create mode 100644 services/mission-control/nexus-outbox.json
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-27.png
+ create mode 100644 services/mission-control/server.py
+ create mode 100644 services/nexus-dashboard.py
+ create mode 100644 services/passbridge.py
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-27.png
+To github.com:IamPatticus/Talos.git
+   05b0c5d..c3db134  main -> main
+[main 0152b59] Nightly backup: 2026-05-29 03:00:03 CDT
+ 41 files changed, 1696 insertions(+), 537 deletions(-)
+ create mode 100644 backup-export/scripts/nexus_relay.py
+ create mode 100644 backup-export/services/mission-control/mission-control-http.service
+ create mode 100644 backup-export/services/mission-control/nexus-inbox.json
+ create mode 100644 backup-export/services/mission-control/nexus-outbox.json
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-27.png
+ create mode 100644 backup-export/services/mission-control/server.py
+ create mode 100644 backup-export/services/nexus-dashboard.py
+ create mode 100644 backup-export/services/passbridge.py
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-27.png
+ create mode 100644 reginald-today-preview.png
+ create mode 100644 results/perplexity_rag_1779972914.json
+ create mode 100755 scripts/session_compaction.sh
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-28.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-28.png
+ create mode 100644 vault/Agent-Talos/daily/2026-05-28.md
+To github.com:IamPatticus/Talos.git
+   c3db134..0152b59  main -> main
+[main b4cd087] Nightly backup: 2026-05-30 03:00:01 CDT
+ 9 files changed, 179 insertions(+), 152 deletions(-)
+ create mode 100644 vault/Agent-Talos/daily/2026-05-29.md
+To github.com:IamPatticus/Talos.git
+   0372f10..b4cd087  main -> main
+[main df0c55f] Nightly backup: 2026-05-31 03:00:02 CDT
+ 31 files changed, 1095 insertions(+), 293 deletions(-)
+ create mode 100755 backup-export/scripts/memory_checkpoint.py
+ create mode 100755 backup-export/scripts/session_backup.sh
+ create mode 100755 backup-export/scripts/solar_scoreboard_github_refresh.sh
+ create mode 100644 backup-export/services/blogger/tmp_story.txt
+ create mode 100644 backup-export/services/mission-control/reginald.html
+ create mode 100644 memory_checkpoint.py
+ create mode 100644 results/perplexity_rag_1780145707.json
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-05-30.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-05-30.png
+ create mode 100644 vault/Agent-Talos/daily/2026-05-30.md
+ create mode 100644 vault/Agent-Talos/daily/2026-05-31.md
+To github.com:IamPatticus/Talos.git
+   b4cd087..df0c55f  main -> main
+[main c76c4e9] Nightly backup: 2026-06-01 03:00:02 CDT
+ 12 files changed, 281 insertions(+), 134 deletions(-)
+ create mode 100644 avatars/talos-avatar-v5-square.png
+ create mode 100644 avatars/talos-avatar-v5.png
+ create mode 100644 pi-zero-van-display-build.txt
+ create mode 100644 vault/Agent-Talos/daily/2026-06-01.md
+To github.com:IamPatticus/Talos.git
+   c109a31..c76c4e9  main -> main
+[main 590b996] Nightly backup: 2026-06-02 03:00:03 CDT
+ 41 files changed, 1463 insertions(+), 217 deletions(-)
+ create mode 100644 backup-export/avatars/talos-avatar-v5-square.png
+ create mode 100644 backup-export/avatars/talos-avatar-v5.png
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-05-31.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-29.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-05-31.png
+ create mode 100644 diagrams/van-solar-wiring.html
+ create mode 100644 index.html
+ create mode 100644 results/perplexity_rag_1780318506.json
+ create mode 100644 services/blogger/config.json
+ create mode 100644 services/blogger/pending_posts.json
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-06-01.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-06-01.png
+ create mode 100644 van-logo.jpg
+ create mode 100644 vanny-van.html
+ create mode 100644 vault/Agent-Talos/daily/2026-06-02.md
+ create mode 100644 vault/Agent-Talos/projects/vanny-van.md
+To github.com:IamPatticus/Talos.git
+   c76c4e9..590b996  main -> main
+[main 2ca7acc] Nightly backup: 2026-06-03 03:00:02 CDT
+ 26 files changed, 325 insertions(+), 150 deletions(-)
+ create mode 100644 backup-export/services/blogger/config.json
+ create mode 100644 backup-export/services/blogger/pending_posts.json
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-06-01.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-06-01.png
+ create mode 100644 results/perplexity_rag_1780404906.json
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-06-02.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-06-02.png
+To github.com:IamPatticus/Talos.git
+   590b996..2ca7acc  main -> main
+[main 0a423af] Nightly backup: 2026-06-04 03:00:02 CDT
+ 26 files changed, 321 insertions(+), 144 deletions(-)
+ create mode 100644 backup-export/services/mission-control/reginald-archive/reginald-2026-06-02.png
+ create mode 100644 backup-export/services/reginald-flipbook/images/reginald-2026-06-02.png
+ create mode 100644 results/perplexity_rag_1780491306.json
+ create mode 100644 services/mission-control/reginald-archive/reginald-2026-06-03.png
+ create mode 100644 services/reginald-flipbook/images/reginald-2026-06-03.png
+ create mode 100644 vault/Agent-Talos/daily/2026-06-03.md
+ create mode 100644 vault/Agent-Talos/daily/2026-06-04.md
+To github.com:IamPatticus/Talos.git
+   2ca7acc..0a423af  main -> main
+/bin/sh: 1: /home/patrick/.openclaw/workspace/scripts/github_backup.sh: not found
+/bin/sh: 1: /home/patrick/.openclaw/workspace/scripts/github_backup.sh: not found
+/bin/sh: 1: /home/patrick/.openclaw/workspace/scripts/github_backup.sh: not found

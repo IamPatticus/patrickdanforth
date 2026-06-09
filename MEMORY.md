@@ -157,3 +157,26 @@ All crew members share the same general workspace and memory context, but they a
 ---
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
+
+## Promoted From Short-Term Memory (2026-06-09)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02-0957.md:9:9 -->
+- Conversation Summary: assistant: Memory health checks passed. Daily note exists (2026-05-31.md current). MEMORY.md and working-context.md are fresh. [score=0.834 recalls=0 avg=0.620 source=memory/2026-06-02-0957.md:9-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:4:5 -->
+- Morning (08:00): Heartbeat: all systems normal, check-in and memory checkpoint crons running; Check-in state: last interaction 2026-05-24 (9 days ago) — Patticus possibly away/busy [score=0.834 recalls=0 avg=0.620 source=memory/2026-06-02.md:4-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-03.md:3:3 -->
+- Memory Log - 2026-06-03: Cron-triggered memory health checkpoint at 00:01 [score=0.834 recalls=0 avg=0.620 source=memory/2026-06-03.md:3-3]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1037.md:11:11 -->
+- Conversation Summary: Solar snapshot is stale — last update 2026-05-30 16:53 CDT. Patticus is building the rolling array so monitoring is lower priority. [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-03-1037.md:11-11]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1037.md:13:13 -->
+- Conversation Summary: New avatar generated and saved. IDENTITY.md updated. Gateway restart pending for Control UI avatar cache refresh. [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-03-1037.md:13-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1037.md:17:19 -->
+- Conversation Summary: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: Memory health checks passed. Daily note exists (2026-05-31.md current). MEMORY.md and working-context.md are fresh. [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-03-1037.md:17-19]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1037.md:3:5 -->
+- Session: 2026-06-03 10:37:49 CDT: **Session Key**: agent:main:main; **Session ID**: bb446a21-f729-43b0-9a61-2717f8f142de; **Source**: webchat [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-03-1037.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1037.md:9:9 -->
+- Conversation Summary: assistant: Memory health checks passed. Daily note exists (2026-05-31.md current). MEMORY.md and working-context.md are fresh. [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-03-1037.md:9-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1857.md:13:16 -->
+- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-03-1857.md:13-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1857.md:17:20 -->
+- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-03-1857.md:17-20]

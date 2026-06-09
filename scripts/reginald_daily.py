@@ -5,7 +5,7 @@ and saves to the network archive for the flipbook.
 Runs via cron daily. Saves to /mnt/siliconpower/images/reginald-daily/
 """
 
-import os, sys, time, json, base64, urllib.request, urllib.parse, random, shutil
+import os, sys, time, json, base64, urllib.request, urllib.parse, random, shutil, subprocess
 from pathlib import Path
 from datetime import datetime
 
@@ -50,8 +50,37 @@ def get_todays_context():
     
     return "; ".join(context_parts)
 
+def get_openai_key():
+    """Get OpenAI API key from OpenClaw config or environment."""
+    # First check environment variable
+    key = os.environ.get('OPENAI_API_KEY')
+    if key:
+        return key
+    
+    # Try to read from OpenClaw config
+    try:
+        config_path = os.path.expanduser('~/.openclaw/openclaw.json')
+        with open(config_path) as f:
+            config = json.load(f)
+        key = config.get('models', {}).get('providers', {}).get('openai', {}).get('apiKey')
+        if key:
+            return key
+    except Exception:
+        pass
+    
+    return None
+
 def generate_reginald_art():
     """Generate a single-panel Reginald cartoon using OpenAI."""
+    # Get API key
+    api_key = get_openai_key()
+    if not api_key:
+        print("Error: OPENAI_API_KEY not found in environment or OpenClaw config", file=sys.stderr)
+        return False
+    
+    # Set it for the OpenAI client
+    os.environ['OPENAI_API_KEY'] = api_key
+    
     context=get_todays_context()
     
     prompt=(

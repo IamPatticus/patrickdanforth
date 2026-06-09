@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotic Sanctum dashboard appears to be operational and currently reports strong aggregate usage: TVL at 878.33M, daily trading volume at 31.68K, 2.44M SOL dispensed, and 433.91K unstakes.[2] Its Infinity LST section shows 2,157 daily $INF holders, with 10 daily deposits and 2 daily withdrawals.[2] In the broader Sanctum architecture, the dashboard corresponds to the “Command Center” on port 1111, which is described as the web dashboard for service status, agent activity, and system health; the system’s watchdog checks enabled services every 10 minutes and marks the dashboard red if critical services fail.[3] The sources do not provide a live health indicator beyond these reported metrics, so a fuller real-time status summary is not possible from the provided material.[2][3]
+
+Sources used:
+1. [2] Sanctum Dashboard — https://sanctum-dashboard.vercel.app  
+2. [3] Services | Le Sanctum — https://www.sanctum.run/architecture/services/
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1776257707.json

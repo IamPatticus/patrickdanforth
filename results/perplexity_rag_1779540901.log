@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The sources do not provide a direct “Chaotic Sanctum dashboard status.” The closest relevant source describes a Sanctum “Command Center” dashboard as a web dashboard for service status, agent activity, and system health, with enabled services monitored by a watchdog every 10 minutes and considered healthy if their port responds or process is running; disabled services are excluded from the dashboard entirely. Another source discusses the Diablo II Chaos Sanctuary game area, but it is lore/game-mechanics information rather than dashboard status data. So, based on the provided sources, there is not enough evidence to summarize the actual current status of a “Chaotic Sanctum” dashboard.  
+
+Sources used:
+1. [3] Services | Le Sanctum (https://www.sanctum.run/architecture/services/)
+2. [2] Chaos Sanctuary (Diablo II) - Diablo Wiki - Fandom (https://diablo-archive.fandom.com/wiki/Chaos_Sanctuary_(Diablo_II))
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1779540907.json

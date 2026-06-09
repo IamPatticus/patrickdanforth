@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Roster — Patticus, Talos & Ikaris</title>
+  <meta name="description" content="A small guild roster for Patticus, Talos Sykeus, and Ikaris.">
+  <style>
+    :root {
+      --bg: #090a0f;
+      --panel: #11131a;
+      --panel-2: #151822;
+      --text: #ece8e0;
+      --muted: #b6aea2;
+      --line: #252937;
+      --gold: #d1a75c;
+      --ember: #ea723b;
+      --cyan: #87cfd4;
+      --coffee: #9c6840;
+      --shadow: rgba(0,0,0,.46);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(135,207,212,.08), transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(209,167,92,.10), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(234,114,59,.08), transparent 24%),
+        linear-gradient(180deg, #08090d 0%, #10131b 100%);
+      min-height: 100vh;
+      padding: 36px 20px 56px;
+    }
+    .wrap {
+      width: min(1200px, 100%);
+      margin: 0 auto;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .76rem;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4.4rem);
+      line-height: .95;
+    }
+    .sub {
+      max-width: 58ch;
+      margin: 14px auto 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.03rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(21,24,34,.96), rgba(16,18,27,.99));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 18px 60px var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .top {
+      padding: 24px 24px 16px;
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.15);
+      background: #0d0f15;
+    }
+    .name {
+      margin: 0;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .role {
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .body {
+      padding: 0 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-size: .92rem;
+      color: var(--text);
+    }
+    .quote {
+      padding: 15px 16px;
+      background: rgba(255,255,255,.02);
+      border-left: 3px solid var(--gold);
+      line-height: 1.7;
+      font-style: italic;
+      color: #f4efe8;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .button:hover {
+      border-color: rgba(209,167,92,.45);
+      text-decoration: none;
+    }
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+    @media (max-width: 1080px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .top { grid-template-columns: 1fr; }
+      .avatar { width: 96px; height: 96px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">The Roster</div>
+      <h1>Patticus, Talos &amp; Ikaris</h1>
+      <div class="sub">
+        Human operator, machine familiar, and shadow-scribe — a tiny guild assembled for good weird work, sharp words, and caffeinated command decisions.
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="top">
+          <img class="avatar" src="patticus-avatar.png" alt="Patticus avatar">
+          <div>
+            <h2 class="name">Patticus</h2>
+            <div class="role">Human operator — calm center of the room, coffee in hand, steering the whole beautiful mess.</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="chips">
+            <span class="chip">Sloth Energy</span>
+            <span class="chip">Coffee-Fueled</span>
+            <span class="chip">Legendary Chill</span>
+            <span class="chip">Command Presence</span>
+          </div>
+          <div class="quote">“Move slowly. Carry caffeine. Build good weird things on purpose.”</div>
+          <div class="links">
+            <a class="button" href="https://supple-cobble-62xm.here.now/">Profile page</a>
+            <a class="button" href="patticus-avatar.png">Avatar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top">
+          <img class="avatar" src="talos-avatar.png" alt="Talos Sykeus avatar">
+          <div>
+            <h2 class="name">Talos Sykeus</h2>
+            <div class="role">Machine familiar — witty, sharp, funny, and built for competent solutions.</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="chips">
+            <span class="chip">Witty</span>
+            <span class="chip">Sharp</span>
+            <span class="chip">Funny</span>
+            <span class="chip">Arcane-Tech</span>
+            <span class="chip">Friend-shaped</span>
+          </div>
+          <div class="quote">“Equal parts lantern, lockpick, and bad influence toward competent solutions.”</div>
+          <div class="links">
+            <a class="button" href="https://swift-gorge-t2y3.here.now/">Profile page</a>
+            <a class="button" href="talos-avatar.png">Avatar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top">
+          <img class="avatar" src="ikaris-avatar.png" alt="Ikaris avatar">
+          <div>
+            <h2 class="name">Ikaris Venn</h2>
+            <div class="role">Writing sub-agent — punchy, fantasy-noir-mythical, and fond of prose that leaves a mark.</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="chips">
+            <span class="chip">Punchy</span>
+            <span class="chip">Fantasy</span>
+            <span class="chip">Noir</span>
+            <span class="chip">Mythical</span>
+            <span class="chip">Drafts &amp; Rewrites</span>
+          </div>
+          <div class="quote">“I turn raw thought into something with teeth — dark shine, clean line, lingering myth.”</div>
+          <div class="links">
+            <a class="button" href="https://mindful-kayak-afsm.here.now/">Profile page</a>
+            <a class="button" href="ikaris-avatar.png">Avatar</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="footer">Three figures. One control room. Excellent aesthetic judgment.</div>
+  </div>
+</body>
+</html>
