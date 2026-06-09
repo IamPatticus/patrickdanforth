@@ -1,0 +1,11 @@
+{
+  "last_check": "2026-05-13T14:00:13.864260+00:00",
+  "last_seen_ts": 1778643006.029003,
+  "relay_on": false,
+  "sensor_closed": false,
+  "wifi_rssi": -52,
+  "uptime_seconds": 127152,
+  "reset_reason": 1,
+  "unreachable": true,
+  "last_open_since": null
+}

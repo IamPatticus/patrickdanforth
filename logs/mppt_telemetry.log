@@ -1,0 +1,12 @@
+/home/patrick/.openclaw/workspace/scripts/mppt_telemetry.py:110: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(transport='websockets')
+/home/patrick/.openclaw/workspace/scripts/mppt_telemetry.py:110: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(transport='websockets')
+/home/patrick/.openclaw/workspace/scripts/mppt_telemetry.py:110: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(transport='websockets')
+/home/patrick/.openclaw/workspace/scripts/mppt_telemetry.py:110: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(transport='websockets')
+/home/patrick/.openclaw/workspace/scripts/mppt_telemetry.py:110: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(transport='websockets')
+/home/patrick/.openclaw/workspace/scripts/mppt_telemetry.py:110: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(transport='websockets')
