@@ -57,7 +57,7 @@ assistant: Need to fix the tagline count:
 
 assistant: Both tagline and footer updated. Daedalus is live on the roster. 🜂
 
-Check it out at `https://talos.tail4695cd.ts.net/mission/roster.html`
+Check it out at `https://serenity.tail4695cd.ts.net/mission/roster.html`
 user: Sender (untrusted metadata):
 ```json
 {

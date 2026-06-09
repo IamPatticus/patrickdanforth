@@ -71,7 +71,7 @@ What to do next
 1) Test the whisplay UI:
    - On the Pi (or another machine on the LAN/Tailscale), open:
      http://<pi-ip>:8421  (the installer suggested 192.168.1.103:8421 earlier)
-   - Verify the interface loads and whether it now connects to https://talos.tail4695cd.ts.net.
+   - Verify the interface loads and whether it now connects to https://serenity.tail4695cd.ts.net.
 
 2) If the UI still tries talossykeus.tail4695cd.ts.net:
    - That likely came from a saved browser URL or a separate device. We can search client-side saved URLs (Chromium profile) or any startup script that launches the kiosk browser and update it.
@@ -198,7 +198,7 @@ user: Sender (untrusted metadata):
 assistant: I checked memory first (no relevant saved snippets found), then pulled together what we did in this session. Summary of our work so far:
 
 - Diagnosed a 404 when reaching the OpenClaw UI — root cause was an incorrect URL (you were using a tailnet name with the local port).
-- We set OPENCLAW_BASE_URL correctly to https://talos.tail4695cd.ts.net and verified the OpenClaw gateway responds on 127.0.0.1:18789.
+- We set OPENCLAW_BASE_URL correctly to https://serenity.tail4695cd.ts.net and verified the OpenClaw gateway responds on 127.0.0.1:18789.
 - Investigated whisplay (PiSugar) on the Pi Zero W2:
   - Found pisugar-server running and serving the web UI on ports 8421/8422/8423.
   - The UI loaded, but battery % was missing.

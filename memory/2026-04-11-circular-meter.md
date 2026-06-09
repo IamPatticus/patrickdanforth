@@ -29,7 +29,7 @@ assistant: Now swap the Time Left stat for a circular progress meter in both pri
 
 assistant: Now update the `updatePrinter` JS to drive the circular meter instead of `timeLeft`:
 
-assistant: All good. Hard refresh `https://talos.tail4695cd.ts.net/mission/` — each printer card now shows a circular progress ring with the percentage in the center, filled cyan during printing and green when complete. No more "Time Left" text line.
+assistant: All good. Hard refresh `https://serenity.tail4695cd.ts.net/mission/` — each printer card now shows a circular progress ring with the percentage in the center, filled cyan during printing and green when complete. No more "Time Left" text line.
 user: Sender (untrusted metadata):
 ```json
 {
@@ -38,14 +38,14 @@ user: Sender (untrusted metadata):
 }
 ```
 
-[Sat 2026-04-11 09:24 CDT] Can you do the same on the print farm page https://talos.tail4695cd.ts.net/mission/printfarm.html
+[Sat 2026-04-11 09:24 CDT] Can you do the same on the print farm page https://serenity.tail4695cd.ts.net/mission/printfarm.html
 assistant: Got it. Let me add the circular meter CSS to printfarm.html and swap the progress bar for the ring:
 
 assistant: Now swap the progress bar HTML for the circular meter layout:
 
 assistant: Now add the JS that actually draws the ring — inject after the card HTML is rendered:
 
-assistant: Done. Hard refresh `https://talos.tail4695cd.ts.net/mission/printfarm.html` — same circular meter treatment: big ring with percentage in the center, cyan ring filling up as it prints, green ring when complete. Still shows the time remaining alongside.
+assistant: Done. Hard refresh `https://serenity.tail4695cd.ts.net/mission/printfarm.html` — same circular meter treatment: big ring with percentage in the center, cyan ring filling up as it prints, green ring when complete. Still shows the time remaining alongside.
 user: Sender (untrusted metadata):
 ```json
 {

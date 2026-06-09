@@ -80,7 +80,7 @@ user: Sender (untrusted metadata):
 }
 ```
 
-[Thu 2026-03-26 10:02 CDT] What language is the briefing page, as I can 't read most of it https://talos.tail4695cd.ts.net/mission/briefings/latest_briefing.html
+[Thu 2026-03-26 10:02 CDT] What language is the briefing page, as I can 't read most of it https://serenity.tail4695cd.ts.net/mission/briefings/latest_briefing.html
 assistant: [[reply_to_current]] The briefing page is mostly English, but it quotes/embeds German source text in places. The visible summary is English; the German fragments come from the source docs.
 
 Quick plain-English summary (and translations of the German snippets you can’t read)

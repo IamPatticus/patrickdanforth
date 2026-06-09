@@ -60,7 +60,7 @@ Found it. The Whoop API structure has changed — the old app.py was written for
 
 The OAuth credentials are fine (same client ID/secret), the tokens just need re-authentication since the old tokens file is gone. But first I need to update the app to use the v2 API paths.
 
-**Quick question:** Do you want the Whoop dashboard accessible from outside your network (like how the Chaotic Sanctum is at `https://talos.tail4695cd.ts.net/mission/`), or just locally on the Pi for now?
+**Quick question:** Do you want the Whoop dashboard accessible from outside your network (like how the Chaotic Sanctum is at `https://serenity.tail4695cd.ts.net/mission/`), or just locally on the Pi for now?
 user: Sender (untrusted metadata):
 ```json
 {
@@ -96,7 +96,7 @@ Here's where things stand:
 - Flask app needs updating to use new v2 endpoints
 - Reverse proxy already routes `/whoop/*` to port 5001 — so it's already accessible externally once the app is fixed
 
-Want me to finish the Whoop app update now? It's a straightforward fix — swap the API calls to v2, re-run the OAuth flow, and it'll be live at `https://talos.tail4695cd.ts.net/whoop/`.
+Want me to finish the Whoop app update now? It's a straightforward fix — swap the API calls to v2, re-run the OAuth flow, and it'll be live at `https://serenity.tail4695cd.ts.net/whoop/`.
 user: Sender (untrusted metadata):
 ```json
 {

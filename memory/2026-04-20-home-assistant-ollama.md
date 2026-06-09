@@ -125,7 +125,7 @@ Same integration, same setup — just swap the URL. If your Ollama Cloud endpoin
 - Is your Ollama Cloud endpoint reachable from outside your local network? (It should be if OpenClaw is accessible via Tailscale Serve)
 - Home Assistant needs to be able to *reach* that endpoint, not just your browser
 
-If OpenClaw is running on the Pi and you've got Tailscale set up, Home Assistant on the same Tailscale network could probably reach `http://talos.tail4695cd.ts.net:11434` directly.
+If OpenClaw is running on the Pi and you've got Tailscale set up, Home Assistant on the same Tailscale network could probably reach `http://serenity.tail4695cd.ts.net:11434` directly.
 
 Want me to help you set up the Ollama integration in Home Assistant to point at your cloud instance?
 user: Sender (untrusted metadata):

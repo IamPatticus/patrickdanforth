@@ -40,7 +40,7 @@ That’s the practical win.
 
 ### If you want to salvage Comet:
 Clear site data for:
-- `talos.tail4695cd.ts.net`
+- `serenity.tail4695cd.ts.net`
 - especially the `:8443` origin if it shows separately
 
 Then reopen Nerve fresh.
