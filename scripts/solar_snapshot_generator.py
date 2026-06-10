@@ -22,10 +22,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, Any
 
-# Device configurations
+# Device configurations - Unit 226 is the actual battery, Unit 100 is system aggregate
 CERBOS = {
-    'house': {'ip': '192.168.1.243', 'port': 502, 'name': 'House'},
-    'shop': {'ip': '192.168.1.128', 'port': 502, 'name': 'Shop/Garage'},
+    'house': {'ip': '192.168.1.243', 'port': 502, 'name': 'House', 'battery_unit': 226},
+    'shop': {'ip': '192.168.1.128', 'port': 502, 'name': 'Shop/Garage', 'battery_unit': 226},
 }
 
 OUTPUT_FILE = Path('/home/patrick/.openclaw/workspace/solar-snapshot.json')
@@ -33,12 +33,14 @@ SITE_FILE = Path('/home/patrick/.openclaw/workspace/snapshot.json')  # For patri
 
 # Modbus register mappings for Victron system device (Unit 100)
 REGISTERS = {
-    'battery_soc': {'addr': 840, 'scale': 0.1, 'signed': False, 'unit': 100},
-    'battery_power': {'addr': 841, 'scale': 1, 'signed': True, 'unit': 100},
-    'battery_voltage': {'addr': 842, 'scale': 0.01, 'signed': True, 'unit': 100},
-    'battery_current': {'addr': 843, 'scale': 0.1, 'signed': True, 'unit': 100},
-    'battery_temp': {'addr': 844, 'scale': 0.1, 'signed': True, 'unit': 100},
-    'pv_power': {'addr': 826, 'scale': 1, 'signed': False, 'unit': 100},  # AC coupled PV
+    # Battery registers (unit from config['battery_unit'])
+    'battery_soc': {'addr': 266, 'scale': 0.1, 'signed': False},
+    'battery_voltage': {'addr': 259, 'scale': 0.01, 'signed': False},
+    'battery_current': {'addr': 261, 'scale': 0.1, 'signed': True},
+    'battery_temp': {'addr': 262, 'scale': 0.1, 'signed': True},
+    
+    # System registers (unit 100)
+    'pv_power': {'addr': 826, 'scale': 1, 'signed': False, 'unit': 100},
     'grid_power': {'addr': 810, 'scale': 1, 'signed': True, 'unit': 100},
     'ac_loads': {'addr': 832, 'scale': 1, 'signed': True, 'unit': 100},
 }
@@ -94,14 +96,15 @@ def poll_cerbo(config: Dict[str, Any]) -> Dict[str, Any]:
     ip = config['ip']
     port = config['port']
     name = config['name']
+    battery_unit = config.get('battery_unit', 226)  # Default to 226 for actual battery
     
     print(f"\nPolling {name} at {ip}:{port}...")
     
     result = {'online': False}
     
-    # Check if device is reachable
+    # Check if device is reachable via system unit
     try:
-        test = read_modbus_register(ip, port, 100, 840, 1)
+        test = read_modbus_register(ip, port, 100, 826, 1)  # PV power
         if test is None:
             print(f"  ❌ Device unreachable")
             return result
@@ -110,20 +113,47 @@ def poll_cerbo(config: Dict[str, Any]) -> Dict[str, Any]:
         print(f"  ❌ Connection failed: {e}")
         return result
     
-    # Read all configured registers
-    for field, reg_config in REGISTERS.items():
+    # Read battery registers from unit 226 (actual battery)
+    print(f"  Reading battery from unit {battery_unit}...")
+    battery_fields = ['battery_soc', 'battery_voltage', 'battery_current', 'battery_temp']
+    for field in battery_fields:
+        reg_config = REGISTERS[field]
+        try:
+            data = read_modbus_register(ip, port, battery_unit, reg_config['addr'])
+            if data:
+                value = decode_value(data[0], reg_config['scale'], reg_config['signed'])
+                result[field] = value
+                print(f"    {field}: {value}")
+            else:
+                result[field] = None
+                print(f"    {field}: None")
+        except Exception as e:
+            print(f"    {field}: Error - {e}")
+            result[field] = None
+    
+    # Read system registers from unit 100
+    print(f"  Reading system from unit 100...")
+    system_fields = ['pv_power', 'grid_power', 'ac_loads']
+    for field in system_fields:
+        reg_config = REGISTERS[field]
         try:
             data = read_modbus_register(ip, port, reg_config['unit'], reg_config['addr'])
             if data:
                 value = decode_value(data[0], reg_config['scale'], reg_config['signed'])
                 result[field] = value
-                print(f"  {field}: {value}")
+                print(f"    {field}: {value}")
             else:
                 result[field] = None
-                print(f"  {field}: None (no response)")
+                print(f"    {field}: None")
         except Exception as e:
-            print(f"  {field}: Error - {e}")
+            print(f"    {field}: Error - {e}")
             result[field] = None
+    
+    # Calculate battery power from voltage and current
+    voltage = result.get('battery_voltage') or 0
+    current = result.get('battery_current') or 0
+    result['battery_power'] = voltage * current
+    print(f"    battery_power: {result['battery_power']:.1f}W (calculated)")
     
     return result
 
