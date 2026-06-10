@@ -1,6 +1,6 @@
 {
-  "timestamp": 1781050593.483767,
-  "datetime": "2026-06-10 00:16:33 ",
+  "timestamp": 1781050958.38624,
+  "datetime": "2026-06-10 00:22:38 ",
   "weather": {
     "temperature": null,
     "condition": null,
@@ -40,8 +40,8 @@
   },
   "shop": {
     "battery_soc_pct": 53.2,
-    "power_w": 59,
-    "dc_bus_voltage_v": -3.14,
+    "power_w": 58,
+    "dc_bus_voltage_v": -3.08,
     "dc_bus_current_a": 8.5,
     "consumed_ah": 0.0,
     "time_to_go_s": 0.0,
@@ -50,14 +50,45 @@
     "discharged_energy_kwh": 0.0,
     "solar_production_w": 0,
     "yield_today_kwh": 0.0,
-    "state": "DISCHARGING"
+    "state": "DISCHARGING",
+    "tinker_town_battery_power_w": 58,
+    "tinker_town_battery_soc_pct": 53.2,
+    "tinker_town_battery_state": "DISCHARGING",
+    "tinker_town_charge_energy_kwh": 0.0,
+    "tinker_town_discharge_energy_kwh": 0.0,
+    "tinker_town_system_state": "off",
+    "tinker_town_version": "v3.80~25",
+    "tinker_town_voltage_v": -3.08,
+    "tinker_town_current_a": 8.5
   },
   "totals": {
     "total_solar_w": 240,
     "total_battery_soc": 53.150000000000006,
-    "total_consumption_w": 27235,
+    "total_consumption_w": 27234,
     "house_online": true,
     "shop_online": true
+  },
+  "ac_array": {
+    "small_bedroom_state": "off",
+    "small_bedroom_temp": 69,
+    "big_bedroom_state": "off",
+    "big_bedroom_temp": 75,
+    "homestead_mini_state": "off",
+    "homestead_mini_temp": 78,
+    "tiny_mini_state": "off",
+    "tiny_mini_temp": 71
+  },
+  "forecast": {
+    "house_today_kwh": 0.0,
+    "house_today_remaining_kwh": 0.0,
+    "house_tomorrow_kwh": 0.0,
+    "shop_today_kwh": 0.0,
+    "shop_today_remaining_kwh": 0.0,
+    "shop_tomorrow_kwh": 0.0
+  },
+  "grid": {
+    "co2_intensity": 385,
+    "fossil_fuel_pct": 52.78
   },
   "raw_data": {
     "house": {
@@ -72,8 +103,8 @@
     },
     "shop": {
       "battery_soc": 53.2,
-      "battery_power": -59,
-      "battery_voltage": -3.14,
+      "battery_power": -58,
+      "battery_voltage": -3.08,
       "battery_current": 8.5,
       "battery_temp": 0.2,
       "pv_power": 0,
@@ -81,4 +112,4 @@
       "ac_loads": 27176
     }
   }
-}{"force_deploy": true}
+}
