@@ -42,10 +42,10 @@ REGISTERS = {
     'battery_capacity': {'addr': 280, 'scale': 0.01, 'signed': False},  # Total capacity
     'consumed_ah': {'addr': 265, 'scale': 0.1, 'signed': True},  # Consumed since last sync
     
-    # System registers (unit 100)
+    # System registers (unit 100) - Off-grid system
     'pv_power': {'addr': 826, 'scale': 1, 'signed': False, 'unit': 100},
-    'grid_power': {'addr': 810, 'scale': 1, 'signed': True, 'unit': 100},
-    'ac_loads': {'addr': 832, 'scale': 1, 'signed': True, 'unit': 100},
+    'grid_power': {'addr': 820, 'scale': 1, 'signed': True, 'unit': 100},  # Will be 0 for off-grid
+    'ac_loads': {'addr': 817, 'scale': 1, 'signed': True, 'unit': 100},  # Actual AC consumption
 }
 
 
@@ -292,7 +292,9 @@ def build_snapshot(house_data: Dict, shop_data: Dict) -> Dict[str, Any]:
             "total_battery_soc": ((house_data.get('battery_soc') or 0) + (shop_data.get('battery_soc') or 0)) / 2,
             "total_consumption_w": (house_data.get('ac_loads') or 0) + abs(shop_batt_power),
             "house_online": house_data.get('online', False),
-            "shop_online": shop_data.get('online', False)
+            "shop_online": shop_data.get('online', False),
+            "off_grid": True,
+            "grid_connected": False
         },
         "ac_array": {
             "small_bedroom_state": "off",
