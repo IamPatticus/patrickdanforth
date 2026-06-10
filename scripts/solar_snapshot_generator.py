@@ -213,7 +213,17 @@ def build_snapshot(house_data: Dict, shop_data: Dict) -> Dict[str, Any]:
             "discharged_energy_kwh": 0.0,
             "solar_production_w": shop_data.get('pv_power') or 0,
             "yield_today_kwh": 0.0,
-            "state": shop_batt_state
+            "state": shop_batt_state,
+            # Legacy field names for scoreboard compatibility
+            "tinker_town_battery_power_w": abs(shop_batt_power),
+            "tinker_town_battery_soc_pct": shop_data.get('battery_soc') or 0,
+            "tinker_town_battery_state": shop_batt_state,
+            "tinker_town_charge_energy_kwh": 0.0,
+            "tinker_town_discharge_energy_kwh": 0.0,
+            "tinker_town_system_state": "off",
+            "tinker_town_version": "v3.80~25",
+            "tinker_town_voltage_v": shop_data.get('battery_voltage') or 0,
+            "tinker_town_current_a": shop_data.get('battery_current') or 0
         },
         "totals": {
             "total_solar_w": (house_data.get('pv_power') or 0) + (shop_data.get('pv_power') or 0),
@@ -221,6 +231,28 @@ def build_snapshot(house_data: Dict, shop_data: Dict) -> Dict[str, Any]:
             "total_consumption_w": (house_data.get('ac_loads') or 0) + abs(shop_batt_power),
             "house_online": house_data.get('online', False),
             "shop_online": shop_data.get('online', False)
+        },
+        "ac_array": {
+            "small_bedroom_state": "off",
+            "small_bedroom_temp": 69,
+            "big_bedroom_state": "off", 
+            "big_bedroom_temp": 75,
+            "homestead_mini_state": "off",
+            "homestead_mini_temp": 78,
+            "tiny_mini_state": "off",
+            "tiny_mini_temp": 71
+        },
+        "forecast": {
+            "house_today_kwh": 0.0,
+            "house_today_remaining_kwh": 0.0,
+            "house_tomorrow_kwh": 0.0,
+            "shop_today_kwh": 0.0,
+            "shop_today_remaining_kwh": 0.0,
+            "shop_tomorrow_kwh": 0.0
+        },
+        "grid": {
+            "co2_intensity": 385,
+            "fossil_fuel_pct": 52.78
         },
         "raw_data": {
             "house": {k: v for k, v in house_data.items() if k != 'online'},
