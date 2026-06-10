@@ -32,13 +32,15 @@ CERBOS = {
 OUTPUT_FILE = Path('/home/patrick/.openclaw/workspace/solar-snapshot.json')
 SITE_FILE = Path('/home/patrick/.openclaw/workspace/snapshot.json')  # For patrickdanforth.com
 
-# Modbus register mappings for Victron system device (Unit 100)
+# Modbus register mappings
 REGISTERS = {
     # Battery registers (unit from config['battery_unit'])
     'battery_soc': {'addr': 266, 'scale': 0.1, 'signed': False},
     'battery_voltage': {'addr': 259, 'scale': 0.01, 'signed': False},
     'battery_current': {'addr': 261, 'scale': 0.1, 'signed': True},
     'battery_temp': {'addr': 262, 'scale': 0.1, 'signed': True},
+    'battery_capacity': {'addr': 280, 'scale': 0.01, 'signed': False},  # Total capacity
+    'consumed_ah': {'addr': 265, 'scale': 0.1, 'signed': True},  # Consumed since last sync
     
     # System registers (unit 100)
     'pv_power': {'addr': 826, 'scale': 1, 'signed': False, 'unit': 100},
@@ -116,7 +118,7 @@ def poll_cerbo(config: Dict[str, Any]) -> Dict[str, Any]:
     
     # Read battery registers from unit 226 (actual battery)
     print(f"  Reading battery from unit {battery_unit}...")
-    battery_fields = ['battery_soc', 'battery_voltage', 'battery_current', 'battery_temp']
+    battery_fields = ['battery_soc', 'battery_voltage', 'battery_current', 'battery_temp', 'battery_capacity', 'consumed_ah']
     for field in battery_fields:
         reg_config = REGISTERS[field]
         try:
@@ -194,6 +196,33 @@ def build_snapshot(house_data: Dict, shop_data: Dict) -> Dict[str, Any]:
     shop_batt_power = shop_data.get('battery_power') or 0
     shop_batt_state = "CHARGING" if shop_batt_power > 0 else "DISCHARGING"
     
+    # Calculate Time to Go (hours until empty if discharging, until full if charging)
+    def calc_time_to_go(soc, current_a, capacity_ah):
+        if current_a == 0:
+            return 0.0
+        if capacity_ah == 0:
+            return 0.0
+        if current_a < 0:  # Discharging
+            remaining_ah = capacity_ah * (soc / 100)
+            return abs(remaining_ah / current_a)
+        else:  # Charging - time to full
+            needed_ah = capacity_ah * (1 - soc / 100)
+            return needed_ah / current_a
+    
+    house_capacity = house_data.get('battery_capacity') or 350  # Fallback to 350Ah
+    house_time_to_go = calc_time_to_go(
+        house_data.get('battery_soc') or 0,
+        house_data.get('battery_current') or 0,
+        house_capacity
+    )
+    
+    shop_capacity = shop_data.get('battery_capacity') or 650  # Fallback to 650Ah
+    shop_time_to_go = calc_time_to_go(
+        shop_data.get('battery_soc') or 0,
+        shop_data.get('battery_current') or 0,
+        shop_capacity
+    )
+    
     snapshot = {
         "timestamp": timestamp,
         "datetime": now.strftime("%Y-%m-%d %H:%M:%S %Z"),
@@ -209,8 +238,8 @@ def build_snapshot(house_data: Dict, shop_data: Dict) -> Dict[str, Any]:
             "battery_voltage_v": house_data.get('battery_voltage') or 0,
             "battery_current_a": house_data.get('battery_current') or 0,
             "battery_state": house_batt_state,
-            "battery_time_to_go_h": 0.0,
-            "battery_amphours": 0.0,
+            "battery_time_to_go_h": round(house_time_to_go, 1),
+            "battery_amphours": round(house_capacity * (house_data.get('battery_soc') or 0) / 100, 1),
             "consumption_l1_w": house_data.get('ac_loads') or 0,
             "grid_l1_w": house_data.get('grid_power') or 0,
             "system_power_w": house_batt_power,
@@ -239,8 +268,8 @@ def build_snapshot(house_data: Dict, shop_data: Dict) -> Dict[str, Any]:
             "power_w": abs(shop_batt_power),
             "dc_bus_voltage_v": shop_data.get('battery_voltage') or 0,
             "dc_bus_current_a": shop_data.get('battery_current') or 0,
-            "consumed_ah": 0.0,
-            "time_to_go_s": 0.0,
+            "consumed_ah": shop_data.get('consumed_ah') or 0,
+            "time_to_go_s": round(shop_time_to_go * 3600, 0),  # Convert hours to seconds
             "battery_temp_f": ((shop_data.get('battery_temp') or 0) * 1.8 + 32) if shop_data.get('battery_temp') else 0,
             "charged_energy_kwh": 0.0,
             "discharged_energy_kwh": 0.0,
