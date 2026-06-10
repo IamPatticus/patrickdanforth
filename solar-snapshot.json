@@ -1,6 +1,6 @@
 {
-  "timestamp": 1781049844.099227,
-  "datetime": "2026-06-10 00:04:04 ",
+  "timestamp": 1781050593.483767,
+  "datetime": "2026-06-10 00:16:33 ",
   "weather": {
     "temperature": null,
     "condition": null,
@@ -9,40 +9,40 @@
   "house": {
     "pv_power_w": 240,
     "battery_soc_pct": 53.1,
-    "battery_power_w": -85,
-    "battery_voltage_v": -4.5200000000000005,
+    "battery_power_w": -92,
+    "battery_voltage_v": -4.89,
     "battery_current_a": 8.0,
     "battery_state": "DISCHARGING",
     "battery_time_to_go_h": 0.0,
     "battery_amphours": 0.0,
     "consumption_l1_w": 27176,
     "grid_l1_w": 0,
-    "system_power_w": -85,
+    "system_power_w": -92,
     "ac_loads_w": 27176,
     "dc_loads_w": 0.0,
-    "inverter_output_w": 85,
+    "inverter_output_w": 92,
     "inverter_state": "Inverting",
-    "inverter_dc_power_w": -85,
-    "inverter_apparent_power_va": 85,
+    "inverter_dc_power_w": -92,
+    "inverter_apparent_power_va": 92,
     "inverter_output_voltage_v": 0.0,
     "inverter_output_frequency_hz": 0.0,
     "inverter_lifetime_kwh": 0.0,
     "solar_production_w": 240,
-    "bus_charge_power_w": -85,
+    "bus_charge_power_w": -92,
     "bus_charge_current_a": 8.0,
     "dc_pv_current_a": 0.0,
     "dc_pv_power_w": 240,
-    "homestead_power_w": -85,
+    "homestead_power_w": -92,
     "homestead_soc_pct": 53.1,
     "homestead_charged_kwh": 0.0,
     "homestead_discharged_kwh": 0.0,
-    "house_dc_battery_power_w": -85
+    "house_dc_battery_power_w": -92
   },
   "shop": {
     "battery_soc_pct": 53.2,
-    "power_w": 60,
-    "dc_bus_voltage_v": -3.19,
-    "dc_bus_current_a": 8.6,
+    "power_w": 59,
+    "dc_bus_voltage_v": -3.14,
+    "dc_bus_current_a": 8.5,
     "consumed_ah": 0.0,
     "time_to_go_s": 0.0,
     "battery_temp_f": 32.36,
@@ -55,15 +55,15 @@
   "totals": {
     "total_solar_w": 240,
     "total_battery_soc": 53.150000000000006,
-    "total_consumption_w": 27236,
+    "total_consumption_w": 27235,
     "house_online": true,
     "shop_online": true
   },
   "raw_data": {
     "house": {
       "battery_soc": 53.1,
-      "battery_power": -85,
-      "battery_voltage": -4.5200000000000005,
+      "battery_power": -92,
+      "battery_voltage": -4.89,
       "battery_current": 8.0,
       "battery_temp": 0.2,
       "pv_power": 240,
@@ -72,13 +72,13 @@
     },
     "shop": {
       "battery_soc": 53.2,
-      "battery_power": -60,
-      "battery_voltage": -3.19,
-      "battery_current": 8.6,
+      "battery_power": -59,
+      "battery_voltage": -3.14,
+      "battery_current": 8.5,
       "battery_temp": 0.2,
       "pv_power": 0,
       "grid_power": 0,
       "ac_loads": 27176
     }
   }
-}# Last manual refresh: 2026-06-10 00:06:39 UTC
+}

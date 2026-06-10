@@ -29,6 +29,7 @@ CERBOS = {
 }
 
 OUTPUT_FILE = Path('/home/patrick/.openclaw/workspace/solar-snapshot.json')
+SITE_FILE = Path('/home/patrick/.openclaw/workspace/snapshot.json')  # For patrickdanforth.com
 
 # Modbus register mappings for Victron system device (Unit 100)
 REGISTERS = {
@@ -243,12 +244,20 @@ def main():
     # Build snapshot
     snapshot = build_snapshot(house_data, shop_data)
     
-    # Write to file
+    # Write to files
     with open(OUTPUT_FILE, 'w') as f:
         json.dump(snapshot, f, indent=2)
     
+    with open(SITE_FILE, 'w') as f:
+        json.dump(snapshot, f, indent=2)
+    
     print(f"\n{'='*60}")
-    print(f"✅ Snapshot written to: {OUTPUT_FILE}")
+    print(f"✅ Snapshots written to:")
+    print(f"   {OUTPUT_FILE}")
+    print(f"   {SITE_FILE}")
+    
+    print(f"\n{'='*60}")
+    print(f"✅ Snapshots written to: {OUTPUT_FILE} and {SITE_FILE}")
     print(f"\nSummary:")
     print(f"  House: SOC={snapshot['house']['battery_soc_pct']:.1f}% | PV={snapshot['house']['pv_power_w']:.0f}W | Load={snapshot['house']['ac_loads_w']:.0f}W | Grid={snapshot['house']['grid_l1_w']:.0f}W")
     print(f"  Shop:  SOC={snapshot['shop']['battery_soc_pct']:.1f}% | PV={snapshot['shop']['solar_production_w']:.0f}W")
