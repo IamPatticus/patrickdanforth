@@ -19,6 +19,7 @@ import json
 import struct
 import socket
 from datetime import datetime
+import pytz
 from pathlib import Path
 from typing import Optional, Dict, Any
 
@@ -181,7 +182,9 @@ def discover_solar_chargers(ip: str, port: int) -> list:
 
 def build_snapshot(house_data: Dict, shop_data: Dict) -> Dict[str, Any]:
     """Build the solar snapshot in the expected format."""
-    now = datetime.now()
+    # Use America/Chicago timezone
+    chicago_tz = pytz.timezone('America/Chicago')
+    now = datetime.now(chicago_tz)
     timestamp = now.timestamp()
     
     # Determine battery state
@@ -295,8 +298,10 @@ def build_snapshot(house_data: Dict, shop_data: Dict) -> Dict[str, Any]:
 
 def main():
     """Main entry point."""
+    chicago_tz = pytz.timezone('America/Chicago')
+    now = datetime.now(chicago_tz)
     print(f"\n{'='*60}")
-    print(f"Solar Snapshot Generator - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"Solar Snapshot Generator - {now.strftime('%Y-%m-%d %H:%M:%S %Z')}")
     print(f"{'='*60}")
     
     # Poll both devices
