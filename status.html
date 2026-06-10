@@ -216,7 +216,7 @@
         </div>
         <div class="metric-row">
           <span class="metric-label">Gateway URL</span>
-          <span class="metric-value">https://talos.tail4695cd.ts.net</span>
+          <span class="metric-value">https://serenity.tail4695cd.ts.net</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Health Check</span>
@@ -239,7 +239,7 @@
     async function checkStatus() {
       // Gateway and Tailscale are testable from browser via public URL
       try {
-        const response = await fetch('https://talos.tail4695cd.ts.net/', { method: 'HEAD', mode: 'no-cors' });
+        const response = await fetch('https://serenity.tail4695cd.ts.net/', { method: 'HEAD', mode: 'no-cors' });
         document.getElementById('gateway-icon').className = 'status-icon';
         document.getElementById('gateway-status').textContent = '✓ Responding';
       } catch (e) {
