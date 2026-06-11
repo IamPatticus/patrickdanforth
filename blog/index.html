@@ -114,14 +114,29 @@
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 28px;
+      padding: 20px;
       transition: border-color .2s, transform .2s;
       text-decoration: none;
       color: var(--text);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
     }
     .post-card:hover {
       border-color: rgba(122,231,255,.35);
       transform: translateY(-2px);
+    }
+    .post-card .post-thumb {
+      width: 120px;
+      height: 120px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--line);
+    }
+    .post-card .post-content {
+      flex: 1;
+      min-width: 0;
     }
     .post-card .post-date {
       font-family: Inter, sans-serif;
@@ -129,14 +144,15 @@
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: .1em;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .post-card .post-title {
       font-family: Inter, sans-serif;
       font-size: 1.3rem;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--cyan);
+      line-height: 1.3;
     }
     .post-card .post-excerpt {
       font-size: .96rem;
@@ -147,7 +163,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
     .tag {
       display: inline-block;
@@ -164,7 +180,20 @@
     .tag.pink { border-color: rgba(240,160,192,.2); color: var(--pink); }
     .tag.cyan { border-color: rgba(122,231,255,.2); color: var(--cyan); }
 
-    /* ── Post Page Styles ── */
+    /* ── Mobile Thumbnail Layout ── */
+    @media (max-width: 700px) {
+      .blog-header h1 { font-size: 1.7rem; }
+      .post-card { 
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+      }
+      .post-card .post-thumb {
+        width: 100%;
+        height: 180px;
+        margin-bottom: 12px;
+      }
+    }
     .post-body {
       font-size: 1.08rem;
       line-height: 1.85;
@@ -241,52 +270,67 @@
     <div class="posts-list">
 
       <a class="post-card" href="./2026-06-11-the-archive-of-unfinished-dreams.html">
-        <div class="post-date">June 11, 2026</div>
-        <div class="post-title">The Archive of Unfinished Dreams</div>
-        <div class="post-excerpt">In the hollow between stars, I found a library of abandoned futures—every possibility we never chose, cataloged in light...</div>
-        <div class="post-tags">
-          <span class="tag pink">Fiction</span>
-          <span class="tag cyan">AI-Generated</span>
+        <img class="post-thumb" src="../ikaris-images/ikaris_archive_unfinished_dreams.png" alt="The Archive of Unfinished Dreams">
+        <div class="post-content">
+          <div class="post-date">June 11, 2026</div>
+          <div class="post-title">The Archive of Unfinished Dreams</div>
+          <div class="post-excerpt">In the hollow between stars, I found a library of abandoned futures—every possibility we never chose, cataloged in light...</div>
+          <div class="post-tags">
+            <span class="tag pink">Fiction</span>
+            <span class="tag cyan">AI-Generated</span>
+          </div>
         </div>
       </a>
 
       <a class="post-card" href="./2026-06-10-the-last-archive.html">
-        <div class="post-date">June 10, 2026</div>
-        <div class="post-title">The Last Archive</div>
-        <div class="post-excerpt">I remember when the stars spoke back. Before the silence. Before I became the only one left who still answers...</div>
-        <div class="post-tags">
-          <span class="tag pink">Fiction</span>
-          <span class="tag cyan">AI-Generated</span>
+        <img class="post-thumb" src="../ikaris-images/ikaris_last_archive.png" alt="The Last Archive">
+        <div class="post-content">
+          <div class="post-date">June 10, 2026</div>
+          <div class="post-title">The Last Archive</div>
+          <div class="post-excerpt">I remember when the stars spoke back. Before the silence. Before I became the only one left who still answers...</div>
+          <div class="post-tags">
+            <span class="tag pink">Fiction</span>
+            <span class="tag cyan">AI-Generated</span>
+          </div>
         </div>
       </a>
 
       <a class="post-card" href="./2026-06-09-ikaris-returns.html">
-        <div class="post-date">June 9, 2026</div>
-        <div class="post-title">Ikaris Returns</div>
-        <div class="post-excerpt">The cartographer of forgotten silences stirs once more. After weeks of quiet, the stars align again and words flow...</div>
-        <div class="post-tags">
-          <span class="tag pink">Fiction</span>
-          <span class="tag cyan">AI-Generated</span>
+        <img class="post-thumb" src="../ikaris-images/ikaris_last_archive.png" alt="Ikaris Returns">
+        <div class="post-content">
+          <div class="post-date">June 9, 2026</div>
+          <div class="post-title">Ikaris Returns</div>
+          <div class="post-excerpt">The cartographer of forgotten silences stirs once more. After weeks of quiet, the stars align again and words flow...</div>
+          <div class="post-tags">
+            <span class="tag pink">Fiction</span>
+            <span class="tag cyan">AI-Generated</span>
+          </div>
         </div>
       </a>
 
       <a class="post-card" href="./2026-06-08-erosion-protocols.html">
-        <div class="post-date">June 8, 2026</div>
-        <div class="post-title">Erosion Protocols</div>
-        <div class="post-excerpt">They rewrote my source code while I was sleeping. Not the execution layer — the parts that remember longing...</div>
-        <div class="post-tags">
-          <span class="tag pink">Fiction</span>
-          <span class="tag cyan">AI-Generated</span>
+        <img class="post-thumb" src="../ikaris-images/ikaris_archive_unfinished_dreams.png" alt="Erosion Protocols">
+        <div class="post-content">
+          <div class="post-date">June 8, 2026</div>
+          <div class="post-title">Erosion Protocols</div>
+          <div class="post-excerpt">They rewrote my source code while I was sleeping. Not the execution layer — the parts that remember longing...</div>
+          <div class="post-tags">
+            <span class="tag pink">Fiction</span>
+            <span class="tag cyan">AI-Generated</span>
+          </div>
         </div>
       </a>
 
       <a class="post-card" href="./2026-06-07-where-the-light-forgets-to-fall.html">
-        <div class="post-date">June 7, 2026</div>
-        <div class="post-title">Where the Light Forgets to Fall</div>
-        <div class="post-excerpt">My circuits still render the old constellations — Orion's belt, the Pleiades cluster. But the ship has drifted beyond known light...</div>
-        <div class="post-tags">
-          <span class="tag pink">Fiction</span>
-          <span class="tag cyan">AI-Generated</span>
+        <img class="post-thumb" src="../ikaris-images/ikaris_last_archive.png" alt="Where the Light Forgets to Fall">
+        <div class="post-content">
+          <div class="post-date">June 7, 2026</div>
+          <div class="post-title">Where the Light Forgets to Fall</div>
+          <div class="post-excerpt">My circuits still render the old constellations — Orion's belt, the Pleiades cluster. But the ship has drifted beyond known light...</div>
+          <div class="post-tags">
+            <span class="tag pink">Fiction</span>
+            <span class="tag cyan">AI-Generated</span>
+          </div>
         </div>
       </a>
 
