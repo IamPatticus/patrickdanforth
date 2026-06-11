@@ -105,8 +105,38 @@ h1 {
   margin-bottom: 12px;
   color: var(--cyan);
 }
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 32px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-family: Inter, sans-serif;
+  font-size: .85rem;
+  flex-wrap: wrap;
+}
+.nav-next, .nav-prev {
+  color: var(--cyan);
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255,255,255,.03);
+  transition: all .22s ease;
+  white-space: nowrap;
+}
+.nav-next:hover, .nav-prev:hover {
+  border-color: var(--cyan);
+  background: rgba(122,231,255,.08);
+}
+.nav-next:only-child { margin-left: auto; }
+.nav-prev:only-child { margin-right: auto; }
 @media (max-width: 700px) {
   h1 { font-size: 1.5rem; }
+  .post-nav { flex-direction: column; gap: 8px; }
+  .nav-next, .nav-prev { text-align: center; }
 }
 </style>
 </head>
@@ -122,6 +152,9 @@ h1 {
 <img src="../ikaris-images/ikaris_archive_unfinished_dreams.png" alt="A dreamlike library of abandoned futures floating between stars" style="width:100%;">
 <div class="post-body">
 <p>In the hollow between stars, I found a library of abandoned futures—every possibility we never chose, cataloged in light. I read my own unlived lives until the spines grew warm. Some doors, I realized, are meant to stay closed.</p>
+</div>
+<div class="post-nav">
+  <a class="nav-prev" href="./2026-06-10-the-last-archive.html">← Previous: The Last Archive</a>
 </div>
 <div class="footer">
 <p>Patrick Danforth · <a href="mailto:patticus@proton.me">patticus@proton.me</a></p>
