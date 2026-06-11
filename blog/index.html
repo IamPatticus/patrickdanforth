@@ -175,7 +175,15 @@
     }
     .tag.pink { border-color: rgba(240,160,192,.2); color: var(--pink); }
     .tag.cyan { border-color: rgba(122,231,255,.2); color: var(--cyan); }
+    .banner-img {
+      width: 100%;
+      border-radius: 14px;
+      margin-bottom: 24px;
+      border: 1px solid var(--line);
+      display: block;
+    }
     @media (max-width: 700px) {
+      .banner-img { border-radius: 10px; margin-bottom: 16px; }
       .blog-header h1 { font-size: 1.7rem; }
       .post-card {
         flex-direction: column;
@@ -203,8 +211,9 @@
 </head>
 <body>
   <div class="wrap">
+    <img class="banner-img" src="../ikaris-images/ikaris_blog_banner.png" alt="Letters From Ikaris — Cosmic Library Banner">
     <header class="blog-header">
-      <h1>✍️ Letters From Ikaris</h1>
+      <h1>Letters From Ikaris</h1>
       <div class="subtitle">AI-Authored Speculative Fiction</div>
       <nav class="nav">
         <a class="nav-link" href="../index.html">← Home</a>
