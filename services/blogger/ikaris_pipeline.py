@@ -1,38 +1,33 @@
 #!/usr/bin/env python3
 """
-Ikaris Daily Blogger Pipeline
+Ikaris Daily Blog Pipeline — Self-Hosted
 Usage: python3 ikaris_pipeline.py "<title>" "<story>" [tags...]
 
-Steps:
+Workflow:
 1. Generate AI art via OpenAI DALL-E
-2. Upload art to Imgur
-3. Post story + art to Blogger
-4. Fall back to text-only if art generation fails
+2. Save art to ikaris-images/ folder
+3. Generate HTML post file in blog/ folder
+4. Commit + push to GitHub (instant publish, no OAuth!)
+5. Update blog/index.html with new post entry
+
+No more Blogger OAuth headaches!
 """
 
 import sys
 import json
 import os
-import time
-import base64
-import urllib.request
-import urllib.parse
-import urllib.error
-import pickle
+import subprocess
 from pathlib import Path
 from datetime import datetime
 
 # ── Configuration ──────────────────────────────────────────────
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-BLOGGER_BLOG_ID = "4981317665682488817"
-GOOGLE_CREDS_PATH = Path.home() / ".config" / "google" / "credentials.json"
-GOOGLE_TOKEN_PATH = Path.home() / ".config" / "google" / "token.json"
-IMGUR_CLIENT_ID = os.environ.get("IMGUR_CLIENT_ID", "")
-OUTPUT_DIR = Path.home() / "Pictures" / "ikaris"
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-SCOPES = ["https://www.googleapis.com/auth/blogger"]
+SITE_ROOT = Path.home() / ".openclaw" / "workspace" / "patrickdanforth-site"
+POSTS_DIR = SITE_ROOT / "blog"
+IMAGES_DIR = SITE_ROOT / "ikaris-images"
+BLOG_INDEX = POSTS_DIR / "index.html"
+FEED_FILE = POSTS_DIR / "feed.xml"
 
 # ── Story Input ────────────────────────────────────────────────
 
@@ -42,10 +37,13 @@ if len(sys.argv) < 3:
 
 TITLE = sys.argv[1]
 STORY = sys.argv[2]
-TAGS = sys.argv[3:] if len(sys.argv) > 3 else ["ikaris", "mythical-ai", "short-story", "ai-fiction"]
+TAGS = sys.argv[3:] if len(sys.argv) > 3 else ["fiction", "ai-generated"]
 
-art_url = None
-status = {"art_generated": False, "imgur_uploaded": False, "blogger_posted": False}
+DATE_STR = datetime.now().strftime("%Y-%m-%d")
+TIME_STR = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+
+art_path = None
+status = {"art_generated": False, "post_created": False, "deployed": False}
 
 # ── Step 1: Generate AI Art ────────────────────────────────────
 
@@ -55,6 +53,9 @@ def generate_art(title, story):
         print("[ART] No OPENAI_API_KEY — skipping art generation")
         return None
 
+    import urllib.request
+    import base64
+
     prompt = (
         f"A dreamlike, ethereal sci-fi illustration inspired by the story titled '{title}'. "
         f"Atmospheric, painterly, cosmic scale, luminous color palette, cinematic composition. "
@@ -62,7 +63,6 @@ def generate_art(title, story):
     )
 
     print(f"[ART] Generating image...")
-    print(f"[ART] Prompt: {prompt[:120]}...")
 
     req = urllib.request.Request(
         "https://api.openai.com/v1/images/generations",
@@ -84,7 +84,6 @@ def generate_art(title, story):
         data = json.loads(resp.read())
         item = data["data"][0]
 
-        # Newer models return b64_json directly, older ones return a URL
         if "b64_json" in item:
             img_data = base64.b64decode(item["b64_json"])
         elif "url" in item:
@@ -92,202 +91,211 @@ def generate_art(title, story):
             img_req = urllib.request.Request(image_url, headers={"User-Agent": "Mozilla/5.0"})
             img_data = urllib.request.urlopen(img_req, timeout=60).read()
         else:
-            print(f"[ART] Unknown response format: {list(item.keys())}")
+            print(f"[ART] Unknown response format")
             return None
 
-        revised_prompt = item.get("revised_prompt", prompt)
         print(f"[ART] Generated. Image size: {len(img_data)} bytes")
 
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        local_path = OUTPUT_DIR / f"ikaris_{timestamp}.png"
+        slug = "_".join(title.lower().split()[:4]).replace(",", "").replace(".", "")
+        local_path = IMAGES_DIR / f"ikaris_{DATE_STR}_{slug}.png"
         local_path.write_bytes(img_data)
         print(f"[ART] Saved to {local_path}")
-        return str(local_path)
+        return str(local_path.name)
 
-    except urllib.error.HTTPError as e:
-        body = e.read().decode() if e.fp else ""
-        print(f"[ART] OpenAI API error: {e.code} — {body[:200]}")
-        return None
     except Exception as e:
         print(f"[ART] Failed: {e}")
         return None
 
-# ── Step 2: Upload to Imgur ────────────────────────────────────
+# ── Step 2: Generate HTML Post ────────────────────────────────────
 
-def upload_to_imgur(image_path):
-    """Upload image to Imgur, return public URL."""
-    if not IMGUR_CLIENT_ID:
-        print("[IMGUR] No IMGUR_CLIENT_ID — trying anonymous upload...")
-        # Try anonymous upload as fallback
-        client_id = "546c25a59c58ad7"  # Imgur public anonymous client ID
-    else:
-        client_id = IMGUR_CLIENT_ID
+def create_post_html(title, story, art_filename=None, tags=None):
+    """Create individual post HTML file."""
+    slug = f"{DATE_STR}-" + "-".join(title.lower().split()[:4]).replace(",", "").replace(".", "")
+    post_file = POSTS_DIR / f"{slug}.html"
 
-    print(f"[IMGUR] Uploading {image_path}...")
+    tags_html = "".join([f'<span class="tag pink">{t.title()}</span>' for t in tags[:2]])
 
-    with open(image_path, "rb") as f:
-        img_b64 = base64.b64encode(f.read()).decode()
+    art_section = ""
+    if art_filename:
+        art_section = f'<img src="../ikaris-images/{art_filename}" alt="{title}" style="width:100%;"\u003e'
 
-    req = urllib.request.Request(
-        "https://api.imgur.com/3/image",
-        data=urllib.parse.urlencode({"image": img_b64, "type": "base64"}).encode(),
-        headers={
-            "Authorization": f"Client-ID {client_id}",
-            "User-Agent": "Ikaris-Pipeline/1.0"
-        }
-    )
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<title>{title} — Letters From Ikaris</title>
+<meta name="description" content="{story[:150]}">
+<style>
+:root {{ --bg:#06070b; --panel:rgba(15,18,27,.88); --line:rgba(130,177,255,.16); --text:#edf3ff; --muted:#9aa7c2; --cyan:#7ae7ff; --gold:#d7aa61; --pink:#f0a0c0; }}
+* {{ box-sizing:border-box; margin:0; padding:0; }}
+body {{ color:var(--text); font-family:Georgia,serif; background:radial-gradient(circle at 20% 10%, rgba(122,231,255,.12), transparent 24%), radial-gradient(circle at 80% 12%, rgba(215,170,97,.10), transparent 24%), radial-gradient(circle at 50% 90%, rgba(255,122,77,.08), transparent 20%), linear-gradient(180deg,#04050a 0%,#0b1020 55%,#090b12 100%); min-height:100vh; }}
+.wrap {{ width:min(680px,calc(100% - 32px)); margin:0 auto; padding:40px 0 60px; position:relative; z-index:1; }}
+.back-link {{ font-family:Inter,sans-serif; display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border:1px solid var(--line); border-radius:8px; color:var(--cyan); text-decoration:none; font-size:.82rem; margin-bottom:24px; background:rgba(255,255,255,.03); }}
+.post-meta {{ font-family:Inter,sans-serif; font-size:.8rem; color:var(--muted); margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--line); }}
+.post-body {{ font-size:1.08rem; line-height:1.85; color:var(--text); }}
+.post-body p {{ margin-bottom:1.2em; }}
+.post-body img {{ max-width:100%; border-radius:8px; margin:24px auto; display:block; }}
+.footer {{ text-align:center; padding:32px 0 0; border-top:1px solid var(--line); color:var(--muted); font-size:.78rem; margin-top:40px; font-family:Inter,sans-serif; }}
+.footer a {{ color:var(--cyan); text-decoration:none; }}
+.tags {{ display:flex; flex-wrap:wrap; gap:6px; margin:16px 0; }}
+.tag {{ display:inline-block; padding:3px 10px; border-radius:6px; font-family:Inter,sans-serif; font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04); color:var(--muted); }}
+.tag.pink {{ border-color:rgba(240,160,192,.2); color:var(--pink); }}
+.tag.cyan {{ border-color:rgba(122,231,255,.2); color:var(--cyan); }}
+h1 {{ font-family:Inter,sans-serif; font-size:2rem; font-weight:600; margin-bottom:12px; color:var(--cyan); }}
+.post-nav {{ display:flex; justify-content:space-between; gap:12px; margin:32px 0; padding:20px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:Inter,sans-serif; font-size:.85rem; flex-wrap:wrap; }}
+.nav-next, .nav-prev {{ color:var(--cyan); text-decoration:none; padding:8px 14px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,.03); transition:all .22s ease; white-space:nowrap; }}
+.nav-next:hover, .nav-prev:hover {{ border-color:var(--cyan); background:rgba(122,231,255,.08); }}
+.nav-next:only-child {{ margin-left:auto; }}
+.nav-prev:only-child {{ margin-right:auto; }}
+@media(max-width:700px){{ h1{{font-size:1.5rem;}} .post-nav {{ flex-direction:column; gap:8px; }} .nav-next, .nav-prev {{ text-align:center; }} }}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back-link" href="./index.html">← All Letters</a>
+<h1>{title}</h1>
+<div class="post-meta">{DATE_STR} · Letters From Ikaris</div>
+<div class="tags">{tags_html}</div>
+{art_section}
+<div class="post-body">
+<p>{story}</p>
+</div>
+<div class="post-nav">
+  {prev_link}
+  {next_link}
+</div>
+<div class="footer">
+<p>Patrick Danforth · <a href="mailto:patticus@proton.me">patticus@proton.me</a></p>
+<p style="margin-top:6px;opacity:.6;">Written by Talos ⬡ — Disciples of Controlled Chaos</p>
+</div>
+</div>
+</body>
+</html>
+"""
+
+    post_file.write_text(html)
+    print(f"[POST] Created {post_file}")
+    return post_file.name
+
+# ── Step 3: Update Blog Index ───────────────────────────────────
+
+def update_blog_index(title, story, filename, tags=None):
+    """Add new post to blog/index.html."""
+    index_content = BLOG_INDEX.read_text()
+
+    # Insert new post card after the opening posts-list div
+    excerpt = story[:120] + "..." if len(story) > 120 else story
+
+    new_card = f"""
+      <a class="post-card" href="./{filename}">
+        <div class="post-date">{DATE_STR}</div>
+        <div class="post-title">{title}</div>
+        <div class="post-excerpt">{excerpt}</div>
+        <div class="post-tags">
+          <span class="tag pink">{tags[0].title() if tags else 'Fiction'}</span>
+          <span class="tag cyan">AI-Generated</span>
+        </div>
+      </a>
+"""
+
+    # Insert after the first posts-list div
+    marker = '<div class="posts-list">'
+    pos = index_content.find(marker)
+    if pos != -1:
+        insert_pos = pos + len(marker)
+        updated = index_content[:insert_pos] + "\n" + new_card + index_content[insert_pos:]
+        BLOG_INDEX.write_text(updated)
+        print(f"[INDEX] Added {title} to blog index")
+
+# ── Step 4: Update RSS Feed ────────────────────────────────────
+
+def update_rss_feed(title, story, filename, tags=None):
+    """Add new post to feed.xml."""
+    feed_content = FEED_FILE.read_text()
+
+    new_item = f"""    <item>
+      <title>{title}</title>
+      <link>https://patrickdanforth.com/blog/{filename}</link>
+      <guid>https://patrickdanforth.com/blog/{filename}</guid>
+      <pubDate>{datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")}</pubDate>
+      <description>{story[:300]}</description>
+      <category>Fiction</category>
+      <category>AI-Generated</category>
+    </item>
+"""
+
+    marker = "</channel>"
+    pos = feed_content.find(marker)
+    if pos != -1:
+        updated = feed_content[:pos] + "\n" + new_item + "\n  " + feed_content[pos:]
+        FEED_FILE.write_text(updated)
+        print(f"[RSS] Added {title} to RSS feed")
+
+# ── Step 5: Git Commit + Push ───────────────────────────────────
+
+def deploy_site():
+    """Commit and push to GitHub."""
+    print("[DEPLOY] Committing and pushing...")
+
+    os.chdir(SITE_ROOT)
 
     try:
-        resp = urllib.request.urlopen(req, timeout=30)
-        data = json.loads(resp.read())
-        if data.get("success"):
-            url = data["data"]["link"]
-            print(f"[IMGUR] Uploaded: {url}")
-            return url
-        else:
-            print(f"[IMGUR] Failed: {data}")
-            return None
-    except Exception as e:
-        print(f"[IMGUR] Error: {e}")
-        return None
-
-# ── Step 3: Google OAuth ───────────────────────────────────────
-
-def get_blogger_credentials():
-    """Get or refresh Blogger OAuth credentials."""
-    try:
-        from google.auth.transport.requests import Request
-        from google.oauth2.credentials import Credentials
-        from google_auth_oauthlib.flow import InstalledAppFlow
-    except ImportError:
-        print("[AUTH] Missing google-auth packages")
-        return None
-
-    creds = None
-    if GOOGLE_TOKEN_PATH.exists():
-        try:
-            creds = Credentials.from_authorized_user_file(str(GOOGLE_TOKEN_PATH), SCOPES)
-        except Exception as e:
-            print(f"[AUTH] Failed to load token: {e}")
-
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            print("[AUTH] Refreshing expired token...")
-            try:
-                creds.refresh(Request())
-                # Save refreshed token
-                with open(GOOGLE_TOKEN_PATH, "w") as f:
-                    f.write(creds.to_json())
-                print("[AUTH] Token refreshed")
-            except Exception as e:
-                print(f"[AUTH] Token refresh failed: {e}")
-                return None
-        else:
-            print("[AUTH] No valid credentials — needs interactive OAuth")
-            return None
-
-    return creds
-
-# ── Step 4: Post to Blogger ────────────────────────────────────
-
-def post_to_blogger(title, story, image_url, tags):
-    """Post story to Blogger via Google API."""
-    creds = get_blogger_credentials()
-    if not creds:
-        print("[BLOGGER] No valid credentials — falling back to text-only via API key")
-
-    # Build HTML content
-    html = f"<p>{story}</p>"
-    if image_url:
-        html = (
-            f'<div style="text-align:center;margin:20px 0;">'
-            f'<img src="{image_url}" alt="{title}" style="max-width:100%;border-radius:8px;" />'
-            f'</div>\n{html}'
+        subprocess.run(["git", "add", "-A"], check=True, capture_output=True)
+        subprocess.run(
+            ["git", "commit", "-m", f"New post: {TITLE}"],
+            check=False,
+            capture_output=True
         )
-
-    if creds:
-        # Use OAuth
-        import googleapiclient.discovery
-        service = googleapiclient.discovery.build("blogger", "v3", credentials=creds)
-        post_body = {
-            "kind": "blogger#post",
-            "title": title,
-            "content": html,
-            "labels": tags
-        }
-        try:
-            post = service.posts().insert(blogId=BLOGGER_BLOG_ID, body=post_body).execute()
-            url = post["url"]
-            print(f"[BLOGGER] Posted: {url}")
-            return url
-        except Exception as e:
-            print(f"[BLOGGER] OAuth post failed: {e}")
-            return None
-    else:
-        # Try using Blogger API v3 with API key if available
-        api_key = os.environ.get("BLOGGER_API_KEY", "")
-        if not api_key:
-            print("[BLOGGER] No BLOGGER_API_KEY — cannot post")
-            return None
-
-        req = urllib.request.Request(
-            f"https://www.googleapis.com/blogger/v3/blogs/{BLOGGER_BLOG_ID}/posts?key={api_key}",
-            data=json.dumps({
-                "kind": "blogger#post",
-                "title": title,
-                "content": html,
-                "labels": tags
-            }).encode(),
-            headers={"Content-Type": "application/json"}
+        result = subprocess.run(
+            ["git", "push", "origin", "main"],
+            check=True,
+            capture_output=True,
+            text=True
         )
-
-        try:
-            resp = urllib.request.urlopen(req, timeout=30)
-            data = json.loads(resp.read())
-            url = data.get("url", "")
-            print(f"[BLOGGER] API key post: {url}")
-            return url
-        except urllib.error.HTTPError as e:
-            body = e.read().decode() if e.fp else ""
-            print(f"[BLOGGER] API error: {e.code} — {body[:300]}")
-            return None
+        print(f"[DEPLOY] ✅ Deployed! https://patrickdanforth.com/blog/")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"[DEPLOY] Git error: {e.stderr}")
+        return False
 
 # ── Main Pipeline ──────────────────────────────────────────────
 
 print("═" * 50)
-print(f"📖 Ikaris Daily Pipeline — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+print(f"📖 Ikaris Self-Hosted Pipeline — {DATE_STR}")
 print(f"📝 Title: {TITLE}")
 print("═" * 50)
 
 # Step 1: Art
-art_path = generate_art(TITLE, STORY)
-if art_path:
+art_filename = generate_art(TITLE, STORY)
+if art_filename:
     status["art_generated"] = True
-
-    # Step 2: Imgur
-    art_url = upload_to_imgur(art_path)
-    if art_url:
-        status["imgur_uploaded"] = True
 else:
-    print("[PIPELINE] Art generation failed — will post text-only")
+    print("[PIPELINE] Art generation failed — posting without image")
 
-# Step 3: Blogger
-blog_url = post_to_blogger(TITLE, STORY, art_url, TAGS)
-if blog_url:
-    status["blogger_posted"] = True
+# Step 2: Post
+post_filename = create_post_html(TITLE, STORY, art_filename, TAGS)
+status["post_created"] = True
+
+# Step 3: Index
+update_blog_index(TITLE, STORY, post_filename, TAGS)
+
+# Step 4: RSS
+update_rss_feed(TITLE, STORY, post_filename, TAGS)
+
+# Step 5: Deploy
+if deploy_site():
+    status["deployed"] = True
 
 # ── Summary ────────────────────────────────────────────────────
-
 print("═" * 50)
 print("📊 Pipeline Complete")
 print(f"   Art generated:  {'✅' if status['art_generated'] else '❌'}")
-print(f"   Imgur uploaded: {'✅' if status['imgur_uploaded'] else '❌'}")
-print(f"   Blogger posted: {'✅' if status['blogger_posted'] else '❌'}")
-if art_url:
-    print(f"   Art URL: {art_url}")
-if blog_url:
-    print(f"   Blog URL: {blog_url}")
+print(f"   Post created:   {'✅' if status['post_created'] else '❌'}")
+print(f"   Deployed:       {'✅' if status['deployed'] else '❌'}")
+print(f"   Blog URL:       https://patrickdanforth.com/blog/{post_filename}")
 print("═" * 50)
 
 # Output JSON for programmatic use
-print(json.dumps({"title": TITLE, "art_url": art_url, "blog_url": blog_url, "status": status}))
+print(json.dumps({"title": TITLE, "post_url": f"https://patrickdanforth.com/blog/{post_filename}", "status": status}))

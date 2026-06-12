@@ -39,6 +39,22 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 Add whatever helps you do your job. This is your cheat sheet.
 
+### Signal
+
+- **Working binary:** `~/bin/signal-cli-0.14.2`
+- **Signal number (CLI):** +19313660659
+- **Personal number:** +13159216500
+- **Data directory:** `~/.local/share/signal-cli/data/`
+
+**Usage:**
+```bash
+~/bin/signal-cli-0.14.2 -a +19313660659 send +13159216500 -m "Message here"
+```
+
+**Important:** Version 0.14.4.1 has JSON serialization bugs that break sending. Stay on 0.14.2.
+
+---
+
 ## Related
 
 - [Agent workspace](/concepts/agent-workspace)

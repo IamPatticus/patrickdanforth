@@ -35,7 +35,12 @@ I am Patticus's personal AI. I run on the Pi in his office and help across webch
 - **Headache Log:** Custom health-tracking app for headaches, triggers, weather, sleep, and medication patterns
 - **patrickdanforth.com:** Personal site with project pages, solar pages, and Reginald lore
 - **Reginald Daily / flipbook:** Here.now-hosted Reginald stream and site pages tied into the personal site
-- **Ikaris Daily:** AI-assisted writing pipeline with image generation and upload support; Blogger publishing is currently blocked on OAuth re-auth
+- **Ikaris Daily Blog** — ~~Blogger~~ → **SELF-HOSTED on patrickdanforth.com/blog/**
+  - Pipeline generates HTML posts directly to the site repo
+  - Images saved locally in `ikaris-images/`
+  - Zero authentication required — just `git commit && git push`
+  - RSS feed at `/blog/feed.xml`
+  - Blogger OAuth no longer needed
 
 ### What Annoys Him
 - Memory loss or brittle automation
@@ -129,6 +134,7 @@ All crew members share the same general workspace and memory context, but they a
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient
+- **~~Signal~~ FIXED 2026-06-11:** Signal was broken due to database corruption from Pi migration. Re-registered +19313660659 using signal-cli 0.14.2 (0.14.4.1 has JSON bugs). Working binary at `~/bin/signal-cli-0.14.2`. ⚠️ Rate limited at 02:23 UTC after multiple registration attempts—retry in morning. **Root cause of corruption:** Concurrent registration on phone while sending message from CLI caused database conflicts.
 
 ---
 
@@ -144,6 +150,7 @@ All crew members share the same general workspace and memory context, but they a
 | 2026-06-04 | `MEMORY.md` lost to broken symlink; rebuilt from daily notes and transcripts |
 | 2026-06-04 | Reginald Daily link corrected to here.now deployment |
 | 2026-06-05 | Ikaris daily post generated with art upload, but Blogger publish remained blocked |
+| 2026-06-11 | Signal re-registered and fixed using signal-cli 0.14.2 |
 
 ---
 
@@ -158,25 +165,21 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-10)
+## Promoted From Short-Term Memory (2026-06-12)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1857.md:3:5 -->
-- Session: 2026-06-03 18:57:09 CDT: **Session Key**: agent:main:main; **Session ID**: ecb1a778-223d-4f60-b3a6-f1842e0feb24; **Source**: webchat [score=0.834 recalls=0 avg=0.620 source=memory/2026-06-03-1857.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1857.md:9:12 -->
-- Conversation Summary: assistant: Glad you like it! ⬡ user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.834 recalls=0 avg=0.620 source=memory/2026-06-03-1857.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-03-1037.md:15:15 -->
-- Conversation Summary: No alerts pending. [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-03-1037.md:15-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-04-0930.md:13:16 -->
-- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-04-0930.md:13-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-04-0930.md:17:20 -->
-- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-04-0930.md:17-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-04-0930.md:21:23 -->
-- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-04-0930.md:21-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-04-0930.md:3:5 -->
-- Session: 2026-06-04 09:30:22 CDT: **Session Key**: agent:main:main; **Session ID**: ecb1a778-223d-4f60-b3a6-f1842e0feb24; **Source**: webchat [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-04-0930.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-04-0930.md:9:12 -->
-- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-04-0930.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-04.md:11:13 -->
-- 08:00 — Morning Heartbeat: Memory health checkpoint: daily memory file was missing, created now; Vault daily note auto-created at midnight; All other checks (vault structure, files, Ollama, pgvector) passing [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-04.md:11-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-04.md:4:7 -->
-- 21:01 — Memory Health Checkpoint (FAILED): ❌ **MEMORY.md is MISSING** — broken symlink at `vault/MEMORY.md`; Daily note exists (13h old) — OK; Memory directory: 7.7 MB — OK; working-context.md not present (optional) — OK [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-04.md:4-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-06.md:5:5 -->
+- Memory Health Alert (00:01): ⚠️ **Memory checkpoint FAILED** [score=0.814 recalls=0 avg=0.620 source=memory/2026-06-06.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:14:14 -->
+- Conversation Summary: The broken symlink at `vault/MEMORY.md` is actually working now — it points to `/home/patrick/.openclaw/workspace/MEMORY.md`, which I just recreated from recent memory files. Here's what I pulled together: [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:14-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:16:16 -->
+- Conversation Summary: **Key details recovered:** [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:16-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:17:20 -->
+- Conversation Summary: **Who I am:** Talos, Pi 5 agent, 🦾 emoji, avatar at `avatars/talos-avatar.png`; **Patticus:** Patrick Danforth, builder/tinkerer, solar arrays, 3D print farm, health tracking; **The Crew:** Talos, Daedalus (creative), Kael (coder), Orpheus (research), Ikaris (blogger); **Reginald J. Crustacean 🦞:** Full origin story, cybernetic specs, patrickdanforth.com page [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:17-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:21:24 -->
+- Conversation Summary: **Compaction fix (2026-05-29):** The big memory loss incident and settings that fixed it; **Proton Pass PAT:** Token, session dir, passbridge.py setup; **Solar projects:** House (4,560W), shop (2,960W), rolling array (built 2026-05-30); **Ongoing issues:** Kiyo camera autofocus, Strix shutdowns, Shelly firmware [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:21-24]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:3:5 -->
+- Session: 2026-06-06 09:12:35 CDT: **Session Key**: agent:main:main; **Session ID**: b44e5e55-c84f-4179-b995-7c787d68f066; **Source**: webchat [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:9:12 -->
+- Conversation Summary: user: [Thu 2026-06-04 21:09 CDT] 🚨 Memory Health Checkpoint Alert (2026-06-04 21:01)\n\n❌ Check FAILED: MEMORY.md is MISSING\n- Broken symlink at vault/MEMORY.md\n- Daily note exists (13h old) ✅\n- Memory directory: 7.7 MB ✅\n\nAction needed: Recreate or restore MEMORY.md assistant: Let me read the recent memory files to reconstruct a MEMORY.md: assistant: Now I have enough context to rebuild MEMORY.md. Let me write it: assistant: ✅ **MEMORY.md restored.** [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:5:8 -->
+- Memory Health Checkpoint: **Status:** ALERT; **Issue:** Missing daily note file was detected by automated health check; **Time:** 00:01 CDT (05:01 UTC); **Action:** Created missing file automatically [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-07.md:5-8]
