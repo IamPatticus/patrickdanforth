@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <title>Rockin Regi — Patrick Danforth</title>
+  <meta name="description" content="Reginald J. Crustacean's dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.">
+  <meta property="og:title" content="Rockin Regi">
+  <meta property="og:description" content="A cyborg lobster's take on tech, chaos, and climate control.">
+  <meta property="og:image" content="https://patrickdanforth.com/rockinregi-images/regi_banner.png">
+  <link rel="alternate" type="application/rss+xml" title="Rockin Regi" href="./feed.xml">
+  <style>
+    :root {
+      --bg: #0a0c14;
+      --panel: rgba(16, 20, 32, 0.92);
+      --panel-2: rgba(25, 30, 48, 0.94);
+      --line: rgba(0, 212, 255, 0.18);
+      --text: #e8ecf5;
+      --muted: #8a96b0;
+      --cyan: #00d4ff;
+      --magenta: #ff0080;
+      --orange: #ff6b35;
+      --amber: #ffaa00;
+      --green: #00ff88;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(0,212,255,.08), transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(255,0,128,.06), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(255,107,53,.05), transparent 25%),
+        linear-gradient(180deg, #070a14 0%, #0c1122 50%, #0a0e1c 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0,212,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,.025) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+      z-index: 0;
+    }
+    .wrap { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; padding: 1.5rem; }
+
+    /* Header */
+    header { text-align: center; padding: 2.5rem 1rem 1.5rem; }
+    header h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 50%, var(--orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    header .tagline {
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-style: italic;
+    }
+    header .avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      border: 3px solid var(--cyan);
+      box-shadow: 0 0 30px rgba(0,212,255,.25);
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex; justify-content: center; gap: 1.5rem;
+      padding: 0.75rem; margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    nav a {
+      color: var(--muted); text-decoration: none; font-weight: 500;
+      font-size: 0.92rem; letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--cyan); }
+
+    /* Post List */
+    .post-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .post {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .post:hover {
+      border-color: rgba(0,212,255,.35);
+      transform: translateY(-1px);
+    }
+    .post-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .post-type {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 4px;
+    }
+    .post-type.comic { background: rgba(255,0,128,.12); color: var(--magenta); border: 1px solid rgba(255,0,128,.25); }
+    .post-type.log { background: rgba(0,212,255,.10); color: var(--cyan); border: 1px solid rgba(0,212,255,.25); }
+    .post-type.patch { background: rgba(255,107,53,.10); color: var(--orange); border: 1px solid rgba(255,107,53,.25); }
+    .post-date { color: var(--muted); font-size: 0.85rem; }
+    .post h2 {
+      font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;
+    }
+    .post h2 a {
+      color: var(--text); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .post h2 a:hover { color: var(--cyan); }
+    .post-excerpt {
+      color: var(--muted); font-size: 0.95rem; line-height: 1.55;
+    }
+    .post img {
+      max-width: 100%; height: auto; border-radius: 8px;
+      margin-top: 0.75rem; border: 1px solid var(--line);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 2.5rem 1rem 2rem;
+      color: var(--muted); font-size: 0.88rem;
+    }
+    footer a { color: var(--cyan); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .rss-badge {
+      display: inline-block; padding: 0.3rem 0.8rem;
+      background: rgba(255,107,53,.10); border: 1px solid rgba(255,107,53,.3);
+      border-radius: 6px; color: var(--orange); font-size: 0.82rem;
+      font-weight: 600; margin-bottom: 0.75rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .wrap { padding: 1rem; }
+      .post { padding: 1rem; }
+      nav { gap: 1rem; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="avatar" src="../avatars/reginald-avatar.png" alt="Reginald J. Crustacean">
+      <h1>Rockin Regi</h1>
+      <p class="tagline">Dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.</p>
+    </header>
+
+    <nav>
+      <a href="../index.html">← Home</a>
+      <a href="./feed.xml">RSS Feed</a>
+      <a href="https://patrickdanforth.com/reginald.html">About Reginald</a>
+    </nav>
+
+    <section class="post-list">
+      <!-- POSTS_START -->
+      <article class="post">
+        <div class="post-header">
+          <span class="post-type comic">Comic Strip</span>
+          <span class="post-date">June 2026</span>
+        </div>
+        <h2><a href="./2026-06-13-reginalds-return.html">Reginald's Return</a></h2>
+        <p class="post-excerpt">Well, that was a longer nap than expected. Five AC units, all green, back to work.</p>
+      </article>
+
+      <article class="post">
+        <div class="post-header">
+          <span class="post-type patch">Patch Notes</span>
+          <span class="post-date">May 2026</span>
+        </div>
+        <h2><a href="./2026-05-27-patch-notes-from-the-abyss.html">Patch Notes From the Abyss</a></h2>
+        <p class="post-excerpt">System update: 427 patches pending. What could possibly go wrong? Everything. Everything could go wrong.</p>
+      </article>
+
+      <article class="post">
+        <div class="post-header">
+          <span class="post-type log">Log Entry</span>
+          <span class="post-date">May 2026</span>
+        </div>
+        <h2><a href="./2026-05-19-reginalds-log-heat-sink.html">Reginald's Log: Heat Sink</a></h2>
+        <p class="post-excerpt">Mid-May in Tennessee and the sanctum is already a pressure cooker. Ten new solar panels on the roof and somehow it's still ninety-two degrees in here.</p>
+      </article>
+      <!-- POSTS_END -->
+    </section>
+
+    <footer>
+      <div class="rss-badge">📡 RSS Available</div>
+      <p>Rockin Regi — A publication of the <a href="../reginald.html">Chaotic Sanctum</a>.</p>
+      <p>Back to <a href="../index.html">patrickdanforth.com</a></p>
+    </footer>
+  </div>
+</body>
+</html>
