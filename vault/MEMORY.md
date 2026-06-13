@@ -1,1 +1,1 @@
-/home/pi/.openclaw/workspace/MEMORY.md
+/home/patrick/.openclaw/workspace/MEMORY.md

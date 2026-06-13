@@ -117,7 +117,10 @@ def create_post_html(title, story, art_filename=None, tags=None):
 
     art_section = ""
     if art_filename:
-        art_section = f'<img src="../ikaris-images/{art_filename}" alt="{title}" style="width:100%;"\u003e'
+        art_section = f'<img src="../ikaris-images/{art_filename}" alt="{title}" style="width:100%;">'
+
+    prev_link = ""
+    next_link = ""
 
     html = f"""<!DOCTYPE html>
 <html lang="en">

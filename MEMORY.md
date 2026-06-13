@@ -165,21 +165,25 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-12)
+## Promoted From Short-Term Memory (2026-06-13)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-06.md:5:5 -->
-- Memory Health Alert (00:01): ⚠️ **Memory checkpoint FAILED** [score=0.814 recalls=0 avg=0.620 source=memory/2026-06-06.md:5-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:14:14 -->
-- Conversation Summary: The broken symlink at `vault/MEMORY.md` is actually working now — it points to `/home/patrick/.openclaw/workspace/MEMORY.md`, which I just recreated from recent memory files. Here's what I pulled together: [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:14-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:16:16 -->
-- Conversation Summary: **Key details recovered:** [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:16-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:17:20 -->
-- Conversation Summary: **Who I am:** Talos, Pi 5 agent, 🦾 emoji, avatar at `avatars/talos-avatar.png`; **Patticus:** Patrick Danforth, builder/tinkerer, solar arrays, 3D print farm, health tracking; **The Crew:** Talos, Daedalus (creative), Kael (coder), Orpheus (research), Ikaris (blogger); **Reginald J. Crustacean 🦞:** Full origin story, cybernetic specs, patrickdanforth.com page [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:17-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:21:24 -->
-- Conversation Summary: **Compaction fix (2026-05-29):** The big memory loss incident and settings that fixed it; **Proton Pass PAT:** Token, session dir, passbridge.py setup; **Solar projects:** House (4,560W), shop (2,960W), rolling array (built 2026-05-30); **Ongoing issues:** Kiyo camera autofocus, Strix shutdowns, Shelly firmware [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:21-24]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:3:5 -->
-- Session: 2026-06-06 09:12:35 CDT: **Session Key**: agent:main:main; **Session ID**: b44e5e55-c84f-4179-b995-7c787d68f066; **Source**: webchat [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-06-0912.md:9:12 -->
-- Conversation Summary: user: [Thu 2026-06-04 21:09 CDT] 🚨 Memory Health Checkpoint Alert (2026-06-04 21:01)\n\n❌ Check FAILED: MEMORY.md is MISSING\n- Broken symlink at vault/MEMORY.md\n- Daily note exists (13h old) ✅\n- Memory directory: 7.7 MB ✅\n\nAction needed: Recreate or restore MEMORY.md assistant: Let me read the recent memory files to reconstruct a MEMORY.md: assistant: Now I have enough context to rebuild MEMORY.md. Let me write it: assistant: ✅ **MEMORY.md restored.** [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-06-0912.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:5:8 -->
-- Memory Health Checkpoint: **Status:** ALERT; **Issue:** Missing daily note file was detected by automated health check; **Time:** 00:01 CDT (05:01 UTC); **Action:** Created missing file automatically [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-07.md:5-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-07-2136.md:3:5 -->
+- Session: 2026-06-07 21:36:18 UTC: **Session Key**: agent:main:main; **Session ID**: b44e5e55-c84f-4179-b995-7c787d68f066; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07-2136.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:12:14 -->
+- Memory Health Checkpoint - 09:01 CDT: **Status:** ✅ OK; **Result:** Memory health checks passed; **Time:** 09:01 CDT (14:01 UTC) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07.md:12-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:18:21 -->
+- Pi 5 / Pironman Failure: **Time:** ~20:00 CDT (01:00 UTC 2026-06-08); **Symptom:** Daily Reginald display showed odd colors, then total power loss; **Result:** Pi 5 unresponsive, Talos migrated to Ubuntu box (serenity); **Migration effort:** ~9 hours to restore service [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07.md:18-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:22:24 -->
+- Pi 5 / Pironman Failure: **New host:** Intel Core i3-4010U, 7.7 GB RAM, Ubuntu 24.04.4 LTS; **Root cause:** Unknown — possible power supply failure, overheating, or storage corruption; **Status:** Running stable on backup hardware [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07.md:22-24]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:28:30 -->
+- Notes: Started the day with a memory health checkpoint; Patticus is active late night/early morning; Major hardware incident in evening — Talos now running on Ubuntu box serenity [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07.md:28-30]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:11:14 -->
+- Reginald Daily Comic Site Migration: Migrated from Vercel/here.now to GitHub Pages; New URL: https://patrickdanforth.com/reginald-flipbook/; 20 comics archived (May 19 - June 7); Updated link on main patrickdanforth.com homepage [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:11-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:15:15 -->
+- Reginald Daily Comic Site Migration: Sync script pulls from `SiliconPower/images/reginald-daily/archive/` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:15-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:18:21 -->
+- Control UI Access: Fixed "Browser origin not allowed" error; Added `dangerouslyDisableDeviceAuth: true` to config; Control UI now accessible via HTTP on Tailscale; Working: `http://100.65.152.80:18789` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:18-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:24:25 -->
+- SSH Key Setup: Generated ED25519 key for GitHub authentication; Enabled automated git pushes from serenity [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:24-25]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:28:30 -->
+- Hardware Context: Running on Mini ITX Linux box (Q330G4); Intel Core i3-4005U @ 1.7GHz, 8GB DDR3 RAM, 16GB SSD; External drives: SiliconPower 3.6TB, Android 1TB [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:28-30]
