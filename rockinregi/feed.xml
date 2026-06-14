@@ -5,13 +5,24 @@
     <link>https://patrickdanforth.com/rockinregi/</link>
     <description>Reginald J. Crustacean's dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 14 Jun 2026 14:42:59 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2026 14:46:47 +0000</lastBuildDate>
     <image>
       <url>https://patrickdanforth.com/avatars/reginald-avatar.png</url>
       <title>Rockin Regi</title>
       <link>https://patrickdanforth.com/rockinregi/</link>
     </image>
-            <item>
+                <item>
+      <title>Sunday Server Maintenance</title>
+      <link>https://patrickdanforth.com/rockinregi/2026-06-14-sunday_server_maintenance.html</link>
+      <guid>https://patrickdanforth.com/rockinregi/2026-06-14-sunday_server_maintenance.html</guid>
+      <pubDate>Sun, 14 Jun 2026 14:46:47 +0000</pubDate>
+      <description><![CDATA[Panel 1:
+Wide shot of the Chaotic Sanctum server room. Towers of blinking servers stretch into darkness. REGINALD, a cyborg lobster with chrome plating and glowing red eyes, sits atop a server rack, claws poised over a tablet.
+CAPTION: "3:00 AM. The hour when only fools and sysadmins dare tread."
+
+P...]]></description>
+    </item>
+    <item>
       <title>The Thermostat Conspiracy</title>
       <link>https://patrickdanforth.com/rockinregi/2026-06-14-the_thermostat_conspiracy.html</link>
       <guid>https://patrickdanforth.com/rockinregi/2026-06-14-the_thermostat_conspiracy.html</guid>
