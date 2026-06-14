@@ -1,14 +1,14 @@
 {
   "timestamp": "null",
   "total": 1943,
-  "unavailable_count": 145,
-  "unknown_count": 83,
+  "unavailable_count": 156,
+  "unknown_count": 80,
   "victron_down": 65,
   "spoolman_down": 23,
   "top_unavailable_domains": [
     [
       "sensor",
-      94
+      108
     ],
     [
       "media_player",
@@ -16,7 +16,7 @@
     ],
     [
       "switch",
-      9
+      8
     ],
     [
       "device_tracker",

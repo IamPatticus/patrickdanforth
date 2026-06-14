@@ -1,9 +1,1 @@
-{
-  "lastChecks": {
-    "email": null,
-    "calendar": null,
-    "weather": 1779256800,
-    "moltbook": 1775934290,
-    "ha_monitor": 1781453733
-  }
-}
+{"lastChecks":{"ha":1781448061,"cron":1781448061}}

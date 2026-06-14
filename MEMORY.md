@@ -103,7 +103,6 @@ All crew members share the same general workspace and memory context, but they a
 ### Hosting / Publishing
 - `patrickdanforth.com` is configured in the repo via `CNAME`
 - The Reginald Daily link was corrected on 2026-06-04 to point at the here.now deployment
-- The public solar snapshot was last confirmed updated on 2026-05-31 and may remain unchanged for stretches while Patticus focuses on hardware work
 
 ---
 
@@ -133,7 +132,6 @@ All crew members share the same general workspace and memory context, but they a
 - **Control UI:** Smoother after Tailscale Serve migration. Avatar re-uploaded for new HTTPS origin.
 - **Daily note creation reliability:** Health checks have had to create missing daily files several times — worth investigating root cause when convenient
 - **MEMORY.md resilience:** The 2026-06-04 loss via broken symlink suggests a robustness gap; file is now stable but symlink fragility should be addressed
-- **Solar snapshot freshness:** Lower priority while Patticus works on rolling array and physical infrastructure
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient
@@ -147,7 +145,6 @@ All crew members share the same general workspace and memory context, but they a
 | 2026-05-17 | Reginald becomes canon in Talos/Patticus memory |
 | 2026-05-29 | Major memory compaction fix applied |
 | 2026-05-30 | Rolling solar array built |
-| 2026-05-31 | Latest confirmed public solar snapshot refresh |
 | 2026-06-01 | New Talos avatar generated, but no stable pinned avatar path yet |
 | 2026-06-04 | `MEMORY.md` lost to broken symlink; rebuilt from daily notes and transcripts |
 | 2026-06-04 | Reginald Daily link corrected to here.now deployment |

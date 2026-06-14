@@ -151,12 +151,16 @@ def generate_post_html():
         for i, p in enumerate(paragraphs, 1):
             if not p.strip():
                 continue
-            # Extract dialogue
-            parts = p.split("Panel")
-            content_html += f'      <div class="panel-box">\n'
-            content_html += f'        <div class="panel-title">PANEL {i}</div>\n'
-            content_html += f'        <p>{escape_html(p)}</p>\n'
-            content_html += f'      </div>\n'
+            wide = " wide" if i % 3 == 0 else ""
+            content_html += f'      \u003cdiv class="comic-panel{wide}"\u003e\n'
+            content_html += f'        \u003cdiv class="panel-number"\u003ePANEL {i}\u003c/div\u003e\n'
+            content_html += f'        \u003cdiv class="caption-box"\u003e{escape_html(p[:120])}{"..." if len(p) \u003e 120 else ""}\u003c/div\u003e\n'
+            # Check for dialogue quotes
+            import re
+            quotes = re.findall(r'"([^"]+)"', p)
+            for q in quotes[:2]:
+                content_html += f'        \u003cdiv class="speech-bubble reginald"\u003e"{escape_html(q)}"\u003c/div\u003e\n'
+            content_html += f'      \u003c/div\u003e\n'
     else:
         content_html = ""
         for p in paragraphs:
@@ -180,56 +184,141 @@ def generate_post_html():
   \u003cmeta name="viewport" content="width=device-width, initial-scale=1"\u003e
   \u003clink rel="icon" type="image/x-icon" href="../favicon.ico"\u003e
   \u003ctitle\u003e{escape_html(TITLE)} — Rockin Regi\u003c/title\u003e
+  \u003clink href="https://fonts.googleapis.com/css2?family=Bangers\u0026family=Comic+Neue:wght@400;700\u0026display=swap" rel="stylesheet"\u003e
   \u003cstyle\u003e
     :root {{
-      --bg: #0a0c14; --panel: rgba(16,20,32,.92); --line: {border};
-      --text: #e8ecf5; --muted: #8a96b0; --cyan: #00d4ff;
-      --accent: {color};
+      --paper: #f5f0e6; --paper-dark: #e8e0d0; --ink: #1a1a2e;
+      --accent: #ff0080; --cyan: #00d4ff; --burst-yellow: #ffdd00;
+      --burst-red: #ff3333; --panel-border: #1a1a2e;
     }}
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
-      color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg); min-height: 100vh;
+      color: var(--ink); font-family: 'Comic Neue', cursive;
+      background: #2a2a3e; min-height: 100vh; padding: 1rem;
     }}
-    .wrap {{ max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }}
-    .nav-back {{ margin-bottom: 1.5rem; }}
-    .nav-back a {{ color: var(--cyan); text-decoration: none; font-size: 0.9rem; }}
-    .nav-back a:hover {{ text-decoration: underline; }}
-    .post-type {{
-      display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.06em; padding: 0.25rem 0.7rem; border-radius: 4px;
-      background: {bg}; color: var(--accent); border: 1px solid {border};
-      margin-bottom: 0.75rem;
+    .comic-page {{
+      max-width: 900px; margin: 0 auto; background: var(--paper);
+      border: 4px solid var(--ink);
+      box-shadow: 0 0 0 2px var(--paper-dark), 0 10px 40px rgba(0,0,0,0.4), inset 0 0 100px rgba(0,0,0,0.05);
+      padding: 1.5rem; position: relative;
     }}
-    h1 {{ font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.2; }}
-    .date {{ color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }}
-    .content {{ font-size: 1.05rem; line-height: 1.7; }}
-    .content p {{ margin-bottom: 1.25rem; }}
-    .panel-box {{
-      background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-      padding: 1.25rem; margin: 1.5rem 0;
+    .comic-page::before {{
+      content: ""; position: absolute; inset: 8px; border: 2px solid var(--ink);
+      pointer-events: none; opacity: 0.3;
     }}
-    .panel-title {{ color: var(--accent); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.75rem; }}
-    .content img {{ max-width: 100%; height: auto; border-radius: 8px; margin-top: 0.75rem; border: 1px solid var(--line); }}
-    footer {{ margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); text-align: center; }}
-    footer a {{ color: var(--cyan); text-decoration: none; }}
-    @media (max-width: 640px) {{ .wrap {{ padding: 1.5rem 1rem; }} h1 {{ font-size: 1.5rem; }} }}
+    .comic-page::after {{
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 4px 4px; pointer-events: none;
+    }}
+    .comic-header {{
+      text-align: center; margin-bottom: 1.5rem; padding-bottom: 1rem;
+      border-bottom: 3px solid var(--ink); position: relative; z-index: 1;
+    }}
+    .issue-tag {{
+      display: inline-block; background: var(--burst-yellow); border: 2px solid var(--ink);
+      padding: 0.3rem 1rem; font-family: 'Bangers', cursive; font-size: 0.9rem;
+      letter-spacing: 1px; transform: rotate(-2deg); box-shadow: 3px 3px 0 var(--ink);
+    }}
+    .comic-header h1 {{
+      font-family: 'Bangers', cursive; font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 2px; text-transform: uppercase; color: var(--ink);
+      text-shadow: 3px 3px 0 rgba(255,0,128,0.3); margin: 0.75rem 0 0.5rem;
+    }}
+    .nav-back {{
+      position: absolute; top: 1rem; left: 1rem; font-family: 'Bangers', cursive;
+      font-size: 0.85rem; z-index: 10;
+    }}
+    .nav-back a {{
+      color: var(--ink); text-decoration: none; background: var(--burst-yellow);
+      border: 2px solid var(--ink); padding: 0.3rem 0.8rem; display: inline-block;
+      transform: rotate(-3deg); box-shadow: 2px 2px 0 var(--ink); transition: transform 0.2s;
+    }}
+    .nav-back a:hover {{ transform: rotate(0deg) scale(1.05); }}
+    .hero-image {{
+      width: 100%; border: 3px solid var(--ink); margin-bottom: 1.5rem;
+      display: block; box-shadow: 4px 4px 0 rgba(0,0,0,0.2); position: relative; z-index: 1;
+    }}
+    .comic-grid {{
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+      margin-bottom: 1.5rem; position: relative; z-index: 1;
+    }}
+    .comic-panel {{
+      background: #fff; border: 3px solid var(--panel-border); padding: 1rem;
+      position: relative; box-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+    }}
+    .comic-panel.wide {{ grid-column: 1 / -1; }}
+    .comic-panel.full {{ grid-column: 1 / -1; }}
+    .panel-number {{
+      position: absolute; top: -12px; left: 10px; background: var(--burst-yellow);
+      border: 2px solid var(--ink); padding: 0.15rem 0.6rem;
+      font-family: 'Bangers', cursive; font-size: 0.8rem; letter-spacing: 1px;
+      box-shadow: 2px 2px 0 var(--ink); z-index: 2;
+    }}
+    .speech-bubble {{
+      background: #fff; border: 2px solid var(--ink); border-radius: 50%;
+      padding: 1rem 1.5rem; margin: 0.75rem 0; position: relative;
+      font-family: 'Comic Neue', cursive; font-weight: 700; font-size: 1rem;
+      line-height: 1.4; text-align: center;
+    }}
+    .speech-bubble::after {{
+      content: ""; position: absolute; bottom: -15px; left: 30%;
+      width: 0; height: 0; border-left: 15px solid transparent;
+      border-right: 15px solid transparent; border-top: 20px solid var(--ink);
+    }}
+    .speech-bubble::before {{
+      content: ""; position: absolute; bottom: -11px; left: calc(30% + 2px);
+      width: 0; height: 0; border-left: 13px solid transparent;
+      border-right: 13px solid transparent; border-top: 17px solid #fff; z-index: 1;
+    }}
+    .speech-bubble.reginald {{ background: #e6f7ff; border-color: var(--cyan); }}
+    .speech-bubble.reginald::after {{ border-top-color: var(--cyan); }}
+    .speech-bubble.reginald::before {{ border-top-color: #e6f7ff; }}
+    .caption-box {{
+      background: var(--paper-dark); border: 2px solid var(--ink);
+      padding: 0.75rem 1rem; margin: 0.75rem 0;
+      font-family: 'Comic Neue', cursive; font-style: italic; font-size: 0.95rem;
+    }}
+    .caption-box::before {{ content: "📍 "; }}
+    .burst {{
+      display: inline-block; background: var(--burst-yellow); border: 3px solid var(--ink);
+      padding: 0.5rem 1rem; font-family: 'Bangers', cursive; font-size: 1.3rem;
+      letter-spacing: 2px; text-transform: uppercase; transform: rotate(-5deg);
+      box-shadow: 3px 3px 0 var(--ink); margin: 0.5rem 0;
+    }}
+    .burst.red {{ background: var(--burst-red); color: #fff; }}
+    .comic-footer {{
+      text-align: center; margin-top: 2rem; padding-top: 1rem;
+      border-top: 3px solid var(--ink); font-family: 'Bangers', cursive;
+      font-size: 0.9rem; letter-spacing: 1px; position: relative; z-index: 1;
+    }}
+    .comic-footer a {{
+      color: var(--ink); text-decoration: none; background: var(--burst-yellow);
+      border: 2px solid var(--ink); padding: 0.3rem 1rem; display: inline-block;
+      box-shadow: 2px 2px 0 var(--ink);
+    }}
+    @media (max-width: 640px) {{
+      .comic-grid {{ grid-template-columns: 1fr; }}
+      .comic-page {{ padding: 1rem; margin: 0.5rem; }}
+      .comic-header h1 {{ font-size: 1.8rem; }}
+      .nav-back {{ position: static; margin-bottom: 1rem; text-align: center; }}
+    }}
   \u003c/style\u003e
 \u003c/head\u003e
 \u003cbody\u003e
-  \u003cdiv class="wrap"\u003e
-    \u003cdiv class="nav-back"\u003e\u003ca href="./index.html"\u003e← Rockin Regi\u003c/a\u003e\u003c/div\u003e
-    \u003cspan class="post-type"\u003e{label}\u003c/span\u003e
-    \u003ch1\u003e{escape_html(TITLE)}\u003c/h1\u003e
-    \u003cdiv class="date"\u003e{datetime.now().strftime("%B %d, %Y")} — Chaotic Sanctum\u003c/div\u003e
-
-    \u003cdiv class="content"\u003e
+  \u003cdiv class="comic-page"\u003e
+    \u003cdiv class="nav-back"\u003e\u003ca href="./index.html"\u003e← BACK TO ROCKIN REGI\u003c/a\u003e\u003c/div\u003e
+    \u003cdiv class="comic-header"\u003e
+      \u003cdiv class="issue-tag"\u003eCHAOTIC SANCTUM CHRONICLES — {datetime.now().strftime("%B %d, %Y")}\u003c/div\u003e
+      \u003ch1\u003e{escape_html(TITLE)}\u003c/h1\u003e
+    \u003c/div\u003e
+{"    \u003cimg src=\"../" + art_rel + "\" alt=\"" + escape_html(TITLE) + "\" class=\"hero-image\" /\u003e" if art_rel else ""}
+    \u003cdiv class="comic-grid"\u003e
 {content_html}
     \u003c/div\u003e
-
-    \u003cfooter\u003e
-      \u003cp\u003e\u003ca href="./index.html"\u003e← Back to Rockin Regi\u003c/a\u003e\u003c/p\u003e
-    \u003c/footer\u003e
+    \u003cdiv class="comic-footer"\u003e
+      \u003ca href="./index.html"\u003e← MORE FROM REGINALD\u003c/a\u003e
+    \u003c/div\u003e
   \u003c/div\u003e
 \u003c/body\u003e
 \u003c/html\u003e
@@ -246,19 +335,25 @@ def update_index(post_file):
     index_html = BLOG_INDEX.read_text(encoding="utf-8")
 
     type_colors = {
-        "comic": ("comic", "Comic Strip"),
-        "log": ("log", "Log Entry"),
-        "patch": ("patch", "Patch Notes"),
+        "comic": ("comic", "COMIC STRIP"),
+        "log": ("log", "LOG ENTRY"),
+        "patch": ("patch", "PATCH NOTES"),
     }
-    css_class, label = type_colors.get(POST_TYPE, ("comic", "Comic Strip"))
+    css_class, label = type_colors.get(POST_TYPE, ("comic", "COMIC STRIP"))
 
     # Generate excerpt
     excerpt = SCRIPT[:200].replace("|", " ") + ("..." if len(SCRIPT) > 200 else "")
 
-    post_entry = f"""      \u003carticle class="post"\u003e
-        \u003cdiv class="post-header"\u003e
+    # Build thumbnail if art exists
+    thumb_html = ""
+    if art_path:
+        thumb_name = art_path.name
+        thumb_html = f'    \u003cimg class="post-thumbnail" src="../rockinregi-images/{thumb_name}" alt="{TITLE}"\u003e\n    '
+
+    post_entry = f"""      \u003carticle class="post-card"\u003e
+{thumb_html}\u003cdiv class="post-header"\u003e
           \u003cspan class="post-type {css_class}"\u003e{label}\u003c/span\u003e
-          \u003cspan class="post-date"\u003e{datetime.now().strftime("%B %Y")}\u003c/span\u003e
+          \u003cdiv class="post-date"\u003e{datetime.now().strftime("%B %d, %Y")}\u003c/div\u003e
         \u003c/div\u003e
         \u003ch2\u003e\u003ca href="./{post_file.name}"\u003e{TITLE}\u003c/a\u003e\u003c/h2\u003e
         \u003cp class="post-excerpt"\u003e{excerpt}\u003c/p\u003e
