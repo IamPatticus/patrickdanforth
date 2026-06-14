@@ -1,6 +1,6 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-07_
+_Last updated: 2026-06-14_
 
 ---
 
@@ -127,14 +127,16 @@ All crew members share the same general workspace and memory context, but they a
 
 ## Ongoing Issues
 
-- **Ikaris Blogger auth:** OAuth is currently blocked; the pipeline can still generate content and images, but publishing needs fresh browser-based re-auth (last attempted 2026-06-05, produced post + art but could not publish)
-- **Daily note creation reliability:** Health checks have had to create missing daily files several times this week — worth investigating root cause when convenient
-- **MEMORY.md resilience:** The 2026-06-04 loss via broken symlink suggests a robustness gap; the file is now stable but the underlying cause (symlink fragility) should be addressed
-- **Solar snapshot freshness:** Lower priority while Patticus works on the rolling array and other physical infrastructure
+- **Ikaris Blog:** ~~OAuth blocked~~ → MIGRATED to self-hosted on patrickdanforth.com/blog/ as of 2026-06-12. Pipeline generates HTML + art locally, git push to publish. No auth required.
+- **Tailscale Serve:** Enabled 2026-06-12 for Control UI — `https://serenity.tail4695cd.ts.net/` proxies to gateway on loopback. HTTPS + Tailscale identity auth = no token pasting, WebCrypto works.
+- **Signal:** ~~Fixed 2026-06-11~~ → Still broken for incoming messages. The HTTP JSON-RPC daemon endpoints return 404; OpenClaw integration can't receive. Outgoing works. Telegram is the reliable channel.
+- **Control UI:** Smoother after Tailscale Serve migration. Avatar re-uploaded for new HTTPS origin.
+- **Daily note creation reliability:** Health checks have had to create missing daily files several times — worth investigating root cause when convenient
+- **MEMORY.md resilience:** The 2026-06-04 loss via broken symlink suggests a robustness gap; file is now stable but symlink fragility should be addressed
+- **Solar snapshot freshness:** Lower priority while Patticus works on rolling array and physical infrastructure
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient
-- **~~Signal~~ FIXED 2026-06-11:** Signal was broken due to database corruption from Pi migration. Re-registered +19313660659 using signal-cli 0.14.2 (0.14.4.1 has JSON bugs). Working binary at `~/bin/signal-cli-0.14.2`. ⚠️ Rate limited at 02:23 UTC after multiple registration attempts—retry in morning. **Root cause of corruption:** Concurrent registration on phone while sending message from CLI caused database conflicts.
 
 ---
 
@@ -150,7 +152,14 @@ All crew members share the same general workspace and memory context, but they a
 | 2026-06-04 | `MEMORY.md` lost to broken symlink; rebuilt from daily notes and transcripts |
 | 2026-06-04 | Reginald Daily link corrected to here.now deployment |
 | 2026-06-05 | Ikaris daily post generated with art upload, but Blogger publish remained blocked |
-| 2026-06-11 | Signal re-registered and fixed using signal-cli 0.14.2 |
+| 2026-06-11 | Signal re-registered using signal-cli 0.14.2 (incoming still broken) |
+| 2026-06-12 | Ikaris blog MIGRATED to self-hosted on patrickdanforth.com/blog/ |
+| 2026-06-12 | Tailscale Serve enabled for Control UI — HTTPS, no token paste |
+| 2026-06-12 | Avatar re-uploaded for new HTTPS origin |
+| 2026-06-12 | Signal incoming messages still broken; Telegram confirmed as reliable channel |
+| 2026-06-12 | All crons fixed for Telegram delivery (was failing with "multiple channels" error) |
+| 2026-06-12 | Model allowlist updated to include `:cloud` suffixed variants |
+| 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
 
 ---
 
@@ -165,25 +174,19 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-13)
+## Promoted From Short-Term Memory (2026-06-14)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-07-2136.md:3:5 -->
-- Session: 2026-06-07 21:36:18 UTC: **Session Key**: agent:main:main; **Session ID**: b44e5e55-c84f-4179-b995-7c787d68f066; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07-2136.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:12:14 -->
-- Memory Health Checkpoint - 09:01 CDT: **Status:** ✅ OK; **Result:** Memory health checks passed; **Time:** 09:01 CDT (14:01 UTC) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07.md:12-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:18:21 -->
-- Pi 5 / Pironman Failure: **Time:** ~20:00 CDT (01:00 UTC 2026-06-08); **Symptom:** Daily Reginald display showed odd colors, then total power loss; **Result:** Pi 5 unresponsive, Talos migrated to Ubuntu box (serenity); **Migration effort:** ~9 hours to restore service [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07.md:18-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:22:24 -->
-- Pi 5 / Pironman Failure: **New host:** Intel Core i3-4010U, 7.7 GB RAM, Ubuntu 24.04.4 LTS; **Root cause:** Unknown — possible power supply failure, overheating, or storage corruption; **Status:** Running stable on backup hardware [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07.md:22-24]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-07.md:28:30 -->
-- Notes: Started the day with a memory health checkpoint; Patticus is active late night/early morning; Major hardware incident in evening — Talos now running on Ubuntu box serenity [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-07.md:28-30]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:11:14 -->
-- Reginald Daily Comic Site Migration: Migrated from Vercel/here.now to GitHub Pages; New URL: https://patrickdanforth.com/reginald-flipbook/; 20 comics archived (May 19 - June 7); Updated link on main patrickdanforth.com homepage [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:11-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:15:15 -->
-- Reginald Daily Comic Site Migration: Sync script pulls from `SiliconPower/images/reginald-daily/archive/` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:15-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:18:21 -->
-- Control UI Access: Fixed "Browser origin not allowed" error; Added `dangerouslyDisableDeviceAuth: true` to config; Control UI now accessible via HTTP on Tailscale; Working: `http://100.65.152.80:18789` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:18-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:24:25 -->
-- SSH Key Setup: Generated ED25519 key for GitHub authentication; Enabled automated git pushes from serenity [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:24-25]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:28:30 -->
-- Hardware Context: Running on Mini ITX Linux box (Q330G4); Intel Core i3-4005U @ 1.7GHz, 8GB DDR3 RAM, 16GB SSD; External drives: SiliconPower 3.6TB, Android 1TB [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-08.md:28-30]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:6:8 -->
+- Samba Network Shares: Configured external 1TB Android drive as Samba share; Accessible via `\\192.168.1.155\Android` and `\\100.65.152.80\Android`; Mounted at `/mnt/android` (exFAT filesystem) [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-08.md:6-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:11:11 -->
+- Conversation Summary: `sgnl://linkdevice?uuid=WdVCaicl4593y5ncnUHTJA%3D%3D&pub_key=BayfYfLkL3avVZRgcipkOx2u7VSVvVlnM9vaGvwzKzsZ` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:11-11]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:13:16 -->
+- Conversation Summary: **Scan from your +1315 phone!** user: I scanned assistant: I see your message at 02:24 UTC. You scanned! Let me check if it connected: assistant: I see your message. The link didn't complete - the +1931 number isn't registered yet. Let me check the link status: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:13-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:17:17 -->
+- Conversation Summary: assistant: I see your message at 02:25 UTC. **Partial success but still broken!** [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:17-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:19:19 -->
+- Conversation Summary: **Good:** "Received link information from +13159216500, linking in progress..." and "Associated with: +13159216500" [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:19-19]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:3:5 -->
+- Session: 2026-06-09 14:11:19 UTC: **Session Key**: agent:main:main; **Session ID**: d7521ac6-e51f-45b6-b02b-5656158f6b7b; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:9:9 -->
+- Conversation Summary: assistant: I see your message. **NEW CODE - scan with +1315 phone NOW:** [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:9-9]
