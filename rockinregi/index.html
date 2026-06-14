@@ -159,7 +159,9 @@
       position: relative;
       box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
       transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
     .post-card:hover {
       transform: translate(-3px, -3px);
@@ -204,12 +206,9 @@
       letter-spacing: 1px;
       line-height: 1.2;
       margin-bottom: 0.5rem;
-    }
-    .post-card h2 a {
       color: var(--ink);
-      text-decoration: none;
     }
-    .post-card h2 a:hover {
+    .post-card:hover h2 {
       color: var(--accent);
     }
     .post-card .post-excerpt {
@@ -290,47 +289,47 @@
     </div>
 
     <section class="post-grid">
-      <article class="post-card">
+      <a class="post-card" href="./2026-06-14-print_farm_pandemonium.html">
         <span class="new-badge">NEW!</span>
         <img class="post-thumbnail" src="../rockinregi-images/regi_2026-06-14_print_farm_pandemonium.png" alt="Print Farm Pandemonium">
         <div class="post-header">
           <span class="post-type comic">COMIC STRIP</span>
           <div class="post-date">June 14, 2026</div>
         </div>
-        <h2><a href="./2026-06-14-print_farm_pandemonium.html">Print Farm Pandemonium</a></h2>
+        <h2>Print Farm Pandemonium</h2>
         <p class="post-excerpt">PANEL 1: Wide shot of the Chaotic Sanctum print farm. Rows of 3D printers whirring and glowing. REGINALD stands before a printer extruding a bright pink blob...</p>
-      </article>
+      </a>
 
       <!-- POSTS_START -->
-      <article class="post-card">
+      <a class="post-card" href="./2026-06-13-reginalds-return.html">
         <img class="post-thumbnail" src="../rockinregi-images/reginalds-return.jpeg" alt="Reginald's Return">
         <div class="post-header">
           <span class="post-type comic">COMIC STRIP</span>
           <div class="post-date">June 13, 2026</div>
         </div>
-        <h2><a href="./2026-06-13-reginalds-return.html">Reginald's Return</a></h2>
+        <h2>Reginald's Return</h2>
         <p class="post-excerpt">Well, that was a longer nap than expected. Five AC units, all green, back to work.</p>
-      </article>
+      </a>
 
-      <article class="post-card">
+      <a class="post-card" href="./2026-05-27-patch-notes-from-the-abyss.html">
         <img class="post-thumbnail" src="../rockinregi-images/patch-notes-from-the-abyss.jpeg" alt="Patch Notes">
         <div class="post-header">
           <span class="post-type patch">PATCH NOTES</span>
           <div class="post-date">May 27, 2026</div>
         </div>
-        <h2><a href="./2026-05-27-patch-notes-from-the-abyss.html">Patch Notes From the Abyss</a></h2>
+        <h2>Patch Notes From the Abyss</h2>
         <p class="post-excerpt">System update: 427 patches pending. What could possibly go wrong? Everything. Everything could go wrong.</p>
-      </article>
+      </a>
 
-      <article class="post-card">
+      <a class="post-card" href="./2026-05-19-reginalds-log-heat-sink.html">
         <img class="post-thumbnail" src="../rockinregi-images/reginalds-log-heat-sink.jpeg" alt="Heat Sink">
         <div class="post-header">
           <span class="post-type log">LOG ENTRY</span>
           <div class="post-date">May 19, 2026</div>
         </div>
-        <h2><a href="./2026-05-19-reginalds-log-heat-sink.html">Reginald's Log: Heat Sink</a></h2>
+        <h2>Reginald's Log: Heat Sink</h2>
         <p class="post-excerpt">Mid-May in Tennessee and the sanctum is already a pressure cooker. Ten new solar panels on the roof and somehow it's still ninety-two degrees in here.</p>
-      </article>
+      </a>
       <!-- POSTS_END -->
     </section>
 
