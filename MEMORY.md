@@ -171,19 +171,17 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-14)
+## Promoted From Short-Term Memory (2026-06-15)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-08.md:6:8 -->
-- Samba Network Shares: Configured external 1TB Android drive as Samba share; Accessible via `\\192.168.1.155\Android` and `\\100.65.152.80\Android`; Mounted at `/mnt/android` (exFAT filesystem) [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-08.md:6-8]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:11:11 -->
-- Conversation Summary: `sgnl://linkdevice?uuid=WdVCaicl4593y5ncnUHTJA%3D%3D&pub_key=BayfYfLkL3avVZRgcipkOx2u7VSVvVlnM9vaGvwzKzsZ` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:11-11]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:13:16 -->
-- Conversation Summary: **Scan from your +1315 phone!** user: I scanned assistant: I see your message at 02:24 UTC. You scanned! Let me check if it connected: assistant: I see your message. The link didn't complete - the +1931 number isn't registered yet. Let me check the link status: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:13-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:17:17 -->
-- Conversation Summary: assistant: I see your message at 02:25 UTC. **Partial success but still broken!** [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:17-17]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:19:19 -->
-- Conversation Summary: **Good:** "Received link information from +13159216500, linking in progress..." and "Associated with: +13159216500" [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:19-19]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:3:5 -->
-- Session: 2026-06-09 14:11:19 UTC: **Session Key**: agent:main:main; **Session ID**: d7521ac6-e51f-45b6-b02b-5656158f6b7b; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09-1411.md:9:9 -->
-- Conversation Summary: assistant: I see your message. **NEW CODE - scan with +1315 phone NOW:** [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-09-1411.md:9-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:13:15 -->
+- Conversation Summary: assistant: Let me check what changed between yesterday and today: assistant: Let me try a quick restart of Samba to see if that resolves the issue: assistant: The Samba services are running fine on the server side. Since they worked yesterday and the services haven't crashed, this is likely a **Windows discovery/network browsing issue** rather than a server problem. [score=0.825 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:13-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:18:20 -->
+- Conversation Summary: ✅ smbd/nmbd running (restarted Jun 9 06:27); ✅ Ports 139/445 listening; ✅ Shares configured correctly [score=0.825 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:18-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:17:17 -->
+- Conversation Summary: **Current Status:** [score=0.815 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:17-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:22:22 -->
+- Conversation Summary: **Most likely causes:** [score=0.815 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:22-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:3:5 -->
+- Session: 2026-06-11 01:12:57 UTC: **Session Key**: agent:main:dashboard:3ec34907-ac3c-49a6-bcd0-702e7ac9cc7d; **Session ID**: c81d8c76-f302-4db3-b5cf-04c535d857fa; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:9:12 -->
+- Conversation Summary: assistant: Services look healthy. Let me check a few more things: assistant: Services look healthy, but you're probably running into **Windows discovery issues**. Windows 10/11 uses **WS-Discovery** (not just SMB) to find network shares. assistant: Windows clients can't auto-discover your shares because **WS-Discovery** isn't installed. Windows 10/11 requires it to see shares in File Explorer. user: odd as they worked yesterday [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:9-12]
