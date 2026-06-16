@@ -171,17 +171,25 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-15)
+## Promoted From Short-Term Memory (2026-06-16)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:13:15 -->
-- Conversation Summary: assistant: Let me check what changed between yesterday and today: assistant: Let me try a quick restart of Samba to see if that resolves the issue: assistant: The Samba services are running fine on the server side. Since they worked yesterday and the services haven't crashed, this is likely a **Windows discovery/network browsing issue** rather than a server problem. [score=0.825 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:13-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:18:20 -->
-- Conversation Summary: ✅ smbd/nmbd running (restarted Jun 9 06:27); ✅ Ports 139/445 listening; ✅ Shares configured correctly [score=0.825 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:18-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:17:17 -->
-- Conversation Summary: **Current Status:** [score=0.815 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:17-17]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:22:22 -->
-- Conversation Summary: **Most likely causes:** [score=0.815 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:22-22]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:3:5 -->
-- Session: 2026-06-11 01:12:57 UTC: **Session Key**: agent:main:dashboard:3ec34907-ac3c-49a6-bcd0-702e7ac9cc7d; **Session ID**: c81d8c76-f302-4db3-b5cf-04c535d857fa; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11-0112.md:9:12 -->
-- Conversation Summary: assistant: Services look healthy. Let me check a few more things: assistant: Services look healthy, but you're probably running into **Windows discovery issues**. Windows 10/11 uses **WS-Discovery** (not just SMB) to find network shares. assistant: Windows clients can't auto-discover your shares because **WS-Discovery** isn't installed. Windows 10/11 requires it to see shares in File Explorer. user: odd as they worked yesterday [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11-0112.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:13:13 -->
+- Investigation: **First/last posts** — Only showed one direction (correct behavior) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:13-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:16:19 -->
+- Fix Applied: Created `services/blogger/fix_all_navigation.py` to rebuild nav for all posts; Sorted all 38 posts chronologically; Added proper Previous/Next links to every post:; First post (Apr 12): Next only ✅ [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:16-19]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:20:21 -->
+- Fix Applied: Last post (Jun 11): Previous only ✅; All middle posts: Both directions ✅ [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:20-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:24:27 -->
+- Verification: ✅ First post: Shows "Next: The Last Frequency →"; ✅ Middle post: Shows both "Next: ..." and "← Previous: ..."; ✅ Last post: Shows "← Previous: The Last Archive"; ✅ All 38 posts updated and pushed to GitHub [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:24-27]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:6:6 -->
+- Issue Reported: User noticed some posts were missing Previous/Next navigation buttons [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:6-6]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:9:12 -->
+- Investigation: Checked all 38 posts for navigation status; Found issues:; **2026-06-09-ikaris-returns.html** — Missing nav entirely; **All legacy posts** — Had nav container but no prev/next links populated [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:10:10 -->
+- Solution: Tailscale Serve: **Config changes to `openclaw.json`:** [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12.md:10-10]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:11:14 -->
+- Solution: Tailscale Serve: `gateway.tailscale.mode: "off"` → `"serve"`; `gateway.auth.allowTailscale: true` (enables Tailscale identity header auth); `gateway.controlUi.allowInsecureAuth: true` → `false`; `gateway.controlUi.dangerouslyDisableDeviceAuth: true` → `false` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12.md:11-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:15:15 -->
+- Solution: Tailscale Serve: Updated `allowedOrigins` to HTTPS Tailscale hostname: `https://serenity.tail4695cd.ts.net` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12.md:15-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:17:17 -->
+- Solution: Tailscale Serve: **Tailscale Serve setup (user ran in terminal):** [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12.md:17-17]

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Home Assistant health monitor — check entity states and alert on problems."""
+"""Home Assistant health monitor — check entity states, filter noise, alert on real problems."""
 
 import json
 import os
@@ -7,14 +7,44 @@ import sys
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
+from collections import Counter
 
 # Config
 HA_URL = os.environ.get("HOME_ASSISTANT_URL", "http://homeassistant.local:8123")
 HA_TOKEN = os.environ.get("HOME_ASSISTANT_TOKEN", "")
 STATE_FILE = Path(__file__).with_suffix(".state.json")
+
+# Thresholds for alerting
 ALERT_THRESHOLD_UNAVAILABLE = 200   # Alert if unavailable count jumps above this
 ALERT_DELTA_UNAVAILABLE = 50       # Or if it jumps by 50+ from last check
 ALERT_THRESHOLD_UNKNOWN = 120
+
+# Noise filters — domains/integrations we expect to be flaky
+NOISE_DOMAINS = {"media_player", "device_tracker"}
+NOISE_PATTERNS = ["emby_", "govee_", "ruuvitag_", "gvh"]
+
+# Known orphaned Victron entities that are dead in HA but can't be removed via UI
+# These are system-level ESS settings that no longer exist on the GX device
+VICTRON_ORPHANS = {
+    "binary_sensor.victron_settings_ess_feedinpowerlimit",
+    "sensor.victron_settings_ess_acpowersetpoint",
+    "sensor.victron_settings_ess_acpowersetpoint2",
+    "sensor.victron_settings_ess_feedinpowerlimit",
+    "sensor.victron_settings_ess_maxchargecurrent",
+    "sensor.victron_settings_ess_maxchargepercentage",
+    "sensor.victron_settings_ess_maxdischargepercentage",
+    "sensor.victron_settings_ess_maxdischargepower",
+    "sensor.victron_settings_ess_maxfeedinpower",
+    "sensor.victron_settings_ess_overvoltagefeedin",
+    "sensor.victron_settings_ess_preventfeedback",
+    "sensor.victron_settings_systemsetup_maxchargevoltage",
+    "sensor.victronsettings_systemssetup_acinput1100",
+    "sensor.victronsettings_systemssetup_acinput2100",
+}
+
+# Critical integrations — alert immediately if these drop
+CRITICAL_INTEGRATIONS = ["victron"]
+CRITICAL_VICTRON_THRESHOLD = 10   # Alert if 10+ Victron entities down
 
 
 def api(path):
@@ -32,6 +62,21 @@ def api(path):
         return {"_error": f"URL error: {e.reason}"}
     except Exception as e:
         return {"_error": str(e)}
+
+
+def is_noise_entity(entity):
+    """Check if an entity is expected noise (offline clients, BLE beacons, etc.)"""
+    eid = entity["entity_id"]
+    domain = eid.split(".")[0]
+    if domain in NOISE_DOMAINS:
+        return True
+    for pattern in NOISE_PATTERNS:
+        if pattern in eid.lower():
+            return True
+    # Known orphaned Victron ESS settings that are dead but undeletable via HA UI
+    if eid in VICTRON_ORPHANS:
+        return True
+    return False
 
 
 def load_state():
@@ -59,41 +104,48 @@ def check():
     total = len(states)
     unavailable = [e for e in states if e.get("state") == "unavailable"]
     unknown = [e for e in states if e.get("state") == "unknown"]
-    victron_down = sum(1 for e in unavailable if "victron" in e["entity_id"].lower())
-    spoolman_down = sum(1 for e in unknown if "spoolman" in e["entity_id"].lower())
+
+    # Filter noise
+    noise_unavailable = [e for e in unavailable if is_noise_entity(e)]
+    real_unavailable = [e for e in unavailable if not is_noise_entity(e)]
+
+    # Critical integration checks (filter known orphans)
+    victron_unavailable = [e for e in unavailable if "victron" in e["entity_id"].lower() and not is_noise_entity(e)]
 
     prev = load_state()
     prev_unavailable = prev.get("unavailable_count", 0)
     prev_unknown = prev.get("unknown_count", 0)
+    prev_real = prev.get("real_unavailable_count", 0)
+    # Version field for state migration — skip delta alerts on first new-format run
+    prev_version = prev.get("_version", 0)
+    is_fresh_state = prev_version < 2
 
     alerts = []
-    if len(unavailable) >= ALERT_THRESHOLD_UNAVAILABLE:
-        alerts.append(f"Unavailable entities HIGH: {len(unavailable)}")
-    if len(unavailable) - prev_unavailable >= ALERT_DELTA_UNAVAILABLE:
-        alerts.append(f"Unavailable entities jumped by {len(unavailable) - prev_unavailable} (now {len(unavailable)})")
+
+    # Critical integration alerts
+    if len(victron_unavailable) >= CRITICAL_VICTRON_THRESHOLD:
+        alerts.append(f"🚨 Victron DOWN: {len(victron_unavailable)} entities unavailable — solar monitoring broken")
+
+    # General thresholds
+    if len(real_unavailable) >= ALERT_THRESHOLD_UNAVAILABLE:
+        alerts.append(f"Unavailable entities HIGH: {len(real_unavailable)} (filtered: {len(noise_unavailable)})")
+    if not is_fresh_state and (len(real_unavailable) - prev_real) >= ALERT_DELTA_UNAVAILABLE:
+        alerts.append(f"Unavailable entities jumped by {len(real_unavailable) - prev_real} (now {len(real_unavailable)})")
     if len(unknown) >= ALERT_THRESHOLD_UNKNOWN:
         alerts.append(f"Unknown entities HIGH: {len(unknown)}")
-    if victron_down >= 50 and prev.get("victron_down", 0) < 50:
-        alerts.append(f"Victron connection DOWN: {victron_down} entities unavailable")
-    if victron_down < 50 and prev.get("victron_down", 0) >= 50:
-        alerts.append(f"Victron connection RESTORED")
-    if spoolman_down >= 20 and prev.get("spoolman_down", 0) < 20:
-        alerts.append(f"Spoolman connection DOWN: {spoolman_down} entities unknown")
-    if spoolman_down < 20 and prev.get("spoolman_down", 0) >= 20:
-        alerts.append(f"Spoolman connection RESTORED")
 
-    # Summarize top unavailable domains
-    from collections import Counter
-    domains = Counter(e["entity_id"].split(".")[0] for e in unavailable)
-    top_domains = domains.most_common(5)
+    # Summarize top real unavailable domains
+    real_domains = Counter(e["entity_id"].split(".")[0] for e in real_unavailable)
+    top_domains = real_domains.most_common(5)
 
     report = {
-        "timestamp": json.dumps(None),  # placeholder
+        "_version": 2,
         "total": total,
         "unavailable_count": len(unavailable),
+        "real_unavailable_count": len(real_unavailable),
+        "noise_unavailable_count": len(noise_unavailable),
         "unknown_count": len(unknown),
-        "victron_down": victron_down,
-        "spoolman_down": spoolman_down,
+        "victron_down": len(victron_unavailable),
         "top_unavailable_domains": top_domains,
         "alerts": alerts,
     }
@@ -102,10 +154,12 @@ def check():
 
     # Build readable output
     lines = [
-        f"🏠 HA Check — {len(unavailable)} unavailable, {len(unknown)} unknown / {total} total",
+        f"🏠 HA Check — {len(real_unavailable)} real unavailable, {len(noise_unavailable)} noise, {len(unknown)} unknown / {total} total",
     ]
     if top_domains:
-        lines.append("Top unavailable: " + ", ".join(f"{d}:{c}" for d, c in top_domains))
+        lines.append("Top real unavailable: " + ", ".join(f"{d}:{c}" for d, c in top_domains))
+    if victron_unavailable:
+        lines.append(f"  Victron: {len(victron_unavailable)} down")
     if alerts:
         lines.append("")
         lines.append("🚨 ALERTS:")

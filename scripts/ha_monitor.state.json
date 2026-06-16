@@ -1,29 +1,30 @@
 {
-  "timestamp": "null",
-  "total": 1943,
-  "unavailable_count": 167,
-  "unknown_count": 79,
-  "victron_down": 65,
-  "spoolman_down": 23,
+  "_version": 2,
+  "total": 1319,
+  "unavailable_count": 159,
+  "real_unavailable_count": 104,
+  "noise_unavailable_count": 55,
+  "unknown_count": 45,
+  "victron_down": 0,
   "top_unavailable_domains": [
     [
       "sensor",
-      116
+      63
     ],
     [
-      "media_player",
-      20
+      "button",
+      12
     ],
     [
       "switch",
-      9
-    ],
-    [
-      "device_tracker",
-      6
+      10
     ],
     [
       "binary_sensor",
+      5
+    ],
+    [
+      "select",
       4
     ]
   ],
