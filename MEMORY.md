@@ -171,25 +171,25 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-16)
+## Promoted From Short-Term Memory (2026-06-17)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:13:13 -->
-- Investigation: **First/last posts** — Only showed one direction (correct behavior) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:13-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:16:19 -->
-- Fix Applied: Created `services/blogger/fix_all_navigation.py` to rebuild nav for all posts; Sorted all 38 posts chronologically; Added proper Previous/Next links to every post:; First post (Apr 12): Next only ✅ [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:16-19]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:20:21 -->
-- Fix Applied: Last post (Jun 11): Previous only ✅; All middle posts: Both directions ✅ [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:20-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:24:27 -->
-- Verification: ✅ First post: Shows "Next: The Last Frequency →"; ✅ Middle post: Shows both "Next: ..." and "← Previous: ..."; ✅ Last post: Shows "← Previous: The Last Archive"; ✅ All 38 posts updated and pushed to GitHub [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:24-27]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:6:6 -->
-- Issue Reported: User noticed some posts were missing Previous/Next navigation buttons [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:6-6]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:9:12 -->
-- Investigation: Checked all 38 posts for navigation status; Found issues:; **2026-06-09-ikaris-returns.html** — Missing nav entirely; **All legacy posts** — Had nav container but no prev/next links populated [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:10:10 -->
-- Solution: Tailscale Serve: **Config changes to `openclaw.json`:** [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12.md:10-10]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:11:14 -->
-- Solution: Tailscale Serve: `gateway.tailscale.mode: "off"` → `"serve"`; `gateway.auth.allowTailscale: true` (enables Tailscale identity header auth); `gateway.controlUi.allowInsecureAuth: true` → `false`; `gateway.controlUi.dangerouslyDisableDeviceAuth: true` → `false` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12.md:11-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:15:15 -->
-- Solution: Tailscale Serve: Updated `allowedOrigins` to HTTPS Tailscale hostname: `https://serenity.tail4695cd.ts.net` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12.md:15-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:17:17 -->
-- Solution: Tailscale Serve: **Tailscale Serve setup (user ran in terminal):** [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12.md:17-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:19:20 -->
+- Solution: Tailscale Serve: sudo tailscale set --operator=patrick sudo tailscale serve / http://127.0.0.1:18789 [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-12.md:19-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:6:7 -->
+- Problem: Control UI was requiring auth token paste every browser open — clunky and frustrating; `gateway.controlUi.allowInsecureAuth: true` with `dangerouslyDisableDeviceAuth: true` was a brittle workaround [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-12.md:6-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:14:14 -->
+- Conversation Summary: **Signal is busted, and it's not a quick fix.** [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:14-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:17:20 -->
+- Conversation Summary: `signal-cli 0.14.4.1` (at `/usr/local/bin/`) has JSON serialization bugs — we know this; It corrupted the DB and was holding the config lock; We killed it, switched config to `~/bin/signal-cli-0.14.2`; **But** — OpenClaw's Signal channel integration expects the daemon's HTTP JSON-RPC + SSE interface to actually respond to its API calls [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:17-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:21:24 -->
+- Conversation Summary: Every endpoint I test returns 404, which means either:; The daemon's HTTP mode isn't compatible with what OpenClaw expects; There's a version mismatch between the signal-cli API and OpenClaw's Signal extension; The DB corruption from 0.14.4.1 broke something deeper [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:21-24]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:3:5 -->
+- Session: 2026-06-12 14:12:24 UTC: **Session Key**: agent:main:main; **Session ID**: 6e289dda-4bed-4dce-96d4-67d94bfbc6bf; **Source**: webchat [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:16:16 -->
+- Conversation Summary: The chain of issues: [score=0.814 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:16-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:9:12 -->
+- Conversation Summary: user: I get the test but when I respond nothing happens user: [System] Your previous turn was interrupted by a gateway restart while OpenClaw was waiting on tool/model work. Continue from the existing transcript and finish the interrupted response. assistant: Gateway restarted. Signal shows ON/OK in status. Let me check if the daemon is running for incoming messages: assistant: This is a deeper problem than I thought. Let me be straight with you: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12-2040.md:13:15 -->
+- Conversation Summary: assistant: Let me check those 3 June posts: assistant: All posts fixed. Now let me update the index thumbnails for the newly-imaged posts and deploy: assistant: Done and deployed! 🦞 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12-2040.md:13-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12-2040.md:17:17 -->
+- Conversation Summary: **16 AI art images** generated and added to the blog: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12-2040.md:17-17]
