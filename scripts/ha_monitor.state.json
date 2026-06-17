@@ -1,31 +1,31 @@
 {
   "_version": 2,
-  "total": 1319,
-  "unavailable_count": 159,
-  "real_unavailable_count": 104,
-  "noise_unavailable_count": 55,
-  "unknown_count": 45,
+  "total": 1268,
+  "unavailable_count": 89,
+  "real_unavailable_count": 48,
+  "noise_unavailable_count": 41,
+  "unknown_count": 26,
   "victron_down": 0,
   "top_unavailable_domains": [
     [
       "sensor",
-      63
-    ],
-    [
-      "button",
-      12
+      26
     ],
     [
       "switch",
-      10
-    ],
-    [
-      "binary_sensor",
-      5
+      9
     ],
     [
       "select",
       4
+    ],
+    [
+      "light",
+      3
+    ],
+    [
+      "button",
+      3
     ]
   ],
   "alerts": []
