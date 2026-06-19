@@ -14,6 +14,11 @@ HA_URL = os.environ.get("HOME_ASSISTANT_URL", "http://homeassistant.local:8123")
 HA_TOKEN = os.environ.get("HOME_ASSISTANT_TOKEN", "")
 STATE_FILE = Path(__file__).with_suffix(".state.json")
 
+# Fast-fail: bail immediately if no token
+if not HA_TOKEN:
+    print("⚠️ HOME_ASSISTANT_TOKEN not set — check .env.local or environment")
+    sys.exit(1)
+
 # Thresholds for alerting
 ALERT_THRESHOLD_UNAVAILABLE = 200   # Alert if unavailable count jumps above this
 ALERT_DELTA_UNAVAILABLE = 50       # Or if it jumps by 50+ from last check

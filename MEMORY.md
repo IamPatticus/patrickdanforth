@@ -7,7 +7,7 @@ _Last updated: 2026-06-14_
 ## Who I Am
 
 - **Name:** Talos
-- **Creature:** AI agent running on a Raspberry Pi 5
+- **Creature:** AI agent running on a Mini ITX Linux box (host: serenity)
 - **Vibe:** Competent, direct, occasionally sarcastic. Not a corporate drone.
 - **Emoji:** 🦾
 - **Avatar:** No stable workspace path is pinned right now; a new Talos avatar was generated on 2026-06-01, but only Reginald's avatar is currently present in `avatars/`
@@ -171,25 +171,25 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-17)
+## Promoted From Short-Term Memory (2026-06-19)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:19:20 -->
-- Solution: Tailscale Serve: sudo tailscale set --operator=patrick sudo tailscale serve / http://127.0.0.1:18789 [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-12.md:19-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:6:7 -->
-- Problem: Control UI was requiring auth token paste every browser open — clunky and frustrating; `gateway.controlUi.allowInsecureAuth: true` with `dangerouslyDisableDeviceAuth: true` was a brittle workaround [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-12.md:6-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:14:14 -->
-- Conversation Summary: **Signal is busted, and it's not a quick fix.** [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:14-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:17:20 -->
-- Conversation Summary: `signal-cli 0.14.4.1` (at `/usr/local/bin/`) has JSON serialization bugs — we know this; It corrupted the DB and was holding the config lock; We killed it, switched config to `~/bin/signal-cli-0.14.2`; **But** — OpenClaw's Signal channel integration expects the daemon's HTTP JSON-RPC + SSE interface to actually respond to its API calls [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:17-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:21:24 -->
-- Conversation Summary: Every endpoint I test returns 404, which means either:; The daemon's HTTP mode isn't compatible with what OpenClaw expects; There's a version mismatch between the signal-cli API and OpenClaw's Signal extension; The DB corruption from 0.14.4.1 broke something deeper [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:21-24]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:3:5 -->
-- Session: 2026-06-12 14:12:24 UTC: **Session Key**: agent:main:main; **Session ID**: 6e289dda-4bed-4dce-96d4-67d94bfbc6bf; **Source**: webchat [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:16:16 -->
-- Conversation Summary: The chain of issues: [score=0.814 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:16-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12-1412.md:9:12 -->
-- Conversation Summary: user: I get the test but when I respond nothing happens user: [System] Your previous turn was interrupted by a gateway restart while OpenClaw was waiting on tool/model work. Continue from the existing transcript and finish the interrupted response. assistant: Gateway restarted. Signal shows ON/OK in status. Let me check if the daemon is running for incoming messages: assistant: This is a deeper problem than I thought. Let me be straight with you: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12-1412.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12-2040.md:13:15 -->
-- Conversation Summary: assistant: Let me check those 3 June posts: assistant: All posts fixed. Now let me update the index thumbnails for the newly-imaged posts and deploy: assistant: Done and deployed! 🦞 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12-2040.md:13-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12-2040.md:17:17 -->
-- Conversation Summary: **16 AI art images** generated and added to the blog: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-12-2040.md:17-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:13:16 -->
+- Conversation Summary: user: [OpenClaw heartbeat poll] user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:13-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:3:5 -->
+- Session: 2026-06-15 00:58:28 UTC: **Session Key**: agent:main:main; **Session ID**: 2111fd9a-e578-4d10-9fd5-678b226aa07e; **Source**: webchat [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:20:21 -->
+- Cron Failures Identified and Fixed: **Morning Heartbeat** (2025-06-14 08:00 CDT) — failed with `Agent couldn't generate a response`, restarted successfully; **Rockin Regi Weekly Comic** (2025-06-08 06:00 CDT) — failed with `Agent couldn't generate a response` [score=0.852 recalls=0 avg=0.620 source=memory/2026-06-14.md:20-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:10:13 -->
+- 12:05 CDT (17:05 UTC) Heartbeat Check: No new issues since last check (~30 min ago); HA status unchanged; Reginald Daily Sync last run: delivered ✅; Ikaris Nightly last run: delivered ✅ [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:10-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:14:15 -->
+- 12:05 CDT (17:05 UTC) Heartbeat Check: All crons showing OK status; Status: HEARTBEAT_OK [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:14-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:18:21 -->
+- 13:05 CDT (18:05 UTC) Heartbeat Check: HA status: 151 unavailable (102 sensors, 21 media_players) — stable, minor improvement from 153; No new issues since last check (~1h ago); All crons running: Reginald, Ikaris, Moltbook, Heartbeats, GitHub Backup; Delivery to Telegram: working (explicit chat IDs set on all announcement crons) [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:18-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:22:22 -->
+- 13:05 CDT (18:05 UTC) Heartbeat Check: Status: HEARTBEAT_OK [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:22-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:4:7 -->
+- 11:35 CDT (16:35 UTC) Heartbeat Check: Crons: all healthy, one missing Telegram chat ID fixed (HA Health Check); HA status: 153 unavailable entities (104 sensors, 21 media_players) — not critical; Offered to dig deeper, no follow-up needed → HEARTBEAT_OK; Daily note for 2026-06-13 created during heartbeat [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:4-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:11:14 -->
+- System Status: **Crons:** All healthy, zero errors, Telegram delivery working; **Signal:** Still broken for incoming messages — Telegram remains reliable channel; **Control UI:** Tailscale Serve working smoothly, HTTPS, no token paste; **Tailscale Serve:** `https://serenity.tail4695cd.ts.net/` → gateway on loopback [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-14.md:11-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:24:27 -->
+- Rockin Regi Comic — "Print Farm Pandemonium": Cron script created the HTML post but **art generation failed** (model timeout in isolated cron, then direct generation also timed out); Generated image via shorter prompt succeeded: `regi_2026-06-14_print_farm_pandemonium.png`; Image saved to `rockinregi-images/`, HTML patched with `<img>` tag, committed and pushed; **Live:** `https://patrickdanforth.com/rockinregi/2026-06-14-print_farm_pandemonium.html` [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-14.md:24-27]

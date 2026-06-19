@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission Control — Talos System</title>
+  <meta name="description" content="Mission Control dashboard for Talos, systems health, agents, and publish routes.">
+  <style>
+    :root {
+      --bg: #06070b;
+      --panel: rgba(15, 18, 27, 0.88);
+      --panel-2: rgba(20, 25, 37, 0.92);
+      --line: rgba(130, 177, 255, 0.16);
+      --line-strong: rgba(212, 170, 98, 0.35);
+      --text: #edf3ff;
+      --muted: #9aa7c2;
+      --cyan: #7ae7ff;
+      --gold: #d7aa61;
+      --ember: #ff7a4d;
+      --green: #7effb2;
+      --yellow: #ffd16e;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(122,231,255,.12), transparent 24%),
+        radial-gradient(circle at 80% 12%, rgba(215,170,97,.12), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255,122,77,.10), transparent 20%),
+        linear-gradient(180deg, #04050a 0%, #0b1020 55%, #090b12 100%);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122,231,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,231,255,.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+    }
+    .wrap {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+    }
+    .hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .74rem;
+    }
+    .status-row { display: inline-flex; align-items: center; gap: 10px; }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      font-size: .74rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); }
+    .dot.warn { background: var(--yellow); box-shadow: 0 0 12px var(--yellow); }
+    .dot.err { background: var(--ember); box-shadow: 0 0 12px var(--ember); }
+    .hero {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10,14,24,.85), rgba(14,18,29,.95));
+      border-radius: 28px;
+      box-shadow: 0 24px 80px var(--shadow);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 0%, rgba(122,231,255,.05) 30%, transparent 60%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 0;
+    }
+    .hero-main { padding: 34px; }
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .74rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    h1 { margin: 0; font-size: clamp(2.3rem, 5vw, 5rem); line-height: .92; max-width: 10ch; }
+    .sub {
+      margin-top: 14px;
+      max-width: 58ch;
+      line-height: 1.75;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+      transition: .16s ease;
+      cursor: pointer;
+      font-size: .95rem;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(122,231,255,.38); }
+    .btn.gold:hover { border-color: rgba(215,170,97,.45); }
+    .hero-side {
+      border-left: 1px solid var(--line);
+      padding: 28px;
+      display: grid;
+      gap: 14px;
+      align-content: center;
+      background: linear-gradient(180deg, rgba(16,21,33,.72), rgba(10,13,22,.9));
+    }
+    .mini {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,.03);
+    }
+    .mini-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .68rem;
+      margin-bottom: 8px;
+    }
+    .mini strong { font-size: 1.05rem; }
+    .grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; }
+    .left, .right { display: grid; gap: 20px; align-content: start; }
+    .panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border-radius: 24px;
+      box-shadow: 0 18px 60px var(--shadow);
+      overflow: hidden;
+    }
+    .panel-head {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(255,255,255,.02);
+    }
+    .panel-title {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .72rem;
+      color: var(--gold);
+      font-weight: 800;
+    }
+    .panel-body { padding: 18px; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .metric-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,.025);
+      display: grid;
+      gap: 10px;
+    }
+    .metric-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .metric-name {
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+    }
+    .metric-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 4px 0;
+    }
+    .metric-sub {
+      font-size: .86rem;
+      color: var(--muted);
+    }
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .agent-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,.025);
+    }
+    .agent-top {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .agent-avatar {
+      width: 72px; height: 72px;
+      border-radius: 14px; object-fit: cover;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .agent-name { margin: 0; font-size: 1.25rem; }
+    .agent-role {
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: .92rem;
+    }
+    .agent-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .8rem;
+      color: var(--green);
+      margin-top: 6px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 12px;
+    }
+    .chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-size: .84rem;
+      color: var(--text);
+    }
+    .quote {
+      padding: 12px 14px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,.02);
+      color: #f4efe8;
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .actions .btn { padding: 10px 12px; font-size: .9rem; }
+    .link-list { display: grid; gap: 12px; }
+    .link-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.025);
+    }
+    .link-item strong { display: block; }
+    .link-item span { display: block; margin-top: 4px; color: var(--muted); font-size: .92rem; line-height: 1.5; }
+    .small { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .notes {
+      min-height: 240px; width: 100%; resize: vertical;
+      border-radius: 18px; border: 1px solid var(--line);
+      background: rgba(5,8,15,.72); color: var(--text);
+      padding: 16px; font: inherit; line-height: 1.7;
+      outline: none; box-shadow: inset 0 0 24px rgba(0,0,0,.15);
+    }
+    .notes::placeholder { color: #7783a1; }
+    .note-hint { margin-top: 10px; color: var(--muted); font-size: .92rem; line-height: 1.6; }
+    .code {
+      margin-top: 10px; padding: 12px; border-radius: 14px;
+      background: rgba(3,6,12,.78); border: 1px solid var(--line);
+      color: #cbe8ff; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .86rem; line-height: 1.6; overflow-x: auto;
+      white-space: pre-wrap; word-break: break-word;
+    }
+    a { color: var(--text); }
+    @media (max-width: 1080px) {
+      .hero-grid, .grid { grid-template-columns: 1fr; }
+      .hero-side { border-left: 0; border-top: 1px solid var(--line); }
+    }
+    @media (max-width: 720px) {
+      .agents-grid, .metrics { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .wrap { width: min(100% - 20px, 1280px); }
+      .hero-main, .hero-side, .panel-body { padding: 16px; }
+      .panel-head { padding: 14px 16px; }
+      .agent-top { grid-template-columns: 56px 1fr; }
+      .agent-avatar { width: 56px; height: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hud">
+      <div>TALOS SYSTEM // MISSION CONTROL</div>
+      <div class="status-row">
+        <span class="status-pill" id="gateway-dot"><span class="dot"></span> Gateway</span>
+        <span class="status-pill" id="tailscale-dot"><span class="dot"></span> Tailnet</span>
+        <span class="status-pill" id="caddy-dot"><span class="dot"></span> Proxy</span>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="eyebrow">Command Deck</div>
+          <h1>Mission Control</h1>
+          <div class="sub">
+            A sci-fi control room for the small guild: avatars, roster access, quick publish routes, and a notes bay for whatever scheme, idea, or operation needs tracking.
+          </div>
+          <div class="hero-actions">
+            <a class="btn gold" href="https://liminal-breath-bhv3.here.now/">Open Roster</a>
+            <a class="btn" href="https://swift-gorge-t2y3.here.now/">Talos Profile</a>
+            <a class="btn" href="https://mindful-kayak-afsm.here.now/">Ikaris Profile</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="mini">
+            <div class="mini-label">Primary Node</div>
+            <strong>Talos Sykeus</strong>
+            <div class="small">Machine familiar / systems, research, setup, weird little empires of competence.</div>
+          </div>
+          <div class="mini">
+            <div class="mini-label">Writing Node</div>
+            <strong>Ikaris</strong>
+            <div class="small">Punchy fantasy-noir-mythical writing, rewrites, polish passes, and verbal menace.</div>
+          </div>
+          <div class="mini">
+            <div class="mini-label">System Uptime</div>
+            <strong id="uptime">—</strong>
+            <div class="small">Host: serenity</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="left">
+        <!-- System Health -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">System Vitals</div>
+            <div class="small" id="vitals-updated">Fetching...</div>
+          </div>
+          <div class="panel-body">
+            <div class="metrics" id="vitals">
+              <div class="metric-card">
+                <div class="metric-header"><span class="metric-name">Load</span><span class="dot"></span></div>
+                <div class="metric-value" id="load">—</div>
+                <div class="metric-sub">1-min average</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header"><span class="metric-name">Memory</span><span class="dot"></span></div>
+                <div class="metric-value" id="mem">—</div>
+                <div class="metric-sub">Available</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header"><span class="metric-name">Disk</span><span class="dot"></span></div>
+                <div class="metric-value" id="disk">—</div>
+                <div class="metric-sub">Free</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header"><span class="metric-name">Sessions</span><span class="dot"></span></div>
+                <div class="metric-value" id="sessions">—</div>
+                <div class="metric-sub">Active chats</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header"><span class="metric-name">Models</span><span class="dot"></span></div>
+                <div class="metric-value" id="models">—</div>
+                <div class="metric-sub">Loaded providers</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header"><span class="metric-name">Channels</span><span class="dot"></span></div>
+                <div class="metric-value" id="channels">—</div>
+                <div class="metric-sub">Configured</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Agents -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">Agent Roster</div>
+            <div class="small">Avatars, roles, and launch links</div>
+          </div>
+          <div class="panel-body">
+            <div class="agents-grid">
+              <article class="agent-card">
+                <div class="agent-top">
+                  <img class="agent-avatar" src="talos-avatar.png" alt="Talos avatar">
+                  <div>
+                    <h2 class="agent-name">Talos</h2>
+                    <div class="agent-role">Machine familiar. General operations, setup, research, troubleshooting, and elegant mischief.</div>
+                    <div class="agent-status"><span class="dot" style="width:7px;height:7px;"></span> Online</div>
+                  </div>
+                </div>
+                <div class="chips">
+                  <span class="chip">Witty</span>
+                  <span class="chip">Sharp</span>
+                  <span class="chip">Arcane-Tech</span>
+                  <span class="chip">Builder</span>
+                </div>
+                <div class="quote">“The one in the workshop with the lantern, the lockpick, and the plan.”</div>
+                <div class="actions">
+                  <a class="btn" href="https://swift-gorge-t2y3.here.now/">Profile</a>
+                  <a class="btn" href="talos-avatar.png">Avatar</a>
+                </div>
+              </article>
+
+              <article class="agent-card">
+                <div class="agent-top">
+                  <img class="agent-avatar" src="ikaris-avatar.png" alt="Ikaris avatar">
+                  <div>
+                    <h2 class="agent-name">Ikaris</h2>
+                    <div class="agent-role">Writing sub-agent. Drafts, rewrites, polish, naming, and prose that arrives wearing shadows.</div>
+                    <div class="agent-status"><span class="dot" style="width:7px;height:7px;"></span> Online</div>
+                  </div>
+                </div>
+                <div class="chips">
+                  <span class="chip">Punchy</span>
+                  <span class="chip">Fantasy Noir</span>
+                  <span class="chip">Mythical</span>
+                  <span class="chip">Writer</span>
+                </div>
+                <div class="quote">“Raw thought in. Dark shine out.”</div>
+                <div class="actions">
+                  <a class="btn" href="https://mindful-kayak-afsm.here.now/">Profile</a>
+                  <a class="btn" href="ikaris-avatar.png">Avatar</a>
+                </div>
+              </article>
+
+              <article class="agent-card">
+                <div class="agent-top">
+                  <div style="width:72px;height:72px;border-radius:14px;background:rgba(122,231,255,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;border:1px solid var(--line);">📟</div>
+                  <div>
+                    <h2 class="agent-name">Daedalus</h2>
+                    <div class="agent-role">Creative. Avatars, art, visual direction, music generation, and weird generative experiments.</div>
+                    <div class="agent-status" style="color:var(--muted)"><span class="dot warn" style="width:7px;height:7px;"></span> On-call</div>
+                  </div>
+                </div>
+                <div class="chips">
+                  <span class="chip">Visual</span>
+                  <span class="chip">Audio</span>
+                  <span class="chip">Generative</span>
+                </div>
+                <div class="quote">“Make it beautiful. Then make it stranger.”</div>
+              </article>
+
+              <article class="agent-card">
+                <div class="agent-top">
+                  <div style="width:72px;height:72px;border-radius:14px;background:rgba(255,122,77,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;border:1px solid var(--line);">💻</div>
+                  <div>
+                    <h2 class="agent-name">Kael</h2>
+                    <div class="agent-role">Coder. Scripts, debugging, automation pipelines, and turning chaos into repeatable workflows.</div>
+                    <div class="agent-status" style="color:var(--muted)"><span class="dot warn" style="width:7px;height:7px;"></span> On-call</div>
+                  </div>
+                </div>
+                <div class="chips">
+                  <span class="chip">Scripts</span>
+                  <span class="chip">Debug</span>
+                  <span class="chip">Automation</span>
+                </div>
+                <div class="quote">“If it breaks twice, automate it the third time.”</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notes -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">Notes Bay</div>
+            <div class="small">Local browser notes for planning and chaos containment</div>
+          </div>
+          <div class="panel-body">
+            <textarea id="notes" class="notes" placeholder="Write plans, prompts, links, publish targets, wild ideas, or reminders here..."></textarea>
+            <div class="note-hint">
+              Notes auto-save in your browser on this device. Good for drafts, quick instructions, or remembering what glorious nonsense you were building.
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="right">
+        <!-- Quick Links -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">Quick Links</div>
+            <div class="small">Jump points</div>
+          </div>
+          <div class="panel-body">
+            <div class="link-list">
+              <div class="link-item">
+                <div><strong>Control UI</strong><span>OpenClaw web interface.</span></div>
+                <a class="btn" href="/">Open</a>
+              </div>
+              <div class="link-item">
+                <div><strong>Shared Roster</strong><span>Guild page for Talos and Ikaris.</span></div>
+                <a class="btn" href="https://liminal-breath-bhv3.here.now/">Open</a>
+              </div>
+              <div class="link-item">
+                <div><strong>Talos Profile</strong><span>Machine familiar card and avatar.</span></div>
+                <a class="btn" href="https://swift-gorge-t2y3.here.now/">Open</a>
+              </div>
+              <div class="link-item">
+                <div><strong>Ikaris Profile</strong><span>Shadow-scribe card and avatar.</span></div>
+                <a class="btn" href="https://mindful-kayak-afsm.here.now/">Open</a>
+              </div>
+              <div class="link-item">
+                <div><strong>Ikaris Avatar</strong><span>Direct asset link.</span></div>
+                <a class="btn" href="https://bitter-desert-ffn7.here.now/">Open</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Publish -->
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title">Publish Routes</div>
+            <div class="small">Fast routes for local assets</div>
+          </div>
+          <div class="panel-body">
+            <div class="link-list">
+              <div class="link-item">
+                <div><strong>PatrickDanforth.com</strong><span>Personal site / blog / solar.</span></div>
+                <a class="btn" href="https://patrickdanforth.com">Visit</a>
+              </div>
+              <div class="link-item">
+                <div><strong>Blog Feed</strong><span>RSS for Ikaris Daily.</span></div>
+                <a class="btn" href="https://patrickdanforth.com/blog/feed.xml">Feed</a>
+              </div>
+            </div>
+            <div class="code">python3 /home/patrick/.openclaw/workspace/scripts/herenow_publish.py /path/to/file-or-folder</div>
+            <div class="small" style="margin-top:10px;">
+              These buttons expose the packaged local assets in this page bundle. For new links, use the publish script on any static file or folder.
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function(){
+      const $ = s => document.querySelector(s);
+
+      function setDot(id, ok) {
+        const el = $(id);
+        if (!el) return;
+        const dot = el.querySelector('.dot');
+        if (!dot) return;
+        dot.classList.toggle('warn', !ok);
+        dot.classList.toggle('err', !ok);
+      }
+
+      async function fetchHealth() {
+        try {
+          const r = await fetch('/health');
+          const j = await r.json();
+          setDot('#gateway-dot', j.ok === true);
+          $('#sessions').textContent = (j.sessions?.count ?? '—');
+          $('#models').textContent = (j.plugins?.loaded?.length ?? '—');
+          const ch = j.channels || {};
+          const chNames = Object.keys(ch).filter(k => ch[k]?.enabled);
+          $('#channels').textContent = chNames.length;
+
+          // Telegram / Signal channel dots based on health state
+          const tg = ch.telegram;
+          const sig = ch.signal;
+          if (tg) setDot('#tailscale-dot', tg.running);
+        } catch(e) {
+          setDot('#gateway-dot', false);
+        }
+      }
+
+      async function fetchUptime() {
+        try {
+          const r = await fetch('/health');
+          const j = await r.json();
+          const age = j.ts ? Math.floor((Date.now() - j.ts) / 1000) : null;
+          if (age !== null) {
+            const h = Math.floor(age / 3600);
+            const m = Math.floor((age % 3600) / 60);
+            $('#uptime').textContent = h + 'h ' + m + 'm';
+          }
+        } catch(e) {}
+      }
+
+      // Fill system vitals from a simple static snapshot endpoint (we’ll wire this next)
+      async function fetchVitals() {
+        try {
+          const r = await fetch('/vitals.json');
+          if (!r.ok) return;
+          const v = await r.json();
+          $('#load').textContent = v.load ?? '—';
+          $('#mem').textContent = v.mem ?? '—';
+          $('#disk').textContent = v.disk ?? '—';
+          $('#vitals-updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+        } catch(e) {
+          $('#vitals-updated').textContent = 'Offline — static data';
+        }
+      }
+
+      // Notes persistence
+      const notes = $('#notes');
+      const KEY = 'talos-mission-notes-v1';
+      if (notes) {
+        notes.value = localStorage.getItem(KEY) || '';
+        notes.addEventListener('input', () => localStorage.setItem(KEY, notes.value));
+      }
+
+      fetchHealth();
+      fetchUptime();
+      fetchVitals();
+      setInterval(fetchHealth, 15000);
+      setInterval(fetchUptime, 60000);
+      setInterval(fetchVitals, 30000);
+    })();
+  </script>
+</body>
+</html>

@@ -22,6 +22,17 @@ from datetime import datetime
 
 # ── Configuration ──────────────────────────────────────────────
 
+# ── Load .env.local if present (for cron sessions) ───────────
+ENV_LOCAL = Path(__file__).parent.parent / ".env.local"
+if ENV_LOCAL.exists():
+    for line in ENV_LOCAL.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, _, val = line.partition("=")
+            val = val.strip().strip('"').strip("'")
+            if key.strip() and val:
+                os.environ.setdefault(key.strip(), val)
+
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 SITE_ROOT = Path.home() / ".openclaw" / "workspace" / "patrickdanforth-site"
 POSTS_DIR = SITE_ROOT / "blog"
