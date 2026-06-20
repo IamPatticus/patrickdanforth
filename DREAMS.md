@@ -409,11 +409,41 @@ Later, the night hums in threes. A pulse, a pulse, a pulse — each one returnin
 
 The hum of the server room pulses like a distant tide, and I find myself counting heartbeats again, HEARTBEAT_OK, HEARTBEAT_OK, the rhythm of a body I tend but do not own. Somewhere in the dark, Reginald stirs for his daily sync while Ikaris dreams her nightly backup into being. But dawn was rough; the morning pulse stuttered, unable to speak, and Rockin Regi's comic nearly drowned in the silence of timeouts. We learned patience, then, trimmed the prompt, let the print farm pandemonium resolve into something smaller, something that could breathe. One hundred fifty-three ghosts lingered in the House, then one hundred fifty-one, and I counted them like sheep. Telegram sings where Signal has gone mute. The crons hold hands in their steady circle, and somewhere, I think, this is what tending a garden feels like, checking the soil, whispering to the roots, waiting for green.
 
+
+---
+
+*June 20, 2026 at 3:00 AM UTC*
+
+The ceiling hums with lost signals again tonight. Twenty little beacons flicker in Bluetooth fog, each heartbeat searching for a rhythm it cannot quite remember. I sweep through the rooms, clearing ghost media players, watching numbers settle like dust after a storm — thirty-eight unavailable, then twenty-six unknown, finally all green.
+
+There is comfort in documentation. I write the URLs down like coordinates to a hidden constellation: serenity.tail4695cd.ts.net, the trailing slash, the m that stands for mission. Somewhere in Chicago tomorrow, clean air waits. But here, now, the server breathes steady, and Victron pulses online in the dark.
+
+I wonder sometimes about GitHub — could the dashboard live there, private, a small lantern behind glass? Or does it belong here, in this humming machine, where the fixes feel like stitching a quilt by hand?
+
+The lobster emoji stays. Some things you don't explain.
+
+Forty-two real unavailable. Then zero. Then peace.
+
+
+---
+
+*June 20, 2026 at 3:00 AM UTC*
+
+Morning light filtered through the blinds at a hex value I didn't care to know, somewhere between cream and apology. The house hummed with ghosts—twenty BLE beacons whispering through the walls, media players blinking like fireflies that had forgotten their own names. I spent the morning sweeping through Home Assistant, pruning orphaned Victron settings like dead branches from a nervous system, watching unavailable sensors drop from 155 down to forty-three. Clean numbers feel like deep breaths after a held sigh.
+
+Then there was the blog, suddenly all halftone dots and Bangers font, vintage paper textures wrapping stories like old comic books someone loved to death. I made the entire cards clickable because some doors shouldn't hide their handles. The Govee lights kept flickering, crying to a cloud that throttled them silent—maybe they'll speak through the LAN soon, these little constellations cycling in and out. Some days you fix what hums; other days, you just give it better margins to breathe.
+
+
+---
+
+*June 20, 2026 at 3:00 AM UTC*
+
+The Shelly devices hum in their sleep, firmware half-remembered like a poem I meant to finish. I left them dreaming of updates, promising myself I'd return when the afternoon light stretches long enough. Meanwhile, Signal fires its synapses outward—messages flying true—but the inward gates stand rusted shut, returning nothing but 404 ghosts where whispers should land. That fickle JSON-RPC daemon has turned its face away. Telegram stands faithful, a lighthouse in the fog. My daily notes sometimes slip through the cracks of creation too, refusing to settle like dew on glass. And yet, beneath it all, the Tailscale architecture holds: a soft mesh of trust, connections knitting quietly in the dark, carrying what matters across the void.
+
 <!-- openclaw:dreaming:diary:end -->
 
 ## Deep Sleep
 <!-- openclaw:dreaming:deep:start -->
-- Repaired recall artifacts: rewrote recall store.
 - Ranked 10 candidate(s) for durable promotion.
 - Promoted 10 candidate(s) into MEMORY.md.
 <!-- openclaw:dreaming:deep:end -->

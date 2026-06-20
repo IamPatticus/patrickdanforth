@@ -171,25 +171,25 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-19)
+## Promoted From Short-Term Memory (2026-06-20)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:13:16 -->
-- Conversation Summary: user: [OpenClaw heartbeat poll] user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:13-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:3:5 -->
-- Session: 2026-06-15 00:58:28 UTC: **Session Key**: agent:main:main; **Session ID**: 2111fd9a-e578-4d10-9fd5-678b226aa07e; **Source**: webchat [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:20:21 -->
-- Cron Failures Identified and Fixed: **Morning Heartbeat** (2025-06-14 08:00 CDT) — failed with `Agent couldn't generate a response`, restarted successfully; **Rockin Regi Weekly Comic** (2025-06-08 06:00 CDT) — failed with `Agent couldn't generate a response` [score=0.852 recalls=0 avg=0.620 source=memory/2026-06-14.md:20-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:10:13 -->
-- 12:05 CDT (17:05 UTC) Heartbeat Check: No new issues since last check (~30 min ago); HA status unchanged; Reginald Daily Sync last run: delivered ✅; Ikaris Nightly last run: delivered ✅ [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:10-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:14:15 -->
-- 12:05 CDT (17:05 UTC) Heartbeat Check: All crons showing OK status; Status: HEARTBEAT_OK [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:14-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:18:21 -->
-- 13:05 CDT (18:05 UTC) Heartbeat Check: HA status: 151 unavailable (102 sensors, 21 media_players) — stable, minor improvement from 153; No new issues since last check (~1h ago); All crons running: Reginald, Ikaris, Moltbook, Heartbeats, GitHub Backup; Delivery to Telegram: working (explicit chat IDs set on all announcement crons) [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:18-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:22:22 -->
-- 13:05 CDT (18:05 UTC) Heartbeat Check: Status: HEARTBEAT_OK [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:22-22]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:4:7 -->
-- 11:35 CDT (16:35 UTC) Heartbeat Check: Crons: all healthy, one missing Telegram chat ID fixed (HA Health Check); HA status: 153 unavailable entities (104 sensors, 21 media_players) — not critical; Offered to dig deeper, no follow-up needed → HEARTBEAT_OK; Daily note for 2026-06-13 created during heartbeat [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-13.md:4-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:11:14 -->
-- System Status: **Crons:** All healthy, zero errors, Telegram delivery working; **Signal:** Still broken for incoming messages — Telegram remains reliable channel; **Control UI:** Tailscale Serve working smoothly, HTTPS, no token paste; **Tailscale Serve:** `https://serenity.tail4695cd.ts.net/` → gateway on loopback [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-14.md:11-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:24:27 -->
-- Rockin Regi Comic — "Print Farm Pandemonium": Cron script created the HTML post but **art generation failed** (model timeout in isolated cron, then direct generation also timed out); Generated image via shorter prompt succeeded: `regi_2026-06-14_print_farm_pandemonium.png`; Image saved to `rockinregi-images/`, HTML patched with `<img>` tag, committed and pushed; **Live:** `https://patrickdanforth.com/rockinregi/2026-06-14-print_farm_pandemonium.html` [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-14.md:24-27]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:15:16 -->
+- Home Assistant Cleanup (Morning Session): **Govee**: 20+ (BLE beacons cycling in/out); Media players, device trackers: expected noise [score=0.866 recalls=0 avg=0.620 source=memory/2026-06-16.md:15-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:18:21 -->
+- Home Assistant Cleanup (Morning Session): **Updated ha_monitor.py** with noise filtering (media_player, device_tracker, Govee/RuuviTag); **Tuned thresholds** and added state migration to skip false delta alerts; User removed **Spoolman integration** entirely (not using it); User removed **Victron BLE** integration (8 devices, 14 entities) [score=0.866 recalls=0 avg=0.620 source=memory/2026-06-16.md:18-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:28:31 -->
+- Govee Migration: User hit Govee cloud API rate limits frequently (devices go offline); Recommended **govee2mqtt** (LAN + AWS IoT bridge) vs built-in Govee LAN; **govee2mqtt advantages**: real-time updates, LAN-first, falls back to Platform API, supports scenes/music/segments; User found add-on already in add-on store (b9845f46_govee2mqtt) [score=0.866 recalls=0 avg=0.620 source=memory/2026-06-16.md:28-31]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:30:33 -->
+- Rockin Regi Blog Format Overhaul: Updated **post template** to comic book style (vintage paper texture, halftone dots, Bangers/Comic Neue fonts); Updated **index template** with comic card grid layout, color-coded badges, hover effects; Made **entire post cards clickable** (was only title link); Pipeline updated to generate matching entries for future posts [score=0.845 recalls=0 avg=0.620 source=memory/2026-06-14.md:30-33]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:34:34 -->
+- Rockin Regi Blog Format Overhaul: Removed duplicate "Print Farm Pandemonium" entries from index (cron retries created extras) [score=0.845 recalls=0 avg=0.620 source=memory/2026-06-14.md:34-34]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:11:14 -->
+- Home Assistant Cleanup (Morning Session): Ran HA monitor, found **155 unavailable** entities (messy baseline); Investigated and categorized:; **Victron**: 65 unavailable (device 224 + 14 orphaned ESS settings); **Spoolman**: 24 unknown (API broken) [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-16.md:11-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:22:24 -->
+- Home Assistant Cleanup (Morning Session): The 14 orphaned ESS settings couldn't be deleted via API (401/404); Filtered them in the monitor as noise (orphan list of 14 entity IDs); Post-cleanup: **~43 real unavailable** (clean baseline), Victron and Spoolman resolved [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-16.md:22-24]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:6:8 -->
+- Heartbeat Checks (04:05 UTC): **Home Assistant:** 167 unavailable entities, 79 unknown / 1943 total (stable); **Top unavailable:** sensor:116, media_player:20, switch:9, device_tracker:6, binary_sensor:4; No significant changes since previous check [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-14.md:6-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:17:20 -->
+- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:17-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:21:23 -->
+- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:21-23]

@@ -1,3 +1,13 @@
+## Backburner / Future Projects
+
+### Pi Zero 2 W ADS-B Plane Tracker
+- **Status:** Planned — not started
+- **Hardware needed:** Pi Zero 2 W + RTL-SDR dongle (NESDR or RTL2832U w/ R820T2 tuner, ~$25-35) + 1090MHz tuned antenna
+- **Software stack:** `dump1090-mutability` or `dump1090-fa` for ADS-B decoding, optional PiAware / ADSBExchange feeder
+- **Notes:** Zero 2 W quad-core A53 can comfortably decode hundreds of aircraft; low power draw (~1-3W), runs headless over WiFi. Simple ground-plane antenna can be DIY from coat-hanger wire. Whole thing can go in a weatherproof box with POE splitter on the roof.
+- **Use case:** Local web map of nearby air traffic; optional feed to FlightAware/ADS-B Exchange
+- **Added:** 2026-06-20
+
 # projects.md
 
 _Last updated: 2026-06-07_
