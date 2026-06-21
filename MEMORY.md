@@ -171,25 +171,21 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-20)
+## Promoted From Short-Term Memory (2026-06-21)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:15:16 -->
-- Home Assistant Cleanup (Morning Session): **Govee**: 20+ (BLE beacons cycling in/out); Media players, device trackers: expected noise [score=0.866 recalls=0 avg=0.620 source=memory/2026-06-16.md:15-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:18:21 -->
-- Home Assistant Cleanup (Morning Session): **Updated ha_monitor.py** with noise filtering (media_player, device_tracker, Govee/RuuviTag); **Tuned thresholds** and added state migration to skip false delta alerts; User removed **Spoolman integration** entirely (not using it); User removed **Victron BLE** integration (8 devices, 14 entities) [score=0.866 recalls=0 avg=0.620 source=memory/2026-06-16.md:18-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:28:31 -->
-- Govee Migration: User hit Govee cloud API rate limits frequently (devices go offline); Recommended **govee2mqtt** (LAN + AWS IoT bridge) vs built-in Govee LAN; **govee2mqtt advantages**: real-time updates, LAN-first, falls back to Platform API, supports scenes/music/segments; User found add-on already in add-on store (b9845f46_govee2mqtt) [score=0.866 recalls=0 avg=0.620 source=memory/2026-06-16.md:28-31]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:30:33 -->
-- Rockin Regi Blog Format Overhaul: Updated **post template** to comic book style (vintage paper texture, halftone dots, Bangers/Comic Neue fonts); Updated **index template** with comic card grid layout, color-coded badges, hover effects; Made **entire post cards clickable** (was only title link); Pipeline updated to generate matching entries for future posts [score=0.845 recalls=0 avg=0.620 source=memory/2026-06-14.md:30-33]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:34:34 -->
-- Rockin Regi Blog Format Overhaul: Removed duplicate "Print Farm Pandemonium" entries from index (cron retries created extras) [score=0.845 recalls=0 avg=0.620 source=memory/2026-06-14.md:34-34]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:11:14 -->
-- Home Assistant Cleanup (Morning Session): Ran HA monitor, found **155 unavailable** entities (messy baseline); Investigated and categorized:; **Victron**: 65 unavailable (device 224 + 14 orphaned ESS settings); **Spoolman**: 24 unknown (API broken) [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-16.md:11-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:22:24 -->
-- Home Assistant Cleanup (Morning Session): The 14 orphaned ESS settings couldn't be deleted via API (401/404); Filtered them in the monitor as noise (orphan list of 14 entity IDs); Post-cleanup: **~43 real unavailable** (clean baseline), Victron and Spoolman resolved [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-16.md:22-24]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:6:8 -->
-- Heartbeat Checks (04:05 UTC): **Home Assistant:** 167 unavailable entities, 79 unknown / 1943 total (stable); **Top unavailable:** sensor:116, media_player:20, switch:9, device_tracker:6, binary_sensor:4; No significant changes since previous check [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-14.md:6-8]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:17:20 -->
-- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:17-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:21:23 -->
-- Conversation Summary: assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:21-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:9:12 -->
+- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.848 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:15:17 -->
+- Conversation Summary: Fluctuating in the 100-110 range — normal baseline. No alerts. 🦞 user: [OpenClaw heartbeat poll] assistant: Stable around 110 real unavailable — hovering in the normal range. No alerts firing. [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:15-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:19:21 -->
+- Conversation Summary: Ready whenever you want to pick up govee2mqtt or the MQTT template fixes. 🦞 user: [OpenClaw heartbeat poll] assistant: Up a bit — 110 → 135 real unavailable, sensors went 68 → 93. That's a notable jump but within normal range, no alerts firing. Could be afternoon device cycling or some integrations handshaking. Nothing urgent. [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:19-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:23:26 -->
+- Conversation Summary: Let me know when you're ready for govee2mqtt or template cleanup. 🦞 user: [OpenClaw heartbeat poll] assistant: Settling back down — 135 → 132, sensors 93 → 90. Normal afternoon fluctuation, no alerts. All quiet here. 🦞 user: [OpenClaw heartbeat poll] [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:23-26]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:3:5 -->
+- Session: 2026-06-16 14:56:41 UTC: **Session Key**: agent:main:main; **Session ID**: 976b527b-c30d-47d8-ba93-8db967c1d57c; **Source**: webchat [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:9:12 -->
+- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] user: [OpenClaw heartbeat poll] [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:5:7 -->
+- User woke up early, noticed **Morning Heartbeat cron failed** (kimi-k2.5 model timeout); Investigated cron list and found same pattern in **Rockin Regi Weekly Comic**; **Upgraded ALL crons to kimi-k2.6** with appropriate timeouts to prevent future flakes [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-16.md:5-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:13:13 -->
+- Conversation Summary: assistant: HEARTBEAT_OK [score=0.815 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:13-13]
