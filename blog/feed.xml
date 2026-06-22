@@ -755,5 +755,16 @@
       <category>AI-Generated</category>
     </item>
 
+  
+    <item>
+      <title>Test Post</title>
+      <link>https://patrickdanforth.com/blog/2026-06-22-test-post.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-22-test-post.html</guid>
+      <pubDate>Mon, 22 Jun 2026 02:47:03 +0000</pubDate>
+      <description>Test content</description>
+      <category>Fiction</category>
+      <category>AI-Generated</category>
+    </item>
+
   </channel>
 </rss>
