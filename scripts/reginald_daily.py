@@ -9,6 +9,17 @@ import os, sys, time, json, base64, urllib.request, urllib.parse, random, shutil
 from pathlib import Path
 from datetime import datetime
 
+# ── Load .env.local if present (for cron sessions) ───────────
+ENV_LOCAL = Path.home() / ".openclaw" / "workspace" / ".env.local"
+if ENV_LOCAL.exists():
+    for line in ENV_LOCAL.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, _, val = line.partition("=")
+            val = val.strip().strip('"').strip("'")
+            if key.strip() and val:
+                os.environ[key.strip()] = val
+
 # Archive locations
 ARCHIVE_DIR="/mnt/siliconpower/images/reginald-daily/archive"
 CACHE_DIR=os.path.expanduser("~/.cache/reginald-daily")

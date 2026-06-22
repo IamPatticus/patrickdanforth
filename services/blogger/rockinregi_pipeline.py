@@ -23,6 +23,17 @@ from datetime import datetime
 
 # ── Configuration ──────────────────────────────────────────────
 
+# ── Load .env.local if present (for cron sessions) ───────────
+ENV_LOCAL = Path(__file__).parent.parent / ".env.local"
+if ENV_LOCAL.exists():
+    for line in ENV_LOCAL.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, _, val = line.partition("=")
+            val = val.strip().strip('"').strip("'")
+            if key.strip() and val:
+                os.environ[key.strip()] = val
+
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 SITE_ROOT = Path.home() / ".openclaw" / "workspace" / "patrickdanforth-site"
 POSTS_DIR = SITE_ROOT / "rockinregi"
@@ -154,9 +165,8 @@ def generate_post_html():
             wide = " wide" if i % 3 == 0 else ""
             content_html += f'      \u003cdiv class="comic-panel{wide}"\u003e\n'
             content_html += f'        \u003cdiv class="panel-number"\u003ePANEL {i}\u003c/div\u003e\n'
-            content_html += f'        \u003cdiv class="caption-box"\u003e{escape_html(p[:120])}{"..." if len(p) \u003e 120 else ""}\u003c/div\u003e\n'
+            content_html += f'        <div class="caption-box">{escape_html(p[:120])}{"..." if len(p) > 120 else ""}</div>\n'
             # Check for dialogue quotes
-            import re
             quotes = re.findall(r'"([^"]+)"', p)
             for q in quotes[:2]:
                 content_html += f'        \u003cdiv class="speech-bubble reginald"\u003e"{escape_html(q)}"\u003c/div\u003e\n'

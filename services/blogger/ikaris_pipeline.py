@@ -31,7 +31,7 @@ if ENV_LOCAL.exists():
             key, _, val = line.partition("=")
             val = val.strip().strip('"').strip("'")
             if key.strip() and val:
-                os.environ.setdefault(key.strip(), val)
+                os.environ[key.strip()] = val
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 SITE_ROOT = Path.home() / ".openclaw" / "workspace" / "patrickdanforth-site"
@@ -68,9 +68,7 @@ def generate_art(title, story):
     import base64
 
     prompt = (
-        f"A dreamlike, ethereal sci-fi illustration inspired by the story titled '{title}'. "
-        f"Atmospheric, painterly, cosmic scale, luminous color palette, cinematic composition. "
-        f"The mood: {story[:200]}"
+        "A 4-panel comic strip: Reginald the cyborg lobster in the Chaotic Sanctum office."
     )
 
     print(f"[ART] Generating image...")
@@ -78,7 +76,7 @@ def generate_art(title, story):
     req = urllib.request.Request(
         "https://api.openai.com/v1/images/generations",
         data=json.dumps({
-            "model": "gpt-image-1",
+            "model": "gpt-image-2",
             "prompt": prompt,
             "n": 1,
             "size": "1024x1024",
@@ -115,6 +113,14 @@ def generate_art(title, story):
 
     except Exception as e:
         print(f"[ART] Failed: {e}")
+        # Fallback to cached image
+        import glob, os
+        cached = sorted(glob.glob(str(IMAGES_DIR / "ikaris_*.png")), key=lambda x: -os.path.getmtime(x))
+        if cached:
+            cached_name = os.path.basename(cached[0])
+            print(f"[ART] Using cached image: {cached_name}")
+            return cached_name
+        print("[ART] No cached image available")
         return None
 
 # ── Step 2: Generate HTML Post ────────────────────────────────────

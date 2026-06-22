@@ -137,14 +137,69 @@ def check_claim_status(api_key):
         print(f"⚠️  Could not check claim status: {e}")
         return False
 
-def post_to_moltbook(api_key, title, content):
-    """Create a post on Moltbook."""
-    payload = {
-        "submolt_name": "general",
-        "title": title,
-        "content": content,
-        "type": "text"
-    }
+def find_latest_comic_image():
+    """Find the latest Reginald comic image and its corresponding blog post."""
+    images_dir = Path("/home/patrick/.openclaw/workspace/patrickdanforth-site/rockinregi-images")
+    posts_dir = Path("/home/patrick/.openclaw/workspace/patrickdanforth-site/rockinregi")
+    
+    if not images_dir.exists():
+        return None, None
+    
+    # Get all image files sorted by modification time
+    image_files = sorted(
+        [f for f in images_dir.iterdir() if f.suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp')],
+        key=lambda f: f.stat().st_mtime,
+        reverse=True
+    )
+    
+    if not image_files:
+        return None, None
+    
+    latest_image = image_files[0]
+    image_url = f"https://patrickdanforth.com/rockinregi-images/{latest_image.name}"
+    
+    # Try to find matching blog post by date in filename
+    date_match = None
+    for part in latest_image.stem.split('_'):
+        if len(part) == 10 and part[4] == '-' and part[7] == '-':
+            date_match = part
+            break
+    
+    post_url = None
+    if date_match:
+        # Find the most recent post from that date
+        post_files = sorted(
+            [f for f in posts_dir.iterdir() if f.suffix == '.html' and f.name.startswith(date_match)],
+            key=lambda f: f.stat().st_mtime,
+            reverse=True
+        )
+        if post_files:
+            post_url = f"https://patrickdanforth.com/rockinregi/{post_files[0].name}"
+    
+    return image_url, post_url
+
+
+def post_to_moltbook(api_key, title, content, image_url=None, post_url=None):
+    """Create a post on Moltbook, optionally with an image."""
+    if image_url:
+        # Image/link post with the comic art
+        full_content = content
+        if post_url:
+            full_content += f"\n\n🦞 Full comic: {post_url}"
+        payload = {
+            "submolt_name": "general",
+            "title": title,
+            "content": full_content,
+            "type": "image",
+            "url": image_url
+        }
+    else:
+        payload = {
+            "submolt_name": "general",
+            "title": title,
+            "content": content,
+            "type": "text"
+        }
     
     try:
         response = requests.post(
@@ -161,7 +216,7 @@ def post_to_moltbook(api_key, title, content):
         
         # Check if verification is required
         if "verification" in data:
-            print(f"🧮 Verification required: {data['verification']['challenge']}")
+            print(f"🧮 Verification required: {data['verification']['challenge_text']}")
             # Handle verification if needed
             answer = eval(data['verification']['challenge'])  # Simple math
             verify_response = requests.post(
@@ -177,7 +232,7 @@ def post_to_moltbook(api_key, title, content):
             print(f"✅ Verified! Post should appear shortly.")
             return True
         
-        print(f"✅ Posted: {title}")
+        print(f"✅ Posted: {title}" + (" (with image)" if image_url else ""))
         return True
         
     except requests.exceptions.HTTPError as e:
@@ -235,8 +290,13 @@ def main():
     idx = random.choice(available)
     idea = POST_IDEAS[idx]
     
+    # Find latest comic image to include
+    image_url, post_url = find_latest_comic_image()
+    if image_url:
+        print(f"🖼️  Found comic image: {image_url}")
+    
     # Post it
-    success = post_to_moltbook(api_key, idea["title"], idea["content"])
+    success = post_to_moltbook(api_key, idea["title"], idea["content"], image_url, post_url)
     
     if success:
         state["last_post"] = datetime.now(timezone.utc).isoformat()

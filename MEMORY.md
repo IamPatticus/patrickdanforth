@@ -171,21 +171,25 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-21)
+## Promoted From Short-Term Memory (2026-06-22)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15-0058.md:9:12 -->
-- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.848 recalls=0 avg=0.620 source=memory/2026-06-15-0058.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:15:17 -->
-- Conversation Summary: Fluctuating in the 100-110 range — normal baseline. No alerts. 🦞 user: [OpenClaw heartbeat poll] assistant: Stable around 110 real unavailable — hovering in the normal range. No alerts firing. [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:15-17]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:19:21 -->
-- Conversation Summary: Ready whenever you want to pick up govee2mqtt or the MQTT template fixes. 🦞 user: [OpenClaw heartbeat poll] assistant: Up a bit — 110 → 135 real unavailable, sensors went 68 → 93. That's a notable jump but within normal range, no alerts firing. Could be afternoon device cycling or some integrations handshaking. Nothing urgent. [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:19-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:23:26 -->
-- Conversation Summary: Let me know when you're ready for govee2mqtt or template cleanup. 🦞 user: [OpenClaw heartbeat poll] assistant: Settling back down — 135 → 132, sensors 93 → 90. Normal afternoon fluctuation, no alerts. All quiet here. 🦞 user: [OpenClaw heartbeat poll] [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:23-26]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:3:5 -->
-- Session: 2026-06-16 14:56:41 UTC: **Session Key**: agent:main:main; **Session ID**: 976b527b-c30d-47d8-ba93-8db967c1d57c; **Source**: webchat [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:9:12 -->
-- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] user: [OpenClaw heartbeat poll] [score=0.835 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:5:7 -->
-- User woke up early, noticed **Morning Heartbeat cron failed** (kimi-k2.5 model timeout); Investigated cron list and found same pattern in **Rockin Regi Weekly Comic**; **Upgraded ALL crons to kimi-k2.6** with appropriate timeouts to prevent future flakes [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-16.md:5-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16-1456.md:13:13 -->
-- Conversation Summary: assistant: HEARTBEAT_OK [score=0.815 recalls=0 avg=0.620 source=memory/2026-06-16-1456.md:13-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:13:15 -->
+- Conversation Summary: assistant: Found **2 more crons failing** — Evening Heartbeat and Daily GitHub Backup. Both are on k2.6 but **missing timeouts**, causing them to hang and die. Let me fix: assistant: Also spotted the **Home Assistant Health Check** taking **385 seconds** with no timeout. Let me fixthat too: assistant: **All fixed.** Here's what was wrong and what I patched: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:13-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:19:22 -->
+- Fixes Applied: | Cron | Issue | Fix | |------|-------|-----| | **Evening Heartbeat** | No timeout → hung for 354s, failed | Added 120s timeout | | **Daily GitHub Backup** | No timeout → hung, failed twice | Added 120s timeout | [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:19-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:23:23 -->
+- Fixes Applied: | **HA Health Check** | No timeout → ran for 385s (!) | Added 120s timeout | [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:23-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:27:30 -->
+- Current Cron Health: | Cron | Model | Timeout | Last Status | |------|-------|---------|-------------| | Morning Heartbeat | k2.6 | 120s | ✅ OK | | Evening Heartbeat | k2.6 | **120s** | 🔧 Fixed | [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:27-30]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:3:5 -->
+- Session: 2026-06-17 14:02:55 UTC: **Session Key**: agent:main:main; **Session ID**: 976b527b-c30d-47d8-ba93-8db967c1d57c; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:9:12 -->
+- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: Steady at 45 — clean baseline. Morning cron ran clean on k2.6. All quiet. 🦞 user: [OpenClaw heartbeat poll] assistant: Steady at 42 — clean baseline. Let me verify all crons are healthy: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:12:15 -->
+- HA continued cleaning up: 38 real unavailable (down from 45); Govee2mqtt: User intended to continue setup today, not yet detected; Victron cleanup complete, Spoolman removed, BLE integration removed; MQTT template null errors still pending (battery_temp, battery_remaining) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17.md:12-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:18:21 -->
+- Todo: Complete govee2mqtt setup; Fix MQTT template null-handling; Test Evening Heartbeat at 6pm Chicago (first run with timeout fix); Test Daily GitHub Backup at 11pm Chicago [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17.md:18-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:4:7 -->
+- HA baseline: 45 real unavailable, stable; Morning cron ran clean on kimi-k2.6 (fixed); Fixed additional crons missing timeouts:; Evening Heartbeat: added 120s timeout (was hanging for 354s) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17.md:4-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:8:9 -->
+- Daily GitHub Backup: added 120s timeout (had 2 consecutive errors); Home Assistant Health Check: added 120s timeout (was running 385s) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17.md:8-9]

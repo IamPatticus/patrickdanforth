@@ -1,0 +1,1 @@
+[main/sessions/main/9586fdf8-daa5-418f-ac95-9331273edf96.jsonl#L17] Assistant: HEARTBEAT_OK 38 real unavailable entities (same baseline), no Victron or Spoolman alerts. Quiet night.
