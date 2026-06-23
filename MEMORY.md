@@ -171,25 +171,25 @@ All crew members share the same general workspace and memory context, but they a
 
 _This is the curated memory file. Day-specific detail lives in `memory/*.md`._
 
-## Promoted From Short-Term Memory (2026-06-22)
+## Promoted From Short-Term Memory (2026-06-23)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:13:15 -->
-- Conversation Summary: assistant: Found **2 more crons failing** — Evening Heartbeat and Daily GitHub Backup. Both are on k2.6 but **missing timeouts**, causing them to hang and die. Let me fix: assistant: Also spotted the **Home Assistant Health Check** taking **385 seconds** with no timeout. Let me fixthat too: assistant: **All fixed.** Here's what was wrong and what I patched: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:13-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:19:22 -->
-- Fixes Applied: | Cron | Issue | Fix | |------|-------|-----| | **Evening Heartbeat** | No timeout → hung for 354s, failed | Added 120s timeout | | **Daily GitHub Backup** | No timeout → hung, failed twice | Added 120s timeout | [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:19-22]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:23:23 -->
-- Fixes Applied: | **HA Health Check** | No timeout → ran for 385s (!) | Added 120s timeout | [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:23-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:27:30 -->
-- Current Cron Health: | Cron | Model | Timeout | Last Status | |------|-------|---------|-------------| | Morning Heartbeat | k2.6 | 120s | ✅ OK | | Evening Heartbeat | k2.6 | **120s** | 🔧 Fixed | [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:27-30]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:3:5 -->
-- Session: 2026-06-17 14:02:55 UTC: **Session Key**: agent:main:main; **Session ID**: 976b527b-c30d-47d8-ba93-8db967c1d57c; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17-1402.md:9:12 -->
-- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: Steady at 45 — clean baseline. Morning cron ran clean on k2.6. All quiet. 🦞 user: [OpenClaw heartbeat poll] assistant: Steady at 42 — clean baseline. Let me verify all crons are healthy: [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17-1402.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:12:15 -->
-- HA continued cleaning up: 38 real unavailable (down from 45); Govee2mqtt: User intended to continue setup today, not yet detected; Victron cleanup complete, Spoolman removed, BLE integration removed; MQTT template null errors still pending (battery_temp, battery_remaining) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17.md:12-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:18:21 -->
-- Todo: Complete govee2mqtt setup; Fix MQTT template null-handling; Test Evening Heartbeat at 6pm Chicago (first run with timeout fix); Test Daily GitHub Backup at 11pm Chicago [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17.md:18-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:4:7 -->
-- HA baseline: 45 real unavailable, stable; Morning cron ran clean on kimi-k2.6 (fixed); Fixed additional crons missing timeouts:; Evening Heartbeat: added 120s timeout (was hanging for 354s) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17.md:4-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:8:9 -->
-- Daily GitHub Backup: added 120s timeout (had 2 consecutive errors); Home Assistant Health Check: added 120s timeout (was running 385s) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-17.md:8-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:17:17 -->
+- Mission Control / Tailscale Fix (Morning): **Architecture after:** [score=0.852 recalls=0 avg=0.620 source=memory/2026-06-18.md:17-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:16:16 -->
+- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: A massive build session for the Mission Control dashboard (`/mission/` on Serenity behind Tailscale). [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:16-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:18:18 -->
+- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: **Architecture:** [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:18-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:19:22 -->
+- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: `serenity.tail4695cd.ts.net:443` → Caddy on `localhost:8443`; Caddy routes `/mission/*` → `/var/www/mission-control` (static files); Caddy routes `/` → OpenClaw gateway on `localhost:18790`; Gateway auth mode: `"none"` (Tailscale is the security gatekeeper) [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:19-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:24:24 -->
+- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: **What Got Built:** [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:24-24]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:26:29 -->
+- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: **Full 8-Agent Crew + Reginald:**; Talos 🦾 (Coordinator, Online); Ikaris ✍️ (Writer, Online) — profile at here.now; Daedalus 📟 (Creative, On-call) — profile page [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:26-29]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:5:8 -->
+- Session Summary: **Time:** ~23:20 - 01:33 UTC **User:** Patticus **Session Key:** agent:main:main **Source:** webchat [score=0.825 recalls=0 avg=0.620 source=memory/2026-06-19.md:5-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:11:11 -->
+- Mission Control / Tailscale Fix (Morning): **Architecture before:** [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-18.md:11-11]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:13:14 -->
+- Mission Control / Tailscale Fix (Morning): Tailscale serve → port 18789 → OpenClaw Gateway → serves Control UI for all paths Mission proxy on 18888 (orphaned, never reached) [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-18.md:13-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:5:5 -->
+- Mission Control / Tailscale Fix (Morning): **Problem:** `https://serenity.tail4695cd.ts.net/mission/` was loading the OpenClaw Control UI instead of Mission Control. [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-18.md:5-5]

@@ -120,8 +120,16 @@ def generate_art(title, story):
             cached_name = os.path.basename(cached[0])
             print(f"[ART] Using cached image: {cached_name}")
             return cached_name
-        print("[ART] No cached image available")
-        return None
+        # No cache available - create a minimal SVG fallback
+        svg_content = '''<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <rect width="1024" height="1024" fill="#0a0a1a"/>
+  <text x="512" y="512" font-family="monospace" font-size="24" fill="#7ae7ff" text-anchor="middle" dominant-baseline="middle">Reginald the Lobster</text>
+  <text x="512" y="540" font-family="monospace" font-size="14" fill="#9aa7c2" text-anchor="middle" dominant-baseline="middle">4-panel comic — Chaotic Sanctum</text>
+</svg>'''
+        svg_path = IMAGES_DIR / f"ikaris_{datetime.now().strftime('%Y%m%d_%H%M%S')}_fallback.svg"
+        svg_path.write_text(svg_content)
+        print(f"[ART] SVG fallback saved to {svg_path}")
+        return str(svg_path.name)
 
 # ── Step 2: Generate HTML Post ────────────────────────────────────
 
