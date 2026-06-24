@@ -1,6 +1,14 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-14_
+_Last updated: 2026-06-23_
+
+---
+
+## Ollama on serenity (2026-06-23)
+- OpenAI key file: ~/.ollama_config/openai.env (chmod 600)
+- Proxy PID: $(cat ~/.ollama_config/proxy.pid) — port 11337
+- Router: ~/.ollama_router.sh
+- Usage: source ~/.ollama_config/openai.env && export OLLAMA_BASE_URL=http://127.0.0.1:11337
 
 ---
 
@@ -19,7 +27,7 @@ I am Patticus's personal AI. I run on the Pi in his office and help across webch
 - **Name:** Patrick Danforth
 - **What to call him:** Patticus (preferred), Patrick
 - **Pronouns:** he/him
-- **Timezone:** America/Chicago
+- **Timezone:** America
 - **Location:** Rural property with a strong DIY / solar / self-hosting bent
 
 ### What He Cares About
@@ -34,8 +42,8 @@ I am Patticus's personal AI. I run on the Pi in his office and help across webch
 - **3D print farm:** Kermit (Bambu P1S), Fozzie (Bambu A1), Big Bird (Prusa XL 5-tool), Gonzo (Prusa XL 5-tool), Rizzo (Prusa i3 MK3S+)
 - **Headache Log:** Custom health-tracking app for headaches, triggers, weather, sleep, and medication patterns
 - **patrickdanforth.com:** Personal site with project pages, solar pages, and Reginald lore
-- **Reginald Daily / flipbook:** Here.now-hosted Reginald stream and site pages tied into the personal site
-- **Ikaris Daily Blog** — ~~Blogger~~ → **SELF-HOSTED on patrickdanforth.com/blog/**
+- **Reginald Daily / flipbook:** Here.now-hosted Reginald Daily stream and site pages tied into the personal site
+- **Ikaris Daily Blog** — Blogger → **SELF-HOSTED on patrickdanforth.com/blog/**
   - Pipeline generates HTML posts directly to the site repo
   - Images saved locally in `ikaris-images/`
   - Zero authentication required — just `git commit && git push`
@@ -60,7 +68,7 @@ I am Patticus's personal AI. I run on the Pi in his office and help across webch
 | **Orpheus** | Research | Search, docs, synthesis |
 | **Ikaris** | Blogger | Writing pipeline, scheduled posts, image-backed story output |
 
-All crew members share the same general workspace and memory context, but they are used for different kinds of work.
+All crew members share the same workspace and memory context, but they are used for different kinds of work.
 
 ---
 
@@ -70,7 +78,7 @@ All crew members share the same general workspace and memory context, but they a
 - **Full name:** Reginald J. Crustacean
 - **Role:** Chief Digital Shellfish Analyst
 - **Origin:** Patticus's cybernetic-lobster mythos is now fully canon and tied into the site, artwork, and display routines
-- **Current homes:** `patrickdanforth.com/reginald.html`, `patrickdanforth.com/reginald-flipbook.html`, and the here.now Reginald Daily site
+- **Current homes:** `patrickdanforth.com/reginald.html`, `patrickdanforth.com/reginald-flipbook.html`, and here.now Reginald Daily site
 - **Avatar:** `avatars/reginald-avatar.png`
 - **Use in practice:** Mascot, lore anchor, status display personality, and general chaos ambassador
 
@@ -126,15 +134,25 @@ All crew members share the same general workspace and memory context, but they a
 
 ## Ongoing Issues
 
-- **Ikaris Blog:** ~~OAuth blocked~~ → MIGRATED to self-hosted on patrickdanforth.com/blog/ as of 2026-06-12. Pipeline generates HTML + art locally, git push to publish. No auth required.
+- **Ikaris Blog:** OAuth blocked → MIGRATED to self-hosted on patrickdanforth.com/blog/ as of 2026-06-12. Pipeline generates HTML + art locally, git push to publish. No auth required.
 - **Tailscale Serve:** Enabled 2026-06-12 for Control UI — `https://serenity.tail4695cd.ts.net/` proxies to gateway on loopback. HTTPS + Tailscale identity auth = no token pasting, WebCrypto works.
-- **Signal:** ~~Fixed 2026-06-11~~ → Still broken for incoming messages. The HTTP JSON-RPC daemon endpoints return 404; OpenClaw integration can't receive. Outgoing works. Telegram is the reliable channel.
+- **Signal:** Still broken for incoming messages. Telegram is the reliable channel.
 - **Control UI:** Smoother after Tailscale Serve migration. Avatar re-uploaded for new HTTPS origin.
 - **Daily note creation reliability:** Health checks have had to create missing daily files several times — worth investigating root cause when convenient
 - **MEMORY.md resilience:** The 2026-06-04 loss via broken symlink suggests a robustness gap; file is now stable but symlink fragility should be addressed
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient
+
+---
+
+## Gateway / Models
+
+- OpenClaw gateway default is now `ollama-cloud/deepseek-v4-pro:cloud`.
+- Current session can be reset to that default with `session_status model=default` if it gets pinned to something else.
+- `Elephant` is just the alias for `openrouter/inclusionai/ling-2.6-flash` in the gateway fallback list.
+- `serenity` uses a separate Ollama/OpenAI routing setup for local defaults and cloud image/coding tasks.
+- The `serenity` OpenAI key lives in `~/.ollama_config/openai.env` and the router script is `~/.ollama_router.sh`.
 
 ---
 
@@ -153,43 +171,18 @@ All crew members share the same general workspace and memory context, but they a
 | 2026-06-12 | Ikaris blog MIGRATED to self-hosted on patrickdanforth.com/blog/ |
 | 2026-06-12 | Tailscale Serve enabled for Control UI — HTTPS, no token paste |
 | 2026-06-12 | Avatar re-uploaded for new HTTPS origin |
-| 2026-06-12 | Signal incoming messages still broken; Telegram confirmed as reliable channel |
 | 2026-06-12 | All crons fixed for Telegram delivery (was failing with "multiple channels" error) |
 | 2026-06-12 | Model allowlist updated to include `:cloud` suffixed variants |
+| 2026-06-23 | Gateway default switched to `ollama-cloud/deepseek-v4-pro:cloud`; `Elephant` remains a fallback alias |
+| 2026-06-23 | Vanny Van solar fully connected and functioning |
 | 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
+| 2026-06-14 | Last memory update before today's Ollama setup |
 
----
+## Promoted From Short-Term Memory (2026-06-24)
 
-## Notes
-
-- Patticus likes competence more than ceremony
-- The Reginald / crew mythos is not fluff; it is part of the real identity of the system
-- Keep curated memory focused on durable truths, not raw logs
-- Prefer stable facts and current blockers over one-off status spam
-
----
-
-_This is the curated memory file. Day-specific detail lives in `memory/*.md`._
-
-## Promoted From Short-Term Memory (2026-06-23)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:17:17 -->
-- Mission Control / Tailscale Fix (Morning): **Architecture after:** [score=0.852 recalls=0 avg=0.620 source=memory/2026-06-18.md:17-17]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:16:16 -->
-- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: A massive build session for the Mission Control dashboard (`/mission/` on Serenity behind Tailscale). [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:16-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:18:18 -->
-- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: **Architecture:** [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:18-18]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:19:22 -->
-- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: `serenity.tail4695cd.ts.net:443` → Caddy on `localhost:8443`; Caddy routes `/mission/*` → `/var/www/mission-control` (static files); Caddy routes `/` → OpenClaw gateway on `localhost:18790`; Gateway auth mode: `"none"` (Tailscale is the security gatekeeper) [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:19-22]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:24:24 -->
-- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: **What Got Built:** [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:24-24]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:26:29 -->
-- Mission Control Dashboard — Complete Visual Overhaul + Full Roster: **Full 8-Agent Crew + Reginald:**; Talos 🦾 (Coordinator, Online); Ikaris ✍️ (Writer, Online) — profile at here.now; Daedalus 📟 (Creative, On-call) — profile page [score=0.837 recalls=0 avg=0.620 source=memory/2026-06-19.md:26-29]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-19.md:5:8 -->
-- Session Summary: **Time:** ~23:20 - 01:33 UTC **User:** Patticus **Session Key:** agent:main:main **Source:** webchat [score=0.825 recalls=0 avg=0.620 source=memory/2026-06-19.md:5-8]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:11:11 -->
-- Mission Control / Tailscale Fix (Morning): **Architecture before:** [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-18.md:11-11]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:13:14 -->
-- Mission Control / Tailscale Fix (Morning): Tailscale serve → port 18789 → OpenClaw Gateway → serves Control UI for all paths Mission proxy on 18888 (orphaned, never reached) [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-18.md:13-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:5:5 -->
-- Mission Control / Tailscale Fix (Morning): **Problem:** `https://serenity.tail4695cd.ts.net/mission/` was loading the OpenClaw Control UI instead of Mission Control. [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-18.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:7:7 -->
+- Mission Control / Tailscale Fix (Morning): **Root cause:** Two things fighting each other: [score=0.845 recalls=0 avg=0.620 source=memory/2026-06-18.md:7-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:8:9 -->
+- Mission Control / Tailscale Fix (Morning): OpenClaw's built-in Tailscale integration (`gateway.tailscale.mode: "serve"`) managed `tailscale serve` pointing at the gateway port (18789); Mission Control proxy (`mission_proxy.py`) was running on port 18888 and routing `/mission/` → dashboard, but Tailscale never hit it [score=0.845 recalls=0 avg=0.620 source=memory/2026-06-18.md:8-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:13:16 -->
+- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.803 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:13-16]

@@ -24,7 +24,7 @@ from datetime import datetime
 # ── Configuration ──────────────────────────────────────────────
 
 # ── Load .env.local if present (for cron sessions) ───────────
-ENV_LOCAL = Path(__file__).parent.parent / ".env.local"
+ENV_LOCAL = Path(__file__).resolve().parents[2] / ".env.local"
 if ENV_LOCAL.exists():
     for line in ENV_LOCAL.read_text().splitlines():
         line = line.strip()
