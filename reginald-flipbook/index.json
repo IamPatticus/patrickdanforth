@@ -1,5 +1,5 @@
 {
-  "count": 36,
+  "count": 37,
   "entries": [
     {
       "date": "2026-05-19",
@@ -180,6 +180,11 @@
       "date": "2026-06-24",
       "filename": "reginald-2026-06-24.png",
       "label": "Reginald \u2014 2026-06-24"
+    },
+    {
+      "date": "2026-06-25",
+      "filename": "reginald-2026-06-25.png",
+      "label": "Reginald \u2014 2026-06-25"
     }
   ]
 }
