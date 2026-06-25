@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vanny Van Power Station</title>
+  <meta name="description" content="A cleaner companion dashboard for the Vanny Van Power Station running Venus OS.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #05070b;
+      --panel: rgba(13, 17, 26, 0.82);
+      --panel-2: rgba(18, 24, 36, 0.92);
+      --line: rgba(126, 231, 255, 0.14);
+      --line-strong: rgba(126, 231, 255, 0.28);
+      --text: #eef4ff;
+      --muted: #94a1b8;
+      --cyan: #7ae7ff;
+      --gold: #d8aa63;
+      --green: #7effb2;
+      --ember: #ff7a4d;
+      --violet: #a991ff;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(122, 231, 255, 0.14), transparent 22%),
+        radial-gradient(circle at 82% 10%, rgba(169, 145, 255, 0.16), transparent 20%),
+        radial-gradient(circle at 50% 105%, rgba(216, 170, 99, 0.11), transparent 24%),
+        linear-gradient(180deg, #03050a 0%, #080c16 52%, #070910 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122, 231, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 231, 255, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: radial-gradient(circle at center, black 46%, transparent 95%);
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.72rem;
+    }
+
+    .topbar .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      text-decoration: none;
+      font-size: 0.84rem;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      backdrop-filter: blur(14px);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+      background: rgba(122, 231, 255, 0.08);
+    }
+
+    .btn.gold {
+      border-color: rgba(216, 170, 99, 0.36);
+      color: var(--gold);
+    }
+    .btn.gold:hover {
+      border-color: rgba(216, 170, 99, 0.62);
+      background: rgba(216, 170, 99, 0.08);
+    }
+    .btn.green {
+      border-color: rgba(126, 255, 178, 0.32);
+      color: var(--green);
+    }
+    .btn.green:hover {
+      border-color: rgba(126, 255, 178, 0.62);
+      background: rgba(126, 255, 178, 0.08);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+
+    .hero-card, .panel, .stat, .action, .note {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -120px auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 231, 255, 0.20), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.69rem;
+      margin-bottom: 12px;
+    }
+
+    .eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(126, 255, 178, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+
+    .lede {
+      margin: 14px 0 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-size: 0.84rem;
+    }
+
+    .pill strong { font-weight: 600; }
+    .pill .mini { font-family: "IBM Plex Mono", monospace; color: var(--cyan); }
+
+    .status-card {
+      display: grid;
+      gap: 12px;
+      padding: 22px;
+      align-content: start;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .status-row .label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .status-row .value {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.9rem;
+      color: var(--text);
+      text-align: right;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(126,255,178,.12);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .stat {
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -70px auto;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,231,255,0.12), transparent 65%);
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+    .stat .value {
+      font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+    .stat .meta {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.35;
+    }
+
+    .value.cyan { color: var(--cyan); }
+    .value.gold { color: var(--gold); }
+    .value.green { color: var(--green); }
+    .value.ember { color: var(--ember); }
+
+    .section-label {
+      margin: 24px 0 12px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .live-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .live-head .copy {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+      max-width: 62ch;
+    }
+
+    .live-status {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .live-status.ok {
+      color: var(--green);
+      border-color: rgba(126, 255, 178, 0.25);
+      background: rgba(126, 255, 178, 0.06);
+    }
+
+    .live-status.offline {
+      color: var(--ember);
+      border-color: rgba(255, 122, 77, 0.24);
+      background: rgba(255, 122, 77, 0.06);
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .panel h2 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      letter-spacing: -0.03em;
+    }
+
+    .panel-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      max-width: 62ch;
+    }
+
+    .panel-pill {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(122, 231, 255, 0.22);
+      background: rgba(122, 231, 255, 0.08);
+      color: var(--cyan);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .flow {
+      display: grid;
+      gap: 14px;
+    }
+
+    .flow-stage {
+      position: relative;
+      padding: 18px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top left, rgba(122,231,255,0.10), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(216,170,99,0.10), transparent 34%),
+        rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+
+    .flow-stage::before {
+      content: "";
+      position: absolute;
+      left: 7%;
+      right: 7%;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(122,231,255,0.30), rgba(255,255,255,0.22), rgba(216,170,99,0.24), transparent);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .flow-track {
+      position: relative;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: minmax(0, 1.15fr) 64px minmax(0, 1fr) 64px minmax(0, 1.15fr);
+      align-items: stretch;
+      z-index: 1;
+    }
+
+    .node {
+      min-height: 176px;
+      padding: 18px 18px 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.09);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025)),
+        rgba(15, 18, 26, 0.92);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.22);
+    }
+
+    .node::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 22px;
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, rgba(122,231,255,.24), rgba(255,255,255,0) 42%, rgba(216,170,99,.18)) border-box;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .node .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .node .name {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      font-size: 1.04rem;
+    }
+    .node .kind {
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 6px;
+    }
+    .node .big {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      white-space: nowrap;
+    }
+    .node .big .unit {
+      font-size: 0.72em;
+      font-weight: 700;
+      opacity: 0.7;
+      letter-spacing: -0.02em;
+    }
+    .node .small {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.55;
+      margin-top: 8px;
+    }
+    .node .foot {
+      margin-top: 12px;
+      color: rgba(255,255,255,0.84);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .node-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .node-chip.cyan {
+      color: var(--cyan);
+      border-color: rgba(122, 231, 255, 0.18);
+      background: rgba(122, 231, 255, 0.08);
+    }
+    .node-chip.gold {
+      color: var(--gold);
+      border-color: rgba(216, 170, 99, 0.18);
+      background: rgba(216, 170, 99, 0.08);
+    }
+    .node-chip.green {
+      color: var(--green);
+      border-color: rgba(126, 255, 178, 0.18);
+      background: rgba(126, 255, 178, 0.08);
+    }
+
+    .connector {
+      display: grid;
+      place-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .connector span {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(122,231,255,.18);
+      background: rgba(11, 14, 22, 0.95);
+      color: var(--cyan);
+      font-size: 1.2rem;
+      box-shadow: 0 0 0 8px rgba(122,231,255,0.05), 0 10px 24px rgba(0,0,0,0.25);
+      text-shadow: 0 0 16px rgba(122,231,255,.25);
+    }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .mini-panel {
+      padding: 16px;
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .mini-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(122,231,255,.36), rgba(216,170,99,.24), transparent 85%);
+      opacity: 0.85;
+    }
+    .mini-panel .k {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 8px;
+    }
+    .mini-panel .v {
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .action {
+      padding: 18px;
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    .action:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      background: rgba(122, 231, 255, 0.08);
+    }
+    .action .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .action .desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .action .link {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--cyan);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .note {
+      padding: 20px 22px;
+    }
+    .note h3 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+    .note ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .note li + li { margin-top: 6px; }
+    .mono {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.86rem;
+      color: var(--cyan);
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding-top: 18px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.08);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 980px) {
+      .hero, .flow-grid, .notes { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .actions { grid-template-columns: 1fr; }
+      .panel-head { flex-direction: column; }
+      .panel-pill { align-self: flex-start; }
+      .flow-stage { padding: 14px; }
+      .flow-track { grid-template-columns: 1fr; }
+      .connector span { transform: rotate(90deg); }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 20px, 1220px); padding-top: 14px; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .hero-card, .status-card, .panel, .note { padding: 18px; }
+      .stats { grid-template-columns: 1fr; }
+      h1 { font-size: 2.05rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <div>Vanny Van Power Station</div>
+      <div class="links">
+        <a class="btn" href="https://patrickdanforth.com">Home</a>
+        <a class="btn gold" href="http://192.168.1.140/" target="_blank" rel="noreferrer">Open Venus OS</a>
+        <a class="btn" href="./venus-os-overlay.html">Overlay Mode</a>
+        <a class="btn green" href="https://vrm.victronenergy.com/installation-overview" target="_blank" rel="noreferrer">VRM Portal</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow"><span class="dot"></span> Live power monitor</div>
+        <h1>Vanny Van Power Station</h1>
+        <p class="lede">
+          A cleaner home screen for the Venus OS box. Same system, less clutter: fast context, clear status, and one-hop links to the admin surface, VRM, and local LAN tools.
+        </p>
+        <div class="hero-meta">
+          <span class="pill"><strong>Status</strong> <span class="mini">ONLINE</span></span>
+          <span class="pill"><strong>Host</strong> <span class="mini">192.168.1.140</span></span>
+          <span class="pill"><strong>Mode</strong> <span class="mini">POWER STATION UI</span></span>
+          <span class="pill"><strong>Theme</strong> <span class="mini">DARK</span></span>
+        </div>
+      </div>
+
+      <aside class="panel status-card">
+        <div class="status-row">
+          <span class="label">System state</span>
+          <span class="badge">healthy</span>
+        </div>
+        <div class="status-row">
+          <span class="label">Network</span>
+          <span class="value">Direct LAN only</span>
+        </div>
+        <div class="status-row">
+          <span class="label">Access</span>
+          <span class="value">No subnet routing</span>
+        </div>
+        <div class="status-row">
+          <span class="label">Display</span>
+          <span class="value">Sleep-friendly dark mode</span>
+        </div>
+        <div class="status-row">
+          <span class="label">Uptime snapshot</span>
+          <span id="clock" class="value">--:-- --</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="label">Installed solar</div>
+        <div class="value cyan">13.19 kW</div>
+        <div class="meta">33 panels across the house and shop systems.</div>
+      </div>
+      <div class="stat">
+        <div class="label">Battery storage</div>
+        <div class="value gold">39.2 kWh</div>
+        <div class="meta">Split across both systems for overnight hold-up.</div>
+      </div>
+      <div class="stat">
+        <div class="label">Inverter capacity</div>
+        <div class="value green">11 kW+</div>
+        <div class="meta">Victron plus EG4 capacity for the mixed setup.</div>
+      </div>
+      <div class="stat">
+        <div class="label">Monitoring path</div>
+        <div class="value ember">LAN + VRM</div>
+        <div class="meta">Local admin when you want speed, VRM when you want history.</div>
+      </div>
+    </section>
+
+    <div class="section-label">Live MQTT</div>
+    <div class="live-head">
+      <div class="copy">These cards refresh from the Venus Pi over MQTT when you open this page on the van network. If you’re on the public site, they stay as placeholders.</div>
+      <div id="mqttStatus" class="live-status">Waiting for local MQTT</div>
+    </div>
+
+    <section class="stats live-grid">
+      <div class="stat">
+        <div class="label">Battery voltage</div>
+        <div id="liveBatteryVoltage" class="value cyan">--.- V</div>
+        <div id="liveBatteryMeta" class="meta">Waiting for data.</div>
+      </div>
+      <div class="stat">
+        <div class="label">Battery current</div>
+        <div id="liveBatteryCurrent" class="value gold">--.- A</div>
+        <div id="liveBatteryPower" class="meta">Waiting for data.</div>
+      </div>
+      <div class="stat">
+        <div class="label">Solar charger</div>
+        <div id="liveSolarVoltage" class="value green">--.- V</div>
+        <div id="liveSolarMeta" class="meta">Waiting for data.</div>
+      </div>
+      <div class="stat">
+        <div class="label">Since full charge</div>
+        <div id="liveFullCharge" class="value ember">--</div>
+        <div id="liveHeartbeat" class="meta">Waiting for data.</div>
+      </div>
+    </section>
+
+    <section class="flow-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Power Flow</h2>
+            <p class="panel-note">A left-to-right read on where the energy starts, what shapes it, and where it lands.</p>
+          </div>
+          <div class="panel-pill">Live flow lane</div>
+        </div>
+        <div class="flow">
+          <div class="flow-stage">
+            <div class="flow-track">
+              <div class="node source">
+                <div class="top">
+                  <div>
+                    <div class="kind">Source</div>
+                    <div class="name">Solar Array</div>
+                  </div>
+                  <div class="node-chip cyan">13.19 kW</div>
+                </div>
+                <div>
+                  <div class="small">Installed across house and shop.</div>
+                  <div class="foot">PV supply feeding both buildings.</div>
+                </div>
+              </div>
+              <div class="connector"><span>➜</span></div>
+              <div class="node conversion">
+                <div class="top">
+                  <div>
+                    <div class="kind">Conversion</div>
+                    <div class="name">MPPTs</div>
+                  </div>
+                  <div class="node-chip gold">3 chargers</div>
+                </div>
+                <div>
+                  <div class="small">Victron charge control and DC conversion.</div>
+                  <div class="foot">Keeping the DC side tidy.</div>
+                </div>
+              </div>
+              <div class="connector"><span>➜</span></div>
+              <div class="node storage">
+                <div class="top">
+                  <div>
+                    <div class="kind">Storage / Load</div>
+                    <div class="name">Battery + Inverter</div>
+                  </div>
+                  <div class="node-chip green">39.2 kWh</div>
+                </div>
+                <div>
+                  <div class="small">kWh storage with Victron / EG4 inverter capacity.</div>
+                  <div class="foot">House load, shop load, and reserve.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subgrid">
+            <div class="mini-panel">
+              <div class="k">House system</div>
+              <div class="v">Victron Multiplus II 48/5000 with the main MPPT stack and Cerbo GX supervision.</div>
+            </div>
+            <div class="mini-panel">
+              <div class="k">Shop system</div>
+              <div class="v">EG4 3000EHV-48 with its own battery bank and light-duty direct solar load.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>What This UI Gives You</h2>
+        <div class="subgrid" style="grid-template-columns:1fr;">
+          <div class="mini-panel">
+            <div class="k">Fast context</div>
+            <div class="v">One glance tells you whether the core system is healthy and on the LAN.</div>
+          </div>
+          <div class="mini-panel">
+            <div class="k">Less eye-sear</div>
+            <div class="v">Dark, high-contrast surfaces replace the bright stock view that wakes you up at night.</div>
+          </div>
+          <div class="mini-panel">
+            <div class="k">Better jumps</div>
+            <div class="v">Direct links to Venus OS and VRM save a bunch of hunting.</div>
+          </div>
+          <div class="mini-panel">
+            <div class="k">No fake controls</div>
+            <div class="v">This is a companion shell, not a pretend control panel with buttons that do nothing.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="actions">
+      <a class="action" href="http://192.168.1.140/" target="_blank" rel="noreferrer">
+        <div class="title">Open Venus OS <span>↗</span></div>
+        <div class="desc">Jump to the stock local interface on the Pi and use the companion page when you want the nicer overview.</div>
+        <div class="link">192.168.1.140 / local web UI</div>
+      </a>
+      <a class="action" href="https://vrm.victronenergy.com/installation-overview" target="_blank" rel="noreferrer">
+        <div class="title">VRM Portal <span>↗</span></div>
+        <div class="desc">Use Victron Remote Management for remote history, long-term trends, and things you do not want to debug at 2 AM.</div>
+        <div class="link">vrm.victronenergy.com</div>
+      </a>
+    </section>
+
+    <section class="notes">
+      <div class="note">
+        <h3>Live Notes</h3>
+        <ul>
+          <li>Venus OS box lives at <span class="mono">192.168.1.140</span>.</li>
+          <li>This companion UI is local-LAN only and does not depend on Tailscale.</li>
+          <li>The stock Venus interface stays untouched underneath this overlay.</li>
+          <li>This page is meant to be a prettier front door, not a replacement for the stock Victron logic.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>Suggested Next Layer</h3>
+        <ul>
+          <li>Wire in live stats from MQTT or Modbus-TCP if you want real numbers here later.</li>
+          <li>Add tiny sparklines for battery SoC and AC load.</li>
+          <li>Show alarm states in the hero card when the GX reports something worth caring about.</li>
+          <li>Keep the page kiosk-safe: large targets, no clutter, no drama.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer">
+      Vanny Van Power Station companion. Clean launcher, local status, and a quieter surface for nighttime use. Updated in the workspace, ready to be deployed wherever you want to host it.
+    </div>
+  </div>
+
+  <script>
+    function renderClock() {
+      const el = document.getElementById('clock');
+      const now = new Date();
+      el.textContent = new Intl.DateTimeFormat([], {
+        weekday: 'short',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit'
+      }).format(now);
+    }
+
+    const liveStatus = document.getElementById('mqttStatus');
+    const liveBatteryVoltage = document.getElementById('liveBatteryVoltage');
+    const liveBatteryMeta = document.getElementById('liveBatteryMeta');
+    const liveBatteryCurrent = document.getElementById('liveBatteryCurrent');
+    const liveBatteryPower = document.getElementById('liveBatteryPower');
+    const liveSolarVoltage = document.getElementById('liveSolarVoltage');
+    const liveSolarMeta = document.getElementById('liveSolarMeta');
+    const liveFullCharge = document.getElementById('liveFullCharge');
+    const liveHeartbeat = document.getElementById('liveHeartbeat');
+
+    function formatSigned(value, digits = 1, unit = '') {
+      if (typeof value !== 'number' || Number.isNaN(value)) return `--${unit}`;
+      const sign = value > 0 ? '+' : '';
+      return `${sign}${value.toFixed(digits)}${unit}`;
+    }
+
+    function formatDuration(seconds) {
+      if (typeof seconds !== 'number' || !Number.isFinite(seconds) || seconds < 0) return '--';
+      const mins = Math.floor(seconds / 60);
+      const hours = Math.floor(mins / 60);
+      const remMins = mins % 60;
+      if (hours > 0) return `${hours}h ${remMins}m`;
+      return `${remMins}m`;
+    }
+
+    function setOffline(message) {
+      liveStatus.textContent = message;
+      liveStatus.className = 'live-status offline';
+    }
+
+    async function refreshLive() {
+      try {
+        const response = await fetch(`./venus-mqtt.json?ts=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        liveStatus.textContent = data.updated ? `MQTT live · ${new Date(data.updated * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}` : 'MQTT live';
+        liveStatus.className = 'live-status ok';
+
+        liveBatteryVoltage.textContent = typeof data.battery_voltage === 'number' ? `${data.battery_voltage.toFixed(2)} V` : '--.- V';
+        liveBatteryMeta.textContent = `${formatSigned(data.battery_current, 2, ' A')} · ${formatSigned(data.battery_power, 2, ' W')}`;
+
+        liveBatteryCurrent.textContent = formatSigned(data.battery_current, 2, ' A');
+        liveBatteryPower.textContent = `System battery power ${formatSigned(data.system_battery_power, 2, ' W')}`;
+
+        liveSolarVoltage.textContent = typeof data.solar_voltage === 'number' ? `${data.solar_voltage.toFixed(2)} V` : '--.- V';
+        liveSolarMeta.textContent = `Heartbeat ${typeof data.heartbeat === 'number' ? new Date(data.heartbeat * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' }) : '--'}`;
+
+        liveFullCharge.textContent = formatDuration(data.time_since_full);
+        liveHeartbeat.textContent = `Since full charge ${typeof data.time_since_full === 'number' ? `${Math.round(data.time_since_full)} s` : '--'}`;
+      } catch (error) {
+        setOffline('Live feed unavailable');
+      }
+    }
+
+    renderClock();
+    refreshLive();
+    setInterval(renderClock, 1000);
+    setInterval(refreshLive, 10000);
+  </script>
+</body>
+</html>

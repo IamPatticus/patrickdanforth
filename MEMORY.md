@@ -143,6 +143,7 @@ All crew members share the same workspace and memory context, but they are used 
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient
+- **Venus OS Pi display timeout:** On `192.168.1.140`, the working screen-off path was `Gui/DisplayOff` set via SSH/DBus, with the actual blank target at `/sys/class/backlight/rpi_backlight/bl_power` in `/etc/venus/blank_display_device`. The GUI menu can hide the item; if needed, switch `Gui/RunningVersion` to `1` and restart `/service/gui`.
 
 ---
 
@@ -178,11 +179,25 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
 | 2026-06-14 | Last memory update before today's Ollama setup |
 
-## Promoted From Short-Term Memory (2026-06-24)
+## Promoted From Short-Term Memory (2026-06-25)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:7:7 -->
-- Mission Control / Tailscale Fix (Morning): **Root cause:** Two things fighting each other: [score=0.845 recalls=0 avg=0.620 source=memory/2026-06-18.md:7-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:8:9 -->
-- Mission Control / Tailscale Fix (Morning): OpenClaw's built-in Tailscale integration (`gateway.tailscale.mode: "serve"`) managed `tailscale serve` pointing at the gateway port (18789); Mission Control proxy (`mission_proxy.py`) was running on port 18888 and routing `/mission/` → dashboard, but Tailscale never hit it [score=0.845 recalls=0 avg=0.620 source=memory/2026-06-18.md:8-9]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:13:16 -->
-- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.803 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:13-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:3:5 -->
+- Session: 2026-06-20 14:31:23 UTC: **Session Key**: agent:main:main; **Session ID**: 5b9f42fc-9952-4e70-8254-7b14f25692c8; **Source**: webchat [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:15:18 -->
+- Van Electrical Planning (Evening): Discussed and finalized wire sizing for BougeRV 2000W 12V inverter to bus bar; **Decision:** 2/0 AWG copper for ~6ft run (already owned by Patticus); Fuse: 125A–150A DC-rated (Class T, ANL, or marine breaker), within 12" of bus bar; Shut-off switch: Bolipoeq 275A continuous at 12V, 3/8" studs — verified adequate for 2/0 lugs [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:15-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:19:21 -->
+- Van Electrical Planning (Evening): Layout confirmed: Battery → Fuse → Shut-off Switch → Bus Bar → Inverter; Inverter installed late in the session; Next: bus bars and battery placement/wiring (not done tonight) [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:19-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:24:24 -->
+- Skill Setup (Late Night): Set up 3 OpenClaw skills for Patticus: [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:24-24]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:25:27 -->
+- Skill Setup (Late Night): **github** 🐙 — `gh` CLI v2.95.0 installed to `~/bin/`, authenticated as `IamPatticus`; **gh-issues** 🐙 — Same `gh` binary, configured for issue-to-PR automation; **summarize** 🧾 — `@steipete/summarize` v0.20.0 installed via `npm i -g` [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:25-27]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:29:29 -->
+- Skill Setup (Late Night): Actions taken: [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:29-29]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:5:8 -->
+- Session Summary: **Time:** ~14:43 - 03:01 UTC (previous day continued into early morning) **User:** Patticus **Session Key:** agent:main:main **Source:** webchat (late session spanning Fri evening into Sat early morning) [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:5-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:17:20 -->
+- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:17-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:21:23 -->
+- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:21-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:9:12 -->
+- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:9-12]
