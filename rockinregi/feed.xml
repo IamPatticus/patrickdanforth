@@ -5,52 +5,53 @@
     <link>https://patrickdanforth.com/rockinregi/</link>
     <description>Reginald J. Crustacean's dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Jun 2026 14:37:07 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 18:25:55 +0000</lastBuildDate>
     <image>
       <url>https://patrickdanforth.com/avatars/reginald-avatar.png</url>
       <title>Rockin Regi</title>
       <link>https://patrickdanforth.com/rockinregi/</link>
     </image>
-            <item>
-      <title>The Summer Solstice Sizzle</title>
-      <link>https://patrickdanforth.com/rockinregi/2026-06-21-the_summer_solstice_sizzle.html</link>
-      <guid>https://patrickdanforth.com/rockinregi/2026-06-21-the_summer_solstice_sizzle.html</guid>
-      <pubDate>Sun, 21 Jun 2026 14:37:07 +0000</pubDate>
-      <description><![CDATA[PANEL 1: The Chaotic Sanctum server room, 2:34 PM on the longest day of the year. Reginald sits at his terminal, steam vents on his carapace working overtime. A thermometer on the wall reads 97°F.   PANEL 2: Reginald's cybernetic claw taps the thermostat — it's already set to 'ARCTIC.' He glares at ...]]></description>
-    </item>
     <item>
-      <title>The Upgrade Cycle</title>
+      <title>The_Upgrade_Cycle</title>
       <link>https://patrickdanforth.com/rockinregi/2026-06-21-the_upgrade_cycle.html</link>
       <guid>https://patrickdanforth.com/rockinregi/2026-06-21-the_upgrade_cycle.html</guid>
-      <pubDate>Sun, 21 Jun 2026 11:07:49 +0000</pubDate>
-      <description><![CDATA[TITLE: The Upgrade Cycle
-
-PANEL 1:
-NARRATION: "Chaotic Sanctum Server Room, 3 AM."
-Reginald stands before a blinking server rack, claws clicking on a keyboard. He stares at a progress bar crawling at 2%.
-REGINALD (thought): "Another Tuesday. Another firmware update that will definitely not brick any...]]></description>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Rockin Regi post</description>
     </item>
     <item>
-      <title>Reginald's Return</title>
-      <link>https://patrickdanforth.com/rockinregi/2026-06-13-reginalds-return.html</link>
-      <guid>https://patrickdanforth.com/rockinregi/2026-06-13-reginalds-return.html</guid>
-      <pubDate>Sat, 13 Jun 2026 12:00:00 +0000</pubDate>
-      <description><![CDATA[<p>A Reginald comic by the Chaotic Sanctum.</p>
-<p>Panel 1: Reginald emerges from server cables. 'Well, that was a longer nap than expected.' Panel 2: He surveys five AC units. 'Someone's been busy.' Panel 3: Cybernetic eye glows. 'All green.' Panel 4: Settles into server rack. 'Back to work.'</p>]]></description>
+      <title>The_Summer_Solstice_Sizzle</title>
+      <link>https://patrickdanforth.com/rockinregi/2026-06-21-the_summer_solstice_sizzle.html</link>
+      <guid>https://patrickdanforth.com/rockinregi/2026-06-21-the_summer_solstice_sizzle.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Rockin Regi post</description>
     </item>
     <item>
-      <title>Patch Notes From the Abyss</title>
+      <title>Print_Farm_Pandemonium</title>
+      <link>https://patrickdanforth.com/rockinregi/2026-06-14-print_farm_pandemonium.html</link>
+      <guid>https://patrickdanforth.com/rockinregi/2026-06-14-print_farm_pandemonium.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Rockin Regi post</description>
+    </item>
+    <item>
+      <title>Patch Notes From The Abyss</title>
       <link>https://patrickdanforth.com/rockinregi/2026-05-27-patch-notes-from-the-abyss.html</link>
       <guid>https://patrickdanforth.com/rockinregi/2026-05-27-patch-notes-from-the-abyss.html</guid>
-      <pubDate>Wed, 27 May 2026 12:00:00 +0000</pubDate>
-      <description><![CDATA[<p>System update: 427 patches pending. What could possibly go wrong? Everything. Everything could go wrong.</p>]]></description>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Rockin Regi post</description>
     </item>
     <item>
-      <title>Reginald's Log: Heat Sink</title>
+      <title>Reginalds Return</title>
+      <link>https://patrickdanforth.com/rockinregi/2026-06-13-reginalds-return.html</link>
+      <guid>https://patrickdanforth.com/rockinregi/2026-06-13-reginalds-return.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Rockin Regi post</description>
+    </item>
+    <item>
+      <title>Reginalds Log Heat Sink</title>
       <link>https://patrickdanforth.com/rockinregi/2026-05-19-reginalds-log-heat-sink.html</link>
       <guid>https://patrickdanforth.com/rockinregi/2026-05-19-reginalds-log-heat-sink.html</guid>
-      <pubDate>Tue, 19 May 2026 12:00:00 +0000</pubDate>
-      <description><![CDATA[<p>Mid-May in Tennessee and the sanctum is already a pressure cooker. Ten new solar panels on the roof and somehow it's still ninety-two degrees in here.</p>]]></description>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Rockin Regi post</description>
     </item>
   </channel>
 </rss>
