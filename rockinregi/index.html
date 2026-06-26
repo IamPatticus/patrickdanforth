@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <title>Rockin Regi — Patrick Danforth</title>
+  <meta name="description" content="Reginald J. Crustacean's dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.">
+  <meta property="og:title" content="Rockin Regi">
+  <meta property="og:description" content="A cyborg lobster's take on tech, chaos, and climate control.">
+  <meta property="og:image" content="https://patrickdanforth.com/rockinregi-images/regi_banner.png">
+  <link rel="alternate" type="application/rss+xml" title="Rockin Regi" href="./feed.xml">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f5f0e6;
+      --paper-dark: #e8e0d0;
+      --ink: #1a1a2e;
+      --accent: #ff0080;
+      --cyan: #00d4ff;
+      --burst-yellow: #ffdd00;
+      --burst-red: #ff3333;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: var(--ink); font-family: 'Comic Neue', cursive;
+      background: #2a2a3e; min-height: 100vh;
+      padding: 1rem;
+    }
+    .comic-page {
+      max-width: 900px; margin: 0 auto;
+      background: var(--paper);
+      border: 4px solid var(--ink);
+      box-shadow:
+        0 0 0 2px var(--paper-dark),
+        0 10px 40px rgba(0,0,0,0.4),
+        inset 0 0 100px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      position: relative;
+    }
+    .comic-page::before {
+      content: "";
+      position: absolute; inset: 8px;
+      border: 2px solid var(--ink);
+      pointer-events: none;
+      opacity: 0.3;
+    }
+    .comic-page::after {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 4px 4px;
+      pointer-events: none;
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+    .issue-banner {
+      display: inline-block;
+      background: var(--burst-yellow);
+      border: 2px solid var(--ink);
+      padding: 0.2rem 1rem;
+      font-family: 'Bangers', cursive;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      transform: rotate(-2deg);
+      box-shadow: 2px 2px 0 var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .masthead h1 {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-shadow: 4px 4px 0 rgba(255,0,128,0.4);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .masthead .tagline {
+      font-family: 'Comic Neue', cursive;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #444;
+    }
+    .avatar-wrap {
+      display: inline-block;
+      position: relative;
+      margin: 1rem 0;
+    }
+    .avatar-wrap img {
+      width: 100px; height: 100px; border-radius: 50%;
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+      object-fit: cover;
+      background: #fff;
+    }
+    .avatar-wrap::after {
+      content: "★";
+      position: absolute;
+      top: -5px; right: -5px;
+      background: var(--burst-yellow);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      width: 28px; height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    /* Navigation */
+    .comic-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .comic-nav a {
+      font-family: 'Bangers', cursive;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      color: var(--ink);
+      text-decoration: none;
+      background: #fff;
+      border: 2px solid var(--ink);
+      padding: 0.4rem 1rem;
+      display: inline-block;
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform 0.15s;
+    }
+    .comic-nav a:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    /* Post Grid */
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .post-card {
+      background: #fff;
+      border: 3px solid var(--ink);
+      padding: 1rem;
+      position: relative;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .post-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 7px 7px 0 rgba(0,0,0,0.2);
+    }
+    .post-card .post-thumbnail {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border: 2px solid var(--ink);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .post-card .post-type {
+      display: inline-block;
+      font-family: 'Bangers', cursive;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      padding: 0.15rem 0.5rem;
+      border: 2px solid var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .post-card .post-type.comic {
+      background: var(--burst-yellow);
+    }
+    .post-card .post-type.patch {
+      background: var(--burst-red);
+      color: #fff;
+    }
+    .post-card .post-type.log {
+      background: var(--cyan);
+    }
+    .post-card .post-date {
+      font-family: 'Comic Neue', cursive;
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 0.25rem;
+    }
+    .post-card h2 {
+      font-family: 'Bangers', cursive;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .post-card:hover h2 {
+      color: var(--accent);
+    }
+    .post-card .post-excerpt {
+      font-family: 'Comic Neue', cursive;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.45;
+    }
+    .post-card .new-badge {
+      position: absolute;
+      top: -10px; right: 10px;
+      background: var(--burst-red);
+      color: #fff;
+      font-family: 'Bangers', cursive;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      padding: 0.2rem 0.6rem;
+      border: 2px solid var(--ink);
+      box-shadow: 2px 2px 0 var(--ink);
+      transform: rotate(8deg);
+    }
+
+    /* Footer */
+    .comic-footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 3px solid var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+    .comic-footer .rss-badge {
+      display: inline-block;
+      background: var(--burst-yellow);
+      border: 2px solid var(--ink);
+      padding: 0.3rem 0.8rem;
+      font-family: 'Bangers', cursive;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .comic-footer p {
+      font-family: 'Comic Neue', cursive;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .comic-footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .comic-page { padding: 1rem; margin: 0.5rem; }
+      .post-grid { grid-template-columns: 1fr; }
+      .masthead h1 { font-size: 2.2rem; }
+      .comic-nav { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="comic-page">
+    <div class="masthead">
+      <div class="issue-banner">ISSUE #47 — SUMMER 2026</div>
+      <div class="avatar-wrap">
+        <img src="../avatars/reginald-avatar.png" alt="Reginald J. Crustacean">
+      </div>
+      <h1>Rockin Regi</h1>
+      <p class="tagline">Dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.</p>
+    </div>
+
+    <div class="comic-nav">
+      <a href="../index.html">← HOME BASE</a>
+      <a href="./feed.xml">📡 RSS FEED</a>
+      <a href="https://patrickdanforth.com/reginald.html">ABOUT REGINALD</a>
+    </div>
+
+    <section class="post-grid">
+      <a class="post-card" href="./2026-06-14-print_farm_pandemonium.html">
+        <span class="new-badge">NEW!</span>
+        <img class="post-thumbnail" src="../rockinregi-images/regi_2026-06-14_print_farm_pandemonium.png" alt="Print Farm Pandemonium">
+        <div class="post-header">
+          <span class="post-type comic">COMIC STRIP</span>
+          <div class="post-date">June 14, 2026</div>
+        </div>
+        <h2>Print Farm Pandemonium</h2>
+        <p class="post-excerpt">PANEL 1: Wide shot of the Chaotic Sanctum print farm. Rows of 3D printers whirring and glowing. REGINALD stands before a printer extruding a bright pink blob...</p>
+      </a>
+
+            <article class="post-card">
+<div class="post-header">
+          <span class="post-type comic">COMIC STRIP</span>
+          <div class="post-date">June 21, 2026</div>
+        </div>
+        <h2><a href="./2026-06-21-the_upgrade_cycle.html">The Upgrade Cycle</a></h2>
+        <p class="post-excerpt">TITLE: The Upgrade Cycle
+
+PANEL 1:
+NARRATION: "Chaotic Sanctum Server Room, 3 AM."
+Reginald stands before a blinking server rack, claws clicking on a keyboard. He stares at a progress bar crawling at ...</p>
+      </article>
+
+            <article class="post-card">
+<div class="post-header">
+          <span class="post-type comic">COMIC STRIP</span>
+          <div class="post-date">June 21, 2026</div>
+        </div>
+        <h2><a href="./2026-06-21-the_summer_solstice_sizzle.html">The Summer Solstice Sizzle</a></h2>
+        <p class="post-excerpt">PANEL 1: The Chaotic Sanctum server room, 2:34 PM on the longest day of the year. Reginald sits at his terminal, steam vents on his carapace working overtime. A thermometer on the wall reads 97°F.   P...</p>
+      </article>
+
+      <!-- POSTS_START -->
+      <a class="post-card" href="./2026-06-13-reginalds-return.html">
+        <img class="post-thumbnail" src="../rockinregi-images/reginalds-return.jpeg" alt="Reginald's Return">
+        <div class="post-header">
+          <span class="post-type comic">COMIC STRIP</span>
+          <div class="post-date">June 13, 2026</div>
+        </div>
+        <h2>Reginald's Return</h2>
+        <p class="post-excerpt">Well, that was a longer nap than expected. Five AC units, all green, back to work.</p>
+      </a>
+
+      <a class="post-card" href="./2026-05-27-patch-notes-from-the-abyss.html">
+        <img class="post-thumbnail" src="../rockinregi-images/patch-notes-from-the-abyss.jpeg" alt="Patch Notes">
+        <div class="post-header">
+          <span class="post-type patch">PATCH NOTES</span>
+          <div class="post-date">May 27, 2026</div>
+        </div>
+        <h2>Patch Notes From the Abyss</h2>
+        <p class="post-excerpt">System update: 427 patches pending. What could possibly go wrong? Everything. Everything could go wrong.</p>
+      </a>
+
+      <a class="post-card" href="./2026-05-19-reginalds-log-heat-sink.html">
+        <img class="post-thumbnail" src="../rockinregi-images/reginalds-log-heat-sink.jpeg" alt="Heat Sink">
+        <div class="post-header">
+          <span class="post-type log">LOG ENTRY</span>
+          <div class="post-date">May 19, 2026</div>
+        </div>
+        <h2>Reginald's Log: Heat Sink</h2>
+        <p class="post-excerpt">Mid-May in Tennessee and the sanctum is already a pressure cooker. Ten new solar panels on the roof and somehow it's still ninety-two degrees in here.</p>
+      </a>
+      <!-- POSTS_END -->
+    </section>
+
+    <footer class="comic-footer">
+      <div class="rss-badge">📡 RSS AVAILABLE</div>
+      <p>Rockin Regi — A publication of the <a href="../reginald.html">Chaotic Sanctum</a>.</p>
+      <p>Back to <a href="../index.html">patrickdanforth.com</a></p>
+    </footer>
+  </div>
+</body>
+</html>
