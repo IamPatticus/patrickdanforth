@@ -1,0 +1,13 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The sources do not provide a live “Chaotic Sanctum dashboard status,” so a current status summary is not possible from the provided material alone. They do show that the dashboard/“Command Center” is intended to display service status, agent activity, and system health, and that core services are considered critical enough that if one fails, “the dashboard goes red” and the watchdog auto-heals enabled services every 10 minutes.[2] Operational tooling also supports broad status checks across Mac services, VM services, external access, Tailscale, keys, repos, and disk usage via `sanctum-status.sh`, with `sanctum-doctor.sh` available to diagnose and repair common failures.[3] In short, the dashboard appears designed as a centralized health and operations view for the Sanctum platform, but no actual snapshot or current red/green state is included in the sources.[2][3]
+
+Sources used:
+1. Services | Le Sanctum — https://www.sanctum.run/architecture/services/
+2. Operations Tooling | Le Sanctum — https://www.sanctum.run/operations/tooling/
+3. Dashboard executive summary | Aha! AI prompt library — https://www.aha.io/ai-library/request-dashboard-executive-summary
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1776430507.json

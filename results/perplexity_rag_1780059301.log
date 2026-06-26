@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotic Sanctum dashboard currently shows **878.33M TVL**, indicating substantial capital on the platform, alongside relatively modest **daily trading volume of 31.68K**. Usage metrics report **2.44M SOL dispensed over time** and **433.91K total unstakes**, suggesting significant cumulative activity. For Infinity LST, the dashboard lists **2,157 daily $INF holders**, with **10 daily deposits** and **2 daily withdrawals**, implying a larger holder base than current-day flow. The available sources provide a snapshot of current metrics, but they do not include trend context, benchmarks, or explicit service-health status beyond identifying the dashboard as a web status/activity interface.
+
+Sources used:
+1. Sanctum Dashboard — https://sanctum-dashboard.vercel.app  
+2. Services | Le Sanctum — https://www.sanctum.run/architecture/services/
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1780059307.json

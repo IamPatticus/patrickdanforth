@@ -1,0 +1,1883 @@
+Drive backup complete: 2026-03-25 03:15:04 CDT
+Drive backup complete: 2026-03-26 03:15:04 CDT
+Drive backup complete: 2026-03-27 03:15:08 CDT
+Drive backup complete: 2026-03-28 03:15:05 CDT
+Drive backup complete: 2026-03-29 03:15:05 CDT
+Drive backup complete: 2026-03-30 03:15:05 CDT
+Drive backup complete: 2026-03-31 03:15:05 CDT
+Drive backup complete: 2026-04-01 03:15:05 CDT
+Drive backup complete: 2026-04-02 03:16:00 CDT
+Drive backup complete: 2026-04-03 03:15:06 CDT
+Drive backup complete: 2026-04-04 03:15:31 CDT
+Drive backup complete: 2026-04-05 03:15:32 CDT
+2026/04/06 03:16:04 ERROR : services/mission-control/talos-avatar.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/06 03:16:10 ERROR : services/mission-control/avatars/patticus-avatar.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/06 03:16:10 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/06 03:16:10 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/06 03:16:10 ERROR : Attempt 1/3 failed with 3 errors and: not deleting files as there were IO errors
+2026/04/06 03:16:41 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-06 03:16:41 CDT
+Drive backup complete: 2026-04-07 03:15:40 CDT
+2026/04/08 03:15:19 ERROR : scripts/github_backup.sh: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/08 03:15:54 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/08 03:15:54 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/08 03:15:54 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/04/08 03:15:56 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-08 03:15:56 CDT
+Drive backup complete: 2026-04-09 03:16:50 CDT
+2026/04/10 03:16:06 ERROR : avatars/talos-portrait-v2---33a07267-b3d1-47db-a1cf-a782b9b8d4d2.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/10 03:16:36 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/10 03:16:36 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/10 03:16:36 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/04/10 03:16:37 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-10 03:16:37 CDT
+Drive backup complete: 2026-04-11 03:15:46 CDT
+2026/04/12 03:15:17 ERROR : avatars/talos-portrait-v2---33a07267-b3d1-47db-a1cf-a782b9b8d4d2.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/12 03:15:36 ERROR : avatars/talos-avatar---502bb374-cf50-45f9-bf56-a04e9a5ebbc0.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/12 03:15:57 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/12 03:15:57 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/12 03:15:57 ERROR : Attempt 1/3 failed with 3 errors and: not deleting files as there were IO errors
+2026/04/12 03:16:01 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-12 03:16:01 CDT
+2026/04/13 03:17:15 ERROR : services/mission-control/sanctum.html: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/13 03:17:15 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/13 03:17:15 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/13 03:17:15 ERROR : Attempt 1/3 failed with 1 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/13 03:17:48 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-13 03:17:48 CDT
+2026/04/14 03:16:14 ERROR : services/mission-control/images: error reading destination directory: couldn't list directory: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/14 03:16:14 ERROR : services/reverse-proxy.log: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/14 03:16:16 ERROR : services/mission-control/briefings: error reading destination directory: couldn't list directory: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/14 03:16:51 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/14 03:16:51 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/14 03:16:51 ERROR : Attempt 1/3 failed with 4 errors and: march failed with 2 error(s): first error: couldn't list directory: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/14 03:16:55 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-14 03:16:55 CDT
+Drive backup complete: 2026-04-15 03:15:42 CDT
+2026/04/16 03:16:15 ERROR : services/mission-control/images/covers: error reading destination directory: couldn't list directory: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/16 03:17:45 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/16 03:17:45 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/16 03:17:45 ERROR : Attempt 1/3 failed with 1 errors and: couldn't list directory: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/16 03:17:47 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-16 03:17:47 CDT
+Drive backup complete: 2026-04-17 03:17:18 CDT
+2026/04/18 03:15:19 ERROR : scripts/perplexity_rag.py: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/18 03:15:56 ERROR : scripts/update_devices.py: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/18 03:15:56 ERROR : scripts/run_rag_cron.sh: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/18 03:16:52 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/18 03:16:52 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/18 03:16:52 ERROR : Attempt 1/3 failed with 4 errors and: not deleting files as there were IO errors
+2026/04/18 03:16:54 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-18 03:16:54 CDT
+Drive backup complete: 2026-04-19 03:15:57 CDT
+2026/04/20 03:15:52 ERROR : scripts/signal_notify.py: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/20 03:16:51 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/20 03:16:51 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/20 03:16:51 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/04/20 03:16:54 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-20 03:16:54 CDT
+2026/04/21 03:15:20 ERROR : avatars/patticus-avatar.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/21 03:17:02 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/21 03:17:02 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/21 03:17:02 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/04/21 03:17:03 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-21 03:17:03 CDT
+2026/04/22 03:16:06 ERROR : avatars/argus-avatar---a70677e6-c6b3-45d5-9b1d-02c88bbc4dc8.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/04/22 03:16:57 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/04/22 03:16:57 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/04/22 03:16:57 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/04/22 03:17:01 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-04-22 03:17:01 CDT
+Drive backup complete: 2026-04-23 03:16:04 CDT
+Drive backup complete: 2026-04-24 03:15:57 CDT
+Drive backup complete: 2026-04-25 03:16:52 CDT
+Drive backup complete: 2026-04-26 03:15:50 CDT
+Drive backup complete: 2026-04-27 03:16:03 CDT
+Drive backup complete: 2026-04-28 03:16:50 CDT
+Drive backup complete: 2026-04-29 03:17:01 CDT
+Drive backup complete: 2026-04-30 03:16:13 CDT
+Drive backup complete: 2026-05-01 03:16:09 CDT
+Drive backup complete: 2026-05-02 03:15:42 CDT
+Drive backup complete: 2026-05-03 03:16:45 CDT
+2026/05/04 03:16:14 ERROR : services/mission-control/coffee-log.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/04 03:16:20 ERROR : services/mission-control/printfarm-status.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/04 03:16:20 ERROR : services/mission-control/printfarm-state.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/04 03:17:52 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/04 03:17:52 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/04 03:17:52 ERROR : Attempt 1/3 failed with 3 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/04 03:17:55 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-04 03:17:55 CDT
+Drive backup complete: 2026-05-05 03:17:01 CDT
+Drive backup complete: 2026-05-06 03:17:03 CDT
+Drive backup complete: 2026-05-07 03:15:59 CDT
+Drive backup complete: 2026-05-08 03:16:33 CDT
+Drive backup complete: 2026-05-09 03:17:56 CDT
+Drive backup complete: 2026-05-10 03:16:56 CDT
+Drive backup complete: 2026-05-11 03:17:04 CDT
+2026/05/12 03:15:41 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-12 03:15:55 CDT
+2026/05/13 03:15:40 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-13 03:15:52 CDT
+2026/05/14 03:15:05 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/14 03:17:21 ERROR : services/mission-control/briefings/latest_briefing.html: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/14 03:17:38 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/14 03:17:38 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/14 03:17:38 ERROR : Attempt 1/3 failed with 1 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/14 03:17:55 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/14 03:17:57 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-14 03:17:57 CDT
+2026/05/15 03:15:56 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/15 03:16:37 ERROR : services/mission-control/fozzie-telegram-watcher.py: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/15 03:16:48 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/15 03:16:48 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/15 03:16:48 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/05/15 03:16:48 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/15 03:16:49 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-15 03:16:49 CDT
+2026/05/16 03:15:03 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/16 03:17:55 ERROR : services/mission-control/image-1---3d156734-3470-442d-94dc-e3b58cb148d1.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/16 03:17:55 ERROR : services/mission-control/headache-brain-sad.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/16 03:18:59 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/16 03:18:59 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/16 03:18:59 ERROR : Attempt 1/3 failed with 3 errors and: not deleting files as there were IO errors
+2026/05/16 03:18:59 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/16 03:19:00 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-16 03:19:00 CDT
+2026/05/17 03:15:04 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/17 03:15:16 ERROR : scripts/daedalus_comfyui.py: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/17 03:15:58 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/17 03:15:58 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/17 03:15:58 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/05/17 03:15:58 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/17 03:16:00 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-17 03:16:00 CDT
+2026/05/18 03:15:03 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-18 03:16:49 CDT
+2026/05/19 03:15:05 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/19 03:16:16 ERROR : services/mission-control/printfarm-state.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/19 03:16:16 ERROR : services/mission-control/printfarm-status.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/19 03:16:16 ERROR : services/mission-control/pironman-color-state.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/19 03:16:16 ERROR : services/mission-control/patrickdanforth.html: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/19 03:17:10 ERROR : services/mission-control/avatars/forgekeeper-portrait---eaec6f18-0284-4744-9b48-f7252e03ba4d.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/19 03:17:27 ERROR : services/mission-control/avatars/ikaris-avatar---2445e1f8-55c6-43f6-aac6-d1885a2545f4.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/19 03:18:02 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/19 03:18:02 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/19 03:18:02 ERROR : Attempt 1/3 failed with 6 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/19 03:18:02 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/19 03:18:03 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-19 03:18:03 CDT
+2026/05/20 03:15:56 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/20 03:17:08 ERROR : services/blogger/auth_step1.py: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/20 03:17:51 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/20 03:17:51 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/20 03:17:51 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/05/20 03:17:52 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/20 03:17:53 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-20 03:17:53 CDT
+2026/05/21 03:15:55 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/21 03:16:17 ERROR : scripts/reginald_boot.py: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/21 03:16:55 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/21 03:16:55 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/21 03:16:55 ERROR : Attempt 1/3 failed with 1 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/21 03:16:57 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/21 03:16:58 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-21 03:16:58 CDT
+2026/05/22 03:32:33 Failed to create file system for "gdrive:openclaw/backups/talos": couldn't find root directory ID: Get "https://www.googleapis.com/drive/v3/files/root?alt=json&fields=id&prettyPrint=false&supportsAllDrives=true": couldn't fetch token - maybe it has expired? - refresh with "rclone config reconnect gdrive:": Post "https://oauth2.googleapis.com/token": dial tcp: lookup oauth2.googleapis.com on [fd7a:115c:a1e0::53]:53: read udp [fd7a:115c:a1e0::c03b:5d32]:38721->[fd7a:115c:a1e0::53]:53: i/o timeout
+2026/05/23 03:15:44 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-23 03:16:00 CDT
+2026/05/24 03:15:41 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-24 03:16:00 CDT
+2026/05/25 03:16:45 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-25 03:17:00 CDT
+2026/05/26 03:15:54 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/26 03:16:22 ERROR : services/mission-control/printfarm-state.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/26 03:16:22 ERROR : services/mission-control/printfarm-status.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/26 03:16:31 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/26 03:16:31 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/26 03:16:31 ERROR : Attempt 1/3 failed with 2 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/26 03:16:31 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/26 03:16:33 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-26 03:16:33 CDT
+2026/05/27 03:15:04 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-27 03:44:31 CDT
+2026/05/28 03:15:56 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/28 03:16:25 ERROR : services/solar-scoreboard/snapshot.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/28 03:16:25 ERROR : services/solar-scoreboard/fetch_data.py: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/28 03:16:47 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/28 03:16:47 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/28 03:16:47 ERROR : Attempt 1/3 failed with 2 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/28 03:16:48 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/28 03:16:50 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-28 03:16:50 CDT
+2026/05/29 03:17:43 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-29 03:18:56 CDT
+2026/05/30 03:16:01 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+Drive backup complete: 2026-05-30 03:16:52 CDT
+2026/05/31 03:15:55 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/31 03:16:21 ERROR : services/solar-scoreboard/snapshot.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/31 03:16:23 ERROR : services/reginald-flipbook/index.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/31 03:16:51 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/05/31 03:16:51 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/05/31 03:16:51 ERROR : Attempt 1/3 failed with 2 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/05/31 03:16:52 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/05/31 03:16:53 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-05-31 03:16:53 CDT
+2026/06/01 03:15:55 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/06/01 03:16:21 ERROR : services/mission-control/coffee-log.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/01 03:16:45 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/06/01 03:16:45 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/06/01 03:16:45 ERROR : Attempt 1/3 failed with 1 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/01 03:16:46 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/06/01 03:16:47 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-06-01 03:16:47 CDT
+2026/06/02 03:15:55 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/06/02 03:17:18 ERROR : services/mission-control/avatars/patticus-avatar-sloth-coffee---51400b3e-ce19-4f72-927f-d0dcf033a167.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/02 03:17:56 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/06/02 03:17:56 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/06/02 03:17:56 ERROR : Attempt 1/3 failed with 2 errors and: not deleting files as there were IO errors
+2026/06/02 03:17:57 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/06/02 03:17:58 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-06-02 03:17:58 CDT
+2026/06/03 03:15:03 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/06/03 03:16:18 ERROR : services/mission-control/briefings/latest_briefing.html: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/03 03:16:18 ERROR : services/reginald-flipbook/index.json: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/03 03:16:24 ERROR : services/blogger/config.json: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/03 03:16:38 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/06/03 03:16:38 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/06/03 03:16:38 ERROR : Attempt 1/3 failed with 3 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/03 03:16:39 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/06/03 03:16:40 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-06-03 03:16:40 CDT
+2026/06/04 03:15:55 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/06/04 03:16:40 ERROR : scripts/tumblr_poster.py: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/04 03:18:15 ERROR : services/mission-control/reginald-archive/reginald-2026-05-30.png: Failed to set modification time: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/04 03:19:06 ERROR : services/mission-control/briefings/latest_briefing.html: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/04 03:19:49 ERROR : Google drive root 'openclaw/backups/talos': not deleting files as there were IO errors
+2026/06/04 03:19:49 ERROR : Google drive root 'openclaw/backups/talos': not deleting directories as there were IO errors
+2026/06/04 03:19:49 ERROR : Attempt 1/3 failed with 3 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/06/04 03:19:49 NOTICE: services/mission-control/.lgd-nfy0: Can't transfer non file/directory
+2026/06/04 03:19:51 ERROR : Attempt 2/3 succeeded
+Drive backup complete: 2026-06-04 03:19:51 CDT
+/bin/sh: 1: /home/patrick/.openclaw/workspace/scripts/drive_backup.sh: not found
+/bin/sh: 1: /home/patrick/.openclaw/workspace/scripts/drive_backup.sh: not found
+/bin/sh: 1: /home/patrick/.openclaw/workspace/scripts/drive_backup.sh: not found

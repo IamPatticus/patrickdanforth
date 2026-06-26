@@ -1,0 +1,21 @@
+{
+  "lastRun": "2026-06-09T16:00:01.771747",
+  "checks": [
+    {
+      "name": "daily-note",
+      "ok": true,
+      "msg": "Daily note exists (15.9h old): /home/patrick/.openclaw/workspace/memory/2026-06-09.md"
+    },
+    {
+      "name": "memory-md",
+      "ok": true,
+      "msg": "MEMORY.md updated 0.5 days ago"
+    },
+    {
+      "name": "working-context",
+      "ok": true,
+      "msg": "working-context.md updated 0.6 days ago"
+    }
+  ],
+  "allHealthy": true
+}

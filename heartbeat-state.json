@@ -1,0 +1,9 @@
+{
+  "lastChecks": {
+    "email": 1750925279,
+    "calendar": 1750925279,
+    "weather": 1750925279,
+    "system": 1750925279
+  },
+  "summary": "Basic system heartbeat OK; load low, disk ~60% used, swap inactive. No email/calendar/weather integrations configured in this environment."
+}

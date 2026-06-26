@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The available sources do not mention any “Chaotic Sanctum” dashboard by that exact name, so the summary is necessarily partial. One source shows a **ChaoticMC Dashboard** that is a server management portal with multiple sections, all marked **Restricted**, including LiteBans, Staff Wiki, Player Lookup, Server Info, Statistics, Staff Notes, Evidence Vault, and Ticket Archive; its visible “Last updated” field is still **“Loading...”**, so no live status is exposed in the provided text. Another source describes a separate **Sanctum Command Center** dashboard on port **1111** for service status, agent activity, and system health, and notes that if core services fail “the dashboard goes red,” with a watchdog checking enabled services every 10 minutes. Based on the provided materials, there is not enough evidence to give a single definitive status for a combined “Chaotic Sanctum dashboard.” [2][3]
+
+Sources used:
+1. ChaoticMC Dashboard — https://chaoticadmin.cc
+2. Services | Le Sanctum — https://www.sanctum.run/architecture/services/
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1776516909.json

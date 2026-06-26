@@ -1,0 +1,1 @@
+/home/patrick/.openclaw/workspace/MEMORY.md

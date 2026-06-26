@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grange Profile</title>
+  <style>
+    :root { --bg: #070812; --text: #e6ecf5; --muted: #8292b0; --accent: #7effb2; --line: rgba(126,255,178,.3); --panel: rgba(12,16,28,.88); --green: #7effb2; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 80% 10%, rgba(126,255,178,.12), transparent 30%), radial-gradient(circle at 20% 90%, rgba(122,231,255,.08), transparent 25%), linear-gradient(180deg,#050610,#0b1020 55%,#080b14 100%); color: var(--text); font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .card { max-width: 520px; width: 100%; border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(180deg,var(--panel),rgba(14,18,29,.95)); box-shadow: 0 24px 80px rgba(0,0,0,.45); overflow: hidden; }
+    .top { padding: 34px 34px 24px; display: flex; gap: 22px; align-items: center; }
+    .avatar { width: 96px; height: 96px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: rgba(126,255,178,.15); border: 1px solid var(--line); flex-shrink: 0; }
+    h1 { margin: 0; font-size: 1.9rem; }
+    .role { color: var(--muted); margin-top: 6px; line-height: 1.5; }
+    .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: .85rem; color: var(--muted); }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+    .dot.warn { background: #ffd16e; box-shadow: 0 0 10px #ffd16e; }
+    .body { padding: 0 34px 34px; }
+    .section { border-top: 1px solid var(--line); padding-top: 18px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; font-weight: 700; margin-bottom: 12px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .chip { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); font-size: .85rem; }
+    .quote { padding: 12px 16px; border-left: 3px solid var(--accent); background: rgba(255,255,255,.03); color: #f4efe8; line-height: 1.65; font-style: italic; margin: 14px 0 0; border-radius: 0 12px 12px 0; }
+    .links { display: flex; gap: 12px; margin-top: 16px; }
+    .btn { display: inline-block; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--text); text-decoration: none; font-weight: 700; font-size: .9rem; transition: .16s ease; }
+    .btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="avatar">🌾</div>
+      <div>
+        <h1>Grange</h1>
+        <div class="role">Steward agent. Backups, archives, storage, and keeping the digital larder stocked and organized.</div>
+        <div class="status"><span class="dot warn" style="width:7px;height:7px;"></span> On-call</div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="section">
+        <div class="eyebrow">Specialties</div>
+        <div class="chips">
+          <span class="chip">Backups</span>
+          <span class="chip">Archive</span>
+          <span class="chip">Storage</span>
+          <span class="chip">Organization</span>
+        </div>
+        <div class="quote">"Store everything. Lose nothing. Remember why."</div>
+      </div>
+      <div class="links">
+        <a class="btn" href="https://patrickdanforth.com">patrickdanforth.com</a>
+        <a class="btn" href="https://serenity.tail4695cd.ts.net/mission/">Back to Mission Control</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

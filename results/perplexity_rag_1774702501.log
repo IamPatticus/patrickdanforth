@@ -1,0 +1,13 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The provided sources are insufficient to summarize a “Chaotic Sanctum dashboard” specifically. Source [1] describes the Chaotikum e.V. internal dashboard infrastructure and notes that the dashboards are “currently not running,” with the service marked “Produktiv,” implemented using Smashing, and hosted on a container/server noted as “case” (while older text still mentions gallifrey, creating some inconsistency). Source [2] is a separate “Sanctum Dashboard” showing live metrics such as TVL 878.33M, daily volume 31.68K, SOL dispensed 2.44M, and 2,157 daily $INF holders, but it does not explicitly connect to “Chaotic Sanctum.” Source [3] is unrelated, describing a ChaoticMC server management portal.  
+
+Sources used:
+1. [1] infrastruktur:container:dashboard [Chaotikum e.V.]
+2. [2] Sanctum Dashboard
+3. [3] ChaoticMC Dashboard
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1774702506.json

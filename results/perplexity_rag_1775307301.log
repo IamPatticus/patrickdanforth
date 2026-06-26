@@ -1,0 +1,11 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotikum dashboard is documented as a production service running in a container on server **case**, implemented with **Smashing** and auto-deployed from the GitLab **master** branch. However, the page explicitly notes that **“Aktuell laufen die Dashboards nicht”** (“currently the dashboards are not running”), so its present operational status appears to be down despite being classified as productive. The wiki also lists dashboard endpoints at `https://dashboard.chaotikum.org/NAME-DES-DASHBOARDS` and mentions specific display clients such as **litfass** and **Augenpruefraum**. [1]
+
+Sources used:
+1. infrastruktur:container:dashboard [Chaotikum e.V.] [1]
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1775307305.json

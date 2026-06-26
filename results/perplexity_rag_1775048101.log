@@ -1,0 +1,11 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotikum dashboard is documented as a production service running via **Smashing**, with dashboards served under `https://dashboard.chaotikum.org/NAME-DES-DASHBOARDS`, and changes from the GitLab `master` branch reportedly deploy immediately.[1] However, the page also explicitly states that **“Aktuell laufen die Dashboards nicht”** (“currently the dashboards are not running”), so its present operational status appears to be down despite being marked productive.[1] The documentation also contains an outdated or uncertain note about whether it runs on a container on **gallifrey** versus **case**, so the current host information is inconsistent.[1] The provided “Sanctum Dashboard” and “ChaoticMC Dashboard” sources do not describe the Chaotikum/Chaotic Sanctum infrastructure dashboard status, so the available evidence is limited to the Chaotikum wiki page.[1]
+
+Sources used:
+1. infrastruktur:container:dashboard [Chaotikum e.V.] (https://wiki.chaotikum.org/infrastruktur:container:dashboard)
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1775048107.json

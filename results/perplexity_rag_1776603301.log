@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The available sources do not provide a direct “Chaotic Sanctum” dashboard status page or live status readout, so a definitive status summary is not possible from the provided material. The closest relevant source says the ChaoticMC Dashboard includes a restricted “Server Info” area for live server status, player count, and connection details, plus statistics and punishment records, but those details are not visible without access.[2] A separate Sanctum operations source describes a `sanctum-status.sh` health-check tool that reports on service health, external access, Tailscale, key presence, git repo state, and disk usage, with a `--quiet` mode that is silent when everything is fine.[3] If you want an actual current dashboard status, the provided sources are insufficient because the relevant ChaoticMC status view is restricted.[2]
+
+Sources used:
+1. ChaoticMC Dashboard — https://chaoticadmin.cc
+2. Operations Tooling | Le Sanctum — https://www.sanctum.run/operations/tooling/
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1776603307.json

@@ -1,0 +1,12 @@
+
+--- SYNTHESIZED ANSWER ---
+
+The Chaotikum “Chaotic Sanctum” dashboard appears to be a Smashing-based dashboard service documented as **productive**, but the wiki also explicitly says that **the dashboards are currently not running**, so its live status is inconsistent in the documentation. It is described as running in a container on **case** (with a note questioning older text that mentioned gallifrey), with deployments triggered automatically from the **master** branch of the GitLab dashboard project. Dashboards are intended to be reachable under `https://dashboard.chaotikum.org/NAME-DES-DASHBOARDS`, and specific boards like **litfass** and **Augenpruefraum** are mentioned, though one note says “Das Dashboard ist noch nicht aufgesetzt,” suggesting parts remain incomplete. The provided “Sanctum Dashboard” site appears unrelated to Chaotikum’s infrastructure documentation, so the sources are insufficient to confirm any separate “Chaotic Sanctum” dashboard beyond the Chaotikum dashboard wiki entry.  
+
+Sources used:
+1. [1] infrastruktur:container:dashboard [Chaotikum e.V.]
+2. [2] Sanctum Dashboard
+
+--- SAVED TO ---
+
+/home/patrick/.openclaw/workspace/results/perplexity_rag_1775652906.json

@@ -1,0 +1,1105 @@
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [30/Mar/2026 13:39:14] "[33mGET / HTTP/1.1[0m" 404 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:41:49] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:42:11] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:42:11] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:42:18] "[35m[1mGET /whoop/callback?error=access_denied HTTP/1.1[0m" 500 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:44:55] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:44:55] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:45:43] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:45:43] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:46:29] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:46:29] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:47:20] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:47:20] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:47:56] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:47:56] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:48:06] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:48:11] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:51:01] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:51:01] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:51:43] "[35m[1mGET /whoop/callback?code=test HTTP/1.1[0m" 500 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:53:17] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:54:53] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:55:52] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:55:52] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:56:11] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:56:11] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:56:27] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:56:27] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:59:05] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:59:05] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:59:10] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 13:59:10] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:59:22] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 13:59:52] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 14:01:07] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:01:07] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 14:03:35] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:03:35] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 14:03:47] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:03:47] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [30/Mar/2026 14:05:06] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:05:06] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:05:12] "[32mHEAD /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:05:29] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:05:29] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:06:03] "[35m[1mGET /whoop/callback HTTP/1.1[0m" 500 -
+127.0.0.1 - - [30/Mar/2026 14:06:19] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:06:19] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:07:44] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:08:22] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:08:22] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:08:37] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:10:09] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:10:09] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:10:15] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:10:15] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:10:15] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+127.0.0.1 - - [30/Mar/2026 14:10:15] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [30/Mar/2026 17:23:29] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.103:5001
+[33mPress CTRL+C to quit[0m
+192.168.1.245 - - [30/Mar/2026 17:26:10] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+192.168.1.245 - - [30/Mar/2026 17:26:11] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+192.168.1.245 - - [30/Mar/2026 17:26:34] "[33mGET / HTTP/1.1[0m" 404 -
+192.168.1.245 - - [30/Mar/2026 17:26:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.103:5001
+[33mPress CTRL+C to quit[0m
+192.168.1.245 - - [30/Mar/2026 17:45:29] "[35m[1mGET /whoop/callback?error=invalid_scope&error_description=The+requested+scope+is+invalid,+unknown,+or+malformed&error_hint=The+OAuth+2.0+Client+is+not+allowed+to+request+scope+"read:physiology".&state= HTTP/1.1[0m" 500 -
+192.168.1.245 - - [30/Mar/2026 17:45:34] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+192.168.1.245 - - [30/Mar/2026 17:45:34] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+192.168.1.245 - - [30/Mar/2026 17:45:34] "[35m[1mGET /whoop/callback?error=invalid_scope&error_description=The+requested+scope+is+invalid,+unknown,+or+malformed&error_hint=The+OAuth+2.0+Client+is+not+allowed+to+request+scope+"read:physiology".&state= HTTP/1.1[0m" 500 -
+192.168.1.245 - - [30/Mar/2026 17:48:37] "[35m[1mGET /whoop/callback?error=invalid_request&error_description=The+request+is+missing+a+required+parameter,+includes+an+invalid+parameter+value,+includes+a+parameter+more+than+once,+or+is+otherwise+malformed&error_hint=Redirect+URL+is+using+an+insecure+protocol,+http+is+only+allowed+for+hosts+with+suffix+`localhost`,+for+example:+http://myapp.localhost/.&state=MaHX0VjcnOX-7kibsAhXKg HTTP/1.1[0m" 500 -
+192.168.1.245 - - [30/Mar/2026 17:48:41] "[35m[1mGET /whoop/callback?error=invalid_request&error_description=The+request+is+missing+a+required+parameter,+includes+an+invalid+parameter+value,+includes+a+parameter+more+than+once,+or+is+otherwise+malformed&error_hint=Redirect+URL+is+using+an+insecure+protocol,+http+is+only+allowed+for+hosts+with+suffix+`localhost`,+for+example:+http://myapp.localhost/.&state=MaHX0VjcnOX-7kibsAhXKg HTTP/1.1[0m" 500 -
+192.168.1.245 - - [30/Mar/2026 17:48:47] "[32mGET /whoop/ HTTP/1.1[0m" 302 -
+192.168.1.245 - - [30/Mar/2026 17:48:47] "[32mGET /whoop/authorize HTTP/1.1[0m" 302 -
+192.168.1.245 - - [30/Mar/2026 17:48:48] "[35m[1mGET /whoop/callback?error=invalid_scope&error_description=The+requested+scope+is+invalid,+unknown,+or+malformed&error_hint=The+OAuth+2.0+Client+is+not+allowed+to+request+scope+"read:physiology".&state= HTTP/1.1[0m" 500 -
