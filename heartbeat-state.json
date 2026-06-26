@@ -1,10 +1,9 @@
 {
   "lastChecks": {
-    "email": 1750901619,
-    "calendar": 1750901619,
-    "weather": 1750901619
+    "email": 1750925279,
+    "calendar": 1750925279,
+    "weather": 1750925279,
+    "system": 1750925279
   },
-  "status": "active",
-  "lastUpdated": "2026-06-26T03:33:00Z",
-  "uptime": "26m"
+  "summary": "Basic system heartbeat OK; load low, disk ~60% used, swap inactive. No email/calendar/weather integrations configured in this environment."
 }

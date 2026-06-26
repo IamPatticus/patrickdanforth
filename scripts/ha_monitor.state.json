@@ -1,19 +1,19 @@
 {
   "_version": 2,
   "total": 1319,
-  "unavailable_count": 100,
-  "real_unavailable_count": 46,
-  "noise_unavailable_count": 54,
+  "unavailable_count": 105,
+  "real_unavailable_count": 52,
+  "noise_unavailable_count": 53,
   "unknown_count": 54,
   "victron_down": 0,
   "top_unavailable_domains": [
     [
       "sensor",
-      21
+      24
     ],
     [
       "switch",
-      9
+      10
     ],
     [
       "button",
