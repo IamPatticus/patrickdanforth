@@ -2,7 +2,7 @@
   "lastChecks": {
     "email": 1782495153,
     "calendar": 1782495153,
-    "weather": 1782495153
+    "weather": 1782500049
   },
-  "notes": "Email, calendar, and weather check scripts (check-email.sh, check-calendar.sh, check-weather.sh) are missing from the workspace. These checks cannot be performed until the scripts are restored or recreated. HEARTBEAT.md also notes missing tools for email and calendar checks."
+  "notes": "Email and calendar checks blocked: himalaya and gcalcli not installed. Weather: Doyle,TN is ☀️ +87°F. Evening check, no action needed."
 }

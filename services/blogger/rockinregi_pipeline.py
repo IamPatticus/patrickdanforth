@@ -378,46 +378,48 @@ def update_index(post_file):
 # ── Step 4: Update RSS Feed ──────────────────────────────────
 
 def update_feed(post_file):
-    """Add new post to RSS feed."""
-    feed = FEED_FILE.read_text(encoding="utf-8")
-
+    """Full rewrite of rockinregi/feed.xml as valid RSS 2.0."""
     pub_date = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
-    excerpt = SCRIPT[:300].replace("|", " ") + ("..." if len(SCRIPT) > 300 else "")
-
-    item = f"""    \u003citem\u003e
-      \u003ctitle\u003e{escape_html(TITLE)}\u003c/title\u003e
-      \u003clink\u003ehttps://patrickdanforth.com/rockinregi/{post_file.name}\u003c/link\u003e
-      \u003cguid\u003ehttps://patrickdanforth.com/rockinregi/{post_file.name}\u003c/guid\u003e
-      \u003cpubDate\u003e{pub_date}\u003c/pubDate\u003e
-      \u003cdescription\u003e\u003c![CDATA[{escape_html(excerpt)}]]\u003e\u003c/description\u003e
-    \u003c/item\u003e
-    \u003citem\u003e"""
-
-    new_feed = feed.replace("\u003citem\u003e", item, 1)
-    # Update lastBuildDate
-    new_build_date = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
-    new_feed = re.sub(
-        r'\u003clastBuildDate\u003e[^\u003c]+\u003c/lastBuildDate\u003e',
-        f'\u003clastBuildDate\u003e{new_build_date}\u003c/lastBuildDate\u003e',
-        new_feed
-    )
-    FEED_FILE.write_text(new_feed, encoding="utf-8")
-    print("[FEED] Updated rockinregi/feed.xml")
-
-# ── Step 5: Git Commit + Push ────────────────────────────────
-
-def git_deploy():
-    """Commit and push changes to GitHub Pages."""
-    os.chdir(SITE_ROOT)
-    try:
-        subprocess.run(["git", "add", "rockinregi/", "rockinregi-images/"], check=True, capture_output=True)
-        subprocess.run(["git", "commit", "-m", f"Rockin Regi: {TITLE} — {DATE_STR}"], check=False, capture_output=True)
-        result = subprocess.run(["git", "push", "origin", "main"], capture_output=True, text=True, check=True)
-        print(f"[DEPLOY] Pushed to GitHub Pages")
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"[DEPLOY] Push may have failed: {e.stderr}")
-        return False
+    
+    # Read existing posts directory to get all entries
+    posts = []
+    for p in POSTS_DIR.glob("*.html"):
+        posts.append(p)
+    
+    # Sort by date (most recent first)
+    posts.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+    
+    items_xml = ""
+    for p in posts[:10]:  # Last 10 posts
+        with open(p, 'r', encoding='utf-8') as f:
+            content = f.read()
+        title_match = re.search(r'<h1.*?>(.*?)</h1>', content, re.DOTALL)
+        title = title_match.group(1).strip() if title_match else p.stem
+        items_xml += f"""    <item>
+      <title>{re.escape(title)}</title>
+      <link>https://patrickdanforth.com/rockinregi/{p.name}</link>
+      <guid>https://patrickdanforth.com/rockinregi/{p.name}</guid>
+      <pubDate>{pub_date}</pubDate>
+      <description>Rockin Regi post</description>
+    </item>
+"""
+    
+    rss_channels = f"""
+  <channel>
+    <title>Rockin Regi</title>
+    <link>https://patrickdanforth.com/rockinregi/</link>
+    <description>Reginald J. Crustacean's dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.</description>
+    <language>en</language>
+    <lastBuildDate>{pub_date}</lastBuildDate>
+    <image>
+      <url>https://patrickdanforth.com/avatars/reginald-avatar.png</url>
+      <title>Rockin Regi</title>
+      <link>https://patrickdanforth.com/rockinregi/</link>
+    </image>
+{items_xml}  </channel>
+</rss>
+"""
+    FEED_FILE.write_text(rss_template, encoding='utf-8')
 
 # ── Main ─────────────────────────────────────────────────────
 

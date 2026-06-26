@@ -240,90 +240,39 @@ def update_blog_index(title, story, filename, tags=None):
 # ── Step 4: Update RSS Feed ────────────────────────────────────
 
 def update_rss_feed(title, story, filename, tags=None):
-    """Add new post to feed.xml."""
-    feed_content = FEED_FILE.read_text()
-
-    new_item = f"""    <item>
-      <title>{title}</title>
-      <link>https://patrickdanforth.com/blog/{filename}</link>
-      <guid>https://patrickdanforth.com/blog/{filename}</guid>
-      <pubDate>{datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")}</pubDate>
-      <description>{story[:300]}</description>
-      <category>Fiction</category>
-      <category>AI-Generated</category>
+    """Full rewrite of blog/feed.xml as valid RSS 2.0."""
+    pub_date = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
+    
+    # Only process files matching post pattern: YYYY-MM-DD-*.html
+    post_files = [p for p in POSTS_DIR.glob("????-??-??-*.html")]
+    post_files.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+    
+    items_xml = ""
+    for p in post_files[:10]:
+        name = p.stem
+        date_part = name[:10]
+        title_part = " ".join(name[11:].split("-")).title()
+        with open(p, 'r') as f:
+            content = f.read()
+        items_xml += f"""    <item>
+      <title>{title_part}</title>
+      <link>https://patrickdanforth.com/blog/{p.name}</link>
+      <guid>https://patrickdanforth.com/blog/{p.name}</guid>
+      <pubDate>{pub_date}</pubDate>
+      <description>{title_part}</description>
     </item>
 """
-
-    marker = "</channel>"
-    pos = feed_content.find(marker)
-    if pos != -1:
-        updated = feed_content[:pos] + "\n" + new_item + "\n  " + feed_content[pos:]
-        FEED_FILE.write_text(updated)
-        print(f"[RSS] Added {title} to RSS feed")
-
-# ── Step 5: Git Commit + Push ───────────────────────────────────
-
-def deploy_site():
-    """Commit and push to GitHub."""
-    print("[DEPLOY] Committing and pushing...")
-
-    os.chdir(SITE_ROOT)
-
-    try:
-        subprocess.run(["git", "add", "-A"], check=True, capture_output=True)
-        subprocess.run(
-            ["git", "commit", "-m", f"New post: {TITLE}"],
-            check=False,
-            capture_output=True
-        )
-        result = subprocess.run(
-            ["git", "push", "origin", "main"],
-            check=True,
-            capture_output=True,
-            text=True
-        )
-        print(f"[DEPLOY] ✅ Deployed! https://patrickdanforth.com/blog/")
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"[DEPLOY] Git error: {e.stderr}")
-        return False
-
-# ── Main Pipeline ──────────────────────────────────────────────
-
-print("═" * 50)
-print(f"📖 Ikaris Self-Hosted Pipeline — {DATE_STR}")
-print(f"📝 Title: {TITLE}")
-print("═" * 50)
-
-# Step 1: Art
-art_filename = generate_art(TITLE, STORY)
-if art_filename:
-    status["art_generated"] = True
-else:
-    print("[PIPELINE] Art generation failed — posting without image")
-
-# Step 2: Post
-post_filename = create_post_html(TITLE, STORY, art_filename, TAGS)
-status["post_created"] = True
-
-# Step 3: Index
-update_blog_index(TITLE, STORY, post_filename, TAGS)
-
-# Step 4: RSS
-update_rss_feed(TITLE, STORY, post_filename, TAGS)
-
-# Step 5: Deploy
-if deploy_site():
-    status["deployed"] = True
-
-# ── Summary ────────────────────────────────────────────────────
-print("═" * 50)
-print("📊 Pipeline Complete")
-print(f"   Art generated:  {'✅' if status['art_generated'] else '❌'}")
-print(f"   Post created:   {'✅' if status['post_created'] else '❌'}")
-print(f"   Deployed:       {'✅' if status['deployed'] else '❌'}")
-print(f"   Blog URL:       https://patrickdanforth.com/blog/{post_filename}")
-print("═" * 50)
-
-# Output JSON for programmatic use
-print(json.dumps({"title": TITLE, "post_url": f"https://patrickdanforth.com/blog/{post_filename}", "status": status}))
+    
+    rss_template = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Ikaris Daily — 2026</title>
+    <link>https://patrickdanforth.com/blog/</link>
+    <description>Ikaris Daily — Letters from the Chaotic Sanctum</description>
+    <language>en</language>
+    <lastBuildDate>{pub_date}</lastBuildDate>
+    <ttl>60</ttl>
+{items_xml}  </channel>
+</rss>
+"""
+    FEED_FILE.write_text(rss_template)
