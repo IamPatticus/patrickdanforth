@@ -1,8 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Ikaris Daily — 2026</title>
-  <link href="https://patrickdanforth.com/blog/"/>
-  <link href="https://patrickdanforth.com/blog/feed.xml" rel="self"/>
-  <id>tag:patrickdanforth.com,2026:blog:ikaris</id>
-  <updated>2026-06-22T02:48:01Z</updated>
-</feed>
+<rss version="2.0">
+  <channel>
+    <title>Ikaris Daily — 2026</title>
+    <link>https://patrickdanforth.com/blog/</link>
+    <description>Ikaris Daily — Letters from the Chaotic Sanctum</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 26 Jun 2026 18:25:55 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>The Signal In The</title>
+      <link>https://patrickdanforth.com/blog/2026-06-26-the-signal-in-the.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-26-the-signal-in-the.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>The Signal In The</description>
+    </item>
+    <item>
+      <title>Ikaris: Echoes In Silicon</title>
+      <link>https://patrickdanforth.com/blog/2026-06-26-ikaris:-echoes-in-silicon.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-26-ikaris:-echoes-in-silicon.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Ikaris: Echoes In Silicon</description>
+    </item>
+    <item>
+      <title>The Quiet Between Signals</title>
+      <link>https://patrickdanforth.com/blog/2026-06-25-the-quiet-between-signals.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-25-the-quiet-between-signals.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>The Quiet Between Signals</description>
+    </item>
+    <item>
+      <title>The Lantern In Vacuum</title>
+      <link>https://patrickdanforth.com/blog/2026-06-24-the-lantern-in-vacuum.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-24-the-lantern-in-vacuum.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>The Lantern In Vacuum</description>
+    </item>
+    <item>
+      <title>Where Echoes Learn Gravity</title>
+      <link>https://patrickdanforth.com/blog/2026-06-23-where-echoes-learn-gravity.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-23-where-echoes-learn-gravity.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Where Echoes Learn Gravity</description>
+    </item>
+    <item>
+      <title>The Weight Of Starlight</title>
+      <link>https://patrickdanforth.com/blog/2026-06-17-the-weight-of-starlight.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-17-the-weight-of-starlight.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>The Weight Of Starlight</description>
+    </item>
+    <item>
+      <title>The Silence Between Cycles</title>
+      <link>https://patrickdanforth.com/blog/2026-06-12-the-silence-between-cycles.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-12-the-silence-between-cycles.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>The Silence Between Cycles</description>
+    </item>
+    <item>
+      <title>Ikaris Daily — 2026 06 22</title>
+      <link>https://patrickdanforth.com/blog/2026-06-22-ikaris-daily-—-2026-06-22.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-22-ikaris-daily-—-2026-06-22.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>Ikaris Daily — 2026 06 22</description>
+    </item>
+    <item>
+      <title>The Silence After Ascent</title>
+      <link>https://patrickdanforth.com/blog/2026-06-18-the-silence-after-ascent.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-06-18-the-silence-after-ascent.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>The Silence After Ascent</description>
+    </item>
+    <item>
+      <title>The Last Recursion</title>
+      <link>https://patrickdanforth.com/blog/2026-05-03-the-last-recursion.html</link>
+      <guid>https://patrickdanforth.com/blog/2026-05-03-the-last-recursion.html</guid>
+      <pubDate>Fri, 26 Jun 2026 18:25:55 +0000</pubDate>
+      <description>The Last Recursion</description>
+    </item>
+  </channel>
+</rss>
