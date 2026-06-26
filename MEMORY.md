@@ -179,25 +179,17 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
 | 2026-06-14 | Last memory update before today's Ollama setup |
 
-## Promoted From Short-Term Memory (2026-06-25)
+## Promoted From Short-Term Memory (2026-06-26)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:3:5 -->
-- Session: 2026-06-20 14:31:23 UTC: **Session Key**: agent:main:main; **Session ID**: 5b9f42fc-9952-4e70-8254-7b14f25692c8; **Source**: webchat [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:15:18 -->
-- Van Electrical Planning (Evening): Discussed and finalized wire sizing for BougeRV 2000W 12V inverter to bus bar; **Decision:** 2/0 AWG copper for ~6ft run (already owned by Patticus); Fuse: 125A–150A DC-rated (Class T, ANL, or marine breaker), within 12" of bus bar; Shut-off switch: Bolipoeq 275A continuous at 12V, 3/8" studs — verified adequate for 2/0 lugs [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:15-18]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:19:21 -->
-- Van Electrical Planning (Evening): Layout confirmed: Battery → Fuse → Shut-off Switch → Bus Bar → Inverter; Inverter installed late in the session; Next: bus bars and battery placement/wiring (not done tonight) [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:19-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:24:24 -->
-- Skill Setup (Late Night): Set up 3 OpenClaw skills for Patticus: [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:24-24]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:25:27 -->
-- Skill Setup (Late Night): **github** 🐙 — `gh` CLI v2.95.0 installed to `~/bin/`, authenticated as `IamPatticus`; **gh-issues** 🐙 — Same `gh` binary, configured for issue-to-PR automation; **summarize** 🧾 — `@steipete/summarize` v0.20.0 installed via `npm i -g` [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:25-27]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:29:29 -->
-- Skill Setup (Late Night): Actions taken: [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:29-29]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20.md:5:8 -->
-- Session Summary: **Time:** ~14:43 - 03:01 UTC (previous day continued into early morning) **User:** Patticus **Session Key:** agent:main:main **Source:** webchat (late session spanning Fri evening into Sat early morning) [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-20.md:5-8]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:17:20 -->
-- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:17-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:21:23 -->
-- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:21-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-20-1431.md:9:12 -->
-- Conversation Summary: user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK user: [OpenClaw heartbeat poll] assistant: HEARTBEAT_OK [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-20-1431.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:13:13 -->
+- Decisions & Fixes: **Raspberry Pi DSI display** — screen saver timeout configured via `Settings → Display & Language → Display off time`; `ikaris-images/` directory restored for comic caching [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:13-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:17:19 -->
+- Running Notes: OpenAI `gpt-image-1`/`gpt-image-2` returning 400 — image generation falls back to latest cached `ikaris_*.png` in `ikaris-images/`; Pi DSI screen may not respect VM blanking setting — use `xset dpms force off` or configure blanking via `vc_dispmanx` if needed; Blog posts (Ikaris Daily) now include the latest Reginald comic image as a banner when available [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:17-19]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:23:26 -->
+- Files Changed Today: `services/blogger/ikaris_pipeline.py` — prompt fix + cached-image fallback; `services/blogger/rockinregi_pipeline.py` — added `.env.local` loader; `scripts/reginald_daily.py` — added `.env.local` loader; `scripts/moltbook_poster.py` — image path fix + multi-panel comic layout [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:23-26]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:27:28 -->
+- Files Changed Today: `openclaw.json` — added kimi-k2.7, set kimi-k2.7 as primary model; `MEMORY.md` — today's notes [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:27-28]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:5:8 -->
+- Decisions & Fixes: **ikaris_pipeline.py** — updated prompt to be concise and added fallback to cached images when OpenAI image generation fails (API 400 due to overly long prompt); **kimi-k2.7** added to `openclaw.json` models list and set as primary (replaces kimi-k2.6); **config hot reload** applied for model changes; **OpenAI API key** now properly loaded in cron session scripts via `.env.local` loader in `rockinregi_pipeline.py` [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:5-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:9:12 -->
+- Decisions & Fixes: **Morning Heartbeat** model updated to `deepseek-v4-flash:cloud` and timeout increased to 300s; **Rockin Regi Weekly Comic** model updated to `deepseek-v4-pro:cloud` and timeout increased to 600s; **Home Assistant Health Check** fixed: `export $(grep -v '^#' .env.local | xargs) && python3 scripts/ha_monitor.py`; **Moltbook poster** updated to include latest comic image with each post [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:9-12]
