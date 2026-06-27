@@ -1,17 +1,20 @@
 {
   "lastChecks": {
-    "weather": 1782585957440,
-    "disk": 1782585957440,
-    "git": 1782585957440,
-    "memory": 1782585957440
+    "weather": 1782586453817,
+    "disk": 1782586453817,
+    "git": 1782586453817,
+    "memory": 1782586453817,
+    "email": 1782586339,
+    "calendar": 1782586339,
+    "signal": 1782586339
   },
-  "lastWeather": "Sunny, +87°F",
+  "lastWeather": "\u2600\ufe0f, +86\u00b0F",
   "gitStatus": "dirty (heartbeat-state.json modified)",
   "lastValues": {
-    "weather": "pending wttr.in timeout (curl hung)",
+    "weather": "\u2600\ufe0f  +86\u00b0F 61% 0.00 in \u21919mph",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
-    "memory": "total        used        free      shared  buff/cache   available\nMem:           7.7Gi       1.8Gi       998Mi       6.7Mi       5.2Gi       5.9Gi",
+    "memory": "total        used        free      shared  buff/cache   available\nMem:           7.7Gi       1.7Gi       1.1Gi       6.7Mi       5.2Gi       6.0Gi\nSwap:          4.0Gi       1.0Mi       4.0Gi",
     "git_clean": false,
-    "git_status": " M memory/heartbeat-state.json"
+    "git_status": "M memory/2026-06-27.md\n M memory/heartbeat-state.json"
   }
 }
