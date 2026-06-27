@@ -5,7 +5,7 @@ and saves to the network archive for the flipbook.
 Runs via cron daily. Saves to /mnt/siliconpower/images/reginald-daily/
 """
 
-import os, sys, time, json, base64, urllib.request, urllib.parse, random, shutil, subprocess, re
+import os, sys, time, json, base64, urllib.request, urllib.parse, random, shutil, subprocess, re, argparse
 from pathlib import Path
 from datetime import datetime
 
@@ -167,7 +167,7 @@ def publish_to_github(datestamp, quote):
             entries.append({
                 "date": datestamp,
                 "filename": filename,
-                "label": f"Reginald - {datestamp}"
+                "label": f"Reginald \u2014 {datestamp}"
             })
             data["count"] = len(entries)
             with open(index_path, "w") as f:
@@ -219,8 +219,14 @@ def publish_to_github(datestamp, quote):
 
 
 def main():
-    # Optional date override via CLI arg: YYYY-MM-DD
-    override_date = sys.argv[1] if len(sys.argv) > 1 else None
+    parser = argparse.ArgumentParser(description="Generate and publish daily Reginald comic.")
+    parser.add_argument("date", nargs="?", help="Override date (YYYY-MM-DD)")
+    parser.add_argument("--force", action="store_true", help="Force regeneration even if already generated today")
+    args = parser.parse_args()
+
+    override_date = args.date
+    force = args.force
+
     if override_date:
         try:
             datetime.strptime(override_date, "%Y-%m-%d")
@@ -231,14 +237,14 @@ def main():
     print(f"Reginald Daily: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
     datestamp = override_date or datetime.now().strftime("%Y-%m-%d")
-    
-    # Check if already generated today (only skip if no override)
-    if not override_date and os.path.exists(STATE_PATH):
+
+    # Check if already generated today (only skip if no override and not forcing)
+    if not override_date and not force and os.path.exists(STATE_PATH):
         try:
             with open(STATE_PATH) as f:
                 state = json.load(f)
             if state.get("date") == datestamp:
-                print("Already generated today. Skipping.")
+                print("Already generated today. Skipping. Use --force to regenerate.")
                 sys.exit(0)
         except:
             pass
