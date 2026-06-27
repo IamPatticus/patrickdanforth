@@ -29,6 +29,14 @@ Things like:
 
 - Preferred voice: "Nova" (warm, slightly British)
 - Default speaker: Kitchen HomePod
+
+### Weather
+
+- Primary station: **Joppa Station 1** in Walling, TN (Ambient Weather)
+- API keys: `~/.config/ambientweather.env` (chmod 600)
+- Station MAC: `94:3C:C6:91:91:AB`
+- API endpoint: `https://api.ambientweather.net/v1/devices`
+- Backup source: `wttr.in/Walling+TN`
 ```
 
 ## Why Separate?

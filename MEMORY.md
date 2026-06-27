@@ -1,6 +1,6 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-23_
+_Last updated: 2026-06-26_
 
 ---
 
@@ -9,6 +9,15 @@ _Last updated: 2026-06-23_
 - Proxy PID: $(cat ~/.ollama_config/proxy.pid) — port 11337
 - Router: ~/.ollama_router.sh
 - Usage: source ~/.ollama_config/openai.env && export OLLAMA_BASE_URL=http://127.0.0.1:11337
+
+---
+
+## Local Weather — Ambient Weather Station (2026-06-26)
+
+- Primary station: **Joppa Station 1** in Walling, TN (lat 35.8448, lon -85.6225)
+- API keys consolidated to `~/.config/ambientweather.env` (chmod 600)
+- Cron weather checks now read directly from the station instead of wttr.in/Doyle
+- Current reading as of this update: 91.6°F / feels like 99.3°F / 53% humidity
 
 ---
 
