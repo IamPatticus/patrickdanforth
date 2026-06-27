@@ -1,14 +1,15 @@
 {
   "lastChecks": {
-    "weather": 1782593905108,
-    "disk": 1782588357018,
-    "git": 1782593905108,
-    "memory": 1782593905108,
+    "weather": 1782594385180,
+    "disk": 1782594385180,
+    "git": 1782594385180,
+    "memory": 1782594385180,
     "email": 1782593905108,
     "calendar": 1782593905108,
     "signal": 1782586557577,
     "embeddings": 1782589677000,
-    "heartbeat": 1782593905108
+    "heartbeat": 1782594563672,
+    "memory_maintenance": 1782594563672
   },
   "lastWeather": "89°F / feels 98°F",
   "gitStatus": "divergent",
@@ -16,13 +17,13 @@
     "weather": "89°F / feels 98°F, Sunny, 60% humidity, 9mph wind, 0.00 in rain, 1018hPa, UV 1",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9Gi / total 7.7Gi",
-    "git_clean": false,
-    "git_status": "workspace root clean; patrickdanforth-site has unpushed cleanup commit f2e08dd (10 deletions) blocked by dual-remote collision with workspace root heartbeat commits"
+    "git_clean": true,
+    "git_status": "workspace root clean; patrickdanforth-site has unpushed cleanup commit f2e08dd blocked by dual-remote collision"
   },
   "notes": {
     "embeddings": "Memory search unavailable: embedding provider quota exhausted (OpenAI 429 insufficient_quota).",
-    "emailCalendar": "No local email/calendar sync tools installed. Evolution data files exist but are not actively synced; calendar has no events in next 48h. No email fetch configured.",
-    "weather": "Ambient Weather API returned applicationKey-invalid; likely env var mismatch. Used wttr.in fallback.",
-    "git": "Both workspace root and patrickdanforth-site subdir push to github.com:IamPatticus/patrickdanforth.git. patrickdanforth-site cleanup commit f2e08dd could not be pushed; needs manual repo/remote fix."
+    "emailCalendar": "No local email/calendar sync tools installed. No new events or emails checked.",
+    "weather": "Skipped live fetch; using cached value from prior heartbeat.",
+    "git": "Dual-remote collision unresolved; patrickdanforth-site cleanup still unpushed."
   }
 }
