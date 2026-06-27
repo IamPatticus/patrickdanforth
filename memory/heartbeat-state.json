@@ -1,24 +1,24 @@
 {
   "lastChecks": {
-    "weather": 1782598135985,
+    "weather": 1782599818768.838,
     "disk": 1782597339346,
     "git": 1782598238172,
     "memory": 1782598105985,
-    "email": 1782597339346,
-    "calendar": 1782597339346,
+    "email": 1782599818768.838,
+    "calendar": 1782599818768.838,
     "signal": 1782597339346,
     "embeddings": 1782597339346,
-    "heartbeat": 1782598586101,
+    "heartbeat": 1782599818768.838,
     "memory_maintenance": 1782601380000
   },
-  "lastWeather": "Walling TN: Sunny +89\u00b0F, 60%, ~9mph, 0.00 in",
+  "lastWeather": "Walling TN: Sunny +91\u00b0F, 54% humidity, \u21977mph wind, 0.00 in precip",
   "gitStatus": "workspace clean; patrickdanforth-site cleanup commit unpushed",
   "lastValues": {
-    "weather": "Walling TN: Sunny +89\u00b0F, 60%, ~9mph, 0.00 in",
+    "weather": "Walling TN: Sunny +91\u00b0F, 54% humidity, \u21977mph wind, 0.00 in precip",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9Gi / total 7.7Gi",
     "git_clean": false,
     "git_status": "workspace clean; patrickdanforth-site cleanup commit unpushed due to dual-remote collision"
   },
-  "notes": "Heartbeat 22:22 UTC. MEMORY.md current. Dual-remote collision in patrickdanforth-site still unresolved; not urgent. Memory search disabled."
+  "notes": "Heartbeat 22:36 UTC. Weather updated. Email/calendar unavailable (no CLI configured)."
 }
