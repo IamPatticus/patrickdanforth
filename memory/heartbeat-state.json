@@ -1,12 +1,15 @@
 {
   "lastChecks": {
-    "email": 1782567152051,
-    "calendar": 1782567152051,
-    "weather": 1782567152051,
-    "git": 1782567152051,
-    "disk": 1782567152051,
-    "memory": 1782567152051,
-    "signal": 1782567152051
+    "email": 1782567900410,
+    "calendar": 1782567900410,
+    "weather": 1782567900410,
+    "git": 1782567900410,
+    "disk": 1782567900410,
+    "memory": 1782567900410,
+    "signal": 1782567900410
   },
-  "lastSummary": 1782567152051
+  "lastSummary": 1782567900410,
+  "lastWeather": "\u2600\ufe0f  Sunny +78\u00b0F 76% 0.00 in \u21913mph",
+  "lastDiskPercent": 58,
+  "gitStatus": "1 changed"
 }
