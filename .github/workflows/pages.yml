@@ -27,7 +27,7 @@ jobs:
           # Copy all top-level HTML files and static assets
           cp *.html favicon.ico favicon.png CNAME _site/ 2>/dev/null || true
           # Copy website directories
-          cp -r blog rockinregi avatars ikaris-images rockinregi-images _site/ 2>/dev/null || true
+          cp -r blog rockinregi reginald-flipbook avatars ikaris-images rockinregi-images _site/ 2>/dev/null || true
           # Remove any .git directories just in case
           find _site -type d -name .git -exec rm -rf {} + 2>/dev/null || true
           # List what we're deploying
