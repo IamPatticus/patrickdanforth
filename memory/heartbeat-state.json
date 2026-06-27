@@ -1,15 +1,14 @@
 {
   "lastChecks": {
-    "email": 1782580072077,
-    "calendar": 1782580072077,
-    "signal": 1782580072077,
-    "weather": 1782580072077,
-    "disk": 1782580072077,
-    "memory": 1782580072077,
-    "git": 1782580072077,
-    "heartbeat": "2026-06-27T17:07 UTC"
+    "email": 1782581419760,
+    "calendar": 1782581419760,
+    "signal": 1782581419760,
+    "weather": 1782581419760,
+    "disk": 1782581419760,
+    "memory": 1782581419760,
+    "git": 1782581419760,
+    "heartbeat": "2026-06-27T17:30 UTC"
   },
-  "lastWeather": "Partly Cloudy , +84\u00b0F, 68%, 0.0in, WSW9mph",
-  "lastSummary": "see current run",
-  "gitStatus": "clean"
+  "lastWeather": "Sunny,+87°F,62%,0.00 in,↗4mph",
+  "gitStatus": "dirty (memory/heartbeat-state.json)"
 }
