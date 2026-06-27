@@ -51,7 +51,7 @@ _Last updated: 2026-06-27_
 - **Confirmed 2026-06-27:** the env file key name is `AMBIENT_APP_KEY` (not `AMBIENT_APPLICATION_KEY`); pass it as the `applicationKey` query param alongside `apiKey`.
 - Cron weather checks now read directly from the station instead of wttr.in/Doyle
 - **2026-06-27 midnight check:** Ambient Weather API keys are now populated and Joppa Station 1 is reachable again. Conditions at 00:03 UTC: 80.2°F / feels like 84.5°F, 78% humidity, calm wind. Lightning sensor battery flagged low (`batt_lightning: 0`).
-- **2026-06-27 08:02 UTC check:** 77.18°F / feels like 78.55°F, 84% humidity, calm wind, no rain.
+- **2026-06-27 20:02 UTC:** 83.66°F / feels like 94.9°F, 85% humidity, calm wind, UV 6, solar 679.28 W/m². Daily rain 0.21 in. Lightning sensor battery still low (`batt_lightning: 0`); distance 0.62 mi reported.
 
 ---
 
