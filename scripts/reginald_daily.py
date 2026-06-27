@@ -69,7 +69,7 @@ def generate_reginald_art():
 
     prompt = (
         f"A retro sci-fi dashboard interface titled 'CHAOTIC SANCTUM'. "
-        f"Centered on screen is Reginald J. Crustacean, Chief Digital Shellfish Analyst — "
+        f"Centered on screen is Reginald J. Crustacean, Chief Digital Shellfish Analyst - "
         f"a cybernetic lobster with one glowing robotic eye, circuit-board shell plating, "
         f"and polished metallic claws. He holds a coffee mug that reads 'DEBUG. DEPLOY. DEEP SIGH.' "
         f"He looks world-weary and smug. "
@@ -219,41 +219,51 @@ def publish_to_github(datestamp, quote):
 
 
 def main():
+    # Optional date override via CLI arg: YYYY-MM-DD
+    override_date = sys.argv[1] if len(sys.argv) > 1 else None
+    if override_date:
+        try:
+            datetime.strptime(override_date, "%Y-%m-%d")
+        except ValueError:
+            print(f"Invalid date format: {override_date}. Use YYYY-MM-DD.")
+            sys.exit(1)
+
     print(f"Reginald Daily: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
-    # Check if already generated today
-    if os.path.exists(STATE_PATH):
+    datestamp = override_date or datetime.now().strftime("%Y-%m-%d")
+    
+    # Check if already generated today (only skip if no override)
+    if not override_date and os.path.exists(STATE_PATH):
         try:
             with open(STATE_PATH) as f:
                 state = json.load(f)
-            if state.get("date") == datetime.now().strftime("%Y-%m-%d"):
+            if state.get("date") == datestamp:
                 print("Already generated today. Skipping.")
                 sys.exit(0)
         except:
             pass
-
+    
     success=generate_reginald_art()
     if success:
-        datestamp = datetime.now().strftime("%Y-%m-%d")
-
-        # Update state
-        state={"date":datestamp,"timestamp":time.time()}
-        with open(STATE_PATH,'w') as f:
-            json.dump(state,f)
+        # Update state only for actual today
+        if not override_date:
+            state={"date":datestamp,"timestamp":time.time()}
+            with open(STATE_PATH,'w') as f:
+                json.dump(state,f)
         print("Art generated")
-
+        
         # Archive to network drive
         archive_path = os.path.join(ARCHIVE_DIR, f"reginald-{datestamp}.png")
         shutil.copy2(IMAGE_PATH, archive_path)
         print(f"Archived: {archive_path}")
-
+        
         # Generate quote
         quote = get_reginald_quote()
         print(f"Quote: {quote}")
 
         # Publish to website
         publish_to_github(datestamp, quote)
-
+        
         print("Success!")
     else:
         print("Generation failed")
