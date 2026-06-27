@@ -1,14 +1,14 @@
 {
   "lastChecks": {
-    "weather": 1782592780000,
+    "weather": 1782593905108,
     "disk": 1782588357018,
-    "git": 1782592780000,
-    "memory": 1782592780000,
-    "email": 1782601080000,
-    "calendar": 1782601080000,
+    "git": 1782593905108,
+    "memory": 1782593905108,
+    "email": 1782593905108,
+    "calendar": 1782593905108,
     "signal": 1782586557577,
     "embeddings": 1782589677000,
-    "heartbeat": 1782593425029
+    "heartbeat": 1782593905108
   },
   "lastWeather": "89°F / feels 98°F",
   "gitStatus": "divergent",
@@ -17,12 +17,12 @@
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9Gi / total 7.7Gi",
     "git_clean": false,
-    "git_status": "patrickdanforth-site has 10 deleted test files; push rejected because origin/main contains workspace-root heartbeat commits (dual-remote collision)"
+    "git_status": "workspace root clean; patrickdanforth-site has unpushed cleanup commit f2e08dd (10 deletions) blocked by dual-remote collision with workspace root heartbeat commits"
   },
   "notes": {
     "embeddings": "Memory search unavailable: embedding provider quota exhausted (OpenAI 429 insufficient_quota).",
     "emailCalendar": "No local email/calendar sync tools installed. Evolution data files exist but are not actively synced; calendar has no events in next 48h. No email fetch configured.",
     "weather": "Ambient Weather API returned applicationKey-invalid; likely env var mismatch. Used wttr.in fallback.",
-    "git": "Both workspace root and patrickdanforth-site subdir push to github.com:IamPatticus/patrickdanforth.git. Cleanup commit f2e08dd could not be pushed; needs manual repo/remote fix."
+    "git": "Both workspace root and patrickdanforth-site subdir push to github.com:IamPatticus/patrickdanforth.git. patrickdanforth-site cleanup commit f2e08dd could not be pushed; needs manual repo/remote fix."
   }
 }
