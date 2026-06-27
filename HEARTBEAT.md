@@ -12,6 +12,6 @@
 
 ## Notes
 
-- Ambient Weather API works; the env var is `AMBIENT_APP_KEY` and must be passed as the `applicationKey` query param (separate from `apiKey`).
+- Ambient Weather API works; env has both `AMBIENT_API_KEY` (apiKey param) and `AMBIENT_APP_KEY` (applicationKey param).
 - Email/calendar/Signal remain blocked until tooling is configured.
 - code_execution sandbox is unavailable due to xAI API credits; use local python3 fallback for quick checks.
