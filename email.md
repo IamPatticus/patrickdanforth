@@ -1,17 +1,14 @@
 # Email Status
 
-_Last checked: Saturday, June 27, 2026 — 4:03 AM UTC_
+_Last checked: Saturday, June 27, 2026 — 8:02 AM UTC_
 
-## Status: Unable to check
+## Status: No unread mail locally; no active IMAP/Bridge account
 
-No configured email client or IMAP tool is available on this host. Specifically:
-
-- `himalaya` is not installed
-- `mutt` / `neomutt` is not installed
-- `offlineimap` / `mbsync` is not installed
-- Proton Mail Bridge is not running
-- No `.env.local` or stored credentials reference an IMAP/SMTP account
+- **Evolution Mail:** `~/.local/share/evolution/mail` exists but is empty (0 messages, 0 unread).
+- **CLI tools:** `himalaya`, `mutt`/`neomutt`, `offlineimap`/`mbsync` are not installed.
+- **Proton Mail Bridge:** not running; no Proton-related user services active.
+- **Stored credentials:** no IMAP/SMTP credentials found in `~/.config/` or `.env.local`.
 
 ## Next Steps
 
-Install/configure an email tool and add account details to `~/.config/` or `TOOLS.md` (without exposing secrets in tracked Markdown) if you want this check to run automatically.
+If email checks should include a real inbox, configure an email sync tool or Proton Bridge and add non-secret account pointers to `TOOLS.md`.

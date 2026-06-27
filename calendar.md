@@ -1,18 +1,17 @@
 # Calendar Status
 
-_Last checked: Saturday, June 27, 2026 — 4:03 AM UTC_
+_Last checked: Saturday, June 27, 2026 — 8:02 AM UTC_
 
-## Status: Unable to check
+## Status: No events in next 48 hours
 
-No calendar CLI is available and the existing Google token (`~/.config/google/token.json`) only has **Blogger** scope. Specifically:
-
-- `gcalcli` is not installed
-- `khal` / `calcurse` / `vdirsyncer` are not installed
-- Google credentials in `~/.config/google/credentials.json` belong to project `ikaris-blog` with only Blogger scope
+- **Evolution Calendar:** `~/.local/share/evolution/calendar/system/calendar.ics` exists.
+- **Next 48h events:** 0 found.
+- **CLI tools:** `gcalcli`, `khal`, `calcurse`, `vdirsyncer` are not installed.
+- **Google token:** `~/.config/google/token.json` only has **Blogger** scope, so Google Calendar is not accessible.
 
 ## Next Steps
 
-To enable calendar checks, either:
+To enable broader calendar checks, either:
 
 1. Install `gcalcli` and re-authorize with Calendar scope, or
 2. Provide a CalDAV URL/credentials for a self-hosted calendar
