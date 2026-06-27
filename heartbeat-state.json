@@ -1,11 +1,12 @@
 {
   "lastChecks": {
-    "email": 1782504190,
-    "calendar": 1782504190,
-    "weather": 1782504190,
+    "email": 1782585370270,
+    "calendar": 1782585370270,
+    "weather": 1782585370270,
     "git_status": 1782505357,
-    "disk": 1782505357,
-    "memory_maintenance": 1782505357
+    "disk": 1782585370270,
+    "memory_maintenance": 1782505357,
+    "git": 1782585370270
   },
   "notes": "Heartbeat 20:22 UTC. Email/calendar/Signal remain blocked by missing tools/config. Memory search disabled (OpenAI quota exhausted). No urgent items. Consider committing doc/tooling updates."
 }
