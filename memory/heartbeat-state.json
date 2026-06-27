@@ -2,19 +2,19 @@
   "lastChecks": {
     "weather": 1782589109000,
     "disk": 1782588357018,
-    "git": 1782588357018,
-    "memory": 1782588357018,
+    "git": 1782589557000,
+    "memory": 1782589557000,
     "email": 1782586557577,
     "calendar": 1782586557577,
     "signal": 1782586557577
   },
   "lastWeather": "🌧️ +78°F",
-  "gitStatus": "dirty",
+  "gitStatus": "clean",
   "lastValues": {
     "weather": "Humid, 77.5°F / feels 79.7°F, 99% humidity, 0.21 in rain today, light wind",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9G / total 7.7G",
-    "git_clean": false,
-    "git_status": "weather.md, WEATHER.md, heartbeat-state.json, memory/heartbeat-state.json modified"
+    "git_clean": true,
+    "git_status": ""
   }
 }
