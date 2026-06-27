@@ -220,17 +220,25 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
 | 2026-06-14 | Last memory update before today's Ollama setup |
 
-## Promoted From Short-Term Memory (2026-06-26)
+## Promoted From Short-Term Memory (2026-06-27)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:13:13 -->
-- Decisions & Fixes: **Raspberry Pi DSI display** — screen saver timeout configured via `Settings → Display & Language → Display off time`; `ikaris-images/` directory restored for comic caching [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:13-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:17:19 -->
-- Running Notes: OpenAI `gpt-image-1`/`gpt-image-2` returning 400 — image generation falls back to latest cached `ikaris_*.png` in `ikaris-images/`; Pi DSI screen may not respect VM blanking setting — use `xset dpms force off` or configure blanking via `vc_dispmanx` if needed; Blog posts (Ikaris Daily) now include the latest Reginald comic image as a banner when available [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:17-19]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:23:26 -->
-- Files Changed Today: `services/blogger/ikaris_pipeline.py` — prompt fix + cached-image fallback; `services/blogger/rockinregi_pipeline.py` — added `.env.local` loader; `scripts/reginald_daily.py` — added `.env.local` loader; `scripts/moltbook_poster.py` — image path fix + multi-panel comic layout [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:23-26]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:27:28 -->
-- Files Changed Today: `openclaw.json` — added kimi-k2.7, set kimi-k2.7 as primary model; `MEMORY.md` — today's notes [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:27-28]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:5:8 -->
-- Decisions & Fixes: **ikaris_pipeline.py** — updated prompt to be concise and added fallback to cached images when OpenAI image generation fails (API 400 due to overly long prompt); **kimi-k2.7** added to `openclaw.json` models list and set as primary (replaces kimi-k2.6); **config hot reload** applied for model changes; **OpenAI API key** now properly loaded in cron session scripts via `.env.local` loader in `rockinregi_pipeline.py` [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:5-8]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:9:12 -->
-- Decisions & Fixes: **Morning Heartbeat** model updated to `deepseek-v4-flash:cloud` and timeout increased to 300s; **Rockin Regi Weekly Comic** model updated to `deepseek-v4-pro:cloud` and timeout increased to 600s; **Home Assistant Health Check** fixed: `export $(grep -v '^#' .env.local | xargs) && python3 scripts/ha_monitor.py`; **Moltbook poster** updated to include latest comic image with each post [score=0.824 recalls=0 avg=0.620 source=memory/2026-06-22.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:11:11 -->
+- Conversation Summary: Health summary (read-only) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:11-11]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:12:15 -->
+- Conversation Summary: System uptime: gateway 14m 40s · system 15m 1s (from earlier status snapshot).; Model routing: gateway reports fallback priority (ollama-cloud/deepseek-v4-pro:cloud, ollama-cloud/deepseek-v4-flash:cloud, ollama-cloud/minimax-m2.7:cloud, openai/gpt-5.4, openai/gpt-5.4-mini, openrouter/inclusionai/ling-2.6-flash). No default model set by assistant in this session.; Image API: OpenAI endpoints return 401/400 (no valid key / quota). No OpenAI key present in this workspace.; SVG pipeline: active and serving all 49 posts (each has exactly one artwork reference). [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:12-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:16:16 -->
+- Conversation Summary: Memory: last flush appended to memory/2026-06-23.md; reference files remain untouched. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:16-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:18:18 -->
+- Conversation Summary: What I can do (changes require your confirmation) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:18-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:3:5 -->
+- Session: 2026-06-23 01:43:09 UTC: **Session Key**: agent:main:main; **Session ID**: 551ea75d-63a3-4b35-8140-8fb5e9fbdca2; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:9:9 -->
+- Conversation Summary: assistant: I can run diagnostics but cannot execute changes on your behalf. Here is a read-only health summary; apply any actions only after your explicit confirmation. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:9-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23.md:15:17 -->
+- Next user action items: 1) If you want live API images: add a valid OpenAI API key (via models.json or .env.local) and tell me which image model to use (e.g., gpt-image-1). 2) To switch providers now: provide the OpenRouter/Ollama model string from your allowlist and the secure key location; I’ll prepare the config change. 3) Otherwise: nothing to do — SVG fallbacks will continue displaying comics. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23.md:15-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23.md:20:21 -->
+- Notes & observations: Tools and reference files (MEMORY.md, DREAMS.md, SOUL.md, TOOLS.md, AGENTS.md) remain read-only.; No destructive operations performed. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23.md:20-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23.md:4:6 -->
+- Runtime context: Pre-compaction memory flush triggered at 2026-06-23 01:00 UTC.; Session: OpenClaw runtime continuing after a yield; prior summary noted SVG fallback deployed for all 49 posts and OpenAI image endpoints blocked (401/400).; No breaking changes; system stable. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23.md:4-6]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-23.md:9:12 -->
+- Decisions made (in this session): SVG fallback pipeline confirmed operational for all 49 blog posts.; OpenAI image API remains inaccessible (401/400). No key present in this workspace.; Model default may have changed to `elephant` via gateway/models.json — no action taken by assistant.; Three forward paths outlined: keep SVG fallback; add valid OpenAI key and switch back to gpt-image-1/2; or switch to OpenRouter/Ollama. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23.md:9-12]
