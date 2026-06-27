@@ -59,77 +59,55 @@ status = {"art_generated": False, "post_created": False, "deployed": False}
 # ── Step 1: Generate AI Art ────────────────────────────────────
 
 def generate_art(title, story):
-    """Generate art via OpenAI DALL-E, return local file path."""
-    if not OPENAI_API_KEY:
-        print("[ART] No OPENAI_API_KEY — skipping art generation")
-        return None
-
-    import urllib.request
-    import base64
-
+    """Generate art via OpenClaw image generation, return local file path."""
     prompt = (
-        "A 4-panel comic strip: Reginald the cyborg lobster in the Chaotic Sanctum office."
+        f"A striking digital illustration for a sci-fi short story titled '{title}'. "
+        f"Scene inspired by: {story[:300]}. "
+        f"Style: bold comic book / graphic novel art with rich colors, cinematic lighting, "
+        f"and a slightly surreal atmosphere. The Chaotic Sanctum aesthetic — retro-futuristic, "
+        f"warm and cool neon accents, detailed linework. No text, no captions, no lettering."
     )
 
-    print(f"[ART] Generating image...")
+    slug = "_".join(title.lower().split()[:4]).replace(",", "").replace(".", "")
+    local_path = IMAGES_DIR / f"ikaris_{DATE_STR}_{slug}.png"
 
-    req = urllib.request.Request(
-        "https://api.openai.com/v1/images/generations",
-        data=json.dumps({
-            "model": "gpt-image-2",
-            "prompt": prompt,
-            "n": 1,
-            "size": "1024x1024",
-            "quality": "auto"
-        }).encode(),
-        headers={
-            "Authorization": f"Bearer {OPENAI_API_KEY}",
-            "Content-Type": "application/json"
-        }
-    )
+    cmd = [
+        "openclaw", "infer", "image", "generate",
+        "--prompt", prompt,
+        "--size", "1024x1024",
+        "--output", str(local_path),
+        "--model", "openrouter/google/gemini-3.1-flash-image-preview",
+        "--timeout-ms", "120000"
+    ]
 
     try:
-        resp = urllib.request.urlopen(req, timeout=120)
-        data = json.loads(resp.read())
-        item = data["data"][0]
-
-        if "b64_json" in item:
-            img_data = base64.b64decode(item["b64_json"])
-        elif "url" in item:
-            image_url = item["url"]
-            img_req = urllib.request.Request(image_url, headers={"User-Agent": "Mozilla/5.0"})
-            img_data = urllib.request.urlopen(img_req, timeout=60).read()
-        else:
-            print(f"[ART] Unknown response format")
-            return None
-
-        print(f"[ART] Generated. Image size: {len(img_data)} bytes")
-
-        slug = "_".join(title.lower().split()[:4]).replace(",", "").replace(".", "")
-        local_path = IMAGES_DIR / f"ikaris_{DATE_STR}_{slug}.png"
-        local_path.write_bytes(img_data)
-        print(f"[ART] Saved to {local_path}")
-        return str(local_path.name)
-
+        print(f"[ART] Generating image via OpenClaw...")
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=150)
+        if result.returncode == 0 and local_path.exists() and local_path.stat().st_size > 0:
+            print(f"[ART] Saved to {local_path}")
+            return str(local_path.name)
+        print(f"[ART] openclaw infer failed: {result.stderr}")
     except Exception as e:
         print(f"[ART] Failed: {e}")
-        # Fallback to cached image
-        import glob, os
-        cached = sorted(glob.glob(str(IMAGES_DIR / "ikaris_*.png")), key=lambda x: -os.path.getmtime(x))
-        if cached:
-            cached_name = os.path.basename(cached[0])
-            print(f"[ART] Using cached image: {cached_name}")
-            return cached_name
-        # No cache available - create a minimal SVG fallback
-        svg_content = '''<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+
+    # Fallback to cached image
+    import glob, os
+    cached = sorted(glob.glob(str(IMAGES_DIR / "ikaris_*.png")), key=lambda x: -os.path.getmtime(x))
+    if cached:
+        cached_name = os.path.basename(cached[0])
+        print(f"[ART] Using cached image: {cached_name}")
+        return cached_name
+
+    # No cache available - create a minimal SVG fallback
+    svg_content = '''<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
   <rect width="1024" height="1024" fill="#0a0a1a"/>
-  <text x="512" y="512" font-family="monospace" font-size="24" fill="#7ae7ff" text-anchor="middle" dominant-baseline="middle">Reginald the Lobster</text>
-  <text x="512" y="540" font-family="monospace" font-size="14" fill="#9aa7c2" text-anchor="middle" dominant-baseline="middle">4-panel comic — Chaotic Sanctum</text>
+  <text x="512" y="512" font-family="monospace" font-size="24" fill="#7ae7ff" text-anchor="middle" dominant-baseline="middle">Ikaris</text>
+  <text x="512" y="540" font-family="monospace" font-size="14" fill="#9aa7c2" text-anchor="middle" dominant-baseline="middle">Chaotic Sanctum Dispatch</text>
 </svg>'''
-        svg_path = IMAGES_DIR / f"ikaris_{datetime.now().strftime('%Y%m%d_%H%M%S')}_fallback.svg"
-        svg_path.write_text(svg_content)
-        print(f"[ART] SVG fallback saved to {svg_path}")
-        return str(svg_path.name)
+    svg_path = IMAGES_DIR / f"ikaris_{datetime.now().strftime('%Y%m%d_%H%M%S')}_fallback.svg"
+    svg_path.write_text(svg_content)
+    print(f"[ART] SVG fallback saved to {svg_path}")
+    return str(svg_path.name)
 
 # ── Step 2: Generate HTML Post ────────────────────────────────────
 
@@ -276,3 +254,75 @@ def update_rss_feed(title, story, filename, tags=None):
 </rss>
 """
     FEED_FILE.write_text(rss_template)
+
+def git_deploy():
+    """Commit and push site changes to GitHub."""
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=SITE_ROOT,
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        if not result.stdout.strip():
+            print("[GIT] No changes to deploy")
+            return True
+
+        subprocess.run(
+            ["git", "add", "."],
+            cwd=SITE_ROOT,
+            check=True,
+            timeout=30
+        )
+        subprocess.run(
+            ["git", "commit", "-m", f"Ikaris Daily: {TITLE}"],
+            cwd=SITE_ROOT,
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        subprocess.run(
+            ["git", "push"],
+            cwd=SITE_ROOT,
+            check=True,
+            timeout=120
+        )
+        print("[GIT] Deployed to GitHub")
+        return True
+    except Exception as e:
+        print(f"[GIT] Deploy failed: {e}")
+        return False
+
+if __name__ == "__main__":
+    print("=" * 50)
+    print(f"✉️  Ikaris Daily Pipeline")
+    print(f"   Title: {TITLE}")
+    print(f"   Date: {DATE_STR}")
+    print("=" * 50)
+
+    # Step 1: Art
+    art_filename = generate_art(TITLE, STORY)
+    if art_filename:
+        status["art_generated"] = True
+
+    # Step 2: HTML Post
+    post_filename = create_post_html(TITLE, STORY, art_filename, TAGS)
+    status["post_created"] = True
+
+    # Step 3: Update Blog Index
+    update_blog_index(TITLE, STORY, post_filename, TAGS)
+
+    # Step 4: Update RSS Feed
+    update_rss_feed(TITLE, STORY, post_filename, TAGS)
+
+    # Step 5: Deploy
+    status["deployed"] = git_deploy()
+
+    print("\n" + "=" * 50)
+    print("Status:")
+    for k, v in status.items():
+        icon = "✅" if v else "❌"
+        print(f"  {icon} {k}: {v}")
+    print(f"\n🌐 Live at: https://patrickdanforth.com/blog/{post_filename}")
+    print("=" * 50)

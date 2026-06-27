@@ -1,28 +1,29 @@
-# Weather — Walling, TN (Joppa Station 1)
+# Weather — Walling, TN
 
-_Last updated: Friday, June 26, 2026 — 8:03 PM UTC (3:03 PM CDT)_
+_Last updated: Saturday, June 27, 2026 — 12:03 AM UTC (7:03 PM CDT Friday)_
 
-## Current Conditions
+## Current Conditions (Joppa Station 1)
 
 | Metric | Value |
 |--------|-------|
-| Temperature | 91.6°F (33.1°C) |
-| Feels Like | 99.3°F (37.4°C) |
-| Humidity | 53% |
-| Dew Point | 72.0°F |
-| Wind | 1.6 mph from E (83°) |
-| Wind Gust | 3.4 mph |
+| Source | Ambient Weather — Joppa Station 1 (94:3C:C6:91:91:AB) |
+| Location | 266 Joppa Rd, Walling, TN 38587 |
+| Conditions | Night, clear-ish, solar radiation 21.2 W/m² |
+| Temperature | 80.2°F (26.8°C) |
+| Feels Like | 84.5°F (29.2°C) |
+| Humidity | 78% |
+| Dew Point | 72.7°F |
+| Wind | 0 mph avg, gust 1.1 mph, direction NE (53°) |
 | Max Daily Gust | 6.9 mph |
-| UV Index | 7 |
-| Solar Radiation | 755 W/m² |
-| Rain Today | 0.00 in |
-| Rain This Week | 1.45 in |
-| Rain This Month | 2.60 in |
-| Rain This Year | 16.88 in |
+| Pressure | Not reported by station |
+| UV Index | 0 |
+| Precipitation | Hourly: 0.00 in | Daily: 0.00 in | Weekly: 1.45 in | Monthly: 2.60 in | Yearly: 16.88 in |
 | Last Rain | 2026-06-23 03:36 UTC |
-| Lightning Today | 1 strike (last at 2.4 km / 0.62 mi, expired battery on lightning sensor) |
+| Lightning Today | 1 strike at 0.62 mi (2026-06-26) |
+| Battery | Outdoor sensor OK (battout: 1); lightning sensor battery low (batt_lightning: 0) |
 
-## Source
+## Notes
 
-- Ambient Weather station **Joppa Station 1** in Walling, TN
-- Keys live in `~/.config/ambientweather.env`
+- Station was previously marked unreachable due to an empty `AMBIENT_APP_KEY`. Keys are now populated and the API is responding normally.
+- Lightning sensor battery flag is `0` — worth checking/replacing when convenient.
+- Much more pleasant than yesterday evening's 91.6°F / 99.3°F heat index.

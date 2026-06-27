@@ -1,6 +1,14 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-26_
+_Last updated: 2026-06-27_
+
+---
+
+## Patrickdanforth.com Repo (2026-06-27)
+
+- Removed the broken `patrickdanforth-site` and `whisplay-im-openclaw-plugin` git submodules from the main repo.
+- Homepage (`index.html`) and `reginald-flipbook/` directory are part of the main repo and were **not** affected.
+- Goal was to fix GitHub Actions Pages builds that were failing on missing submodule URLs.
 
 ---
 
@@ -17,7 +25,7 @@ _Last updated: 2026-06-26_
 - Primary station: **Joppa Station 1** in Walling, TN (lat 35.8448, lon -85.6225)
 - API keys consolidated to `~/.config/ambientweather.env` (chmod 600)
 - Cron weather checks now read directly from the station instead of wttr.in/Doyle
-- Current reading as of this update: 91.6°F / feels like 99.3°F / 53% humidity
+- **2026-06-27 midnight check:** Ambient Weather API keys are now populated and Joppa Station 1 is reachable again. Conditions at 00:03 UTC: 80.2°F / feels like 84.5°F, 78% humidity, calm wind. Lightning sensor battery flagged low (`batt_lightning: 0`).
 
 ---
 
@@ -149,6 +157,7 @@ All crew members share the same workspace and memory context, but they are used 
 - **Control UI:** Smoother after Tailscale Serve migration. Avatar re-uploaded for new HTTPS origin.
 - **Daily note creation reliability:** Health checks have had to create missing daily files several times — worth investigating root cause when convenient
 - **MEMORY.md resilience:** The 2026-06-04 loss via broken symlink suggests a robustness gap; file is now stable but symlink fragility should be addressed
+- **GitHub Pages build still failing:** After submodule removal (2026-06-27), GitHub Actions Pages builds continue to fail. Build logs need closer inspection; issue remains open.
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient

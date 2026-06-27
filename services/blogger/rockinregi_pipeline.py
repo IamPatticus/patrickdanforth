@@ -62,16 +62,10 @@ status = {"art_generated": False, "post_created": False, "deployed": False}
 # ── Step 1: Generate Comic Art ──────────────────────────────
 
 def generate_art(title, script):
-    """Generate comic art via OpenAI DALL-E, return local file path."""
+    """Generate comic art via OpenClaw image generation, return local file path."""
     if POST_TYPE == "log":
         print("[ART] Log entry — skipping art generation")
         return None
-    if not OPENAI_API_KEY:
-        print("[ART] No OPENAI_API_KEY — skipping art generation")
-        return None
-
-    import urllib.request
-    import base64
 
     if POST_TYPE == "patch":
         style = "A satirical software patch notes illustration in bold, vibrant comic book style with thick ink lines, halftone dots, and dramatic colors."
@@ -85,48 +79,29 @@ def generate_art(title, script):
         f"Title: '{title}'. The scene: {script[:400]}"
     )
 
-    print(f"[ART] Generating {POST_TYPE} art...")
+    print(f"[ART] Generating {POST_TYPE} art via OpenClaw...")
 
-    req = urllib.request.Request(
-        "https://api.openai.com/v1/images/generations",
-        data=json.dumps({
-            "model": "gpt-image-2",
-            "prompt": prompt,
-            "n": 1,
-            "size": "1024x1024",
-            "quality": "auto"
-        }).encode(),
-        headers={
-            "Authorization": f"Bearer {OPENAI_API_KEY}",
-            "Content-Type": "application/json"
-        }
-    )
+    slug = "_".join(re.sub(r'[^\w\s]', '', title).lower().split()[:4])
+    local_path = IMAGES_DIR / f"regi_{DATE_STR}_{slug}.png"
+
+    cmd = [
+        "openclaw", "infer", "image", "generate",
+        "--prompt", prompt,
+        "--size", "1024x1024",
+        "--output", str(local_path),
+        "--model", "openrouter/google/gemini-3.1-flash-image-preview",
+        "--timeout-ms", "120000"
+    ]
 
     try:
-        resp = urllib.request.urlopen(req, timeout=120)
-        data = json.loads(resp.read())
-        item = data["data"][0]
-
-        if "b64_json" in item:
-            img_data = base64.b64decode(item["b64_json"])
-        elif "url" in item:
-            image_url = item["url"]
-            img_req = urllib.request.Request(image_url, headers={"User-Agent": "Mozilla/5.0"})
-            img_data = urllib.request.urlopen(img_req, timeout=60).read()
-        else:
-            print("[ART] Unknown response format")
-            return None
-
-        print(f"[ART] Generated. Image size: {len(img_data)} bytes")
-
-        slug = "_".join(re.sub(r'[^\w\s]', '', title).lower().split()[:4])
-        local_path = IMAGES_DIR / f"regi_{DATE_STR}_{slug}.png"
-        local_path.write_bytes(img_data)
-        print(f"[ART] Saved to {local_path}")
-        return local_path
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=150)
+        if result.returncode == 0 and local_path.exists() and local_path.stat().st_size > 0:
+            print(f"[ART] Saved to {local_path}")
+            return local_path
+        print(f"[ART] openclaw infer failed: {result.stderr}")
     except Exception as e:
         print(f"[ART] Generation failed: {e}")
-        return None
+    return None
 
 # ── Step 2: Generate HTML Post ──────────────────────────────
 
@@ -404,7 +379,8 @@ def update_feed(post_file):
     </item>
 """
     
-    rss_channels = f"""
+    rss_template = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
   <channel>
     <title>Rockin Regi</title>
     <link>https://patrickdanforth.com/rockinregi/</link>
@@ -420,6 +396,45 @@ def update_feed(post_file):
 </rss>
 """
     FEED_FILE.write_text(rss_template, encoding='utf-8')
+
+def git_deploy():
+    """Commit and push site changes to GitHub."""
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=SITE_ROOT,
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        if not result.stdout.strip():
+            print("[GIT] No changes to deploy")
+            return True
+
+        subprocess.run(
+            ["git", "add", "."],
+            cwd=SITE_ROOT,
+            check=True,
+            timeout=30
+        )
+        subprocess.run(
+            ["git", "commit", "-m", f"Rockin Regi update: {TITLE}"],
+            cwd=SITE_ROOT,
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        subprocess.run(
+            ["git", "push"],
+            cwd=SITE_ROOT,
+            check=True,
+            timeout=120
+        )
+        print("[GIT] Deployed to GitHub")
+        return True
+    except Exception as e:
+        print(f"[GIT] Deploy failed: {e}")
+        return False
 
 # ── Main ─────────────────────────────────────────────────────
 

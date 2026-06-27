@@ -61,40 +61,11 @@ def get_todays_context():
     
     return "; ".join(context_parts)
 
-def get_openai_key():
-    """Get OpenAI API key from OpenClaw config or environment."""
-    # First check environment variable
-    key = os.environ.get('OPENAI_API_KEY')
-    if key:
-        return key
-    
-    # Try to read from OpenClaw config
-    try:
-        config_path = os.path.expanduser('~/.openclaw/openclaw.json')
-        with open(config_path) as f:
-            config = json.load(f)
-        key = config.get('models', {}).get('providers', {}).get('openai', {}).get('apiKey')
-        if key:
-            return key
-    except Exception:
-        pass
-    
-    return None
-
 def generate_reginald_art():
-    """Generate a single-panel Reginald cartoon using OpenAI."""
-    # Get API key
-    api_key = get_openai_key()
-    if not api_key:
-        print("Error: OPENAI_API_KEY not found in environment or OpenClaw config", file=sys.stderr)
-        return False
-    
-    # Set it for the OpenAI client
-    os.environ['OPENAI_API_KEY'] = api_key
-    
-    context=get_todays_context()
-    
-    prompt=(
+    """Generate a single-panel Reginald cartoon via OpenClaw provider routing."""
+    context = get_todays_context()
+
+    prompt = (
         f"A single-panel comic panel of Reginald, a cyborg lobster. "
         f"Reginald has circuit-board shell patterns, a glowing cyan cybernetic eye, "
         f"and metallic claws. He lives inside a computer network called the Chaotic Sanctum. "
@@ -106,33 +77,26 @@ def generate_reginald_art():
         f"in a single comic panel with a small caption area at the bottom. "
         f"A small dialogue bubble or caption below the character. "
         f"Landscape composition — a wide single comic panel that fills a 3:2 screen. "
-        f"Reginald centered in the frame with the Chaotic Sanctum network environment around him. "
+        f"Reginald centered in the frame with the Chaotic Sanctum network environment around him."
     )
-    
+
+    cmd = [
+        "openclaw", "infer", "image", "generate",
+        "--prompt", prompt,
+        "--size", "1536x1024",
+        "--output", IMAGE_PATH,
+        "--model", "openrouter/google/gemini-3.1-flash-image-preview",
+        "--timeout-ms", "120000"
+    ]
+
     try:
-        from openai import OpenAI
-        client=OpenAI()
-        response=client.images.generate(
-            prompt=prompt,
-            model="gpt-image-2",
-            size="1536x1024",
-            quality="medium",
-            n=1
-        )
-        img_data=response.data[0]
-        if img_data.url:
-            import requests as req
-            r=req.get(img_data.url,timeout=60)
-            if r.status_code==200:
-                with open(IMAGE_PATH,'wb') as f:
-                    f.write(r.content)
-                return True
-        elif img_data.b64_json:
-            with open(IMAGE_PATH,'wb') as f:
-                f.write(base64.b64decode(img_data.b64_json))
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=150)
+        if result.returncode == 0 and os.path.exists(IMAGE_PATH) and os.path.getsize(IMAGE_PATH) > 0:
+            print(f"[ART] Generated via OpenClaw: {IMAGE_PATH}")
             return True
+        print(f"[ART] openclaw infer failed: {result.stderr}", file=sys.stderr)
     except Exception as e:
-        print(f"Generation error: {e}",file=sys.stderr)
+        print(f"[ART] Generation error: {e}", file=sys.stderr)
     return False
 
 def get_reginald_quote():
