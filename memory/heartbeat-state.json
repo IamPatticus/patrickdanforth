@@ -1,25 +1,27 @@
 {
   "lastChecks": {
-    "weather": 1782601080000,
+    "weather": 1782592780000,
     "disk": 1782588357018,
-    "git": 1782606514815,
-    "memory": 1782606514815,
+    "git": 1782592780000,
+    "memory": 1782592780000,
     "email": 1782601080000,
     "calendar": 1782601080000,
     "signal": 1782586557577,
     "embeddings": 1782589677000
   },
-  "lastWeather": "83.66°F / feels 94.9°F",
-  "gitStatus": "clean",
+  "lastWeather": "89°F / feels 98°F",
+  "gitStatus": "divergent",
   "lastValues": {
-    "weather": "83.66°F / feels 94.9°F, 85% humidity, 0.00 in/hr rain, wind 38° @ 0 mph gusting 0 mph, UV 6, solar 679.28 W/m², lightning batt 0, lightning_distance 0.62",
+    "weather": "89°F / feels 98°F, Sunny, 60% humidity, 9mph wind, 0.00 in rain, 1018hPa, UV 1",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9Gi / total 7.7Gi",
-    "git_clean": true,
-    "git_status": "clean"
+    "git_clean": false,
+    "git_status": "patrickdanforth-site has 10 deleted test files; push rejected because origin/main contains workspace-root heartbeat commits (dual-remote collision)"
   },
   "notes": {
     "embeddings": "Memory search unavailable: embedding provider quota exhausted (OpenAI 429 insufficient_quota).",
-    "emailCalendar": "No local email/calendar sync tools installed. Evolution data files exist but are not actively synced; calendar has no events in next 48h. No email fetch configured."
+    "emailCalendar": "No local email/calendar sync tools installed. Evolution data files exist but are not actively synced; calendar has no events in next 48h. No email fetch configured.",
+    "weather": "Ambient Weather API returned applicationKey-invalid; likely env var mismatch. Used wttr.in fallback.",
+    "git": "Both workspace root and patrickdanforth-site subdir push to github.com:IamPatticus/patrickdanforth.git. Cleanup commit f2e08dd could not be pushed; needs manual repo/remote fix."
   }
 }
