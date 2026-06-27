@@ -10,9 +10,11 @@
 
 - `1782554789625` (Sat 2026-06-27 10:06 UTC): weather refresh, disk, git, memory. No urgent items.
 - `1782561750900` (Sat 2026-06-27 12:02 UTC): weather refresh, disk, git, memory. No urgent items.
+- `1782562831068` (Sat 2026-06-27 12:20 UTC): Ambient API 401 from cron shell; used wttr.in fallback (Walling, TN 76°F sunny). Disk 61% (33G/57G), memory OK. Committed heartbeat-state update. Memory search still offline (OpenAI quota). No urgent items.
 
 ## Notes
 
-- Ambient Weather API works; env has both `AMBIENT_API_KEY` (apiKey param) and `AMBIENT_APP_KEY` (applicationKey param).
+- Ambient Weather API is flaky from cron shells: returns 401 in non-interactive `source ... && curl` invocations but works in some interactive contexts. Use wttr.in fallback when Ambient fails.
+- wttr.in fallback source: Walling, TN (matches Joppa Station 1 location).
 - Email/calendar/Signal remain blocked until tooling is configured.
 - code_execution sandbox is unavailable due to xAI API credits; use local python3 fallback for quick checks.
