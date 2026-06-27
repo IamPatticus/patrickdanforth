@@ -1,10 +1,10 @@
-- [ ] Check Signal messages (blocked: need phone number in USER.md)
-- [ ] Check unread emails: Evolution maildir is empty (0 messages). No active IMAP/Bridge account. (see `email.md`)
-- [ ] Check upcoming calendar events: Evolution system calendar has 0 events in next 48h. (see `calendar.md`)
-- [ ] Check weather: Walling, TN — source Joppa Station 1 via Ambient Weather API
-- [ ] Check disk and memory usage
-- [ ] Check git workspace status
-- [ ] Update heartbeat state file
+- [x] Check Signal messages (blocked: need phone number in USER.md)
+- [x] Check unread emails: Evolution maildir is empty (0 messages). No active IMAP/Bridge account. (see `email.md`)
+- [x] Check upcoming calendar events: Evolution system calendar has 0 events in next 48h. (see `calendar.md`)
+- [x] Check weather: Walling, TN — wttr.in fallback (Ambient API still flaky)
+- [x] Check disk and memory usage
+- [x] Check git workspace status
+- [x] Update heartbeat state file
 
 ## Recent Runs
 
@@ -12,6 +12,9 @@
 - `1782561750900` (Sat 2026-06-27 12:02 UTC): weather refresh, disk, git, memory. No urgent items.
 - `1782562831068` (Sat 2026-06-27 12:20 UTC): Ambient API 401 from cron shell; used wttr.in fallback (Walling, TN 76°F sunny). Disk 61% (33G/57G), memory OK. Committed heartbeat-state update. Memory search still offline (OpenAI quota). No urgent items.
 - `1782562951089` (Sat 2026-06-27 12:22 UTC): wttr.in fallback: Sunny, 76°F, 76% humidity, 0.00 in rain, 2 mph wind. Disk 61% (33G/57G), memory OK (1.8G used/5.9G available), clean git tree. No urgent items.
+- `1782570032761` (Sat 2026-06-27 14:20 UTC): wttr.in: ☀️ Sunny +82°F 72% 0.00 in ↗4mph. Disk 61% (33G/57G), memory OK (1.8G used/5.8G available), clean git tree. No urgent items.
+- `1782570164410` (Sat 2026-06-27 14:22 UTC): wttr.in: ☀️ Sunny +82°F 72% 0.00 in ↗4mph. No changes since 14:20. HEARTBEAT_OK.
+- `1782570272820` (Sat 2026-06-27 14:24 UTC): wttr.in: ☀️ Sunny +82°F 72% 0.0in ↗4mph. Disk /: 58% (32G/56G), memory OK (1.8G used / 5.9G available), git dirty due to heartbeat file updates. No urgent items.
 
 ## Notes
 
