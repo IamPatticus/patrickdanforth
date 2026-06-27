@@ -1,25 +1,25 @@
 {
   "lastChecks": {
-    "weather": 1782590520000,
+    "weather": 1782600120000,
     "disk": 1782588357018,
-    "git": 1782590520000,
-    "memory": 1782589557000,
-    "email": 1782586557577,
-    "calendar": 1782586557577,
+    "git": 1782591280574,
+    "memory": 1782591280574,
+    "email": 1782600120000,
+    "calendar": 1782600120000,
     "signal": 1782586557577,
     "embeddings": 1782589677000
   },
-  "lastWeather": "80.24°F / feels 87.58°F",
+  "lastWeather": "83.66\u00b0F / feels 94.9\u00b0F",
   "gitStatus": "dirty",
   "lastValues": {
-    "weather": "80.24°F / feels 87.58°F, 92% humidity, 0.00 in/hr rain, wind 38° @ 0.22 mph gusting 2.24 mph, UV 5, solar 612.01 W/m², lightning batt 0",
+    "weather": "83.66\u00b0F / feels 94.9\u00b0F, 85% humidity, 0.00 in/hr rain, wind 38\u00b0 @ 0 mph gusting 0 mph, UV 6, solar 679.28 W/m\u00b2, lightning batt 0, lightning_distance 0.62",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
-    "memory": "available 5.9G / total 7.7G",
-    "git_clean": false,
-    "git_status": "M memory/heartbeat-state.json"
+    "memory": "available 5.9Gi / total 7.7Gi",
+    "git_clean": true,
+    "git_status": "clean"
   },
   "notes": {
     "embeddings": "Memory search unavailable: embedding provider quota exhausted (OpenAI 429 insufficient_quota).",
-    "emailCalendar": "No local email/calendar sync tools installed (checked for offlineimap/mbsync/neomutt/khal/calcurse/gcalcli)."
+    "emailCalendar": "No local email/calendar sync tools installed. Evolution data files exist but are not actively synced; calendar has no events in next 48h. No email fetch configured."
   }
 }
