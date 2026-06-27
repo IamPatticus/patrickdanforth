@@ -68,18 +68,17 @@ def generate_reginald_art():
     context = get_todays_context()
 
     prompt = (
-        f"A single-panel comic panel of Reginald, a cyborg lobster. "
-        f"Reginald has circuit-board shell patterns, a glowing cyan cybernetic eye, "
-        f"and metallic claws. He lives inside a computer network called the Chaotic Sanctum. "
-        f"He is sardonic, witty, and slightly grumpy - the world-weary Chief Digital Shellfish Analyst. "
-        f"He comments on the tech chaos, solar systems, print farm, and AI crew (Talos, Ikaris, Daedalus). "
+        f"A retro sci-fi dashboard interface titled 'CHAOTIC SANCTUM'. "
+        f"Centered on screen is Reginald J. Crustacean, Chief Digital Shellfish Analyst — "
+        f"a cybernetic lobster with one glowing robotic eye, circuit-board shell plating, "
+        f"and polished metallic claws. He holds a coffee mug that reads 'DEBUG. DEPLOY. DEEP SIGH.' "
+        f"He looks world-weary and smug. "
+        f"Surrounding him are glowing amber and cyan CRT-style dashboard panels showing absurd system stats: "
+        f"weather, print jobs queued, AI crew online count, warnings, sarcasm percentage, patience meter. "
         f"Today's context: {context}. "
-        f"Style: bold comic book line art with flat vibrant colors, dark background, "
-        f"red and orange neon accents. Comic book panel layout - Reginald should be the focus "
-        f"in a single comic panel with a small caption area at the bottom. "
-        f"A small dialogue bubble or caption below the character. "
-        f"Landscape composition - a wide single comic panel that fills a 3:2 screen. "
-        f"Reginald centered in the frame with the Chaotic Sanctum network environment around him."
+        f"A small caption or speech bubble at the bottom delivers a sarcastic one-liner about managing technical chaos. "
+        f"Style: retro-futuristic terminal UI, phosphor-green and amber CRT glow, scanlines, dark navy background, "
+        f"slightly worn sci-fi hardware aesthetic, bold infographic typography. Landscape 3:2 composition."
     )
 
     cmd = [
