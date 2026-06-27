@@ -3,17 +3,17 @@
     "email": 1782576858708,
     "calendar": 1782576858708,
     "signal": 1782576858708,
-    "weather": 1782578675225,
-    "disk": 1782578675225,
-    "memory": 1782578675225,
-    "git": 1782578675225,
-    "heartbeat": "2026-06-27T16:44 UTC",
-    "disk_mem_git": 1782578675225
+    "weather": 1782578899196,
+    "disk": 1782578899196,
+    "memory": 1782578899196,
+    "git": 1782578899196,
+    "heartbeat": "2026-06-27T16:50 UTC",
+    "disk_mem_git": 1782578899196
   },
-  "lastSummary": "disk 61% (22G free), mem ok, git dirty=heartbeat-state",
-  "lastWeather": "\ud83c\udf24\ufe0f +84\u00b0F 68% 0.00 in \u21929mph",
+  "lastSummary": "disk 61% (22G free), mem ok, git clean",
+  "lastWeather": "🌤️ Partly Cloudy, +84°F, 68%, 0.00 in, →9mph",
   "lastDisk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
   "lastMemory": "Mem:           7.7Gi       1.8Gi       1.0Gi       6.4Mi       5.2Gi       5.9Gi",
-  "gitStatus": "dirty (heartbeat-state.json)",
-  "note": "Heartbeat at 2026-06-27T16:44 UTC. No urgent items. Email/calendar/Signal still blocked (unconfigured)."
+  "gitStatus": "clean",
+  "note": "Heartbeat at 2026-06-27T16:48 UTC. No urgent items. Email/calendar/Signal still blocked (unconfigured)."
 }
