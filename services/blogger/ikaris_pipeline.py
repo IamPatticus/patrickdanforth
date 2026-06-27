@@ -20,6 +20,9 @@ import subprocess
 from pathlib import Path
 from datetime import datetime
 
+# Ensure workspace root is on path for shared helper imports
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 # ── Configuration ──────────────────────────────────────────────
 
 # ── Load .env.local if present (for cron sessions) ───────────
@@ -71,6 +74,12 @@ def generate_art(title, story):
     slug = "_".join(title.lower().split()[:4]).replace(",", "").replace(".", "")
     local_path = IMAGES_DIR / f"ikaris_{DATE_STR}_{slug}.png"
 
+    from services.blogger.openrouter_image import generate_image
+    if generate_image(prompt, str(local_path), model="black-forest-labs/flux.2-flex", width=1024, height=1024, timeout=180):
+        return str(local_path.name)
+
+    # Fallback to openclaw route
+    print("[ART] Falling back to openclaw infer...")
     cmd = [
         "openclaw", "infer", "image", "generate",
         "--prompt", prompt,
@@ -79,16 +88,14 @@ def generate_art(title, story):
         "--model", "openrouter/google/gemini-3.1-flash-image-preview",
         "--timeout-ms", "120000"
     ]
-
     try:
-        print(f"[ART] Generating image via OpenClaw...")
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=150)
         if result.returncode == 0 and local_path.exists() and local_path.stat().st_size > 0:
-            print(f"[ART] Saved to {local_path}")
+            print(f"[ART] Saved to {local_path} via fallback")
             return str(local_path.name)
-        print(f"[ART] openclaw infer failed: {result.stderr}")
+        print(f"[ART] openclaw infer fallback failed: {result.stderr}")
     except Exception as e:
-        print(f"[ART] Failed: {e}")
+        print(f"[ART] Fallback failed: {e}")
 
     # Fallback to cached image
     import glob, os
