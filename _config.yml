@@ -1,0 +1,18 @@
+# Jekyll config to exclude non-website directories from GitHub Pages build
+exclude:
+  - memory/
+  - scripts/
+  - services/
+  - archive/
+  - backup-export/
+  - .composio/
+  - patrickdanforth-site/
+  - chaotic-sanctum-site/
+  - whisplay-im-openclaw-plugin/
+  - "*.sh"
+  - "*.py"
+  - "*.json"
+  - "*.log"
+  - "*.state"
+  - EOF
+  - "1"

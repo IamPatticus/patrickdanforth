@@ -35,7 +35,7 @@ if ENV_LOCAL.exists():
                 os.environ[key.strip()] = val
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-SITE_ROOT = Path.home() / ".openclaw" / "workspace" / "patrickdanforth-site"
+SITE_ROOT = Path(__file__).resolve().parents[3]
 POSTS_DIR = SITE_ROOT / "rockinregi"
 IMAGES_DIR = SITE_ROOT / "rockinregi-images"
 BLOG_INDEX = POSTS_DIR / "index.html"
