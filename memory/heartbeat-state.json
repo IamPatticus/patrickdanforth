@@ -1,20 +1,25 @@
 {
   "lastChecks": {
-    "weather": 1782589109000,
+    "weather": 1782590520000,
     "disk": 1782588357018,
-    "git": 1782589557000,
+    "git": 1782590520000,
     "memory": 1782589557000,
     "email": 1782586557577,
     "calendar": 1782586557577,
-    "signal": 1782586557577
+    "signal": 1782586557577,
+    "embeddings": 1782589677000
   },
-  "lastWeather": "🌧️ +78°F",
-  "gitStatus": "clean",
+  "lastWeather": "80.24°F / feels 87.58°F",
+  "gitStatus": "dirty",
   "lastValues": {
-    "weather": "Humid, 77.5°F / feels 79.7°F, 99% humidity, 0.21 in rain today, light wind",
+    "weather": "80.24°F / feels 87.58°F, 92% humidity, 0.00 in/hr rain, wind 38° @ 0.22 mph gusting 2.24 mph, UV 5, solar 612.01 W/m², lightning batt 0",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9G / total 7.7G",
-    "git_clean": true,
-    "git_status": ""
+    "git_clean": false,
+    "git_status": "M memory/heartbeat-state.json"
+  },
+  "notes": {
+    "embeddings": "Memory search unavailable: embedding provider quota exhausted (OpenAI 429 insufficient_quota).",
+    "emailCalendar": "No local email/calendar sync tools installed (checked for offlineimap/mbsync/neomutt/khal/calcurse/gcalcli)."
   }
 }
