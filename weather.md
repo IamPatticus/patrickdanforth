@@ -1,10 +1,10 @@
 # Weather - Walling, TN
 
-**As of Sat Jun 27 08:02 UTC 2026**
+**As of Sat Jun 27 19:38 UTC 2026**
 
-- **Current Conditions (Ambient Weather Joppa Station 1):** 77.18°F, feels like 78.55°F, 84% humidity, wind 37° @0.22 mph gusting 1.12 mph, UV 0, solar radiation 0, no rain right now.
-- **Daily/Recent:** No rain today (0.00 in). Last rain recorded Wed Jun 23 03:36 UTC.
-- **Lightning:** No strikes detected recently. Lightning sensor battery still flagged low (`batt_lightning: 0`) — replace when convenient.
-- **Trends:** Humidity high, temp stable in the mid-70s. Early morning, calm.
+- **Current Conditions (Ambient Weather Joppa Station 1):** 77.54°F, feels like 79.65°F, 99% humidity, wind 69° @ 1.34 mph gusting 2.24 mph, UV 6, solar radiation 663.12 W/m².
+- **Daily/Recent:** 0.21 in rain today. Event rain 0.21 in.
+- **Lightning:** Battery still flagged low (`batt_lightning: 0`) — replace when convenient.
+- **Trends:** Humidity very high (99%), mild temperatures, light wind, some late-day sun.
 
 **Note:** The env file uses `AMBIENT_APP_KEY` (not `AMBIENT_APPLICATION_KEY`). API works when passing `applicationKey=<AMBIENT_APP_KEY>` and `apiKey=<AMBIENT_API_KEY>` as query params.
