@@ -1,31 +1,24 @@
 {
   "lastChecks": {
-    "weather": 1782595705000,
-    "disk": 1782594385180,
-    "git": 1782595705000,
-    "memory": 1782595705000,
-    "email": 1782593905108,
-    "calendar": 1782593905108,
-    "signal": 1782586557577,
-    "embeddings": 1782589677000,
-    "heartbeat": 1782595705000,
-    "memory_maintenance": 1782594625218
+    "weather": 1782597339346,
+    "disk": 1782597339346,
+    "git": 1782597339346,
+    "memory": 1782597339346,
+    "email": 1782597339346,
+    "calendar": 1782597339346,
+    "signal": 1782597339346,
+    "embeddings": 1782597339346,
+    "heartbeat": 1782597339346,
+    "memory_maintenance": 1782597339346
   },
-  "lastWeather": "80.6°F / feels 89.25°F",
+  "lastWeather": "89\u00b0F, sunny, wind ~9mph (wttr.in fallback; Ambient API 401)",
   "gitStatus": "modified memory files",
   "lastValues": {
-    "weather": "80.6°F / feels 89.25°F, 94% humidity, wind 1.79mph gusting 2.24mph, 0 in/hr rain, 0.21 in daily, UV 0, solar 85.95 W/m², batt_lightning=0 (low)",
+    "weather": "Walling TN: \u2600\ufe0f +89\u00b0F, wind ~9mph (wttr.in fallback)",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9Gi / total 7.7Gi",
     "git_clean": false,
     "git_status": "workspace root has modified memory/2026-06-27.md and memory/heartbeat-state.json; patrickdanforth-site cleanup commit still unpushed due to dual-remote collision"
   },
-  "notes": {
-    "embeddings": "Memory search unavailable: embedding provider quota exhausted (OpenAI 429 insufficient_quota).",
-    "emailCalendar": "No local email/calendar sync tools installed. No new events or emails checked.",
-    "weather": "Ambient Weather API working with correct keys; shell URL escaping was the only failure in the previous curl attempt. Python urllib succeeded.",
-    "git": "Dual-remote collision unresolved; patrickdanforth-site cleanup still unpushed. Workspace root has modified memory files to commit.",
-    "memory": "Nothing new to promote to MEMORY.md.",
-    "summary": "Heartbeat at 21:28 UTC: no urgent items. Quiet evening continues."
-  }
+  "notes": "Heartbeat 21:54 UTC. Weather: Joppa Station 1 (Walling, TN) 79.52\u00b0F / feels 81.54\u00b0F, 93% humidity, wind 1.12 mph gusting 2.24 mph, UV 1, solar 129.42 W/m\u00b2, no current rain, daily 0.21 in. Lightning sensor battery still low. Email/calendar still unconfigured (no CLI tools). Git: heartbeat-state.json modified, committing. Disk 61%. Memory search still disabled (embedding quota exhausted)."
 }
