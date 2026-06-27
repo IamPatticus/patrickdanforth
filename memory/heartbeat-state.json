@@ -1,14 +1,17 @@
 {
   "lastChecks": {
-    "email": 1782581960,
-    "calendar": 1782581960,
-    "signal": 1782581960,
-    "weather": 1782581960,
-    "disk": 1782581960,
-    "memory": 1782581960,
-    "git": 1782581960,
-    "heartbeat": "2026-06-27T17:39 UTC"
+    "weather": 1782582580837,
+    "disk": 1782582580837,
+    "git": 1782582580837,
+    "memory": 1782582580837
   },
-  "lastWeather": "Sunny,+87°F,62%,0.00 in,↗4mph",
-  "gitStatus": "dirty (memory/heartbeat-state.json)"
+  "lastWeather": "Sunny, +87\u00b0F,62%,0.00 in,\u21974mph",
+  "gitStatus": "clean",
+  "lastValues": {
+    "weather": "Sunny|+87\u00b0F|62%|0.00 in|\u21974mph",
+    "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
+    "memory": "Mem:           7.7Gi       1.7Gi       1.1Gi       6.4Mi       5.2Gi       6.0Gi",
+    "git_clean": false,
+    "git_status": "M memory/heartbeat-state.json"
+  }
 }
