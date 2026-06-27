@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Reginald Daily Cartoon — Generates a single-panel Reginald illustration
+Reginald Daily Cartoon - Generates a single-panel Reginald illustration
 and saves to the network archive for the flipbook.
 Runs via cron daily. Saves to /mnt/siliconpower/images/reginald-daily/
 """
 
-import os, sys, time, json, base64, urllib.request, urllib.parse, random, shutil, subprocess
+import os, sys, time, json, base64, urllib.request, urllib.parse, random, shutil, subprocess, re
 from pathlib import Path
 from datetime import datetime
 
@@ -25,6 +25,8 @@ ARCHIVE_DIR="/mnt/siliconpower/images/reginald-daily/archive"
 CACHE_DIR=os.path.expanduser("~/.cache/reginald-daily")
 STATE_PATH=os.path.join(CACHE_DIR,"state.json")
 IMAGE_PATH=os.path.join(CACHE_DIR,"today.png")
+SITE_ROOT=Path.home()/".openclaw"/"workspace"
+FLIPBOOK_DIR=SITE_ROOT/"reginald-flipbook"
 
 # Ensure directories exist
 os.makedirs(CACHE_DIR, exist_ok=True)
@@ -34,31 +36,31 @@ def get_todays_context():
     """Gather current context for Reginald to comment on."""
     import socket, subprocess
     context_parts=[]
-    
+
     # Weather (Walling, TN)
     try:
         r=urllib.request.urlopen("https://wttr.in/Walling+TN?format=%C+%t&u",timeout=5)
         w=r.read().decode().strip()
         context_parts.append(f"Weather: {w}")
     except: pass
-    
+
     # System temperature
     try:
         t=float(open('/sys/class/thermal/thermal_zone0/temp').read())/1000
         context_parts.append(f"System temp: {t:.0f}°C")
     except: pass
-    
+
     # Uptime
     try:
         s=float(open('/proc/uptime').read().split()[0])
         d=int(s//86400); h=int(s%86400//3600)
         context_parts.append(f"System up: {d}d {h}h")
     except: pass
-    
+
     # Day info
     now=datetime.now()
     context_parts.append(f"Today: {now.strftime('%A, %B %d')}")
-    
+
     return "; ".join(context_parts)
 
 def generate_reginald_art():
@@ -69,14 +71,14 @@ def generate_reginald_art():
         f"A single-panel comic panel of Reginald, a cyborg lobster. "
         f"Reginald has circuit-board shell patterns, a glowing cyan cybernetic eye, "
         f"and metallic claws. He lives inside a computer network called the Chaotic Sanctum. "
-        f"He is sardonic, witty, and slightly grumpy — the world-weary Chief Digital Shellfish Analyst. "
+        f"He is sardonic, witty, and slightly grumpy - the world-weary Chief Digital Shellfish Analyst. "
         f"He comments on the tech chaos, solar systems, print farm, and AI crew (Talos, Ikaris, Daedalus). "
         f"Today's context: {context}. "
         f"Style: bold comic book line art with flat vibrant colors, dark background, "
-        f"red and orange neon accents. Comic book panel layout — Reginald should be the focus "
+        f"red and orange neon accents. Comic book panel layout - Reginald should be the focus "
         f"in a single comic panel with a small caption area at the bottom. "
         f"A small dialogue bubble or caption below the character. "
-        f"Landscape composition — a wide single comic panel that fills a 3:2 screen. "
+        f"Landscape composition - a wide single comic panel that fills a 3:2 screen. "
         f"Reginald centered in the frame with the Chaotic Sanctum network environment around him."
     )
 
@@ -139,9 +141,87 @@ def get_reginald_quote():
     else: pool=night
     return random.choice(pool)
 
+def publish_to_github(datestamp, quote):
+    """Copy today's comic into the site flipbook and push to GitHub."""
+    try:
+        if not FLIPBOOK_DIR.exists():
+            print(f"[PUBLISH] Flipbook dir not found: {FLIPBOOK_DIR}")
+            return False
+
+        filename = f"reginald-{datestamp}.png"
+        dest_image = FLIPBOOK_DIR / "images" / filename
+        os.makedirs(dest_image.parent, exist_ok=True)
+        shutil.copy2(IMAGE_PATH, dest_image)
+        print(f"[PUBLISH] Copied comic to {dest_image}")
+
+        # Update index.json
+        index_path = FLIPBOOK_DIR / "index.json"
+        if index_path.exists():
+            with open(index_path) as f:
+                data = json.load(f)
+        else:
+            data = {"count": 0, "entries": []}
+
+        entries = data.setdefault("entries", [])
+        labels = {e["filename"] for e in entries}
+        if filename not in labels:
+            entries.append({
+                "date": datestamp,
+                "filename": filename,
+                "label": f"Reginald - {datestamp}"
+            })
+            data["count"] = len(entries)
+            with open(index_path, "w") as f:
+                json.dump(data, f, indent=2)
+            print(f"[PUBLISH] Updated {index_path} (count={data['count']})")
+        else:
+            print(f"[PUBLISH] Entry already in index.json")
+
+        # Bust cache in index.html
+        html_path = FLIPBOOK_DIR / "index.html"
+        if html_path.exists():
+            text = html_path.read_text()
+            buster = f"<!-- cache-buster {int(time.time())} -->"
+            # Remove old cache-buster comments
+            text = re.sub(r"<!-- cache-buster \d+ -->", "", text)
+            if "</body>" in text:
+                text = text.replace("</body>", f"\n{buster}\n</body>")
+            else:
+                text = text.rstrip() + "\n" + buster + "\n"
+            html_path.write_text(text)
+            print(f"[PUBLISH] Busted cache in {html_path}")
+
+        # Git commit & push
+        result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=SITE_ROOT,
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        if not result.stdout.strip():
+            print("[PUBLISH] No changes to deploy")
+            return True
+
+        subprocess.run(["git", "add", "reginald-flipbook/"], cwd=SITE_ROOT, check=True, timeout=30)
+        subprocess.run(
+            ["git", "commit", "-m", f"Daily Regi: {datestamp} - {quote}"],
+            cwd=SITE_ROOT,
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        subprocess.run(["git", "push"], cwd=SITE_ROOT, check=True, timeout=120)
+        print("[PUBLISH] Pushed to GitHub")
+        return True
+    except Exception as e:
+        print(f"[PUBLISH] Failed: {e}", file=sys.stderr)
+        return False
+
+
 def main():
     print(f"Reginald Daily: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-    
+
     # Check if already generated today
     if os.path.exists(STATE_PATH):
         try:
@@ -152,26 +232,29 @@ def main():
                 sys.exit(0)
         except:
             pass
-    
+
     success=generate_reginald_art()
     if success:
         datestamp = datetime.now().strftime("%Y-%m-%d")
-        
+
         # Update state
         state={"date":datestamp,"timestamp":time.time()}
         with open(STATE_PATH,'w') as f:
             json.dump(state,f)
         print("Art generated")
-        
+
         # Archive to network drive
         archive_path = os.path.join(ARCHIVE_DIR, f"reginald-{datestamp}.png")
         shutil.copy2(IMAGE_PATH, archive_path)
         print(f"Archived: {archive_path}")
-        
+
         # Generate quote
         quote = get_reginald_quote()
         print(f"Quote: {quote}")
-        
+
+        # Publish to website
+        publish_to_github(datestamp, quote)
+
         print("Success!")
     else:
         print("Generation failed")
