@@ -1,20 +1,20 @@
 {
   "lastChecks": {
-    "weather": 1782586453817,
-    "disk": 1782586453817,
-    "git": 1782586453817,
-    "memory": 1782586453817,
-    "email": 1782586339,
-    "calendar": 1782586339,
-    "signal": 1782586339
+    "weather": 1782586557577,
+    "disk": 1782586557577,
+    "git": 1782586557577,
+    "memory": 1782586557577,
+    "email": 1782586557577,
+    "calendar": 1782586557577,
+    "signal": 1782586557577
   },
-  "lastWeather": "\u2600\ufe0f, +86\u00b0F",
-  "gitStatus": "dirty (heartbeat-state.json modified)",
+  "lastWeather": "☀️, +86°F",
+  "gitStatus": "clean, pushed to site/main",
   "lastValues": {
-    "weather": "\u2600\ufe0f  +86\u00b0F 61% 0.00 in \u21919mph",
+    "weather": "☀️ Sunny +86°F 61% 0.00 in ↑9mph",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "total        used        free      shared  buff/cache   available\nMem:           7.7Gi       1.7Gi       1.1Gi       6.7Mi       5.2Gi       6.0Gi\nSwap:          4.0Gi       1.0Mi       4.0Gi",
-    "git_clean": false,
-    "git_status": "M memory/2026-06-27.md\n M memory/heartbeat-state.json"
+    "git_clean": true,
+    "git_status": "working tree clean; pushed 2 commits to site/main"
   }
 }
