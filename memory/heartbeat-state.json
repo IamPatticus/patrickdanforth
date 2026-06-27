@@ -1,11 +1,9 @@
 {
   "lastChecks": {
-    "calendar": 1782552152,
-    "disk": 1782552396,
-    "email": 1782550708,
-    "git": 1782552396,
-    "memory": 1782550708,
-    "weather": 1782552396
+    "weather": 1782552639,
+    "disk": 1782552639,
+    "git": 1782552639,
+    "memory": 1782552639
   },
-  "notes": "Heartbeat 1782552152: checked calendar, no urgent items."
+  "notes": "Heartbeat 1782552639: weather={'temp': 76.46, 'feels_like': 77.75, 'humidity': 84, 'lightning_batt': 0}, disk=/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /, git="
 }
