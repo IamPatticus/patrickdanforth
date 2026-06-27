@@ -7,7 +7,8 @@
     "email": 1782601080000,
     "calendar": 1782601080000,
     "signal": 1782586557577,
-    "embeddings": 1782589677000
+    "embeddings": 1782589677000,
+    "heartbeat": 1782593425029
   },
   "lastWeather": "89°F / feels 98°F",
   "gitStatus": "divergent",
