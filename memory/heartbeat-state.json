@@ -1,18 +1,18 @@
 {
   "lastChecks": {
-    "weather": 1782600120000,
+    "weather": 1782601080000,
     "disk": 1782588357018,
-    "git": 1782591280574,
-    "memory": 1782591280574,
-    "email": 1782600120000,
-    "calendar": 1782600120000,
+    "git": 1782601080000,
+    "memory": 1782601080000,
+    "email": 1782601080000,
+    "calendar": 1782601080000,
     "signal": 1782586557577,
     "embeddings": 1782589677000
   },
-  "lastWeather": "83.66\u00b0F / feels 94.9\u00b0F",
-  "gitStatus": "dirty",
+  "lastWeather": "83.66°F / feels 94.9°F",
+  "gitStatus": "clean",
   "lastValues": {
-    "weather": "83.66\u00b0F / feels 94.9\u00b0F, 85% humidity, 0.00 in/hr rain, wind 38\u00b0 @ 0 mph gusting 0 mph, UV 6, solar 679.28 W/m\u00b2, lightning batt 0, lightning_distance 0.62",
+    "weather": "83.66°F / feels 94.9°F, 85% humidity, 0.00 in/hr rain, wind 38° @ 0 mph gusting 0 mph, UV 6, solar 679.28 W/m², lightning batt 0, lightning_distance 0.62",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9Gi / total 7.7Gi",
     "git_clean": true,
