@@ -1,16 +1,18 @@
 {
   "lastChecks": {
-    "email": 1782570272820,
-    "calendar": 1782570272820,
-    "weather": 1782570272820,
-    "git": 1782570272820,
-    "disk": 1782570272820,
-    "memory": 1782570272820,
-    "signal": 1782570272820
+    "email": 1782572193230,
+    "calendar": 1782572193230,
+    "weather": "2026-06-27T15:04:29.042990",
+    "git": "2026-06-27T15:04:29.042990",
+    "disk": "2026-06-27T15:04:29.042990",
+    "memory": 1782572669042,
+    "signal": 1782572193230,
+    "heartbeat": 1782572669042
   },
-  "lastSummary": 1782570272820,
-  "lastWeather": "☀️ Sunny +82°F 72% 0.0in ↗4mph",
-  "lastDiskPercent": 58,
-  "gitStatus": "dirty (heartbeat files updated)",
-  "lastMemory": "1.8G used / 5.9G available"
+  "lastSummary": 1782572193230,
+  "lastWeather": "Sunny +82\u00b0F 72% 0.00 in \u21974mph",
+  "lastDiskPercent": 61,
+  "gitStatus": "dirty",
+  "lastMemory": "1739Mi used / 6120Mi available",
+  "note": "Memory search unavailable: OpenAI embedding quota exhausted. Already noted in previous heartbeat."
 }
