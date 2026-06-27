@@ -24,6 +24,7 @@ _Last updated: 2026-06-27_
   - `ikaris_pipeline.py` was missing its `__main__` execution block entirely — added it plus `git_deploy()`.
   - `rockinregi_pipeline.py` had a `NameError` (`rss_channels` vs `rss_template`) and a missing `git_deploy()` — fixed both.
   - `SITE_ROOT` in both blogger pipelines now points to the workspace root (`~/.openclaw/workspace`) instead of the removed `patrickdanforth-site/` submodule.
+- **Reginald Daily now auto-publishes:** `scripts/reginald_daily.py` copies the generated comic into `reginald-flipbook/images/`, updates `reginald-flipbook/index.json`, busts the cache in `reginald-flipbook/index.html`, and commits/pushes to GitHub so the flipbook stays current.
 - **Auth:** Added `google:default` and `xai:default` profiles to the OpenClaw agent auth store; `xai` key was invalid, but `google` and OpenRouter are working.
 
 ## Patrickdanforth.com Repo (2026-06-27)
