@@ -1,24 +1,24 @@
 {
   "lastChecks": {
-    "weather": 1782597339346,
+    "weather": 1782597385821,
     "disk": 1782597339346,
-    "git": 1782597339346,
+    "git": 1782597865930,
     "memory": 1782597339346,
     "email": 1782597339346,
     "calendar": 1782597339346,
     "signal": 1782597339346,
     "embeddings": 1782597339346,
-    "heartbeat": 1782597339346,
-    "memory_maintenance": 1782597339346
+    "heartbeat": 1782597865930,
+    "memory_maintenance": 1782597865930
   },
-  "lastWeather": "89\u00b0F, sunny, wind ~9mph (wttr.in fallback; Ambient API 401)",
-  "gitStatus": "modified memory files",
+  "lastWeather": "Walling TN: Sunny +89°F, 60%, ~9mph, 0.00 in",
+  "gitStatus": "clean after last commit",
   "lastValues": {
-    "weather": "Walling TN: \u2600\ufe0f +89\u00b0F, wind ~9mph (wttr.in fallback)",
+    "weather": "Walling TN: Sunny +89°F, 60%, ~9mph, 0.00 in",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9Gi / total 7.7Gi",
     "git_clean": false,
-    "git_status": "workspace root has modified memory/2026-06-27.md and memory/heartbeat-state.json; patrickdanforth-site cleanup commit still unpushed due to dual-remote collision"
+    "git_status": "workspace clean except heartbeat-state.json; patrickdanforth-site cleanup commit still unpushed due to dual-remote collision"
   },
-  "notes": "Heartbeat 21:54 UTC. Weather: Joppa Station 1 (Walling, TN) 79.52\u00b0F / feels 81.54\u00b0F, 93% humidity, wind 1.12 mph gusting 2.24 mph, UV 1, solar 129.42 W/m\u00b2, no current rain, daily 0.21 in. Lightning sensor battery still low. Email/calendar still unconfigured (no CLI tools). Git: heartbeat-state.json modified, committing. Disk 61%. Memory search still disabled (embedding quota exhausted)."
+  "notes": "Heartbeat 21:56 UTC. Weather unchanged (wttr.in). Git clean in workspace. Memory search disabled (embedding quota exhausted). Email/calendar/signal not configured for CLI checks."
 }
