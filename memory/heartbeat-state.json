@@ -1,19 +1,19 @@
 {
   "lastChecks": {
-    "email": 1782572193230,
-    "calendar": 1782572193230,
-    "weather": "2026-06-27T15:10:31.599099+00:00",
-    "git": "2026-06-27T15:10:31.599099+00:00",
-    "disk": "2026-06-27T15:10:31.599099+00:00",
-    "memory": "2026-06-27T15:10:31.599099+00:00",
-    "signal": 1782572193230,
-    "heartbeat": "2026-06-27T15:10:31.599099+00:00"
+    "email": 1782573764469,
+    "calendar": 1782573764469,
+    "weather": "2026-06-27T15:22:19Z",
+    "git": "2026-06-27T15:22:19Z",
+    "disk": "2026-06-27T15:22:19Z",
+    "memory": "2026-06-27T15:22:19Z",
+    "signal": 1782573764469,
+    "heartbeat": "2026-06-27T15:22:19Z"
   },
-  "lastSummary": 1782572193230,
-  "lastWeather": "Sunny +82\u00b0F 72% 0.00 in \u21974mph",
-  "lastDiskPercent": 58,
-  "gitStatus": "clean",
-  "lastMemory": "1741Mi used / 1360Mi available",
-  "note": "Memory search unavailable: OpenAI embedding quota exhausted. Already noted in previous heartbeat.",
-  "lastDisk": "35G used / 21G available (58% used)"
+  "lastSummary": 1782573764469,
+  "lastWeather": "Sunny +82°F 72% 0.00 in ↗4mph",
+  "lastDiskPercent": 61,
+  "gitStatus": "dirty (heartbeat state + daily memory)",
+  "lastMemory": "1700Mi used / 6000Mi available",
+  "note": "Memory search unavailable: OpenAI embedding quota exhausted.",
+  "lastDisk": "33G used / 22G available (61% used)"
 }
