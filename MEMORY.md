@@ -4,6 +4,28 @@ _Last updated: 2026-06-27_
 
 ---
 
+## GitHub Pages Deployment Fix (2026-06-27)
+
+- **Root cause:** Default Pages workflow tried to upload the entire repo (869 MB) as a Pages artifact, causing the build to fail during artifact upload.
+- **Fix:** Created custom `.github/workflows/pages.yml` that stages only the actual website files into `_site/` (HTML pages, `blog/`, `rockinregi/`, `avatars/`, image directories, `CNAME`, favicons) and deploys from there.
+- **Pages source switched** from "Deploy from a branch" to **GitHub Actions** via `gh api repos/IamPatticus/patrickdanforth/pages --method PUT -F build_type=workflow`.
+- **Result:** `Deploy GitHub Pages` workflow now succeeds; `patrickdanforth.com` is live and serving correctly.
+- **Cleanup:** Removed test posts/images created during debugging and cleaned them from `blog/index.html`, `blog/feed.xml`, `rockinregi/index.html`, and `rockinregi/feed.xml`.
+
+## Cron Image Generation Provider Switch (2026-06-27)
+
+- **Problem:** Direct OpenAI image generation was failing due to low credits/rate limits, breaking Daily Regi, Rockin Regi Weekly, and Ikaris Nightly image generation.
+- **Solution:** Switched all three pipelines to use `openclaw infer image generate` with `openrouter/google/gemini-3.1-flash-image-preview`, which uses the OpenClaw auth store and provider routing.
+- **Files changed:**
+  - `scripts/reginald_daily.py`
+  - `services/blogger/ikaris_pipeline.py`
+  - `services/blogger/rockinregi_pipeline.py`
+- **Also fixed:**
+  - `ikaris_pipeline.py` was missing its `__main__` execution block entirely — added it plus `git_deploy()`.
+  - `rockinregi_pipeline.py` had a `NameError` (`rss_channels` vs `rss_template`) and a missing `git_deploy()` — fixed both.
+  - `SITE_ROOT` in both blogger pipelines now points to the workspace root (`~/.openclaw/workspace`) instead of the removed `patrickdanforth-site/` submodule.
+- **Auth:** Added `google:default` and `xai:default` profiles to the OpenClaw agent auth store; `xai` key was invalid, but `google` and OpenRouter are working.
+
 ## Patrickdanforth.com Repo (2026-06-27)
 
 - Removed the broken `patrickdanforth-site` and `whisplay-im-openclaw-plugin` git submodules from the main repo.
@@ -157,7 +179,7 @@ All crew members share the same workspace and memory context, but they are used 
 - **Control UI:** Smoother after Tailscale Serve migration. Avatar re-uploaded for new HTTPS origin.
 - **Daily note creation reliability:** Health checks have had to create missing daily files several times — worth investigating root cause when convenient
 - **MEMORY.md resilience:** The 2026-06-04 loss via broken symlink suggests a robustness gap; file is now stable but symlink fragility should be addressed
-- **GitHub Pages build still failing:** After submodule removal (2026-06-27), GitHub Actions Pages builds continue to fail. Build logs need closer inspection; issue remains open.
+- **GitHub Pages build:** Fixed 2026-06-27 with custom GitHub Actions workflow and `_config.yml` exclusions. Site is deploying successfully.
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient
