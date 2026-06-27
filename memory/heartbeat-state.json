@@ -1,18 +1,15 @@
 {
   "lastChecks": {
-    "email": 1782578659136,
-    "calendar": 1782578659136,
-    "signal": 1782578659136,
-    "weather": 1782579176000,
-    "disk": 1782579176000,
-    "memory": 1782579176000,
-    "git": 1782579176000,
-    "heartbeat": "2026-06-27T16:52 UTC"
+    "email": 1782580072077,
+    "calendar": 1782580072077,
+    "signal": 1782580072077,
+    "weather": 1782580072077,
+    "disk": 1782580072077,
+    "memory": 1782580072077,
+    "git": 1782580072077,
+    "heartbeat": "2026-06-27T17:07 UTC"
   },
-  "lastSummary": "disk 61% (22G free), mem ok, git clean",
-  "lastWeather": "🌤️ Partly Cloudy, +84°F, 68%, 0.00 in, →9mph",
-  "lastDisk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
-  "lastMemory": "Mem:           7.7Gi       1.8Gi       1.0Gi       6.4Mi       5.2Gi       5.9Gi",
-  "gitStatus": "clean",
-  "note": "Heartbeat at 2026-06-27T16:52 UTC. No urgent items. Email/calendar/Signal still blocked (unconfigured)."
+  "lastWeather": "Partly Cloudy , +84\u00b0F, 68%, 0.0in, WSW9mph",
+  "lastSummary": "see current run",
+  "gitStatus": "clean"
 }
