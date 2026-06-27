@@ -75,6 +75,11 @@ def generate_art(title, story):
     local_path = IMAGES_DIR / f"ikaris_{DATE_STR}_{slug}.png"
 
     from services.blogger.openrouter_image import generate_image
+    if generate_image(prompt, str(local_path), model="openai/gpt-5.4-image-2", width=1024, height=1024, timeout=240):
+        return str(local_path.name)
+
+    # Fallback to FLUX.2 Flex
+    print("[ART] Falling back to OpenRouter FLUX.2 Flex...")
     if generate_image(prompt, str(local_path), model="black-forest-labs/flux.2-flex", width=1024, height=1024, timeout=180):
         return str(local_path.name)
 

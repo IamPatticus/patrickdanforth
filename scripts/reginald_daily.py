@@ -87,12 +87,20 @@ def generate_reginald_art():
     )
 
     try:
+        if generate_image(prompt, IMAGE_PATH, model="openai/gpt-5.4-image-2", width=1536, height=1024, timeout=240):
+            return True
+    except Exception as e:
+        print(f"[ART] OpenRouter GPT-5.4 Image 2 generation error: {e}", file=sys.stderr)
+
+    # Fallback to FLUX.2 Flex
+    print("[ART] Falling back to OpenRouter FLUX.2 Flex...", file=sys.stderr)
+    try:
         if generate_image(prompt, IMAGE_PATH, model="black-forest-labs/flux.2-flex", width=1536, height=1024, timeout=180):
             return True
     except Exception as e:
-        print(f"[ART] OpenRouter generation error: {e}", file=sys.stderr)
+        print(f"[ART] FLUX fallback error: {e}", file=sys.stderr)
 
-    # Fallback to old openclaw route if direct route fails
+    # Final fallback to openclaw Gemini route
     print("[ART] Falling back to openclaw infer image generate...", file=sys.stderr)
     cmd = [
         "openclaw", "infer", "image", "generate",
