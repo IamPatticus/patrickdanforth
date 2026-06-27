@@ -1,15 +1,14 @@
 # Heartbeat Checklist
 
-Rotate through 2–4 of these per heartbeat.
+Rotate through these checks a few times per day.
 
-- [ ] Email — urgent unread?
-- [ ] Calendar — events in next 24–48h?
-- [ ] Weather — anything relevant for going out?
-- [ ] Git / projects — anything needing attention?
-- [ ] Memory maintenance — review recent daily notes, update MEMORY.md
+- Email: any urgent unread messages?
+- Calendar: events in the next 24-48h?
+- Social mentions/notifications
+- Weather if human is going out
+- Memory maintenance: review recent daily notes, update MEMORY.md
 
-## Rules
+## Notes
 
-- Quiet hours: 23:00–08:00 UTC unless urgent.
-- Stay silent if nothing changed since last check.
-- Reach out if calendar event <2h, urgent email, or interesting discovery.
+- Email/calendar are handled by the dedicated `weather-email-calendar-check` cron job every 4 hours (isolated session, no chat delivery). The main heartbeat can skip them unless something urgent is suspected.
+- Embedding provider quota is currently exhausted, so `memory_search` via embeddings is unavailable. Use file reads for memory maintenance.
