@@ -8,6 +8,8 @@
 
 ## Recent Runs
 
+- `1782577818930` (Sat 2026-06-27 16:30 UTC): wttr.in fallback: 🌤️ +84°F, 68%, 0.00in, →9mph. Disk 61% (33G/57G), memory OK, git dirty (daily memory + heartbeat-state + HEARTBEAT.md + untracked WEATHER.md). Commited workspace notes. No urgent items.
+- `1782576858708` (Sat 2026-06-27 16:14 UTC): wttr.in fallback: 🌤️ +84°F, 68%, 0.00in, →9mph. Disk 61% (33G/57G), memory OK (1.7G used/5.9G available), git dirty (daily memory + heartbeat-state + untracked WEATHER.md). No urgent items.
 - `1782554789625` (Sat 2026-06-27 10:06 UTC): weather refresh, disk, git, memory. No urgent items.
 - `1782561750900` (Sat 2026-06-27 12:02 UTC): weather refresh, disk, git, memory. No urgent items.
 - `1782562831068` (Sat 2026-06-27 12:20 UTC): Ambient API 401 from cron shell; used wttr.in fallback (Walling, TN 76°F sunny). Disk 61% (33G/57G), memory OK. Committed heartbeat-state update. Memory search still offline (OpenAI quota). No urgent items.

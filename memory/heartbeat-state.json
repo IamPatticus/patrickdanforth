@@ -1,19 +1,19 @@
 {
   "lastChecks": {
-    "email": 1782573764469,
-    "calendar": 1782573764469,
-    "weather": "2026-06-27T15:22:19Z",
-    "git": "2026-06-27T15:22:19Z",
-    "disk": "2026-06-27T15:22:19Z",
-    "memory": "2026-06-27T15:22:19Z",
-    "signal": 1782573764469,
-    "heartbeat": "2026-06-27T15:22:19Z"
+    "email": 1782576858708,
+    "calendar": 1782576858708,
+    "signal": 1782576858708,
+    "weather": 1782577830691,
+    "disk": 1782577830691,
+    "memory": 1782577830691,
+    "git": 1782577830691,
+    "heartbeat": "2026-06-27T16:30 UTC",
+    "disk_mem_git": 1782577830691
   },
-  "lastSummary": 1782573764469,
-  "lastWeather": "Sunny +82°F 72% 0.00 in ↗4mph",
-  "lastDiskPercent": 61,
-  "gitStatus": "dirty (heartbeat state + daily memory)",
-  "lastMemory": "1700Mi used / 6000Mi available",
-  "note": "Memory search unavailable: OpenAI embedding quota exhausted.",
-  "lastDisk": "33G used / 22G available (61% used)"
+  "lastSummary": "disk 61% (22G free), mem ok, git dirty=True",
+  "lastWeather": "🌤️ +84°F 68% 0.00 in →9mph",
+  "lastDisk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
+  "lastMemory": "Mem:           7.7Gi       1.8Gi       1.0Gi       6.4Mi       5.2Gi       5.9Gi",
+  "gitStatus": "clean",
+  "note": "Heartbeat at 2026-06-27T16:30 UTC. No urgent items. Email/calendar/Signal still blocked (unconfigured). Committed workspace notes at b502a62."
 }
