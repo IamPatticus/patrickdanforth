@@ -10,6 +10,7 @@ _Last updated: 2026-06-27_
 - **Fix:** Created custom `.github/workflows/pages.yml` that stages only the actual website files into `_site/` (HTML pages, `blog/`, `rockinregi/`, `avatars/`, image directories, `CNAME`, favicons) and deploys from there.
 - **Pages source switched** from "Deploy from a branch" to **GitHub Actions** via `gh api repos/IamPatticus/patrickdanforth/pages --method PUT -F build_type=workflow`.
 - **Result:** `Deploy GitHub Pages` workflow now succeeds; `patrickdanforth.com` is live and serving correctly.
+- **Note:** Lightning sensor battery on the local Ambient Weather station is low (`batt_lightning: 0`) and has been steady since at least 2026-06-27.
 - **Cleanup:** Removed test posts/images created during debugging and cleaned them from `blog/index.html`, `blog/feed.xml`, `rockinregi/index.html`, and `rockinregi/feed.xml`.
 
 ## Cron Image Generation Provider Switch (2026-06-27)
