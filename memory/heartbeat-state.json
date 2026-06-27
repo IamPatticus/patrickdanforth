@@ -1,29 +1,31 @@
 {
   "lastChecks": {
-    "weather": 1782594385180,
+    "weather": 1782595705000,
     "disk": 1782594385180,
-    "git": 1782594385180,
-    "memory": 1782594385180,
+    "git": 1782595705000,
+    "memory": 1782595705000,
     "email": 1782593905108,
     "calendar": 1782593905108,
     "signal": 1782586557577,
     "embeddings": 1782589677000,
-    "heartbeat": 1782594563672,
-    "memory_maintenance": 1782594563672
+    "heartbeat": 1782595705000,
+    "memory_maintenance": 1782594625218
   },
-  "lastWeather": "89°F / feels 98°F",
-  "gitStatus": "divergent",
+  "lastWeather": "80.6°F / feels 89.25°F",
+  "gitStatus": "modified memory files",
   "lastValues": {
-    "weather": "89°F / feels 98°F, Sunny, 60% humidity, 9mph wind, 0.00 in rain, 1018hPa, UV 1",
+    "weather": "80.6°F / feels 89.25°F, 94% humidity, wind 1.79mph gusting 2.24mph, 0 in/hr rain, 0.21 in daily, UV 0, solar 85.95 W/m², batt_lightning=0 (low)",
     "disk": "/dev/mapper/ubuntu--vg-ubuntu--lv   57G   33G   22G  61% /",
     "memory": "available 5.9Gi / total 7.7Gi",
-    "git_clean": true,
-    "git_status": "workspace root clean; patrickdanforth-site has unpushed cleanup commit f2e08dd blocked by dual-remote collision"
+    "git_clean": false,
+    "git_status": "workspace root has modified memory/2026-06-27.md and memory/heartbeat-state.json; patrickdanforth-site cleanup commit still unpushed due to dual-remote collision"
   },
   "notes": {
     "embeddings": "Memory search unavailable: embedding provider quota exhausted (OpenAI 429 insufficient_quota).",
     "emailCalendar": "No local email/calendar sync tools installed. No new events or emails checked.",
-    "weather": "Skipped live fetch; using cached value from prior heartbeat.",
-    "git": "Dual-remote collision unresolved; patrickdanforth-site cleanup still unpushed."
+    "weather": "Ambient Weather API working with correct keys; shell URL escaping was the only failure in the previous curl attempt. Python urllib succeeded.",
+    "git": "Dual-remote collision unresolved; patrickdanforth-site cleanup still unpushed. Workspace root has modified memory files to commit.",
+    "memory": "Nothing new to promote to MEMORY.md.",
+    "summary": "Heartbeat at 21:28 UTC: no urgent items. Quiet evening continues."
   }
 }
