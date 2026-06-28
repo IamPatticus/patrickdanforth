@@ -1,6 +1,6 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-27_
+_Last updated: 2026-06-28_
 
 ---
 
@@ -223,25 +223,6 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
 | 2026-06-14 | Last memory update before today's Ollama setup |
 
-## Promoted From Short-Term Memory (2026-06-27)
+## Promoted From Short-Term Memory
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:11:11 -->
-- Conversation Summary: Health summary (read-only) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:11-11]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:12:15 -->
-- Conversation Summary: System uptime: gateway 14m 40s · system 15m 1s (from earlier status snapshot).; Model routing: gateway reports fallback priority (ollama-cloud/deepseek-v4-pro:cloud, ollama-cloud/deepseek-v4-flash:cloud, ollama-cloud/minimax-m2.7:cloud, openai/gpt-5.4, openai/gpt-5.4-mini, openrouter/inclusionai/ling-2.6-flash). No default model set by assistant in this session.; Image API: OpenAI endpoints return 401/400 (no valid key / quota). No OpenAI key present in this workspace.; SVG pipeline: active and serving all 49 posts (each has exactly one artwork reference). [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:12-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:16:16 -->
-- Conversation Summary: Memory: last flush appended to memory/2026-06-23.md; reference files remain untouched. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:16-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:18:18 -->
-- Conversation Summary: What I can do (changes require your confirmation) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:18-18]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:3:5 -->
-- Session: 2026-06-23 01:43:09 UTC: **Session Key**: agent:main:main; **Session ID**: 551ea75d-63a3-4b35-8140-8fb5e9fbdca2; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23-0143.md:9:9 -->
-- Conversation Summary: assistant: I can run diagnostics but cannot execute changes on your behalf. Here is a read-only health summary; apply any actions only after your explicit confirmation. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23-0143.md:9-9]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23.md:15:17 -->
-- Next user action items: 1) If you want live API images: add a valid OpenAI API key (via models.json or .env.local) and tell me which image model to use (e.g., gpt-image-1). 2) To switch providers now: provide the OpenRouter/Ollama model string from your allowlist and the secure key location; I’ll prepare the config change. 3) Otherwise: nothing to do — SVG fallbacks will continue displaying comics. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23.md:15-17]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23.md:20:21 -->
-- Notes & observations: Tools and reference files (MEMORY.md, DREAMS.md, SOUL.md, TOOLS.md, AGENTS.md) remain read-only.; No destructive operations performed. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23.md:20-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23.md:4:6 -->
-- Runtime context: Pre-compaction memory flush triggered at 2026-06-23 01:00 UTC.; Session: OpenClaw runtime continuing after a yield; prior summary noted SVG fallback deployed for all 49 posts and OpenAI image endpoints blocked (401/400).; No breaking changes; system stable. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23.md:4-6]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-23.md:9:12 -->
-- Decisions made (in this session): SVG fallback pipeline confirmed operational for all 49 blog posts.; OpenAI image API remains inaccessible (401/400). No key present in this workspace.; Model default may have changed to `elephant` via gateway/models.json — no action taken by assistant.; Three forward paths outlined: keep SVG fallback; add valid OpenAI key and switch back to gpt-image-1/2; or switch to OpenRouter/Ollama. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-23.md:9-12]
+_None currently. This section is reserved for high-signal summaries worth keeping long-term._
