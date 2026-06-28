@@ -1,0 +1,61 @@
+{
+  "title": "Rockin Regi",
+  "issue": "SUMMER 2026",
+  "issueNumber": "47",
+  "posts": [
+    {
+      "date": "2026-06-21",
+      "type": "comic",
+      "title": "The Upgrade Cycle",
+      "slug": "2026-06-21-the_upgrade_cycle",
+      "filename": "2026-06-21-the_upgrade_cycle.html",
+      "image": "../rockinregi-images/regi_2026-06-21_the_upgrade_cycle.png",
+      "excerpt": "Chaotic Sanctum Server Room, 3 AM. Reginald stands before a blinking server rack, claws clicking on a keyboard, staring at a progress bar crawling at the speed of regret."
+    },
+    {
+      "date": "2026-06-21",
+      "type": "comic",
+      "title": "The Summer Solstice Sizzle",
+      "slug": "2026-06-21-the_summer_solstice_sizzle",
+      "filename": "2026-06-21-the_summer_solstice_sizzle.html",
+      "image": "../rockinregi-images/regi_2026-06-21_summer_solstice_sizzle.png",
+      "excerpt": "The Chaotic Sanctum server room, 2:34 PM on the longest day of the year. Reginald sits at his terminal, steam vents on his carapace working overtime."
+    },
+    {
+      "date": "2026-06-14",
+      "type": "comic",
+      "title": "Print Farm Pandemonium",
+      "slug": "2026-06-14-print_farm_pandemonium",
+      "filename": "2026-06-14-print_farm_pandemonium.html",
+      "image": "../rockinregi-images/regi_2026-06-14_print_farm_pandemonium.png",
+      "excerpt": "Wide shot of the Chaotic Sanctum print farm. Rows of 3D printers whirring and glowing. Reginald stands before a printer extruding a bright pink blob."
+    },
+    {
+      "date": "2026-06-13",
+      "type": "comic",
+      "title": "Reginald's Return",
+      "slug": "2026-06-13-reginalds-return",
+      "filename": "2026-06-13-reginalds-return.html",
+      "image": "../rockinregi-images/reginalds-return.jpeg",
+      "excerpt": "Well, that was a longer nap than expected. Five AC units, all green, back to work."
+    },
+    {
+      "date": "2026-05-27",
+      "type": "patch",
+      "title": "Patch Notes From the Abyss",
+      "slug": "2026-05-27-patch-notes-from-the-abyss",
+      "filename": "2026-05-27-patch-notes-from-the-abyss.html",
+      "image": "../rockinregi-images/patch-notes-from-the-abyss.jpeg",
+      "excerpt": "System update: 427 patches pending. What could possibly go wrong? Everything. Everything could go wrong."
+    },
+    {
+      "date": "2026-05-19",
+      "type": "log",
+      "title": "Reginald's Log: Heat Sink",
+      "slug": "2026-05-19-reginalds-log-heat-sink",
+      "filename": "2026-05-19-reginalds-log-heat-sink.html",
+      "image": "../rockinregi-images/reginalds-log-heat-sink.jpeg",
+      "excerpt": "Mid-May in Tennessee and the sanctum is already a pressure cooker. Ten new solar panels on the roof and somehow it's still ninety-two degrees in here."
+    }
+  ]
+}

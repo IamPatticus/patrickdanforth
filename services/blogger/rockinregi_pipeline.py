@@ -38,11 +38,12 @@ if ENV_LOCAL.exists():
                 os.environ[key.strip()] = val
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-SITE_ROOT = Path(__file__).resolve().parents[3]
+SITE_ROOT = Path(__file__).resolve().parents[2]
 POSTS_DIR = SITE_ROOT / "rockinregi"
 IMAGES_DIR = SITE_ROOT / "rockinregi-images"
 BLOG_INDEX = POSTS_DIR / "index.html"
 FEED_FILE = POSTS_DIR / "feed.xml"
+MANIFEST_FILE = POSTS_DIR / "index.json"
 
 # ── Story Input ────────────────────────────────────────────────
 
@@ -329,69 +330,87 @@ def generate_post_html():
 # ── Step 3: Update Index ─────────────────────────────────────
 
 def update_index(post_file):
-    """Add new post to rockinregi/index.html."""
-    index_html = BLOG_INDEX.read_text(encoding="utf-8")
+    """Add new post to rockinregi/index.json manifest (index.html is data-driven)."""
+    manifest = {"title": "Rockin Regi", "subtitle": "Dispatch from the Chaotic Sanctum",
+                "tagline": "Comic strips, patch notes, and controlled chaos — weekly.",
+                "avatar": "../avatars/reginald-avatar.png", "issue": "SUMMER 2026",
+                "issueNumber": "47", "posts": []}
+    if MANIFEST_FILE.exists():
+        try:
+            manifest = json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"[INDEX] Could not parse existing manifest: {e}; rebuilding")
 
-    type_colors = {
-        "comic": ("comic", "COMIC STRIP"),
-        "log": ("log", "LOG ENTRY"),
-        "patch": ("patch", "PATCH NOTES"),
+    if "posts" not in manifest or not isinstance(manifest["posts"], list):
+        manifest["posts"] = []
+
+    # Generate excerpt from script
+    excerpt = re.sub(r'\s+', ' ', SCRIPT).strip()
+    excerpt = excerpt[:220] + ("..." if len(excerpt) > 220 else "")
+
+    image_rel = ""
+    if art_path and art_path.exists():
+        image_rel = f"../rockinregi-images/{art_path.name}"
+
+    slug = "_".join(re.sub(r'[^\w\s]', '', TITLE).lower().split()[:6])
+    post_entry = {
+        "date": DATE_STR,
+        "type": POST_TYPE,
+        "title": TITLE,
+        "slug": slug,
+        "filename": post_file.name,
+        "image": image_rel,
+        "excerpt": excerpt,
     }
-    css_class, label = type_colors.get(POST_TYPE, ("comic", "COMIC STRIP"))
 
-    # Generate excerpt
-    excerpt = SCRIPT[:200].replace("|", " ") + ("..." if len(SCRIPT) > 200 else "")
+    # Replace existing post with same filename, otherwise prepend
+    existing = [p for p in manifest["posts"] if p.get("filename") != post_file.name]
+    manifest["posts"] = [post_entry] + existing
 
-    # Build thumbnail if art exists
-    thumb_html = ""
-    if art_path:
-        thumb_name = art_path.name
-        thumb_html = f'    \u003cimg class="post-thumbnail" src="../rockinregi-images/{thumb_name}" alt="{TITLE}"\u003e\n    '
-
-    post_entry = f"""      \u003carticle class="post-card"\u003e
-{thumb_html}\u003cdiv class="post-header"\u003e
-          \u003cspan class="post-type {css_class}"\u003e{label}\u003c/span\u003e
-          \u003cdiv class="post-date"\u003e{datetime.now().strftime("%B %d, %Y")}\u003c/div\u003e
-        \u003c/div\u003e
-        \u003ch2\u003e\u003ca href="./{post_file.name}"\u003e{TITLE}\u003c/a\u003e\u003c/h2\u003e
-        \u003cp class="post-excerpt"\u003e{excerpt}\u003c/p\u003e
-      \u003c/article\u003e
-
-      \u003c!-- POSTS_START --\u003e"""
-
-    new_index = index_html.replace("\u003c!-- POSTS_START --\u003e", post_entry)
-    BLOG_INDEX.write_text(new_index, encoding="utf-8")
-    print("[INDEX] Updated rockinregi/index.html")
+    MANIFEST_FILE.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    print("[INDEX] Updated rockinregi/index.json")
 
 # ── Step 4: Update RSS Feed ──────────────────────────────────
 
 def update_feed(post_file):
     """Full rewrite of rockinregi/feed.xml as valid RSS 2.0."""
     pub_date = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
-    
-    # Read existing posts directory to get all entries
-    posts = []
-    for p in POSTS_DIR.glob("*.html"):
-        posts.append(p)
-    
-    # Sort by date (most recent first)
-    posts.sort(key=lambda x: x.stat().st_mtime, reverse=True)
-    
+
+    # Build items from manifest if available, otherwise fall back to HTML files
+    items = []
+    if MANIFEST_FILE.exists():
+        try:
+            manifest = json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
+            items = manifest.get("posts", [])
+        except Exception:
+            items = []
+
+    if not items:
+        posts = sorted(POSTS_DIR.glob("*.html"), key=lambda x: x.stat().st_mtime, reverse=True)
+        for p in posts[:10]:
+            title_match = re.search(r'<title>(.*?)</title>', p.read_text(encoding="utf-8"), re.DOTALL)
+            title = title_match.group(1).strip() if title_match else p.stem
+            items.append({"filename": p.name, "title": title, "date": DATE_STR})
+
     items_xml = ""
-    for p in posts[:10]:  # Last 10 posts
-        with open(p, 'r', encoding='utf-8') as f:
-            content = f.read()
-        title_match = re.search(r'<h1.*?>(.*?)</h1>', content, re.DOTALL)
-        title = title_match.group(1).strip() if title_match else p.stem
+    for item in items[:10]:
+        title = item.get("title", item.get("filename", "Rockin Regi post"))
+        link = f"https://patrickdanforth.com/rockinregi/{item.get('filename', '')}"
+        item_date = item.get("date", DATE_STR)
+        try:
+            parsed = datetime.strptime(item_date, "%Y-%m-%d")
+            rss_date = parsed.strftime("%a, %d %b %Y 12:00:00 +0000")
+        except ValueError:
+            rss_date = pub_date
         items_xml += f"""    <item>
-      <title>{re.escape(title)}</title>
-      <link>https://patrickdanforth.com/rockinregi/{p.name}</link>
-      <guid>https://patrickdanforth.com/rockinregi/{p.name}</guid>
-      <pubDate>{pub_date}</pubDate>
+      <title>{escape_xml(title)}</title>
+      <link>{link}</link>
+      <guid>{link}</guid>
+      <pubDate>{rss_date}</pubDate>
       <description>Rockin Regi post</description>
     </item>
 """
-    
+
     rss_template = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
@@ -408,7 +427,13 @@ def update_feed(post_file):
 {items_xml}  </channel>
 </rss>
 """
-    FEED_FILE.write_text(rss_template, encoding='utf-8')
+    FEED_FILE.write_text(rss_template, encoding="utf-8")
+    print("[FEED] Updated rockinregi/feed.xml")
+
+
+def escape_xml(s):
+    """Escape XML special characters."""
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 def git_deploy():
     """Commit and push site changes to GitHub."""

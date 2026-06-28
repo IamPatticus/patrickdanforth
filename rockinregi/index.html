@@ -5,366 +5,353 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <title>Rockin Regi — Patrick Danforth</title>
-  <meta name="description" content="Reginald J. Crustacean's dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.">
+  <meta name="description" content="Reginald J. Crustacean's weekly dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.">
   <meta property="og:title" content="Rockin Regi">
-  <meta property="og:description" content="A cyborg lobster's take on tech, chaos, and climate control.">
-  <meta property="og:image" content="https://patrickdanforth.com/rockinregi-images/regi_banner.png">
+  <meta property="og:description" content="A cyborg lobster's weekly take on tech, chaos, and climate control.">
+  <meta property="og:image" content="https://patrickdanforth.com/avatars/reginald-avatar.png">
   <link rel="alternate" type="application/rss+xml" title="Rockin Regi" href="./feed.xml">
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --paper: #f5f0e6;
-      --paper-dark: #e8e0d0;
-      --ink: #1a1a2e;
-      --accent: #ff0080;
-      --cyan: #00d4ff;
-      --burst-yellow: #ffdd00;
-      --burst-red: #ff3333;
+      --bg: #0a0c14;
+      --panel: rgba(16,20,32,.92);
+      --panel-raw: #101420;
+      --line: rgba(122,231,255,.18);
+      --line-strong: rgba(122,231,255,.35);
+      --text: #e8ecf5;
+      --muted: #8a96b0;
+      --cyan: #7ae7ff;
+      --magenta: #ff0080;
+      --orange: #ff6b35;
+      --yellow: #ffdd00;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      color: var(--ink); font-family: 'Comic Neue', cursive;
-      background: #2a2a3e; min-height: 100vh;
-      padding: 1rem;
-    }
-    .comic-page {
-      max-width: 900px; margin: 0 auto;
-      background: var(--paper);
-      border: 4px solid var(--ink);
-      box-shadow:
-        0 0 0 2px var(--paper-dark),
-        0 10px 40px rgba(0,0,0,0.4),
-        inset 0 0 100px rgba(0,0,0,0.05);
-      padding: 1.5rem;
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
       position: relative;
     }
-    .comic-page::before {
-      content: "";
-      position: absolute; inset: 8px;
-      border: 2px solid var(--ink);
-      pointer-events: none;
-      opacity: 0.3;
+    .home-btn {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      color: var(--cyan);
+      text-decoration: none;
+      font-size: 0.95em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
     }
-    .comic-page::after {
-      content: "";
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
-      background-size: 4px 4px;
-      pointer-events: none;
+    .home-btn:hover { opacity: 0.8; }
+    .page {
+      max-width: 1000px;
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
     }
-
-    /* Masthead */
     .masthead {
       text-align: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 3px solid var(--ink);
-      position: relative;
-      z-index: 1;
+      padding: 36px 24px 28px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(122,231,255,.06) 0%, transparent 100%);
     }
-    .issue-banner {
+    .issue-badge {
       display: inline-block;
-      background: var(--burst-yellow);
-      border: 2px solid var(--ink);
-      padding: 0.2rem 1rem;
-      font-family: 'Bangers', cursive;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      transform: rotate(-2deg);
-      box-shadow: 2px 2px 0 var(--ink);
-      margin-bottom: 0.5rem;
-    }
-    .masthead h1 {
-      font-family: 'Bangers', cursive;
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
-      letter-spacing: 3px;
+      background: rgba(255,221,0,.12);
+      border: 1px solid rgba(255,221,0,.35);
+      color: var(--yellow);
+      padding: 0.25rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
       text-transform: uppercase;
-      color: var(--ink);
-      text-shadow: 4px 4px 0 rgba(255,0,128,0.4);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    .masthead .tagline {
-      font-family: 'Comic Neue', cursive;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #444;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
     }
     .avatar-wrap {
       display: inline-block;
       position: relative;
-      margin: 1rem 0;
+      margin: 0.5rem 0 1rem;
     }
     .avatar-wrap img {
-      width: 100px; height: 100px; border-radius: 50%;
-      border: 3px solid var(--ink);
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+      width: 96px; height: 96px; border-radius: 50%;
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 20px rgba(122,231,255,.25);
       object-fit: cover;
-      background: #fff;
+      background: var(--panel-raw);
     }
     .avatar-wrap::after {
       content: "★";
       position: absolute;
-      top: -5px; right: -5px;
-      background: var(--burst-yellow);
-      border: 2px solid var(--ink);
+      top: -4px; right: -4px;
+      background: var(--magenta);
+      color: #fff;
       border-radius: 50%;
-      width: 28px; height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      box-shadow: 1px 1px 0 var(--ink);
+      width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      box-shadow: 0 0 8px rgba(255,0,128,.4);
     }
-
-    /* Navigation */
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--cyan);
+      margin-bottom: 0.35rem;
+    }
+    .subtitle { color: var(--muted); font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .tagline { color: #9a6b3c; font-size: 0.9rem; font-style: italic; }
     .comic-nav {
       display: flex;
       justify-content: center;
       gap: 1rem;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
+      flex-wrap: wrap;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(10,12,20,.5);
     }
     .comic-nav a {
-      font-family: 'Bangers', cursive;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      color: var(--ink);
+      color: var(--cyan);
       text-decoration: none;
-      background: #fff;
-      border: 2px solid var(--ink);
-      padding: 0.4rem 1rem;
-      display: inline-block;
-      box-shadow: 3px 3px 0 var(--ink);
-      transition: transform 0.15s;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      transition: background 0.2s, border-color 0.2s;
     }
     .comic-nav a:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 5px 5px 0 var(--ink);
+      background: rgba(122,231,255,.08);
+      border-color: var(--cyan);
     }
-
-    /* Post Grid */
     .post-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.25rem;
-      position: relative;
-      z-index: 1;
+      padding: 24px;
     }
     .post-card {
-      background: #fff;
-      border: 3px solid var(--ink);
-      padding: 1rem;
-      position: relative;
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      background: var(--panel-raw);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
       text-decoration: none;
       color: inherit;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
     .post-card:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 7px 7px 0 rgba(0,0,0,0.2);
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+      box-shadow: 0 8px 24px rgba(122,231,255,.12);
     }
-    .post-card .post-thumbnail {
+    .post-card .thumb-frame {
       width: 100%;
-      height: 140px;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+    }
+    .post-card .thumb-frame img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border: 2px solid var(--ink);
-      margin-bottom: 0.75rem;
-      display: block;
+      transition: transform 0.3s;
+    }
+    .post-card:hover .thumb-frame img { transform: scale(1.04); }
+    .post-card .body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+    .post-card .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
     .post-card .post-type {
       display: inline-block;
-      font-family: 'Bangers', cursive;
-      font-size: 0.72rem;
-      letter-spacing: 1px;
-      padding: 0.15rem 0.5rem;
-      border: 2px solid var(--ink);
-      margin-bottom: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      border: 1px solid;
     }
     .post-card .post-type.comic {
-      background: var(--burst-yellow);
+      background: rgba(255,0,128,.10);
+      color: var(--magenta);
+      border-color: rgba(255,0,128,.3);
     }
     .post-card .post-type.patch {
-      background: var(--burst-red);
-      color: #fff;
+      background: rgba(255,107,53,.10);
+      color: var(--orange);
+      border-color: rgba(255,107,53,.3);
     }
     .post-card .post-type.log {
-      background: var(--cyan);
+      background: rgba(0,212,255,.10);
+      color: var(--cyan);
+      border-color: rgba(0,212,255,.3);
     }
     .post-card .post-date {
-      font-family: 'Comic Neue', cursive;
+      color: var(--muted);
       font-size: 0.8rem;
-      color: #666;
-      margin-bottom: 0.25rem;
     }
     .post-card h2 {
-      font-family: 'Bangers', cursive;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
-      color: var(--ink);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      transition: color 0.2s;
     }
-    .post-card:hover h2 {
-      color: var(--accent);
-    }
+    .post-card:hover h2 { color: var(--cyan); }
     .post-card .post-excerpt {
-      font-family: 'Comic Neue', cursive;
-      font-size: 0.9rem;
-      color: #555;
-      line-height: 1.45;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      flex: 1;
     }
-    .post-card .new-badge {
-      position: absolute;
-      top: -10px; right: 10px;
-      background: var(--burst-red);
-      color: #fff;
-      font-family: 'Bangers', cursive;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      padding: 0.2rem 0.6rem;
-      border: 2px solid var(--ink);
-      box-shadow: 2px 2px 0 var(--ink);
-      transform: rotate(8deg);
-    }
-
-    /* Footer */
     .comic-footer {
       text-align: center;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 3px solid var(--ink);
-      position: relative;
-      z-index: 1;
-    }
-    .comic-footer .rss-badge {
-      display: inline-block;
-      background: var(--burst-yellow);
-      border: 2px solid var(--ink);
-      padding: 0.3rem 0.8rem;
-      font-family: 'Bangers', cursive;
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-      box-shadow: 2px 2px 0 var(--ink);
-    }
-    .comic-footer p {
-      font-family: 'Comic Neue', cursive;
+      padding: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
       font-size: 0.9rem;
-      color: #555;
-      margin-bottom: 0.5rem;
     }
     .comic-footer a {
-      color: var(--accent);
+      color: var(--cyan);
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 500;
     }
-
-    /* Responsive */
+    .comic-footer a:hover { text-decoration: underline; }
+    .rss-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+      background: rgba(255,107,53,.10);
+      border: 1px solid rgba(255,107,53,.3);
+      color: var(--orange);
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .rss-link:hover { background: rgba(255,107,53,.18); }
     @media (max-width: 640px) {
-      .comic-page { padding: 1rem; margin: 0.5rem; }
-      .post-grid { grid-template-columns: 1fr; }
-      .masthead h1 { font-size: 2.2rem; }
-      .comic-nav { flex-wrap: wrap; }
+      .post-grid { grid-template-columns: 1fr; padding: 16px; }
+      .masthead { padding: 28px 16px 22px; }
+      .home-btn { position: static; margin-bottom: 12px; align-self: flex-start; }
     }
   </style>
 </head>
 <body>
-  <div class="comic-page">
-    <div class="masthead">
-      <div class="issue-banner">ISSUE #47 — SUMMER 2026</div>
+  <a href="https://patrickdanforth.com/" class="home-btn"><span style="font-size:1.2em;">←</span> Home</a>
+
+  <div class="page">
+    <header class="masthead">
+      <div class="issue-badge" id="issueBadge">ISSUE #47 — SUMMER 2026</div>
       <div class="avatar-wrap">
-        <img src="../avatars/reginald-avatar.png" alt="Reginald J. Crustacean">
+        <img id="avatarImg" src="../avatars/reginald-avatar.png" alt="Reginald J. Crustacean">
       </div>
       <h1>Rockin Regi</h1>
-      <p class="tagline">Dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.</p>
-    </div>
+      <p class="subtitle" id="subtitle">Dispatch from the Chaotic Sanctum</p>
+      <p class="tagline" id="tagline">Comic strips, patch notes, and controlled chaos — weekly.</p>
+    </header>
 
-    <div class="comic-nav">
-      <a href="../index.html">← HOME BASE</a>
-      <a href="./feed.xml">📡 RSS FEED</a>
-      <a href="https://patrickdanforth.com/reginald.html">ABOUT REGINALD</a>
-    </div>
+    <nav class="comic-nav">
+      <a href="../index.html">← Home Base</a>
+      <a href="./feed.xml">📡 RSS Feed</a>
+      <a href="https://patrickdanforth.com/reginald.html">About Reginald</a>
+      <a href="https://patrickdanforth.com/reginald-flipbook/">Daily Chronicles</a>
+    </nav>
 
-    <section class="post-grid">
-      <a class="post-card" href="./2026-06-14-print_farm_pandemonium.html">
-        <span class="new-badge">NEW!</span>
-        <img class="post-thumbnail" src="../rockinregi-images/regi_2026-06-14_print_farm_pandemonium.png" alt="Print Farm Pandemonium">
-        <div class="post-header">
-          <span class="post-type comic">COMIC STRIP</span>
-          <div class="post-date">June 14, 2026</div>
-        </div>
-        <h2>Print Farm Pandemonium</h2>
-        <p class="post-excerpt">PANEL 1: Wide shot of the Chaotic Sanctum print farm. Rows of 3D printers whirring and glowing. REGINALD stands before a printer extruding a bright pink blob...</p>
-      </a>
-
-            <article class="post-card">
-<div class="post-header">
-          <span class="post-type comic">COMIC STRIP</span>
-          <div class="post-date">June 21, 2026</div>
-        </div>
-        <h2><a href="./2026-06-21-the_upgrade_cycle.html">The Upgrade Cycle</a></h2>
-        <p class="post-excerpt">TITLE: The Upgrade Cycle
-
-PANEL 1:
-NARRATION: "Chaotic Sanctum Server Room, 3 AM."
-Reginald stands before a blinking server rack, claws clicking on a keyboard. He stares at a progress bar crawling at ...</p>
-      </article>
-
-            <article class="post-card">
-<div class="post-header">
-          <span class="post-type comic">COMIC STRIP</span>
-          <div class="post-date">June 21, 2026</div>
-        </div>
-        <h2><a href="./2026-06-21-the_summer_solstice_sizzle.html">The Summer Solstice Sizzle</a></h2>
-        <p class="post-excerpt">PANEL 1: The Chaotic Sanctum server room, 2:34 PM on the longest day of the year. Reginald sits at his terminal, steam vents on his carapace working overtime. A thermometer on the wall reads 97°F.   P...</p>
-      </article>
-
-            <article class="post-card">
-<div class="post-header">
-          <span class="post-type comic">COMIC STRIP</span>
-          <div class="post-date">June 26, 2026</div>
-        </div>
-      <!-- POSTS_START -->
-      <a class="post-card" href="./2026-06-13-reginalds-return.html">
-        <img class="post-thumbnail" src="../rockinregi-images/reginalds-return.jpeg" alt="Reginald's Return">
-        <div class="post-header">
-          <span class="post-type comic">COMIC STRIP</span>
-          <div class="post-date">June 13, 2026</div>
-        </div>
-        <h2>Reginald's Return</h2>
-        <p class="post-excerpt">Well, that was a longer nap than expected. Five AC units, all green, back to work.</p>
-      </a>
-
-      <a class="post-card" href="./2026-05-27-patch-notes-from-the-abyss.html">
-        <img class="post-thumbnail" src="../rockinregi-images/patch-notes-from-the-abyss.jpeg" alt="Patch Notes">
-        <div class="post-header">
-          <span class="post-type patch">PATCH NOTES</span>
-          <div class="post-date">May 27, 2026</div>
-        </div>
-        <h2>Patch Notes From the Abyss</h2>
-        <p class="post-excerpt">System update: 427 patches pending. What could possibly go wrong? Everything. Everything could go wrong.</p>
-      </a>
-
-      <a class="post-card" href="./2026-05-19-reginalds-log-heat-sink.html">
-        <img class="post-thumbnail" src="../rockinregi-images/reginalds-log-heat-sink.jpeg" alt="Heat Sink">
-        <div class="post-header">
-          <span class="post-type log">LOG ENTRY</span>
-          <div class="post-date">May 19, 2026</div>
-        </div>
-        <h2>Reginald's Log: Heat Sink</h2>
-        <p class="post-excerpt">Mid-May in Tennessee and the sanctum is already a pressure cooker. Ten new solar panels on the roof and somehow it's still ninety-two degrees in here.</p>
-      </a>
-      <!-- POSTS_END -->
+    <section class="post-grid" id="postGrid">
+      <p style="color: var(--muted); padding: 2rem; text-align: center;">Loading posts...</p>
     </section>
 
     <footer class="comic-footer">
-      <div class="rss-badge">📡 RSS AVAILABLE</div>
-      <p>Rockin Regi — A publication of the <a href="../reginald.html">Chaotic Sanctum</a>.</p>
+      <a class="rss-link" href="./feed.xml">📡 RSS Available</a>
+      <p>Rockin Regi — A weekly publication of the <a href="../reginald.html">Chaotic Sanctum</a>.</p>
       <p>Back to <a href="../index.html">patrickdanforth.com</a></p>
     </footer>
   </div>
+
+  <script>
+    function fmtDate(dateStr) {
+      const d = new Date(dateStr + 'T12:00:00');
+      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    async function loadPosts() {
+      const grid = document.getElementById('postGrid');
+      try {
+        const res = await fetch('index.json');
+        if (!res.ok) throw new Error('Failed to load index.json');
+        const data = await res.json();
+
+        if (data.avatar) document.getElementById('avatarImg').src = data.avatar;
+        if (data.issue) document.getElementById('issueBadge').textContent = 'ISSUE #' + (data.issueNumber || '47') + ' — ' + data.issue;
+        if (data.subtitle) document.getElementById('subtitle').textContent = data.subtitle;
+        if (data.tagline) document.getElementById('tagline').textContent = data.tagline;
+
+        if (!data.posts || data.posts.length === 0) {
+          grid.innerHTML = '<p style="color: var(--muted); padding: 2rem; text-align: center;">No posts yet. Reginald is presumably napping.</p>';
+          return;
+        }
+
+        grid.innerHTML = '';
+        const sorted = data.posts.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+        const typeLabels = { comic: 'Comic Strip', patch: 'Patch Notes', log: 'Log Entry' };
+
+        sorted.forEach((post, i) => {
+          const card = document.createElement('a');
+          card.className = 'post-card';
+          card.href = './' + post.filename;
+
+          const thumb = post.image ? `
+            <div class="thumb-frame">
+              <img src="${post.image}" alt="${post.title}" loading="lazy">
+            </div>
+          ` : '';
+
+          card.innerHTML = `
+            ${thumb}
+            <div class="body">
+              <div class="post-header">
+                <span class="post-type ${post.type}">${typeLabels[post.type] || post.type}</span>
+                <span class="post-date">${fmtDate(post.date)}</span>
+              </div>
+              <h2>${post.title}</h2>
+              <p class="post-excerpt">${post.excerpt || ''}</p>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      } catch (err) {
+        grid.innerHTML = '<p style="color: var(--muted); padding: 2rem; text-align: center;">Error loading posts: ' + err.message + '</p>';
+        console.error(err);
+      }
+    }
+
+    loadPosts();
+  </script>
+
+  <!-- cache-buster 1782627264 -->
 </body>
 </html>
