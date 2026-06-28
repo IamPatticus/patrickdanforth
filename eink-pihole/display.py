@@ -146,6 +146,7 @@ def wrap_text(text, font, max_width):
 def update_display(image):
     epd = epd2in13_V4.EPD()
     epd.init()
+    epd.Clear()
     epd.display(epd.getbuffer(image))
     epd.sleep()
 
