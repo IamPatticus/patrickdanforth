@@ -1,21 +1,22 @@
 {
   "lastChecks": {
-    "email": 1782663752,
-    "calendar": 1782663752,
-    "weather": 1782663752,
-    "git": 1782663752,
-    "disk": 1782663752,
-    "memory": 1782663752,
-    "heartbeat": 1782663752,
-    "cron": 1782663752
+    "email": 1782665432,
+    "calendar": 1782665432,
+    "weather": 1782665432,
+    "git": 1782665432,
+    "disk": 1782665432,
+    "memory": 1782665432,
+    "heartbeat": 1782665432,
+    "cron": 1782665432
   },
   "notes": {
-    "email": "blocked - no himalaya tool; Proton Bridge cron ok at last run",
-    "calendar": "Evolution ICS: 0 events next 48h; checked 2026-06-28 16:02 UTC",
-    "weather": "Ambient Joppa Station 1: 86.54°F / feels 100.4°F, 78% hum, UV 5, solar 558.86 W/m², calm NE wind. Lightning sensor battery low. API working.",
+    "email": "no local mail tool; Proton Bridge cron ok at last run (16:02 UTC weather-email-calendar-check)",
+    "calendar": "no local calendar tool; weather-email-calendar-check cron reports 0 events next 48h",
+    "weather": "Ambient Joppa Station 1 at 16:02 UTC: 86.54°F / feels 100.4°F, 78% hum, wind 0.67 mph gusting 1.12 mph NE (45°), UV 5, solar 558.86 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0).",
     "memory_search": "degraded - OpenAI embeddings quota exhausted (429); review skipped",
-    "git": "clean",
-    "system": "disk 61% / 33G used / 57G total; memory 1.9Gi used / 7.7Gi total, 5.7Gi avail; load 0.47/0.20/0.14; 1534 dpkg packages",
-    "cron": "10/11 ok; Rockin Regi Weekly Comic errored at 16:06 UTC (agent response failure during image gen). This week's comic already published at 11:10 UTC."
+    "git": "clean (only heartbeat-state.json modified by this beat)",
+    "disk": "disk 61% / 33G used / 57G total; memory 1.8Gi used / 7.7Gi total, 5.8Gi avail; load 0.03/0.08/0.08",
+    "cron": "10/11 ok; Rockin Regi last errored at 16:06 UTC (image-gen agent timeout) but this week's comic already published successfully at 11:10 UTC. Ikaris Nightly due 18:00 UTC; Reginald Daily due 22:00 UTC.",
+    "memory": "reviewed daily notes and MEMORY.md; nothing new to promote. MEMORY.md already refreshed at 16:02 UTC by weather cron."
   }
 }
