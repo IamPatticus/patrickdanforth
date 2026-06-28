@@ -1,0 +1,13 @@
+[Unit]
+Description=E-Ink Pi-hole Display
+After=network.target pihole-FTL.service
+
+[Service]
+Type=oneshot
+User=%%USER%%
+WorkingDirectory=/home/%%USER%%/eink-pihole
+ExecStart=/home/%%USER%%/eink-pihole/run.sh
+Environment="PIHOLE_URL=http://192.168.1.203"
+
+[Install]
+WantedBy=multi-user.target
