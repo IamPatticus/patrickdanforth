@@ -1,12 +1,18 @@
 {
   "lastChecks": {
     "email": 1782634562,
-    "calendar": 1782634562,
-    "weather": 1782641319,
-    "git": 1782647356,
-    "disk": 1782647356,
-    "memory": 1782647356,
-    "heartbeat": 1782647820,
-"memory": 1782647820
+    "calendar": 1782648275,
+    "weather": 1782648213,
+    "git": 1782648213,
+    "disk": 1782648213,
+    "memory": 1782648213,
+    "heartbeat": 1782648477,
+    "git": 1782648477,
+    "disk": 1782648477
+  },
+  "notes": {
+    "email": "blocked - no himalaya tool",
+    "calendar": "local Evolution calendar checked: 0 events in next 48h",
+    "memory_search": "degraded - OpenAI embeddings quota exhausted (429)"
   }
 }

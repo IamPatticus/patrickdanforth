@@ -1,12 +1,14 @@
 # Calendar Status
 
-_Last checked: Sunday, June 28, 2026 — 6:29 AM UTC_
+_Last checked: Sunday, June 28, 2026 — 12:03 PM UTC_
 
-## Status: No events in next 24 hours
+## Status: No events in next 24–48 hours
 
 - **Evolution Calendar:** `~/.local/share/evolution/calendar/system/calendar.ics` exists.
+- **VEVENT count:** 0 total, 0 upcoming.
 - **Next 24h events:** 0 found.
 - **Next 48h events:** 0 found.
+- **Check window:** 2026-06-28 12:03 UTC → 2026-06-30 12:03 UTC.
 - **CLI tools:** `gcalcli`, `khal`, `calcurse`, `vdirsyncer` are not installed.
 - **Google token:** `~/.config/google/token.json` only has **Blogger** scope, so Google Calendar is not accessible.
 

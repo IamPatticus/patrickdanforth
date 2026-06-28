@@ -10,7 +10,7 @@ Email and calendar checks are blocked due to missing tools (himalaya, gcalcli).
 
 Weather status is tracked in this file and updated during heartbeat polls.
 
-**Current weather:** Muggy, +82°F, 86%, 0.00 in, →0mph (Joppa Station 1, Walling, TN)
+**Current weather:** ☀️ +77°F, 82%, 1017hPa, wind ↑3mph (Walling, TN)
 
 ## Next Due
 - Weather check: next heartbeat poll (~30 minute cycle)
