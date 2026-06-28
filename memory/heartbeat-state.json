@@ -1,19 +1,19 @@
 {
   "lastChecks": {
-    "email": 1782659544,
-    "calendar": 1782659544,
-    "weather": 1782659544,
-    "git": 1782660678,
-    "disk": 1782660678,
-    "memory": 1782660678,
-    "heartbeat": 1782660678
+    "email": 1782661317,
+    "calendar": 1782661317,
+    "weather": 1782661317,
+    "git": 1782661317,
+    "disk": 1782661317,
+    "memory": 1782661317,
+    "heartbeat": 1782661317
   },
   "notes": {
     "email": "blocked - no himalaya tool; Proton Bridge cron ok at last run",
-    "calendar": "no active calendar backend found; 0 events next 48h",
-    "weather": "Walling TN: 78F feels 72F, 81% hum, 4mph wind, sunny, rain today 0.00in, UV 1 (wttr.in fallback; Ambient API not attempted)",
+    "calendar": "Evolution ICS: 0 events next 48h; next weather-email-calendar-check ~16:03 UTC",
+    "weather": "wttr.in Walling TN: ☀️ +84°F (+90°F), hum 70%, wind →8mph, UV 4, rain 0.00in, pressure 1017hPa. Ambient API key returned 401 — key may be invalid/rotated/expired.",
     "memory_search": "degraded - OpenAI embeddings quota exhausted (429); review skipped",
-    "git": "clean",
-    "system": "disk 61% / 33G used / 57G total; memory 1.7Gi used / 7.7Gi total, 6.0Gi avail; load 0.06/0.15/0.17; 1534 dpkg packages"
+    "git": "modified: memory/HEARTBEAT.md, memory/heartbeat-state.json",
+    "system": "disk 61% / 33G used / 57G total; memory 1.8Gi used / 7.7Gi total, 5.9Gi avail; load 0.43/0.20/0.12; 1534 dpkg packages"
   }
 }
