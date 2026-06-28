@@ -1,6 +1,6 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-28 20:14 UTC_
+_Last updated: 2026-06-28 20:39 UTC_
 
 ---
 
@@ -68,7 +68,8 @@ _Last updated: 2026-06-28 20:14 UTC_
 - **2026-06-28 09:48 UTC:** 75.56°F / feels like 77.23°F, 94% humidity, wind 0 mph gusting 0 mph NE, UV 0, solar 0 W/m². Rain today 0 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
 - **2026-06-28 16:02 UTC:** 86.54°F / feels like 100.4°F, 78% humidity, wind 0.67 mph gusting 1.12 mph NE (45°), UV 5, solar 558.86 W/m². Rain today 0 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
 - **2026-06-28 20:02 UTC:** 93°F / feels like 102°F, 51% humidity, wind W @ 9 mph, UV 7, pressure 1015 hPa. Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`). Ambient API returned 401 at this check; used wttr.in backup. The 20:14 UTC check succeeded via Ambient API, so the 401 was transient.
-- **2026-06-28 20:14 UTC:** 92.12°F / feels like 106.41°F, 62% humidity, wind 1.79 mph gusting 3.36 mph N (10°), 10-min avg NE (49°), UV 1, solar 108.78 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).- **2026-06-28 20:02 UTC:** 93°F / feels like 102°F, 51% humidity, wind W @ 9 mph, UV 7, pressure 1015 hPa. Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`). Ambient API returned 401 at this check; used wttr.in backup.
+- **2026-06-28 20:14 UTC:** 92.12°F / feels like 106.41°F, 62% humidity, wind 1.79 mph gusting 3.36 mph N (10°), 10-min avg NE (49°), UV 1, solar 108.78 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
+- **2026-06-28 20:38 UTC:** 92.66°F / feels like 106.44°F, 60% humidity, wind 2.46 mph gusting 3.36 mph NE (47°), 10-min avg NE (36°), UV 6, solar 698.97 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
 
 ---
 

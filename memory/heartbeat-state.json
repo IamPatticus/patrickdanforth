@@ -2,21 +2,21 @@
   "lastChecks": {
     "email": 1782677640,
     "calendar": 1782677640,
-    "weather": 1782677640,
-    "git": 1782677327,
-    "disk": 1782677327,
-    "memory": 1782677327,
-    "heartbeat": 1782677327,
-    "cron": 1782677327
+    "weather": 1782679080,
+    "git": 1782679131,
+    "disk": 1782679131,
+    "memory": 1782679131,
+    "heartbeat": 1782679120,
+    "cron": 1782679120
   },
   "notes": {
-    "email": "no local mail tool; weather-email-calendar-check cron last ran ok at 20:14 UTC, next ~00:00 UTC",
-    "calendar": "no local calendar tool; weather-email-calendar-check cron reports 0 events next 48h; next run ~00:00 UTC",
-    "weather": "Ambient Joppa Station 1 at 20:14 UTC: 92.12°F / feels 106.41°F, 62% hum, wind 1.79 mph gusting 3.36 mph N (avg10m NE 49°), UV 1, solar 108.78 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0); no strikes today/hour.",
+    "email": "no local mail tool; weather-email-calendar-check cron last completed successfully at 16:02 UTC, last two runs (20:04, 20:21 UTC) errored; next scheduled ~00:00 UTC",
+    "calendar": "no local calendar tool; weather-email-calendar-check cron last completed successfully at 16:02 UTC, last two runs errored; next run ~00:00 UTC",
+    "weather": "Ambient Joppa Station 1 at 20:38 UTC: 92.66°F / feels 106.44°F, 60% hum, wind NE 2.46 mph gusting 3.36 mph (10-min avg NE 36°), UV 6, solar 698.97 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0). The 20:04 and 20:21 cron runs failed; I refreshed weather.md/WEATHER.md/MEMORY.md manually.",
     "memory_search": "memory_search now working with provider='none' (FTS/BM25). Searched for urgent TODOs; none found.",
-    "git": "workspace has modified memory/.dreams/events.jsonl and memory/heartbeat-state.json; last commit 9934b15 Add hourly systemd timer for eink-pihole display refresh",
-    "disk": "disk 61% / 33G used / 57G total; load 0.10/0.09/0.12 at 19:36 UTC",
-    "cron": "11/11 enabled. Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (agent no response); next run 2026-07-05. All others lastRunStatus ok.",
-    "memory": "reviewed daily notes 2026-06-26..28 and MEMORY.md; nothing new to promote"
+    "git": "workspace has modified WEATHER.md, weather.md, MEMORY.md, memory/.dreams/events.jsonl and memory/heartbeat-state.json; last commit 9934b15 Add hourly systemd timer for eink-pihole display refresh",
+    "disk": "disk 61% / 33G used / 57G total; load 0.28/0.22/0.20 at 20:38 UTC",
+    "cron": "11/11 enabled. weather-email-calendar-check last errored 2026-06-28 20:21 UTC (apply_patch failed; prior run shell command failed). Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (agent no response); next run 2026-07-05. All others lastRunStatus ok.",
+    "memory": "reviewed daily notes 2026-06-26..28 and MEMORY.md; removed duplicate 20:02 weather line, added 20:38 reading"
   }
 }
