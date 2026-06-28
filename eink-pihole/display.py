@@ -116,11 +116,15 @@ def render(summary, error=None):
     blocklist_domains = gravity.get("domains_being_blocked", 0)
 
     draw_b.text((MARGIN, y), f"Queries: {format_number(total)}", font=font, fill=0)
-    draw_b.text((WIDTH // 2, y), f"Blocked: {format_number(blocked)}", font=font, fill=0)
+    y += LINE_H + 2
+
+    draw_b.text((MARGIN, y), f"Blocked: {format_number(blocked)}", font=font, fill=0)
     y += LINE_H + 2
 
     draw_b.text((MARGIN, y), f"Blocked %: {percent}%", font=font, fill=0)
-    draw_b.text((WIDTH // 2, y), f"Clients: {unique_clients}", font=font, fill=0)
+    y += LINE_H + 2
+
+    draw_b.text((MARGIN, y), f"Clients: {unique_clients}", font=font, fill=0)
     y += LINE_H + 2
 
     draw_b.line([MARGIN, y, WIDTH - MARGIN, y], fill=0, width=1)
