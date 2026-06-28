@@ -1,8 +1,20 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-28 16:02 UTC_
+_Last updated: 2026-06-28 18:32 UTC_
 
 ---
+
+## Memory Search Fixed (2026-06-28)
+
+- **Problem:** `memory_search` was failing with OpenAI 429 quota errors, breaking recall before every answer.
+- **Root cause:** `memorySearch` provider defaulted to `openai` with `text-embedding-3-small`, and the OpenAI key/credits were exhausted.
+- **Attempted fixes:**
+  - Tried local `ollama` provider with `nomic-embed-text`. Failed because the custom Ollama build on `serenity` is missing the `llama-server` binary required for embeddings.
+  - Tried `ollama-cloud` provider. Failed with HTTP 405 (cloud Ollama doesn't expose an embedding endpoint).
+- **Working fix:** Set `agents.defaults.memorySearch.provider: "none"` in `/home/patrick/.openclaw/openclaw.json` and ran `openclaw memory index --force`.
+- **Result:** Memory search now uses FTS/BM25 keyword retrieval. Semantic vector search is unavailable until local Ollama embeddings are fixed or another embedding endpoint is configured.
+- **Config file:** `/home/patrick/.openclaw/openclaw.json`
+- **To restore semantic search later:** build `llama-server` for the local Ollama install, or configure a working embedding provider endpoint.
 
 ## GitHub Pages Deployment Fix (2026-06-27)
 
