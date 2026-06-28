@@ -138,7 +138,10 @@ def render(summary, error=None):
 def update_display(black, red):
     epd = epd2in13b_V4.EPD()
     epd.init()
-    epd.display(epd.getbuffer(black), epd.getbuffer(red))
+    epd.display(
+        epd.getbuffer(black.rotate(180, expand=True)),
+        epd.getbuffer(red.rotate(180, expand=True))
+    )
     epd.sleep()
 
 
