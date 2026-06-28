@@ -1,19 +1,19 @@
 {
   "lastChecks": {
-    "email": 1782658944,
-    "calendar": 1782658944,
-    "weather": 1782658944,
-    "git": 1782658944,
-    "disk": 1782658944,
-    "memory": 1782658944,
-    "heartbeat": 1782658944
+    "email": 1782659544,
+    "calendar": 1782659544,
+    "weather": 1782659544,
+    "git": 1782659544,
+    "disk": 1782659544,
+    "memory": 1782659544,
+    "heartbeat": 1782659544
   },
   "notes": {
     "email": "blocked - no himalaya tool; Proton Bridge cron ok at last run",
     "calendar": "no active calendar backend found; 0 events next 48h",
     "weather": "Walling TN: 78F feels 72F, 81% hum, 4mph wind, sunny, rain today 0.00in, UV 1 (wttr.in fallback; Ambient API not attempted)",
     "memory_search": "degraded - OpenAI embeddings quota exhausted (429); review skipped",
-    "git": "modified memory/heartbeat-state.json + untracked memory/2026-06-28-1458.md",
-    "system": "disk 61% / 33G used / 57G total; memory 1.8Gi used / 7.7Gi total, 5.9Gi avail; load 0.21/0.33/0.21; 1534 dpkg packages"
+    "git": "modified HEARTBEAT.md + untracked memory/2026-06-28-1512.md",
+    "system": "disk 61% / 33G used / 57G total; memory 1.7Gi used / 7.7Gi total, 6.0Gi avail; load 0.30/0.27/0.20; 1534 dpkg packages"
   }
 }
