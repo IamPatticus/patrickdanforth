@@ -53,6 +53,7 @@ _Last updated: 2026-06-28_
 - **2026-06-27 midnight check:** Ambient Weather API keys are now populated and Joppa Station 1 is reachable again. Conditions at 00:03 UTC: 80.2°F / feels like 84.5°F, 78% humidity, calm wind. Lightning sensor battery flagged low (`batt_lightning: 0`).
 - **2026-06-28 00:02 UTC:** 81.32°F / feels like 87.82°F, 83% humidity, wind 1.79 mph gusting 3.36 mph ENE, UV 0, solar 47.68 W/m². Daily rain 0.21 in. Lightning sensor battery still low (`batt_lightning: 0`); 2 strikes today, last 0.62 mi away.
 - **2026-06-28 08:02 UTC:** 75.56°F / feels like 77.23°F, 94% humidity, wind 0.22 mph gusting 2.24 mph NE, UV 0, solar 0 W/m². Rain today 0 in. No lightning in the last hour/day; last strike 2026-06-27 19:17 UTC, 0.62 mi away. Lightning sensor battery still low.
+- **2026-06-28 09:48 UTC:** 75.56°F / feels like 77.23°F, 94% humidity, wind 0 mph gusting 0 mph NE, UV 0, solar 0 W/m². Rain today 0 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
 
 ---
 
