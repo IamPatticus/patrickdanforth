@@ -1,12 +1,12 @@
 # Email Status
 
-_Last checked: Sunday, June 28, 2026 — 4:02 PM UTC_
+_Last checked: Sunday, June 28, 2026 — 8:14 PM UTC_
 
 ## Status: No unread mail locally; no active IMAP/Bridge account
 
 - **Evolution Mail:** `~/.local/share/evolution/mail` exists but is empty (trash only; 0 messages, 0 unread).
 - **CLI tools:** `himalaya`, `mutt`/`neomutt`, `offlineimap`/`mbsync` are not installed.
-- **Proton Mail Bridge:** not running; no Proton-related user services active.
+- **Proton Mail Bridge:** not running; no Proton-related user services or maildirs found.
 - **Stored credentials:** no IMAP/SMTP credentials found in `~/.config/` or `.env.local`.
 - **Google token:** only has Blogger scope (`https://www.googleapis.com/auth/blogger`); Gmail is not accessible.
 

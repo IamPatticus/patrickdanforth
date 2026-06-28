@@ -1,18 +1,18 @@
 {
   "lastChecks": {
-    "email": 1782675357,
-    "calendar": 1782675357,
-    "weather": 1782675357,
-    "git": 1782675357,
-    "disk": 1782675357,
-    "memory": 1782675357,
-    "heartbeat": 1782675357,
-    "cron": 1782675357
+    "email": 1782677640,
+    "calendar": 1782677640,
+    "weather": 1782677640,
+    "git": 1782677327,
+    "disk": 1782677327,
+    "memory": 1782677327,
+    "heartbeat": 1782677327,
+    "cron": 1782677327
   },
   "notes": {
-    "email": "no local mail tool; weather-email-calendar-check cron last ran ok at 16:02 UTC, next ~20:00 UTC",
-    "calendar": "no local calendar tool; weather-email-calendar-check cron reports 0 events next 48h; next run ~20:00 UTC",
-    "weather": "Ambient Joppa Station 1 at 16:02 UTC: 86.54°F / feels 100.4°F, 78% hum, wind 0.67 mph gusting 1.12 mph NE (45°), UV 5, solar 558.86 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0).",
+    "email": "no local mail tool; weather-email-calendar-check cron last ran ok at 20:14 UTC, next ~00:00 UTC",
+    "calendar": "no local calendar tool; weather-email-calendar-check cron reports 0 events next 48h; next run ~00:00 UTC",
+    "weather": "Ambient Joppa Station 1 at 20:14 UTC: 92.12°F / feels 106.41°F, 62% hum, wind 1.79 mph gusting 3.36 mph N (avg10m NE 49°), UV 1, solar 108.78 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0); no strikes today/hour.",
     "memory_search": "memory_search now working with provider='none' (FTS/BM25). Searched for urgent TODOs; none found.",
     "git": "workspace has modified memory/.dreams/events.jsonl and memory/heartbeat-state.json; last commit 9934b15 Add hourly systemd timer for eink-pihole display refresh",
     "disk": "disk 61% / 33G used / 57G total; load 0.10/0.09/0.12 at 19:36 UTC",
