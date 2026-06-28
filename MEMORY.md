@@ -4,6 +4,20 @@ _Last updated: 2026-06-28 20:45 UTC_
 
 ---
 
+## E-Ink Pi-hole Display (2026-06-28)
+
+- **Hardware:** Raspberry Pi Zero 2 W + Waveshare 2.13" E-Ink HAT V4 (blue PCB = black/white/red tricolor) at `192.168.1.203`.
+- **Correct driver:** `waveshare_epd.epd2in13b_V4` (tricolor), not `epd2in13_V4`.
+- **Project path:** `~/patrickdanforth/eink-pihole/` in the repo; installed on Pi at `~/eink-pihole/`.
+- **Key deps in venv:** `spidev`, `gpiozero`, `RPi.GPIO`, `lgpio`.
+- **Display method:** two 1-bit PIL images (black layer + red layer) passed to `epd.display()`.
+- **Orientation:** rotate both layers 180° because the HAT mounts upside-down in the case.
+- **Layout:** stack stats vertically at 250×122 to avoid squished text.
+- **Timer:** `eink-pihole.timer` refreshes every 60 minutes.
+- **If red dots appear in future:** wrong driver is being used; switch to `epd2in13b_V4`.
+
+---
+
 ## Memory Search Fixed (2026-06-28)
 
 - **Problem:** `memory_search` was failing with OpenAI 429 quota errors, breaking recall before every answer.
