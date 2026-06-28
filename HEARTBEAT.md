@@ -3,8 +3,8 @@
 Rotate through 2-4 checks per heartbeat.
 
 - [ ] Email — any urgent unread messages? (blocked: no himalaya tool)
-- [x] Calendar — upcoming events in next 24-48h
-- [x] Weather — relevant if human might go out
+- [ ] Calendar — upcoming events in next 24-48h
+- [ ] Weather — relevant if human might go out
 - [ ] Git — workspace clean?
 - [ ] Memory — review daily notes, update MEMORY.md (degraded: OpenAI embeddings quota exhausted)
 - [ ] Disk/health — low disk, load, updates
