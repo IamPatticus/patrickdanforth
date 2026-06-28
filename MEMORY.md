@@ -1,6 +1,6 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-28 20:45 UTC_
+_Last updated: 2026-06-28 23:12 UTC_
 
 ---
 
@@ -14,7 +14,7 @@ _Last updated: 2026-06-28 20:45 UTC_
 - **Orientation:** rotate both layers 180° because the HAT mounts upside-down in the case.
 - **Layout:** stack stats vertically at 250×122 to avoid squished text.
 - **Timer:** `eink-pihole.timer` refreshes every 60 minutes.
-- **If red dots appear in future:** wrong driver is being used; switch to `epd2in13b_V4`.
+- **Connection:** SSH password auth fails from `serenity`; use local commands on the Pi.
 
 ---
 
@@ -206,6 +206,12 @@ All crew members share the same workspace and memory context, but they are used 
 - He cares about correlations between headaches, weather, sleep, stress, and medication
 - This work may expand into broader family health tracking patterns over time
 
+### Rockin Regi Redesign (2026-06-28)
+
+- **Pipeline:** `services/blogger/rockinregi_pipeline.py` generates dark aesthetic pages via `openclaw infer image generate` (Gemini 3.1 Flash Image Preview/fallbacks), `reginald-flipbook.html` template, and `rockinregi/index.json` manifest.
+- **Publishing:** Auto-deploys to `patrickdanforth.com/rockinregi/` via git push. RSS feed at `rockinregi/feed.xml`.
+- **Cron:** Weekly run (Reginald) happens in `current` session for notify-on-failure.
+
 ---
 
 ## Ongoing Issues
@@ -255,6 +261,7 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-06-23 | Vanny Van solar fully connected and functioning |
 | 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
 | 2026-06-14 | Last memory update before today's Ollama setup |
+| 2026-06-28 | E-Ink Pi-hole Display project completed and working on Pi Zero 2 W |
 
 ## Promoted From Short-Term Memory
 
