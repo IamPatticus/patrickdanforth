@@ -1,8 +1,8 @@
 {
   "lastChecks": {
-    "email": 1782661317,
-    "calendar": 1782661317,
-    "weather": 1782661317,
+    "email": 1782662520,
+    "calendar": 1782662520,
+    "weather": 1782662520,
     "git": 1782661317,
     "disk": 1782661317,
     "memory": 1782661317,
@@ -10,8 +10,8 @@
   },
   "notes": {
     "email": "blocked - no himalaya tool; Proton Bridge cron ok at last run",
-    "calendar": "Evolution ICS: 0 events next 48h; next weather-email-calendar-check ~16:03 UTC",
-    "weather": "wttr.in Walling TN: ☀️ +84°F (+90°F), hum 70%, wind →8mph, UV 4, rain 0.00in, pressure 1017hPa. Ambient API key returned 401 — key may be invalid/rotated/expired.",
+    "calendar": "Evolution ICS: 0 events next 48h; checked 2026-06-28 16:02 UTC",
+    "weather": "Ambient Joppa Station 1: 86.54°F / feels 100.4°F, 78% hum, UV 5, solar 558.86 W/m², calm NE wind. Lightning sensor battery low. API working.",
     "memory_search": "degraded - OpenAI embeddings quota exhausted (429); review skipped",
     "git": "modified: memory/HEARTBEAT.md, memory/heartbeat-state.json",
     "system": "disk 61% / 33G used / 57G total; memory 1.8Gi used / 7.7Gi total, 5.9Gi avail; load 0.43/0.20/0.12; 1534 dpkg packages"
