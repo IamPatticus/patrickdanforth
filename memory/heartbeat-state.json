@@ -1,1 +1,9 @@
-{"lastChecks":{"calendar":1782604920,"email":1782604920,"heartbeat":1782627033,"memory":1782626681,"weather":1782623320}}
+{
+  "lastChecks": {
+    "email": 1782604920,
+    "calendar": 1782604920,
+    "weather": 1782623320,
+    "memory": 1782626681,
+    "heartbeat": 1782627576
+  }
+}
