@@ -48,9 +48,14 @@ if [ -f run.sh ]; then cp run.sh ~/eink-pihole/run.sh && chmod +x ~/eink-pihole/
 if [ -f eink-pihole.service ]; then
   sudo cp eink-pihole.service /etc/systemd/system/eink-pihole.service
   sudo sed -i "s/%%USER%%/${USER}/g" /etc/systemd/system/eink-pihole.service
+  echo "    systemd service installed."
+fi
+if [ -f eink-pihole.timer ]; then
+  sudo cp eink-pihole.timer /etc/systemd/system/eink-pihole.timer
   sudo systemctl daemon-reload
   sudo systemctl enable eink-pihole.service
-  echo "    systemd service installed (not started)."
+  sudo systemctl enable eink-pihole.timer
+  echo "    systemd timer installed and enabled (refresh every 60 minutes)."
 fi
 
 echo ""

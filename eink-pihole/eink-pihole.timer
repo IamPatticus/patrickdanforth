@@ -1,0 +1,10 @@
+[Unit]
+Description=Refresh E-Ink Pi-hole Display every hour
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=60min
+Unit=eink-pihole.service
+
+[Install]
+WantedBy=timers.target

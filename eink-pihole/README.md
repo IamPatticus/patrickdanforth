@@ -31,24 +31,19 @@ Replace `changeme` with your Pi-hole web admin password.
 ~/eink-pihole/run.sh
 ```
 
-## Run automatically
+## Run automatically every hour
 
-The setup script installs a systemd service. Start it:
-
-```bash
-sudo systemctl start eink-pihole
-```
-
-To refresh every 5 minutes, add a cron job:
+The setup script installs a systemd timer that refreshes the display every 60 minutes.
 
 ```bash
-crontab -e
+sudo systemctl start eink-pihole.timer
+sudo systemctl enable eink-pihole.timer
 ```
 
-Add:
+Check status:
 
-```
-*/5 * * * * /home/pi/eink-pihole/run.sh
+```bash
+sudo systemctl list-timers eink-pihole.timer
 ```
 
 ## Config
