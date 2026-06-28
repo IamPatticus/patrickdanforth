@@ -6,8 +6,8 @@
     "git": 1782667953,
     "disk": 1782667953,
     "memory": 1782667953,
-    "heartbeat": 1782667953,
-    "cron": 1782667953
+    "heartbeat": 1782669033,
+    "cron": 1782669033
   },
   "notes": {
     "email": "no local mail tool; weather-email-calendar-check cron last ran ok at 16:02 UTC",
@@ -15,8 +15,8 @@
     "weather": "Ambient Joppa Station 1 at 16:02 UTC: 86.54°F / feels 100.4°F, 78% hum, wind 0.67 mph gusting 1.12 mph NE (45°), UV 5, solar 558.86 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0).",
     "memory_search": "degraded - OpenAI embeddings quota exhausted (429); review skipped",
     "git": "workspace clean; last commit 4db6bfa heartbeat: 16:50 UTC state refresh",
-    "disk": "disk 61% / 33G used / 57G total; memory 1.7Gi used / 7.7Gi total, 5.9Gi avail; load 0.07/0.13/0.10",
-    "cron": "11/11 ok; Ikaris Nightly last posted 'The Silicon Seed' at 10:00 CDT (15:00 UTC) and delivered to Telegram. Reginald Daily last ok 2026-06-27 06:00 UTC. Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (image-gen agent timeout) but this week's comic already published successfully at 11:10 UTC.",
-    "memory": "reviewed daily notes and MEMORY.md; nothing new to promote. MEMORY.md already refreshed at 16:02 UTC by weather cron."
+    "disk": "disk 61% / 33G used / 57G total; memory 1.7Gi used / 7.7Gi total, 5.9Gi avail; load 0.00/0.04/0.07",
+    "cron": "11/11 ok. Rockin Regi Weekly last errored 2026-06-28 16:06 UTC; next run 2026-07-05. All others lastRunStatus ok.",
+    "memory": "skipped; memory_search degraded (OpenAI embeddings quota exhausted 429)"
   }
 }
