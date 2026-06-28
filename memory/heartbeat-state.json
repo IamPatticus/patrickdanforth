@@ -1,8 +1,8 @@
 {
   "lastChecks": {
-    "email": 1782677640,
-    "calendar": 1782677640,
-    "weather": 1782679080,
+    "email": 1782679500,
+    "calendar": 1782679500,
+    "weather": 1782679500,
     "git": 1782679131,
     "disk": 1782679131,
     "memory": 1782679131,
@@ -10,13 +10,13 @@
     "cron": 1782679120
   },
   "notes": {
-    "email": "no local mail tool; weather-email-calendar-check cron last completed successfully at 16:02 UTC, last two runs (20:04, 20:21 UTC) errored; next scheduled ~00:00 UTC",
-    "calendar": "no local calendar tool; weather-email-calendar-check cron last completed successfully at 16:02 UTC, last two runs errored; next run ~00:00 UTC",
-    "weather": "Ambient Joppa Station 1 at 20:38 UTC: 92.66°F / feels 106.44°F, 60% hum, wind NE 2.46 mph gusting 3.36 mph (10-min avg NE 36°), UV 6, solar 698.97 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0). The 20:04 and 20:21 cron runs failed; I refreshed weather.md/WEATHER.md/MEMORY.md manually.",
+    "email": "no local mail tool; weather-email-calendar-check cron refreshed email.md at 20:45 UTC",
+    "calendar": "no local calendar tool; Evolution ICS empty, 0 events next 48h; refreshed calendar.md at 20:45 UTC",
+    "weather": "Ambient Joppa Station 1 at 20:45 UTC: 93.92°F / feels 106.86°F, 56% hum, wind NE 1.79 mph gusting 2.24 mph (10-min avg NE 43°), UV 6, solar 663.46 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0).",
     "memory_search": "memory_search now working with provider='none' (FTS/BM25). Searched for urgent TODOs; none found.",
-    "git": "workspace has modified WEATHER.md, weather.md, MEMORY.md, memory/.dreams/events.jsonl and memory/heartbeat-state.json; last commit 9934b15 Add hourly systemd timer for eink-pihole display refresh",
+    "git": "workspace has modified WEATHER.md, weather.md, email.md, calendar.md, MEMORY.md, memory/2026-06-28.md and memory/heartbeat-state.json; last commit 9934b15 Add hourly systemd timer for eink-pihole display refresh",
     "disk": "disk 61% / 33G used / 57G total; load 0.28/0.22/0.20 at 20:38 UTC",
-    "cron": "11/11 enabled. weather-email-calendar-check last errored 2026-06-28 20:21 UTC (apply_patch failed; prior run shell command failed). Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (agent no response); next run 2026-07-05. All others lastRunStatus ok.",
+    "cron": "11/11 enabled. weather-email-calendar-check last completed at 2026-06-28 20:45 UTC. Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (agent no response); next run 2026-07-05. All others lastRunStatus ok.",
     "memory": "reviewed daily notes 2026-06-26..28 and MEMORY.md; removed duplicate 20:02 weather line, added 20:38 reading"
   }
 }
