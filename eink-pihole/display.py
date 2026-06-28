@@ -12,8 +12,9 @@ from PIL import Image, ImageDraw, ImageFont
 try:
     import waveshare_epd
     from waveshare_epd import epd2in13_V4
-except ImportError:
-    print("waveshare-epd not installed. Run setup.sh first.", file=sys.stderr)
+except ImportError as e:
+    print(f"waveshare_epd import failed: {e}", file=sys.stderr)
+    print("Run: ~/eink-pihole/venv/bin/python3 -m pip install spidev RPi.GPIO", file=sys.stderr)
     sys.exit(1)
 
 from pihole_client import PiHoleClient, load_password
