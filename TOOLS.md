@@ -37,6 +37,7 @@ Things like:
 - Station MAC: `94:3C:C6:91:91:AB`
 - API endpoint: `https://api.ambientweather.net/v1/devices`
 - Backup source: `wttr.in/Walling+TN`
+- Note: applicationKey is the Ambient app key, apiKey is the read-only user API key
 ```
 
 ## Why Separate?

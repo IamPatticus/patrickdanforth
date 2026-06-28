@@ -1,20 +1,19 @@
 {
   "lastChecks": {
     "email": 1782653253,
-    "calendar": 1782655545,
-    "weather": 1782656507465,
-    "git": 1782656621,
-    "disk": 1782656621,
+    "calendar": 1782657460,
+    "weather": 1782657460,
+    "git": 1782657460,
+    "disk": 1782656847,
     "memory": 1782656621,
-    "heartbeat": 1782656621
+    "heartbeat": 1782657460
   },
   "notes": {
     "email": "blocked - no himalaya tool; Proton Bridge cron ok at last run",
-    "calendar": "Evolution calendar empty; 0 events next 48h (per calendar.md last checked 12:03 UTC)",
-    "weather": "Walling TN: 78°F sunny, feels 72°F, 81% humidity, 4mph NE wind, UV 1; forecast high 93°F today, 91°F Mon, 95°F Tue",
+    "calendar": "no active calendar backend found; 0 events next 48h",
+    "weather": "Walling TN: 81.3F, feels 88.0F, 84% hum, 0mph wind g 2.2mph NNE, UV 2, solar 228 W/m2, rain today 0in",
     "memory_search": "degraded - OpenAI embeddings quota exhausted (429)",
     "git": "clean",
-
-    "system": "disk 61% / 33G used / 57G total; memory 1.8Gi used / 7.7Gi total, 5.8Gi avail; load 0.09/0.09/0.09"
+    "system": "disk 61% / 33G used / 57G total; memory 1.8Gi used / 7.7Gi total, 5.8Gi avail; load 0.18/0.14/0.10"
   }
 }
