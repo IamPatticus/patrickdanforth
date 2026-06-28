@@ -146,12 +146,10 @@ def wrap_text(text, font, max_width):
 def update_display(image):
     epd = epd2in13_V4.EPD()
     epd.init()
-    # Aggressive clear sequence to remove ghosting/red dots
-    epd.Clear(0xFF)  # clear to white
-    epd.display(epd.getbuffer(Image.new('1', (WIDTH, HEIGHT), 0)))  # black
-    epd.delay_ms(400)
-    epd.display(epd.getbuffer(Image.new('1', (WIDTH, HEIGHT), 255)))  # white
-    epd.delay_ms(400)
+    # Clear to white first, then draw content
+    white = Image.new('1', (WIDTH, HEIGHT), 255)
+    epd.display(epd.getbuffer(white))
+    epd.delay_ms(200)
     epd.display(epd.getbuffer(image))
     epd.sleep()
 
