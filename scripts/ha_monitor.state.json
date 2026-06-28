@@ -1,9 +1,9 @@
 {
   "_version": 2,
   "total": 1319,
-  "unavailable_count": 91,
+  "unavailable_count": 89,
   "real_unavailable_count": 43,
-  "noise_unavailable_count": 48,
+  "noise_unavailable_count": 46,
   "unknown_count": 56,
   "victron_down": 0,
   "top_unavailable_domains": [
