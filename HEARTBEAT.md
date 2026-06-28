@@ -2,12 +2,12 @@
 
 Rotate through 2-4 checks per heartbeat.
 
-- [ ] Email — any urgent unread messages? (blocked: no himalaya tool)
-- [x] Calendar — upcoming events in next 24-48h (khal not installed; need cal path)
-- [x] Weather — relevant if human might go out (see WEATHER.md?)
-- [x] Git — workspace clean? (no uncommitted changes)
-- [ ] Memory — review daily notes, update MEMORY.md (degraded: OpenAI embeddings quota exhausted)
-- [x] Disk/health — low disk, load, updates (61% used, load 0.04)
+- [x] Email — covered by `weather-email-calendar-check` cron every 4h; no local mail tool
+- [x] Calendar — covered by `weather-email-calendar-check` cron every 4h; reports 0 events next 48h
+- [x] Weather — covered by `weather-email-calendar-check` cron every 4h; see WEATHER.md/weather.md
+- [x] Git — workspace has routine uncommitted changes in `memory/.dreams/events.jsonl` and `memory/heartbeat-state.json`
+- [x] Memory — `memory_search` now works via FTS/BM25 (provider: none); reviewed daily notes/MEMORY.md, nothing to promote
+- [x] Disk/health — disk 61% used, load ~0.10, routine
 
 ## Reach Out When
 

@@ -1,22 +1,22 @@
 {
   "lastChecks": {
-    "email": 1782667953,
-    "calendar": 1782667953,
-    "weather": 1782667953,
-    "git": 1782667953,
-    "disk": 1782667953,
-    "memory": 1782667953,
-    "heartbeat": 1782669033,
-    "cron": 1782669033
+    "email": 1782675357,
+    "calendar": 1782675357,
+    "weather": 1782675357,
+    "git": 1782675357,
+    "disk": 1782675357,
+    "memory": 1782675357,
+    "heartbeat": 1782675357,
+    "cron": 1782675357
   },
   "notes": {
-    "email": "no local mail tool; weather-email-calendar-check cron last ran ok at 16:02 UTC",
-    "calendar": "no local calendar tool; weather-email-calendar-check cron reports 0 events next 48h",
+    "email": "no local mail tool; weather-email-calendar-check cron last ran ok at 16:02 UTC, next ~20:00 UTC",
+    "calendar": "no local calendar tool; weather-email-calendar-check cron reports 0 events next 48h; next run ~20:00 UTC",
     "weather": "Ambient Joppa Station 1 at 16:02 UTC: 86.54°F / feels 100.4°F, 78% hum, wind 0.67 mph gusting 1.12 mph NE (45°), UV 5, solar 558.86 W/m², rain today 0 in. Lightning sensor battery still low (batt_lightning: 0).",
-    "memory_search": "degraded - OpenAI embeddings quota exhausted (429); review skipped",
-    "git": "workspace clean; last commit 4db6bfa heartbeat: 16:50 UTC state refresh",
-    "disk": "disk 61% / 33G used / 57G total; memory 1.7Gi used / 7.7Gi total, 5.9Gi avail; load 0.00/0.04/0.07",
-    "cron": "11/11 ok. Rockin Regi Weekly last errored 2026-06-28 16:06 UTC; next run 2026-07-05. All others lastRunStatus ok.",
-    "memory": "skipped; memory_search degraded (OpenAI embeddings quota exhausted 429)"
+    "memory_search": "memory_search now working with provider='none' (FTS/BM25). Searched for urgent TODOs; none found.",
+    "git": "workspace has modified memory/.dreams/events.jsonl and memory/heartbeat-state.json; last commit 9934b15 Add hourly systemd timer for eink-pihole display refresh",
+    "disk": "disk 61% / 33G used / 57G total; load 0.10/0.09/0.12 at 19:36 UTC",
+    "cron": "11/11 enabled. Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (agent no response); next run 2026-07-05. All others lastRunStatus ok.",
+    "memory": "reviewed daily notes 2026-06-26..28 and MEMORY.md; nothing new to promote"
   }
 }
