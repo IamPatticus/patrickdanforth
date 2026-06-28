@@ -5,12 +5,19 @@
     <link>https://patrickdanforth.com/rockinregi/</link>
     <description>Reginald J. Crustacean's dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Jun 2026 15:22:16 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2026 15:35:27 +0000</lastBuildDate>
     <image>
       <url>https://patrickdanforth.com/avatars/reginald-avatar.png</url>
       <title>Rockin Regi</title>
       <link>https://patrickdanforth.com/rockinregi/</link>
     </image>
+    <item>
+      <title>Test Dark Template</title>
+      <link>https://patrickdanforth.com/rockinregi/2026-06-28-test_dark_template.html</link>
+      <guid>https://patrickdanforth.com/rockinregi/2026-06-28-test_dark_template.html</guid>
+      <pubDate>Sun, 28 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Rockin Regi post</description>
+    </item>
     <item>
       <title>The Upgrade Cycle</title>
       <link>https://patrickdanforth.com/rockinregi/2026-06-21-the_upgrade_cycle.html</link>

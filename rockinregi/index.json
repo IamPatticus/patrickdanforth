@@ -4,6 +4,15 @@
   "issueNumber": "47",
   "posts": [
     {
+      "date": "2026-06-28",
+      "type": "log",
+      "title": "Test Dark Template",
+      "slug": "test_dark_template",
+      "filename": "2026-06-28-test_dark_template.html",
+      "image": "",
+      "excerpt": "This is a test log entry to validate the dark template renders correctly."
+    },
+    {
       "date": "2026-06-21",
       "type": "comic",
       "title": "The Upgrade Cycle",
