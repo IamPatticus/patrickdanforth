@@ -1,6 +1,6 @@
 # Email Status
 
-_Last checked: Sunday, June 28, 2026 — 12:02 AM UTC_
+_Last checked: Sunday, June 28, 2026 — 6:29 AM UTC_
 
 ## Status: No unread mail locally; no active IMAP/Bridge account
 
@@ -8,6 +8,7 @@ _Last checked: Sunday, June 28, 2026 — 12:02 AM UTC_
 - **CLI tools:** `himalaya`, `mutt`/`neomutt`, `offlineimap`/`mbsync` are not installed.
 - **Proton Mail Bridge:** not running; no Proton-related user services active.
 - **Stored credentials:** no IMAP/SMTP credentials found in `~/.config/` or `.env.local`.
+- **Google token:** only has Blogger scope (`https://www.googleapis.com/auth/blogger`); Gmail is not accessible.
 
 ## Next Steps
 
