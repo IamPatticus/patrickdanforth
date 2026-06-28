@@ -41,7 +41,7 @@ def fetch_data():
     if not pw:
         return None, "No password in ~/eink-pihole/.pihole_pass"
     try:
-        client = PiHoleClient(base, password=***)
+        client = PiHoleClient(base)
         summary = client.get_summary()
         return summary, None
     except Exception as e:

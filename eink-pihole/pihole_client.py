@@ -12,7 +12,7 @@ from pathlib import Path
 class PiHoleClient:
     def __init__(self, base_url, password=None, sid=None, token=None):
         self.base_url = base_url.rstrip("/")
-        self.password = password
+        self.password = password or load_password()
         self.sid = sid
         self.token = token
         self._session_valid_until = 0
