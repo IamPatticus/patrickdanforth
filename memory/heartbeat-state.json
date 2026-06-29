@@ -1,8 +1,8 @@
 {
   "lastChecks": {
-    "email": 1782683100,
-    "calendar": 1782683100,
-    "weather": 1782683100,
+    "email": 1782705720,
+    "calendar": 1782705720,
+    "weather": 1782705720,
     "git": 1782704394,
     "memory": 1782704394,
     "disk": 1782704394,
@@ -12,7 +12,7 @@
   "notes": {
     "email": "no local mail tool; weather-email-calendar-check cron last ok 20:45 UTC (errored 00:02 UTC); no unread mail",
     "calendar": "no local calendar tool; Evolution ICS empty, 0 events next 48h; refreshed calendar.md at 20:45 UTC",
-    "weather": "weather-email-calendar-check cron refreshed weather at 20:45 UTC via Ambient API; Joppa Station 1: 93.92°F feels 106.86°F, 56% hum, NE wind 1.79 gusting 2.24 mph, UV 6, 0.00 in rain; lightning battery still low. Cron errored at 00:02 UTC; retries ~04:22 UTC.",
+    "weather": "weather-email-calendar-check cron refreshed weather at 04:02 UTC via Ambient API; Joppa Station 1: 78.8°F feels 80.42°F, 86% hum, NE wind 1.12 gusting 2.24 mph, UV 0, 0.00 in rain; lightning battery still low. This run succeeded after 00:02 UTC error.",
     "git": "committed 03:15 UTC; current diff is routine heartbeat-state.json + dream events.jsonl churn",
     "memory": "reviewed daily notes 2026-06-27..29 and MEMORY.md at 03:54 UTC; nothing new to promote",
     "disk": "disk 61% / 33G used / 57G total; load ~0.10; 7.7Gi RAM, 1.7Gi used, 6.0Gi avail",
