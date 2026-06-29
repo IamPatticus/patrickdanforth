@@ -3,21 +3,21 @@
     "email": 1782705720,
     "calendar": 1782705720,
     "weather": 1782705720,
-    "git": 1782712440,
-    "memory": 1782704394,
-    "disk": 1782712440,
+    "git": 1782713592,
+    "memory": 1782713592,
+    "disk": 1782713592,
     "cron": 1782712440,
-    "heartbeat": 1782712440
+    "heartbeat": 1782713592
   },
   "notes": {
     "email": "no local mail tool; weather-email-calendar-check cron last ok 04:02 UTC; no unread mail",
     "calendar": "no local calendar tool; Evolution ICS empty, 0 events next 48h; refreshed calendar.md at 04:02 UTC",
     "weather": "weather-email-calendar-check cron refreshed weather at 04:02 UTC via Ambient API; Joppa Station 1: 78.8°F feels 80.42°F, 86% hum, NE wind 1.12 gusting 2.24 mph, UV 0, 0.00 in rain; lightning battery still low",
-    "git": "committed 03:15 UTC; current diff is routine heartbeat-state.json + .dreams/events.jsonl churn",
+    "git": "workspace root clean at 06:13 UTC; no uncommitted changes",
     "memory": "reviewed daily notes 2026-06-27..29 and MEMORY.md at 03:54 UTC; nothing new to promote",
-    "disk": "disk 61% / 33G used / 57G total; load 0.02/0.05/0.05; 7.7Gi RAM, 1.7Gi used, 6.0Gi avail",
+    "disk": "disk 61% / 33G used / 57G total; load 0.01/0.09/0.08; 7.7Gi RAM, 1.8Gi used, 5.9Gi avail",
     "cron": "11/11 enabled. weather-email-calendar-check last ok 04:02 UTC. Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (this week's comic already posted); next run 2026-07-05. All others lastRunStatus ok.",
-    "memory_search": "memory_search working with provider='none' (FTS/BM25). Searched for urgent TODOs at 05:54 UTC; none found.",
-    "heartbeat": "2026-06-29 05:54 UTC; weather/email/calendar cron OK at 04:02 UTC; disk 61%, load 0.02/0.05/0.05; git dirty with routine dream events + heartbeat-state churn; memory reviewed; no urgent TODOs or events; staying quiet."
+    "memory_search": "memory_search working with provider='none' (FTS/BM25). Searched for urgent TODOs at 06:13 UTC; none found.",
+    "heartbeat": "2026-06-29 06:13 UTC; weather/email/calendar cron OK at 04:02 UTC; disk 61%, load 0.01/0.09/0.08; git clean; memory reviewed; no urgent TODOs or events; staying quiet."
   }
 }
