@@ -3,22 +3,21 @@
     "email": 1782683100,
     "calendar": 1782683100,
     "weather": 1782683100,
-    "git": 1782702954,
-    "memory": 1782702954,
-    "disk": 1782702954,
-    "cron": 1782702954,
-    "heartbeat": 1782702954
+    "git": 1782704394,
+    "memory": 1782704394,
+    "disk": 1782704394,
+    "cron": 1782704394,
+    "heartbeat": 1782704394
   },
   "notes": {
     "email": "no local mail tool; weather-email-calendar-check cron last ok 20:45 UTC (errored 00:02 UTC); no unread mail",
     "calendar": "no local calendar tool; Evolution ICS empty, 0 events next 48h; refreshed calendar.md at 20:45 UTC",
-    "weather": "weather-email-calendar-check cron refreshed weather at 20:45 UTC via Ambient API; Joppa Station 1: 93.92°F feels 106.86°F, 56% hum, NE wind 1.79 gusting 2.24 mph, UV 6, 0.00 in rain; lightning battery still low",
-    "git": "committed and pushed 01:37 UTC; 02:37 beat updated heartbeat-state.json only",
-    "memory": "reviewed daily notes 2026-06-27..29 and MEMORY.md at 02:37 UTC; nothing new to promote",
-    "disk": "disk 61% / 33G used / 57G total; load ~0.10; 7.7Gi RAM, 2.3Gi used, 5.3Gi avail",
+    "weather": "weather-email-calendar-check cron refreshed weather at 20:45 UTC via Ambient API; Joppa Station 1: 93.92°F feels 106.86°F, 56% hum, NE wind 1.79 gusting 2.24 mph, UV 6, 0.00 in rain; lightning battery still low. Cron errored at 00:02 UTC; retries ~04:22 UTC.",
+    "git": "committed 03:15 UTC; current diff is routine heartbeat-state.json + dream events.jsonl churn",
+    "memory": "reviewed daily notes 2026-06-27..29 and MEMORY.md at 03:54 UTC; nothing new to promote",
+    "disk": "disk 61% / 33G used / 57G total; load ~0.10; 7.7Gi RAM, 1.7Gi used, 6.0Gi avail",
     "cron": "11/11 enabled. weather-email-calendar-check last errored at 00:02 UTC (consecutiveErrors: 1). Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (this week's comic already posted); next run 2026-07-05. All others lastRunStatus ok.",
-    "memory_search": "memory_search working with provider='none' (FTS/BM25). Searched for urgent TODOs at 02:37 UTC; none found.",
-    "heartbeat": "2026-06-29 03:15 UTC; late-night beat; no urgent items; weather cron errored 00:02 UTC and will retry ~04:22 UTC; staying quiet.",
-    "memory_search": "memory_search working with provider='none' (FTS/BM25). Searched for urgent TODOs at 03:15 UTC; none found."
+    "memory_search": "memory_search working with provider='none' (FTS/BM25). Searched for urgent TODOs at 03:54 UTC; none found.",
+    "heartbeat": "2026-06-29 03:54 UTC; late-night/early-morning beat; no urgent items; weather cron will retry ~04:22 UTC; staying quiet."
   }
 }
