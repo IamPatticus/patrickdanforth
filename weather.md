@@ -1,11 +1,11 @@
 # Weather - Walling, TN
 
-**Updated:** Monday, June 29, 2026 — 4:02 AM UTC
+**Updated:** Monday, June 29, 2026 — 8:02 AM UTC
 
-- **Temperature:** 78.8°F
-- **Feels like:** 80.42°F
-- **Humidity:** 86%
-- **Wind:** NE @ 1.12 mph, gusts to 2.24 mph (10-min avg NE 44°)
+- **Temperature:** 73.04°F
+- **Feels like:** 74.6°F
+- **Humidity:** 97%
+- **Wind:** NE @ 0 mph, gusts to 0 mph (10-min avg NE 46°; max daily gust 2.24 mph)
 - **UV index:** 0
 - **Solar radiation:** 0 W/m²
 - **Rain today:** 0.00 in
