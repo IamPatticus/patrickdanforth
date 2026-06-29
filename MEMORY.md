@@ -267,3 +267,16 @@ All crew members share the same workspace and memory context, but they are used 
 ## Promoted From Short-Term Memory
 
 _None currently. This section is reserved for high-signal summaries worth keeping long-term._
+
+## Promoted From Short-Term Memory (2026-06-29)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-24-1419.md:13:16 -->
+- Conversation Summary: 📚 Context: 0/262k (0%) · 🧹 Compactions: 0 🧵 Session: agent:main:main • duration 1s • updated just now ⚙️ Execution: direct · Runtime: OpenClaw Default · Think: off · Fast: off 🔌 Plugins: OK [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-24-1419.md:13-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-24-1419.md:17:17 -->
+- Conversation Summary: 🪢 Queue: steer (depth 0) [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-24-1419.md:17-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-24-1419.md:3:5 -->
+- Session: 2026-06-24 14:19:31 UTC: **Session Key**: agent:main:main; **Session ID**: 776ad60a-1d9a-4214-91f7-1747bc536ff9; **Source**: webchat [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-24-1419.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-24-1419.md:9:12 -->
+- Conversation Summary: assistant: 🦞 OpenClaw 2026.6.9 (c645ec4) ⏱️ Uptime: gateway 13h 2m · system 15h 7m 🧠 Model: ollama-cloud/deepseek-v4-pro:cloud · 🔑 api-key (ollama-cloud:default) 🔄 Fallbacks: ollama-cloud/deepseek-v4-flash:cloud, ollama-cloud/minimax-m2.7:cloud, ollama-cloud/qwen3-coder-next:cloud, openai/gpt-5.4-mini, openrouter/inclusionai/ling-2.6-flash [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-24-1419.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-25.md:4:7 -->
+- Summary: **Uptime:** gateway 11h 12m · system 11h 12m; **Model:** openrouter/inclusionai/ling-2.6-flash; **Tokens:** 18k in / 44 out · Cost: $0.0000; **Session:** agent:main:cron:368b1878-9cbc-429f-9b0f-159b2a80a086:run:1782394615897 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-25.md:4-7]
