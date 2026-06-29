@@ -1,21 +1,22 @@
 {
   "lastChecks": {
-    "weather": 1782749520,
+    "weather": 1782759908,
     "email": 1782744390,
     "calendar": 1782744390,
     "github": 1782744095,
-    "memory": 1782751230,
-    "heartbeat": 1782751230
+    "memory": 1782759908,
+    "heartbeat": 1782759908
   },
-  "errors": {},
+  "errors": {
+    "rockin_regi_weekly": {
+      "lastErrorMs": 1782659615319,
+      "error": "Rockin Regi Weekly 2026-06-28 run: agent/model response failure after art generation (post already published this week)",
+      "nextRunMs": 1783249200000
+    }
+  },
   "notes": {
-    "2026-06-29-1715": "heartbeat; weather/email/calendar current via cron at 16:02 UTC; calendar 0 events next 48h; no unread mail; git dirty with active WIP (venus_mqtt_bridge.py refactor + new services/trmnl-plugins/solar); left uncommitted; added .venv/ to root .gitignore; no urgent items",
-    "2026-06-29-1450": "memory maintenance; cleaned promotion noise from MEMORY.md",
-    "2026-06-29-1518": "routine heartbeat; no urgent items",
-    "2026-06-29-1526": "routine heartbeat; committed dream events log, no urgent items",
-    "2026-06-29-1608": "routine heartbeat; nothing new",
-    "2026-06-29-1620": "heartbeat; weather cron ran ok at 16:02 UTC; all crons ok; git clean; no urgent items",
-    "2026-06-29-1624": "heartbeat; no urgent items; weather/email/calendar covered by cron; memory reviewed; git clean except daily note",
-    "2026-06-29-1640": "heartbeat; no urgent items; weather/email/calendar covered by cron; memory reviewed; git dirty routine churn"
+    "2026-06-29-1811": "heartbeat; weather quick via wttr.in +94\u00b0F; weather-email-calendar cron ok at 16:02 UTC; calendar 0 events next 48h; git dirty with active WIP (venus_mqtt_bridge.py refactor + services/trmnl-plugins/solar) plus routine memory/dream churn; no urgent items",
+    "2026-06-29-1851": "heartbeat; weather forecast via wttr.in: +82\u00b0F sunny climbing to +93\u00b0F; Tue/Wed thunderstorm risk; weather-email-calendar cron ok at 16:02 UTC; calendar 0 events next 48h; git dirty WIP unchanged; no urgent items",
+    "2026-06-29-1905": "heartbeat at 2026-06-29 19:05 UTC; weather quick via wttr.in +94\u00b0F sunny; memory search FTS ok; calendar 0 events next 48h; Rockin Regi Weekly last errored 2026-06-28 (post already live); WIP left untouched: venus_mqtt_bridge.py refactor + services/trmnl-plugins/solar; committed memory files and pushed to site/main"
   }
 }
