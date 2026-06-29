@@ -1,24 +1,24 @@
 {
   "lastChecks": {
-    "email": 1782734580,
-    "calendar": 1782734580,
-    "weather": 1782734580,
-    "git": 1782730500,
-    "memory": 1782730500,
-    "disk": 1782730500,
-    "cron": 1782730500,
-    "heartbeat": 1782731735
+    "email": 1782737156,
+    "calendar": 1782737156,
+    "weather": 1782737156,
+    "heartbeat": 1782737092,
+    "git": 1782737092,
+    "memory": 1782737092,
+    "disk": 1782737092,
+    "cron": 1782737156
   },
   "notes": {
-    "email": "no local mail tool; weather-email-calendar-check cron refreshed email.md at 12:03 UTC; no unread mail",
-    "calendar": "no local calendar tool; Evolution ICS empty, 0 events next 48h; cron refreshed calendar.md at 12:03 UTC",
-    "weather": "weather-email-calendar-check cron refreshed weather at 12:03 UTC via Ambient API; Joppa Station 1: 74.3°F feels 76.08°F, 99% hum, calm wind, 0.00 in rain; Ambient barometer returned null, used wttr.in 1018 hPa; lightning battery still low",
-    "git": "4 modified files: memory/.dreams/events.jsonl, memory/2026-06-29.md, memory/heartbeat-state.json, weather.md — routine heartbeat/dream/weather logging, no urgent commit",
+    "email": "no local mail tool; weather-email-calendar-check cron refreshed email.md at 12:45 UTC after force-run recovery; no unread mail",
+    "calendar": "no local calendar tool; Evolution ICS empty, 0 events next 48h; cron refreshed calendar.md at 12:45 UTC",
+    "weather": "weather-email-calendar-check cron refreshed weather at 12:45 UTC via Ambient API after force-run recovery; Joppa Station 1 current conditions in weather.md",
+    "git": "6 modified files after cron refresh: calendar.md, email.md, memory/.dreams/events.jsonl, memory/2026-06-29.md, memory/heartbeat-state.json, weather.md — will commit",
     "memory": "reviewed MEMORY.md and daily notes 2026-06-29; nothing new to promote; FTS/BM25 memory_search working",
     "disk": "disk ~61% / 33G used / 57G total; load low; fine",
-    "cron": "11/11 enabled. weather-email-calendar-check last ok 12:03 UTC. Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (this week's comic already posted); next run 2026-07-05. All others lastRunStatus ok.",
+    "cron": "11/11 enabled. weather-email-calendar-check recovered via force run at 12:45 UTC (status ok). Rockin Regi Weekly last errored 2026-06-28 (this week's comic already posted); next run 2026-07-05. All others lastRunStatus ok.",
     "memory_search": "memory_search working with provider='none' (FTS/BM25). Searched for urgent TODOs; none found.",
     "ha_monitor": "state.json updated: 1342 entities, 52 real unavailable, 48 noise, 57 unknown, 0 Victron down, no alerts",
-    "heartbeat": "2026-06-29 11:15 UTC; weather/email/calendar cron OK at 12:03 UTC; disk 61%, load low; git has routine heartbeat/dream/weather logs; memory already reviewed; HA monitor no alerts; no urgent TODOs or events; HEARTBEAT_OK."
+    "heartbeat": "2026-06-29 12:44 UTC; weather/email/calendar cron recovered and refreshed files at 12:45 UTC; disk 61%, load low; git has routine heartbeat/dream/weather logs; memory reviewed; HA monitor no alerts; no urgent TODOs or events; HEARTBEAT_OK."
   }
 }
