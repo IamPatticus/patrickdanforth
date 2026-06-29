@@ -1,18 +1,18 @@
 {
   "lastChecks": {
-    "weather": 1782744390,
+    "weather": 1782749520,
     "email": 1782744390,
     "calendar": 1782744390,
     "github": 1782744095,
-    "memory": 1782746329
+    "memory": 1782750049,
+    "heartbeat": 1782750049
   },
-  "errors": {
-    "calendar": "calendar.txt not found",
-    "github": "PAT.txt not found"
-  },
+  "errors": {},
   "notes": {
     "2026-06-29-1450": "memory maintenance; cleaned promotion noise from MEMORY.md",
     "2026-06-29-1518": "routine heartbeat; no urgent items",
-    "2026-06-29-1526": "routine heartbeat; committed dream events log, no urgent items"
+    "2026-06-29-1526": "routine heartbeat; committed dream events log, no urgent items",
+    "2026-06-29-1608": "routine heartbeat; nothing new",
+    "2026-06-29-1620": "heartbeat; weather cron ran ok at 16:02 UTC; all crons ok; git clean; no urgent items"
   }
 }
