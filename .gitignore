@@ -1,6 +1,7 @@
 .env.local
 __pycache__/
 *.pyc
+.venv/
 patrickdanforth-site/
 whisplay-im-openclaw-plugin/
 chaotic-sanctum-site/

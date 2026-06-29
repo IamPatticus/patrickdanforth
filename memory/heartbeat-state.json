@@ -9,6 +9,7 @@
   },
   "errors": {},
   "notes": {
+    "2026-06-29-1715": "heartbeat; weather/email/calendar current via cron at 16:02 UTC; calendar 0 events next 48h; no unread mail; git dirty with active WIP (venus_mqtt_bridge.py refactor + new services/trmnl-plugins/solar); left uncommitted; added .venv/ to root .gitignore; no urgent items",
     "2026-06-29-1450": "memory maintenance; cleaned promotion noise from MEMORY.md",
     "2026-06-29-1518": "routine heartbeat; no urgent items",
     "2026-06-29-1526": "routine heartbeat; committed dream events log, no urgent items",
