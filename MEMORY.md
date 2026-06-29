@@ -85,6 +85,7 @@ _Last updated: 2026-06-28 23:12 UTC_
 - **2026-06-28 20:14 UTC:** 92.12°F / feels like 106.41°F, 62% humidity, wind 1.79 mph gusting 3.36 mph N (10°), 10-min avg NE (49°), UV 1, solar 108.78 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
 - **2026-06-28 20:45 UTC:** 93.92°F / feels like 106.86°F, 56% humidity, wind 1.79 mph gusting 2.24 mph NE (43° 10-min avg), UV 6, solar 663.46 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
 - **2026-06-28 20:38 UTC:** 92.66°F / feels like 106.44°F, 60% humidity, wind 2.46 mph gusting 3.36 mph NE (47°), 10-min avg NE (36°), UV 6, solar 698.97 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
+- **2026-06-29 00:03 UTC:** 87.62°F / feels like 97.64°F, 67% humidity, wind 0.89 mph gusting 1.12 mph NE (38° 10-min avg), UV 0, solar 50.06 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
 
 ---
 
