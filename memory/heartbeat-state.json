@@ -13,7 +13,7 @@
     "email": "no local mail tool; weather-email-calendar-check cron refreshed email.md at 12:45 UTC after force-run recovery; no unread mail",
     "calendar": "no local calendar tool; Evolution ICS empty, 0 events next 48h; cron refreshed calendar.md at 12:45 UTC",
     "weather": "weather-email-calendar-check cron refreshed weather at 12:45 UTC via Ambient API after force-run recovery; Joppa Station 1 current conditions in weather.md",
-    "git": "6 modified files after cron refresh: calendar.md, email.md, memory/.dreams/events.jsonl, memory/2026-06-29.md, memory/heartbeat-state.json, weather.md — will commit",
+    "git": "committed and pushed at 12:47 UTC: calendar.md, email.md, memory/.dreams/events.jsonl, memory/2026-06-29.md, memory/heartbeat-state.json, weather.md; working tree clean",
     "memory": "reviewed MEMORY.md and daily notes 2026-06-29; nothing new to promote; FTS/BM25 memory_search working",
     "disk": "disk ~61% / 33G used / 57G total; load low; fine",
     "cron": "11/11 enabled. weather-email-calendar-check recovered via force run at 12:45 UTC (status ok). Rockin Regi Weekly last errored 2026-06-28 (this week's comic already posted); next run 2026-07-05. All others lastRunStatus ok.",
