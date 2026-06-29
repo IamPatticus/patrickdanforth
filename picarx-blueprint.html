@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Picar-X + OpenClaw Rover — Blueprint</title>
+  <style>
+    :root {
+      --blueprint-bg: #1a3a5c;
+      --grid-line: rgba(255,255,255,0.12);
+      --ink: #ffffff;
+      --dim: rgba(255,255,255,0.65);
+      --accent: #7ae7ff;
+      --red: #ff6b6b;
+      --green: #7effb2;
+      --yellow: #ffdd75;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--blueprint-bg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .sheet {
+      max-width: 1100px;
+      margin: 0 auto;
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 40px 40px;
+      border: 2px solid var(--ink);
+      position: relative;
+    }
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .title-block {
+      border-top: 2px solid var(--ink);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+    .title-block > div {
+      border-right: 1px solid var(--ink);
+      padding: 12px 16px;
+      font-size: 0.75rem;
+      color: var(--dim);
+    }
+    .title-block > div:last-child { border-right: none; }
+    .title-block .field-label {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+    .legend {
+      position: absolute;
+      bottom: 100px;
+      right: 24px;
+      background: rgba(26, 58, 92, 0.92);
+      border: 1px solid var(--ink);
+      padding: 14px;
+      font-size: 0.72rem;
+      width: 180px;
+    }
+    .legend h4 {
+      font-size: 0.75rem;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--dim);
+      padding-bottom: 4px;
+    }
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .legend-box {
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+      <!-- Grid markers -->
+      <text x="30" y="24" fill="rgba(255,255,255,0.4)" font-size="10">0,0</text>
+      <text x="960" y="24" fill="rgba(255,255,255,0.4)" font-size="10">1000</text>
+      <text x="12" y="680" fill="rgba(255,255,255,0.4)" font-size="10">700</text>
+
+      <!-- Title -->
+      <text x="500" y="48" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold" font-family="ui-sans-serif, system-ui, sans-serif">PICAR-X ROVER + OPENCLAW BRAIN</text>
+      <text x="500" y="72" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">AUTONOMOUS MOBILE AGENT PLATFORM — CHAOTIC SANCTUM WORKS</text>
+
+      <!-- Chassis outline -->
+      <rect x="320" y="140" width="360" height="480" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="500" y="170" text-anchor="middle" fill="#7ae7ff" font-size="13" font-weight="bold">PICAR-X CHASSIS</text>
+
+      <!-- Dimensions -->
+      <line x1="300" y1="140" x2="300" y2="620" stroke="#ffffff" stroke-width="1"/>
+      <line x1="290" y1="140" x2="310" y2="140" stroke="#ffffff" stroke-width="1"/>
+      <line x1="290" y1="620" x2="310" y2="620" stroke="#ffffff" stroke-width="1"/>
+      <text x="285" y="385" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11" transform="rotate(-90 285 385)">480 mm</text>
+
+      <line x1="320" y1="640" x2="680" y2="640" stroke="#ffffff" stroke-width="1"/>
+      <line x1="320" y1="630" x2="320" y2="650" stroke="#ffffff" stroke-width="1"/>
+      <line x1="680" y1="630" x2="680" y2="650" stroke="#ffffff" stroke-width="1"/>
+      <text x="500" y="665" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11">360 mm</text>
+
+      <!-- Raspberry Pi 5 -->
+      <rect x="360" y="220" width="120" height="80" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="420" y="245" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Raspberry Pi 5</text>
+      <text x="420" y="265" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">8 GB RAM</text>
+      <text x="420" y="282" text-anchor="middle" fill="#7effb2" font-size="9">OpenClaw Host</text>
+      <circle cx="470" cy="280" r="3" fill="#7effb2"/>
+
+      <!-- Camera module -->
+      <rect x="420" y="160" width="80" height="40" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="460" y="180" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Camera</text>
+      <text x="460" y="195" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8">Pan / Tilt Servo</text>
+
+      <!-- Battery -->
+      <rect x="520" y="220" width="120" height="80" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="580" y="245" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Battery Pack</text>
+      <text x="580" y="265" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">7.4V Li-ion</text>
+      <text x="580" y="282" text-anchor="middle" fill="#ffdd75" font-size="9">Power Distribution</text>
+
+      <!-- Motors -->
+      <rect x="340" y="360" width="70" height="70" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="375" cy="395" r="22" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="375" y="392" text-anchor="middle" fill="#ffffff" font-size="9">M1</text>
+
+      <rect x="590" y="360" width="70" height="70" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="625" cy="395" r="22" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="625" y="392" text-anchor="middle" fill="#ffffff" font-size="9">M2</text>
+
+      <text x="500" y="410" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">DC Motors + Steering Servo</text>
+
+      <!-- Sensors -->
+      <rect x="360" y="480" width="100" height="60" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="410" y="502" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Ultrasonic</text>
+      <text x="410" y="518" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8">Distance Sensor</text>
+      <text x="410" y="532" text-anchor="middle" fill="#ff6b6b" font-size="8">Collision Avoidance</text>
+
+      <rect x="540" y="480" width="100" height="60" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <text x="590" y="502" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Line Tracker</text>
+      <text x="590" y="518" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8">3x IR Sensors</text>
+      <text x="590" y="532" text-anchor="middle" fill="#7ae7ff" font-size="8">Path Following</text>
+
+      <!-- Control bridge -->
+      <rect x="360" y="580" width="280" height="50" fill="none" stroke="#7ae7ff" stroke-width="2"/>
+      <text x="500" y="600" text-anchor="middle" fill="#7ae7ff" font-size="11" font-weight="bold">picarx_control.py</text>
+      <text x="500" y="618" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Python bridge between OpenClaw and SunFounder picarx library</text>
+
+      <!-- Brain / Cloud layer -->
+      <rect x="720" y="220" width="240" height="180" fill="none" stroke="#7effb2" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="840" y="245" text-anchor="middle" fill="#7effb2" font-size="13" font-weight="bold">OPENCLAW BRAIN</text>
+      <text x="840" y="270" text-anchor="middle" fill="#ffffff" font-size="10">Talos / Agents</text>
+      <text x="840" y="290" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Command Parser</text>
+      <text x="840" y="310" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Vision / Inference</text>
+      <text x="840" y="330" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Session State</text>
+      <text x="840" y="355" text-anchor="middle" fill="#ffdd75" font-size="9">Runs locally on Pi 5</text>
+
+      <!-- User / Network -->
+      <rect x="40" y="220" width="220" height="180" fill="none" stroke="#ffdd75" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="150" y="245" text-anchor="middle" fill="#ffdd75" font-size="13" font-weight="bold">USER / NETWORK</text>
+      <text x="150" y="270" text-anchor="middle" fill="#ffffff" font-size="10">Telegram / Webchat</text>
+      <text x="150" y="290" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Voice Commands</text>
+      <text x="150" y="310" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Tailscale / Wi-Fi</text>
+      <text x="150" y="330" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Remote Control</text>
+
+      <!-- Connection lines -->
+      <line x1="260" y1="310" x2="320" y2="310" stroke="#ffdd75" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <polygon points="320,310 312,306 312,314" fill="#ffdd75"/>
+      <text x="290" y="300" text-anchor="middle" fill="#ffdd75" font-size="9">commands</text>
+
+      <line x1="680" y1="260" x2="720" y2="260" stroke="#7effb2" stroke-width="1.5"/>
+      <polygon points="720,260 712,256 712,264" fill="#7effb2"/>
+      <text x="700" y="250" text-anchor="middle" fill="#7effb2" font-size="9">local API</text>
+
+      <line x1="420" y1="605" x2="500" y2="605" stroke="#7ae7ff" stroke-width="1.5"/>
+      <line x1="500" y1="605" x2="500" y2="580" stroke="#7ae7ff" stroke-width="1.5"/>
+
+      <line x1="375" y1="430" x2="375" y2="480" stroke="#ffffff" stroke-width="1" stroke-dasharray="3,2"/>
+      <line x1="625" y1="430" x2="625" y2="480" stroke="#ffffff" stroke-width="1" stroke-dasharray="3,2"/>
+
+      <!-- Data flow annotation -->
+      <text x="500" y="460" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-style="italic">sensor telemetry → brain → motor / servo commands</text>
+
+      <!-- Notes -->
+      <text x="40" y="620" fill="rgba(255,255,255,0.6)" font-size="9">NOTE: Pi 5 provides compute. Camera + ultrasonic provide perception.</text>
+      <text x="40" y="636" fill="rgba(255,255,255,0.6)" font-size="9">OpenClaw translates natural language commands into picarx Python calls.</text>
+      <text x="40" y="652" fill="rgba(255,255,255,0.6)" font-size="9">Power: battery pack → Pi 5 + motors + servos + sensors.</text>
+    </svg>
+
+    <div class="legend">
+      <h4>LEGEND</h4>
+      <div class="legend-row"><div class="legend-box" style="border:2px solid #fff; background:transparent;"></div><span>Physical Component</span></div>
+      <div class="legend-row"><div class="legend-box" style="border:2px dashed #7effb2; background:transparent;"></div><span>Software / Brain Zone</span></div>
+      <div class="legend-row"><div class="legend-box" style="border:2px dashed #ffdd75; background:transparent;"></div><span>External / Network</span></div>
+      <div class="legend-row"><div class="legend-box" style="border:2px solid #7ae7ff; background:transparent;"></div><span>Control Bridge</span></div>
+      <div class="legend-row"><div class="legend-box" style="background:#7ae7ff;"></div><span>Data / Command Flow</span></div>
+    </div>
+
+    <div class="title-block">
+      <div>
+        <div class="field-label">Project</div>
+        Picar-X Rover + OpenClaw Brain
+      </div>
+      <div>
+        <div class="field-label">Date</div>
+        2026-06-29
+      </div>
+      <div>
+        <div class="field-label">Author</div>
+        Patrick Danforth / Talos
+      </div>
+      <div>
+        <div class="field-label">Status</div>
+        Idea / Parts Incoming
+      </div>
+    </div>
+  </div>
+</body>
+</html>
