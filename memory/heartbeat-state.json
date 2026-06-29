@@ -7,7 +7,7 @@
     "memory": 1782704394,
     "disk": 1782704394,
     "cron": 1782704394,
-    "heartbeat": 1782704394
+    "heartbeat": 1782707875
   },
   "notes": {
     "email": "no local mail tool; weather-email-calendar-check cron last ok 20:45 UTC (errored 00:02 UTC); no unread mail",
@@ -18,6 +18,6 @@
     "disk": "disk 61% / 33G used / 57G total; load ~0.10; 7.7Gi RAM, 1.7Gi used, 6.0Gi avail",
     "cron": "11/11 enabled. weather-email-calendar-check last errored at 00:02 UTC (consecutiveErrors: 1). Rockin Regi Weekly last errored 2026-06-28 16:06 UTC (this week's comic already posted); next run 2026-07-05. All others lastRunStatus ok.",
     "memory_search": "memory_search working with provider='none' (FTS/BM25). Searched for urgent TODOs at 03:54 UTC; none found.",
-    "heartbeat": "2026-06-29 03:54 UTC; late-night/early-morning beat; no urgent items; weather cron will retry ~04:22 UTC; staying quiet."
+    "heartbeat": "2026-06-29 04:37 UTC; early-morning beat; weather-email-calendar-check cron now ok (last ok); memory_search FTS working, no urgent TODOs; disk 61%, load 0.08; staying quiet."
   }
 }
