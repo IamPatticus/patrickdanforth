@@ -1,0 +1,15 @@
+[Unit]
+Description=TRMNL Patticus Solar Plugin
+After=network.target
+
+[Service]
+Type=simple
+User=patrick
+WorkingDirectory=/home/patrick/.openclaw/workspace/services/trmnl-plugins/solar
+Environment=PORT=8123
+ExecStart=/usr/bin/python3 -m uvicorn app:app --host 127.0.0.1 --port 8123
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Venus OS MQTT Bridge for TRMNL Solar Plugin
+After=network.target
+
+[Service]
+Type=simple
+User=patrick
+WorkingDirectory=/home/patrick/.openclaw/workspace/services/trmnl-plugins/solar
+ExecStart=/usr/bin/python3 /home/patrick/.openclaw/workspace/services/trmnl-plugins/solar/venus_mqtt_bridge.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

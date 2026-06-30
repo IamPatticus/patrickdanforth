@@ -4,23 +4,13 @@
     "email": 1782777782,
     "calendar": 1782777782,
     "github": 1782744095,
-    "memory": 1782781667,
-    "disk": 1782781667,
-    "load": 1782781667,
-    "heartbeat": 1782781667
+    "memory": 1782787284,
+    "disk": 1782790506,
+    "load": 1782790506,
+    "heartbeat": 1782790315
   },
   "notes": {
-    "2026-06-30-0107": "heartbeat at 2026-06-30 01:07 UTC; memory review complete, nothing new to promote; health disk 62%, load 0.74/0.36/0.23, mem 1.8G used / 5.9G avail; git WIP unchanged (venus_mqtt_bridge.py + services/trmnl-plugins/ + memory churn); email/calendar/weather handled by 4h cron (last 00:02 UTC); late UTC, no urgent items",
-    "2026-06-30-0015": "heartbeat at 2026-06-30 00:15 UTC; email/calendar handled by 4h cron (last 00:02 UTC); weather current 00:02 UTC; memory search FTS ok; health disk 62%, load 0.43/0.21/0.12, mem 1.8G used / 5.9G avail; git WIP unchanged (venus_mqtt_bridge.py refactor + services/trmnl-plugins/solar); nothing urgent",
-    "2026-06-30-0002": "scheduled weather/email/calendar check; weather from wttr.in backup (Ambient API 401): 93F/feels 97F, 44% humidity; Jul 1 strong storm risk ~82% rain; calendar 0 events next 48h; email 0 unread; disk 62%, load 0.20/0.15/0.10",
-    "2026-06-29-2314": "heartbeat at 2026-06-29 23:14 UTC; weather/email/calendar covered by cron every 4h (last 20:02 UTC); memory review due but skipped because nothing new since 19:05 review; health checks current (disk 61%, load ~0.10); late UTC, staying quiet",
-
-    "2026-06-29-1811": "heartbeat; weather quick via wttr.in +94°F; weather-email-calendar cron ok at 16:02 UTC; calendar 0 events next 48h; git dirty with active WIP (venus_mqtt_bridge.py refactor + services/trmnl-plugins/solar) plus routine memory/dream churn; no urgent items",
-    "2026-06-29-1851": "heartbeat; weather forecast via wttr.in: +82°F sunny climbing to +93°F; Tue/Wed thunderstorm risk; weather-email-calendar cron ok at 16:02 UTC; calendar 0 events next 48h; git dirty WIP unchanged; no urgent items",
-    "2026-06-29-1905": "heartbeat at 2026-06-29 19:05 UTC; weather quick via wttr.in +94°F sunny; memory search FTS ok; calendar 0 events next 48h; Rockin Regi Weekly last errored 2026-06-28 (post already live); WIP left untouched: venus_mqtt_bridge.py refactor + services/trmnl-plugins/solar; committed memory files and pushed to site/main",
-    "2026-06-29-1958": "heartbeat at 2026-06-29 19:58 UTC; memory search FTS/BM25 working; did quick memory review and health check; disk 62%, load 0.14, mem 1.9G used of 7.7G; git dirty unchanged (venus_mqtt_bridge.py + services/trmnl-plugins/ + memory churn); weather-email-calendar cron due ~20:02 UTC; nothing urgent",
-    "2026-06-29-2125": "heartbeat at 2026-06-29 21:25 UTC; weather/email/calendar covered by cron; health check: disk 62%, load 0.15, mem 1.8G used / 5.9G avail; memory search FTS ok, nothing urgent; late UTC, staying quiet",
-    "2026-06-29-2156": "heartbeat at 2026-06-29 21:56 UTC; previous full check ~21:25 UTC; memory search FTS ok, nothing urgent; late UTC, staying quiet"
+    "2026-06-30-0315": "heartbeat at 2026-06-30 03:15 UTC; health check: disk 62%, load 0.21/0.28/0.27; git WIP unchanged (venus_mqtt_bridge.py + services/trmnl-plugins/ + dream/heartbeat churn); weather-email-calendar handled by 4h cron (last 00:02 UTC); memory review: nothing new to promote; only ~11 min since last check; late UTC, staying quiet"
   },
   "errors": {
     "rockin_regi_weekly": {
