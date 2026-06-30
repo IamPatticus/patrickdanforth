@@ -1,16 +1,19 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- Email: — (blocked, missing himalaya tool)
-- Calendar: — (blocked, missing gcalcli tool)
-- Weather: ✓ Manually updated
+- Email: ✓ handled by 4h cron (last 2026-06-30 00:02 UTC)
+- Calendar: ✓ handled by 4h cron (last 2026-06-30 00:02 UTC)
+- Weather: ✓ 2026-06-30 00:02 UTC
+- Memory: ✓ 2026-06-30 00:15 UTC
+- Health: ✓ 2026-06-30 00:15 UTC
 
 ## Notes
-Email and calendar checks are blocked due to missing tools (himalaya, gcalcli).
+Email and calendar checks are handled by the dedicated 4-hour cron job, so heartbeat polls skip them.
 
-Weather status is tracked in this file and updated during heartbeat polls.
+Weather status is tracked in `weather.md` and `WEATHER.md`, refreshed by the cron.
 
-**Current weather:** ☀️ +84°F, 79%, 1017hPa, wind calm/gust 1mph, UV 1 (Walling, TN) — Ambient Joppa Station 1 reading: 84.4°F feels 94.6°F, solar 151 W/m², no rain today. Lightning sensor battery still low (`batt_lightning: 0`); no strikes today, last strike ~23h37m ago.
+**Current weather:** 🌩️ +93°F, 44%, wind W ~2–4 mph, UV 1 (Walling, TN — wttr.in backup, Ambient API 401). Thunderstorm risk Wednesday. Lightning sensor battery still low (`batt_lightning: 0`); last local strike 2026-06-29 ~23:09 UTC at 0.62 mi.
 
 ## Next Due
-- Weather check: next heartbeat poll (~30 minute cycle)
+- Weather check: 4h cron (~04:02 UTC)
+- Memory review: next heartbeat poll
