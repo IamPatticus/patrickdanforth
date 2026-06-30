@@ -1,9 +1,9 @@
 {
   "_version": 2,
   "total": 1342,
-  "unavailable_count": 100,
-  "real_unavailable_count": 52,
-  "noise_unavailable_count": 48,
+  "unavailable_count": 94,
+  "real_unavailable_count": 49,
+  "noise_unavailable_count": 45,
   "unknown_count": 57,
   "victron_down": 0,
   "top_unavailable_domains": [
@@ -13,19 +13,19 @@
     ],
     [
       "switch",
-      9
+      8
     ],
     [
       "select",
       4
     ],
     [
-      "light",
+      "button",
       3
     ],
     [
-      "button",
-      3
+      "light",
+      2
     ]
   ],
   "alerts": []

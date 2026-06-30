@@ -1,21 +1,31 @@
-# Weather - Walling, TN
+---
+layout: default
+title: Weather Dashboard
+---
 
-**Updated:** Tuesday, June 30, 2026 — 2:32 PM UTC
+# Weather Dashboard
 
-- **Temperature:** 93°F (wttr.in current)
-- **Feels like:** 99°F
-- **Humidity:** 52% (wttr.in current)
-- **Wind:** SSE @ 5 mph (wttr.in current)
-- **UV index:** Not available (Ambient Weather API failure)
-- **Solar radiation:** Not available (Ambient Weather API failure)
-- **Rain today:** Not available (Ambient Weather API failure)
-- **Rain event total:** Not available (Ambient Weather API failure)
-- **Pressure:** 1016 hPa (wttr.in current)
-- **Source:** wttr.in (Ambient Weather API returned 401 error)
+_Last updated: 2026-06-30 15:51 UTC_
 
-**Forecast snapshot (wttr.in):**
-- **Today (Jun 30):** low 72°F / high 95°F, mostly sunny, rain chance ~5–9%.
-- **Jul 1:** low 66°F / high 96°F, **strong storm/rain risk** (~86% chance evening) with thundery outbreaks and patchy rain nearby. Heat index up to ~104°F ahead of storms.
-- Highs stay low-to-mid 90s; heat index likely 100–104°F range.
+## Current Conditions (wttr.in backup)
+**Location:** Walling, TN
 
-**Lightning:** Not available (Ambient Weather API failure). Last known status: battery low (`batt_lightning: 0`), last strike 2026-06-29 22:54 UTC.
+- **Sampled at:** 2026-06-30 15:51 UTC
+- **Temperature:** 84°F (feels like 91°F)
+- **Condition:** Sunny
+- **Wind:** NE at 2 mph
+- **Precipitation:** 0.00 in
+
+## Forecast
+
+- **Today (Jun 30):** Sunny/Clear. High: +95°F (+100°F). Low: +84°F (+91°F).
+- **Tomorrow (Jul 1):** **Moderate or heavy rain shower / Thunder.** High: +96°F (+104°F). Low: +76°F (+78°F). **High precip probability (86%) in evening.**
+- **Day After (Jul 2):** Patchy rain possible / Thundery outbreaks possible. High: +94°F (+101°F). Low: +70°F.
+
+## Station Integrity (Joppa Station 1)
+
+- **Status:** **API/Connection Error** (Using wttr.in backup due to 401 Unauthorized)
+- **Errors:** `applicationKey-invalid` on last check.
+- **Last Successful Contact:** 2026-06-30 04:02 UTC
+- **Sensor Status:**
+  - Lightning sensor battery: **LOW** (daily check)

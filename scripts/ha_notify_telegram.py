@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Send HA check report to Telegram via bot API."""
 import json, os, sys, datetime, urllib.request, urllib.error
+from pathlib import Path
 
 REPORT_FILE = Path(__file__).with_suffix(".state.json")
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
