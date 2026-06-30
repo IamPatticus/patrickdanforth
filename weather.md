@@ -1,20 +1,21 @@
 # Weather - Walling, TN
 
-**Updated:** Tuesday, June 30, 2026 — 12:02 AM UTC
+**Updated:** Tuesday, June 30, 2026 — 2:32 PM UTC
 
-- **Temperature:** 93°F
-- **Feels like:** 97°F
-- **Humidity:** 44%
-- **Wind:** W @ 2–4 mph
-- **UV index:** 1
-- **Solar radiation:** n/a (night)
-- **Rain today:** 0.00 in
-- **Pressure:** 1017 hPa (wttr.in current)
-- **Source:** wttr.in backup — Ambient Weather API returned 401
+- **Temperature:** 93°F (wttr.in current)
+- **Feels like:** 99°F
+- **Humidity:** 52% (wttr.in current)
+- **Wind:** SSE @ 5 mph (wttr.in current)
+- **UV index:** Not available (Ambient Weather API failure)
+- **Solar radiation:** Not available (Ambient Weather API failure)
+- **Rain today:** Not available (Ambient Weather API failure)
+- **Rain event total:** Not available (Ambient Weather API failure)
+- **Pressure:** 1016 hPa (wttr.in current)
+- **Source:** wttr.in (Ambient Weather API returned 401 error)
 
 **Forecast snapshot (wttr.in):**
-- **Today (Jun 30):** low 70°F / high 94°F, mostly sunny, rain chance ~14%.
-- **Jul 1:** low 64°F / high 96°F, **high rain/storm risk** (~82% chance) with patchy rain and thundery outbreaks nearby.
+- **Today (Jun 30):** low 72°F / high 95°F, mostly sunny, rain chance ~5–9%.
+- **Jul 1:** low 66°F / high 96°F, **strong storm/rain risk** (~86% chance evening) with thundery outbreaks and patchy rain nearby. Heat index up to ~104°F ahead of storms.
 - Highs stay low-to-mid 90s; heat index likely 100–104°F range.
 
-Lightning sensor battery still low (`batt_lightning: 0`). No new local lightning data available (Ambient API 401). Last known strike 2026-06-27 19:17 UTC, 0.62 mi away.
+**Lightning:** Not available (Ambient Weather API failure). Last known status: battery low (`batt_lightning: 0`), last strike 2026-06-29 22:54 UTC.

@@ -1,6 +1,6 @@
 # Calendar Status
 
-_Last checked: Tuesday, June 30, 2026 — 12:02 AM UTC_
+_Last checked: Tuesday, June 30, 2026 — 4:02 AM UTC_
 
 ## Status: No events in next 24–48 hours
 
@@ -8,7 +8,7 @@ _Last checked: Tuesday, June 30, 2026 — 12:02 AM UTC_
 - **VEVENT count:** 0 total, 0 upcoming.
 - **Next 24h events:** 0 found.
 - **Next 48h events:** 0 found.
-- **Check window:** 2026-06-30 00:02 UTC → 2026-07-02 00:02 UTC.
+- **Check window:** 2026-06-30 04:02 UTC → 2026-07-02 04:02 UTC.
 - **CLI tools:** `gcalcli`, `khal`, `calcurse`, `vdirsyncer` are not installed.
 - **Google token:** `~/.config/google/token.json` only has **Blogger** scope, so Google Calendar is not accessible.
 

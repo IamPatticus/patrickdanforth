@@ -1,22 +1,17 @@
 {
   "lastChecks": {
-    "weather": 1782777782,
-    "email": 1782777782,
-    "calendar": 1782777782,
+    "email": 1782820950,
+    "calendar": 1782820950,
+    "weather": 1782830578,
+    "memory": 1782801901,
     "github": 1782744095,
-    "memory": 1782787284,
-    "disk": 1782790506,
-    "load": 1782790506,
-    "heartbeat": 1782790315
-  },
-  "notes": {
-    "2026-06-30-0315": "heartbeat at 2026-06-30 03:15 UTC; health check: disk 62%, load 0.21/0.28/0.27; git WIP unchanged (venus_mqtt_bridge.py + services/trmnl-plugins/ + dream/heartbeat churn); weather-email-calendar handled by 4h cron (last 00:02 UTC); memory review: nothing new to promote; only ~11 min since last check; late UTC, staying quiet"
-  },
-  "errors": {
-    "rockin_regi_weekly": {
-      "lastErrorMs": 1782659615319,
-      "error": "Rockin Regi Weekly 2026-06-28 run: agent/model response failure after art generation (post already published this week)",
-      "nextRunMs": 1783249200000
-    }
+    "heartbeat-0440": 1782794433000,
+    "heartbeat-0430": 1782797093,
+    "heartbeat-0525": 1782797127,
+    "heartbeat-0624": 1782800685,
+    "heartbeat-0704": 1782803101,
+    "heartbeat": 1782830956,
+    "disk": 1782830956,
+    "load": 1782830956
   }
 }
