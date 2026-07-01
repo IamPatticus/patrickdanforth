@@ -1,12 +1,12 @@
 {
   "lastChecks": {
-    "heartbeat": 1782907020000,
-    "gateway": 1782907020000,
-    "system": 1782907020000,
-    "poll": 1782907020000
+    "heartbeat": 1782909037347,
+    "gateway": 1782909037347,
+    "system": 1782909037347,
+    "poll": 1782909037347
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T11:57:00Z",
+  "lastUpdated": "2026-07-01T12:27:00+00:00",
   "polls": {
     "2026-07-01T11:49:00Z": {
       "route": "heartbeat",
@@ -36,6 +36,58 @@
         "Resources: load 0.22/0.27/0.22, RAM 1.6/7.7 Gi used, swap 30 Mi, disk 66%.",
         "Git workspace clean except untracked memory/.dreams/events.jsonl.",
         "Next wake: openclaw_heartbeat 12:19 UTC."
+      ]
+    },
+    "2026-07-01T12:05:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T12:19:00Z",
+      "notes": [
+        "HEARTBEAT_OK: System healthy, no urgent items.",
+        "Reviewed HEARTBEAT.md and memory/2026-07-01.md; no action needed.",
+        "Git workspace clean except untracked memory/.dreams/events.jsonl.",
+        "Next wake: openclaw_heartbeat 12:19 UTC."
+      ]
+    },
+    "2026-07-01T12:23:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T12:49:00Z",
+      "notes": [
+        "HEARTBEAT_OK: System healthy, no urgent items.",
+        "Gateway uptime 14h 20m; system uptime 21h 54m.",
+        "Cron: 7/8 jobs OK; Rockin Regi Weekly still in prior error state (not due until 2026-07-05).",
+        "Inspected Rockin Regi run history: repeated 'Agent couldn't generate a response' + timeouts; likely model/image-provider failures.",
+        "Resources: RAM 1.6/7.7 Gi used, swap 30 Mi, disk 66%.",
+        "Next wake: openclaw_heartbeat 12:49 UTC."
+      ]
+    },
+    "2026-07-01T12:25:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T12:49:00Z",
+      "notes": [
+        "HEARTBEAT_OK: System healthy, no urgent items.",
+        "Reviewed HEARTBEAT.md and heartbeat-state.json; no action needed.",
+        "No active sessions.",
+        "Next wake: openclaw_heartbeat 12:49 UTC."
+      ]
+    },
+    "2026-07-01T12:27:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T12:49:00Z",
+      "notes": [
+        "HEARTBEAT_OK: System healthy, no urgent items.",
+        "Gateway uptime 14h 22m; system uptime 21h 58m.",
+        "Cron: 7/8 jobs OK; Rockin Regi Weekly in prior error state, next run 2026-07-05 11:00 UTC.",
+        "Resources: load 0.07/0.13/0.18, disk 66%.",
+        "Reviewed Rockin Regi run history; recurring agent-response failures/timeouts, plus OpenRouter credit issue for image-gen routes.",
+        "No active sessions; no user action required."
       ]
     }
   }

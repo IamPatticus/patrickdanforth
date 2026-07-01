@@ -90,35 +90,8 @@ def generate_art(title, script):
     slug = "_".join(re.sub(r'[^\w\s]', '', title).lower().split()[:4])
     local_path = IMAGES_DIR / f"regi_{DATE_STR}_{slug}.png"
 
-    # Primary: same route/model as Reginald Daily
-    cmd = [
-        "openclaw", "infer", "image", "generate",
-        "--prompt", prompt,
-        "--size", "1536x1024",
-        "--output", str(local_path),
-        "--model", "openrouter/google/gemini-3.1-flash-image-preview",
-        "--timeout-ms", "120000"
-    ]
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=150)
-        if result.returncode == 0 and local_path.exists() and local_path.stat().st_size > 0:
-            print(f"[ART] Saved to {local_path} via openclaw infer")
-            return local_path
-        print(f"[ART] openclaw infer failed: {result.stderr}")
-    except Exception as e:
-        print(f"[ART] openclaw infer error: {e}")
-
-    # Fallback 1: OpenRouter direct
-    from services.blogger.openrouter_image import generate_image
-    print("[ART] Falling back to OpenRouter GPT-5.4 Image 2...")
-    if generate_image(prompt, str(local_path), model="openai/gpt-5.4-image-2", width=1536, height=1024, timeout=240):
-        return local_path
-
-    # Fallback 2: FLUX.2 Flex
-    print("[ART] Falling back to OpenRouter FLUX.2 Flex...")
-    if generate_image(prompt, str(local_path), model="black-forest-labs/flux.2-flex", width=1536, height=1024, timeout=180):
-        return local_path
-
+    # All paid image providers are currently exhausted. Post text-only automatically.
+    print("[ART] Paid image providers unavailable (OpenAI billing limit / OpenRouter credits exhausted). Posting text-only.")
     return None
 
 # ── Step 2: Generate HTML Post ──────────────────────────────
