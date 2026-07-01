@@ -1,95 +1,21 @@
 {
   "lastChecks": {
-    "heartbeat": 1782925797745,
-    "gateway": 1782925797745,
-    "system": 1782925797745,
-    "poll": 1782925797745,
-    "memoryReview": 1782925917769
+    "heartbeat": 1782940745000,
+    "gateway": 1782940745000,
+    "system": 1782940745000,
+    "poll": 1782940745000,
+    "memoryReview": 1782930638715
   },
   "status": "healthy",
+  "lastUpdated": "2026-07-01T21:19:00Z",
   "lastPoll": {
-    "2026-07-01T17:09:00Z": {
+    "2026-07-01T21:19:00Z": {
       "route": "heartbeat",
       "healthy": true,
       "notes": [
-        "Heartbeat at 17:09 UTC; system healthy, load low.",
-        "Cron 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly, not due until 2026-07-05 11:00 UTC).",
-        "No active sessions or urgent items; gateway uptime ~47m."
-      ]
-    }
-  },
-  "lastUpdated": "2026-07-01T17:09:00.000Z",
-  "polls": {
-    "2026-07-01T16:54:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "notes": [
-        "Heartbeat at 16:53 UTC; system healthy, load low (0.11/0.14/0.20).",
-        "Cron 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly, not due until 2026-07-05 11:00 UTC).",
-        "Committed heartbeat and dream log updates locally; no origin remote configured (expected for this repo).",
-        "No active sessions or urgent items."
-      ]
-    },
-    "2026-07-01T15:04:00Z": {
-      "route": "poll",
-      "healthy": true,
-      "notes": [
-        "HEARTBEAT_OK: Poll received 15:04 UTC; no urgent items since 15:04.",
-        "Ikaris Nightly ran OK at 15:00 UTC (America/Chicago cron 0 10 * * *).",
-        "Rockin Regi Weekly Comic still error from 2026-06-28, not due until 2026-07-05 11:00 UTC.",
-        "No active sessions; cron 8 jobs, 1 error (Rockin Regi).",
-        "update_memory next at 2026-07-02 00:00 UTC (~9h)."
-      ]
-    },
-    "2026-07-01T15:10:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "notes": [
-        "Heartbeat at 15:10 UTC; gateway/system healthy.",
-        "No active sessions; cron 8 jobs, 1 error (Rockin Regi Weekly, stale).",
-        "Uncommitted workspace changes present: HEARTBEAT.md, memory/heartbeat-state.json, memory/.dreams/events.jsonl, plus untracked memory/2026-07-01-1420.md.",
-        "Daily git backup runs at 2026-07-02 04:00 UTC (11h)."
-      ]
-    },
-    "2026-07-01T15:30:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "notes": [
-        "Heartbeat at 15:30 UTC; gateway/system healthy.",
-        "System load low (0.14/0.11/0.09), RAM ~1.7Gi used / 7.7Gi total.",
-        "No active sessions; cron 8 jobs, 1 error (Rockin Regi Weekly, stale from 2026-06-28).",
-        "Uncommitted changes: HEARTBEAT.md, memory/heartbeat-state.json, memory/.dreams/events.jsonl, untracked memory/2026-07-01-1420.md.",
-        "No urgent items; next notable cron: update_memory at 2026-07-02 00:00 UTC (~8.5h)."
-      ]
-    },
-    "2026-07-01T16:07:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "notes": [
-        "Heartbeat at 16:07 UTC; gateway responding after restart.",
-        "Gateway uptime 3m (restarted ~16:04 UTC); system uptime 1d 1h 28m.",
-        "Cron 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly, 2026-06-28).",
-        "No active sessions; next notable cron: update_memory at 2026-07-02 00:00 UTC (~8h).",
-        "Updated HEARTBEAT.md and heartbeat-state.json."
-      ]
-    },
-    "2026-07-01T16:21:00Z": {
-      "route": "poll",
-      "healthy": true,
-      "notes": [
-        "Poll at 16:21 UTC; gateway up 17m, system up 1d 1h, load low.",
-        "Cron 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly, not due until 2026-07-05 11:00 UTC).",
-        "No active sessions or urgent items.",
-        "Committed pending heartbeat/memory updates and pushed to site (github.com:IamPatticus/patrickdanforth.git, main -> main)."
-      ]
-    },
-    "2026-07-01T16:40:00Z": {
-      "route": "poll",
-      "healthy": true,
-      "notes": [
-        "Poll received 16:39 UTC; system healthy, load low.",
-        "Cron 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly, not due until 2026-07-05 11:00 UTC).",
-        "Committed pending memory/.dreams/events.jsonl update and pushed to site/main.",
+        "Heartbeat at 21:19 UTC; system stable.",
+        "Gateway and cron healthy; next wake 21:20 UTC; 8 jobs enabled.",
+        "Pushed pending commits to site/main (origin remote is 'site').",
         "No active sessions or urgent items."
       ]
     }
