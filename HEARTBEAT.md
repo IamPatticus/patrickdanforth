@@ -1,12 +1,12 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 16:07 UTC
+- **lastChecked**: 2026-07-01 16:32 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
 - **pollResult**: OK, no urgent items.
 
 ## Quick Status
-- **Uptime**: gateway 3m · system 1d 1h 28m
+- **Uptime**: gateway 28m · system 1d 1h 53m
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 7 ok, 1 error
 - **`update_memory`**: ✅ Fixed (Telegram target `8284391571`). Next run 2026-07-02 00:00 UTC (~8h).
@@ -14,12 +14,12 @@
 - **`Reginald Daily Generation`**: ✅ July 1st text-only fallback worked. Next run 2026-07-02 06:00 UTC (~14h).
 - **Queue**: steer (depth 0)
 - **Active sessions**: 0
-- **Git**: Working tree clean (previous heartbeat/memory commits pushed).
+- **Git**: Working tree clean, committed/pushed to `site/main`.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run ~16:07 UTC, next ~16:27 UTC.
+- `openclaw_heartbeat` runs every 30m; last run ~16:27 UTC, next ~16:57 UTC.
 - `ollama_keepalive_serenity` runs every ~2m.
-- Gateway just restarted at ~16:04 UTC; was previously stable ~16h.
+- Gateway stable since ~16:04 UTC restart.
 - `Ikaris Nightly` last OK at 15:00 UTC; next run 2026-07-02 10:00 UTC (America/Chicago).
 - `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~11h).
 - `Daily GitHub Backup` next run 2026-07-02 04:00 UTC (America/Chicago, ~12h).
@@ -45,7 +45,6 @@
 ## Next Planned Checks
 - 🔲 Continue watching `update_memory` delivery at midnight UTC.
 - 🔲 Decide whether to fund image providers or deploy a local image-generation model for Reginald/Rockin Regi art.
-- 🔲 Commit/push pending heartbeat/memory maintenance changes.
 
 ## Commands
 - `session_status` — show runtime details
