@@ -1,9 +1,9 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 21:59 UTC
+- **lastChecked**: 2026-07-01 22:16 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **pollResult**: OK, no urgent items (21:59 UTC).
+- **pollResult**: OK, no urgent items; refreshed weather + calendar.
 - **memoryReviewed**: 2026-07-01 17:31 UTC
 
 ## Quick Status
@@ -18,7 +18,9 @@
 - **Git**: workspace committed/pushed — `memory/.dreams/events.jsonl` updated.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run ~21:19 UTC, next ~21:49 UTC.
+- `openclaw_heartbeat` runs every 30m; last run ~21:59 UTC, next ~22:29 UTC.
+- Weather refreshed: Walling, TN currently 99°F / sunny; rain/storms possible tomorrow (Jul 2) evening (~70% chance).
+- Calendar refreshed: no events in next 48h.
 - `ollama_keepalive_serenity` runs every ~2m.
 - Gateway stable since ~16:04 UTC restart.
 - 21:30 heartbeat poll: no changes from 21:19 check.
@@ -29,9 +31,9 @@
 - Phone/Android connectivity issue back-burnered per user; browser over Tailscale works, app does not.
 
 ## System
-- **Load**: 1.15/0.57/0.38
-- **RAM**: 2.3 Gi used / 7.7 Gi total (5.3 Gi available)
-- **Swap**: ~30 Mi used / 4.0 Gi total
+- **Load**: (not sampled this beat)
+- **RAM**: (not sampled this beat)
+- **Swap**: (not sampled this beat)
 - **Disk `/`**: 36G used / 57G total (67%)
 
 ## Upcoming Cron Runs

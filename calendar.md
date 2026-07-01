@@ -1,5 +1,7 @@
 # Calendar
 
-_As of 2026-06-30 15:12 UTC_
+_As of 2026-07-01 22:16 UTC_
 
-*Unable to fetch calendar at this time.*
+No local calendar events found in the next 48 hours.
+
+*No active ICS source is currently available.*
