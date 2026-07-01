@@ -1,12 +1,12 @@
 {
   "lastChecks": {
-    "heartbeat": 1782918598700,
-    "gateway": 1782918598700,
-    "system": 1782918598700,
-    "poll": 1782918598700
+    "heartbeat": 1782922076971,
+    "gateway": 1782922076971,
+    "system": 1782922076971,
+    "poll": 1782922076971
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T15:10:00.000Z",
+  "lastUpdated": "2026-07-01T16:07:00.000Z",
   "polls": {
     "2026-07-01T15:04:00Z": {
       "route": "poll",
@@ -27,6 +27,28 @@
         "No active sessions; cron 8 jobs, 1 error (Rockin Regi Weekly, stale).",
         "Uncommitted workspace changes present: HEARTBEAT.md, memory/heartbeat-state.json, memory/.dreams/events.jsonl, plus untracked memory/2026-07-01-1420.md.",
         "Daily git backup runs at 2026-07-02 04:00 UTC (11h)."
+      ]
+    },
+    "2026-07-01T15:30:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "notes": [
+        "Heartbeat at 15:30 UTC; gateway/system healthy.",
+        "System load low (0.14/0.11/0.09), RAM ~1.7Gi used / 7.7Gi total.",
+        "No active sessions; cron 8 jobs, 1 error (Rockin Regi Weekly, stale from 2026-06-28).",
+        "Uncommitted changes: HEARTBEAT.md, memory/heartbeat-state.json, memory/.dreams/events.jsonl, untracked memory/2026-07-01-1420.md.",
+        "No urgent items; next notable cron: update_memory at 2026-07-02 00:00 UTC (~8.5h)."
+      ]
+    },
+    "2026-07-01T16:07:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "notes": [
+        "Heartbeat at 16:07 UTC; gateway responding after restart.",
+        "Gateway uptime 3m (restarted ~16:04 UTC); system uptime 1d 1h 28m.",
+        "Cron 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly, 2026-06-28).",
+        "No active sessions; next notable cron: update_memory at 2026-07-02 00:00 UTC (~8h).",
+        "Updated HEARTBEAT.md and heartbeat-state.json."
       ]
     }
   }
