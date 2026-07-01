@@ -1,10 +1,10 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 09:25 UTC
+- **lastChecked**: 2026-07-01 09:33 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **nextWakeAt**: 2026-07-01 09:55 UTC (openclaw_heartbeat)
-- **pollResult**: OK, no urgent items
+- **nextWakeAt**: 2026-07-01 09:42 UTC (openclaw_heartbeat)
+- **pollResult**: OK, no urgent items. Quick poll 6 min after last; status stable.
 
 ## Quick Status
 - **Uptime**: gateway 11h 18m · system 18h 52m
