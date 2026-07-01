@@ -1,48 +1,48 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 20:54 UTC
+- **lastChecked**: 2026-07-01 21:37 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **pollResult**: OK, no urgent items (20:54 UTC).
+- **pollResult**: OK, no urgent items (21:37 UTC).
 - **memoryReviewed**: 2026-07-01 17:31 UTC
 
 ## Quick Status
-- **Uptime**: gateway ~1h 16m · system 1d 3h 50m
+- **Uptime**: gateway ~5h 27m · system 1d 7h 02m
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 7 ok, 1 error
-- **`update_memory`**: ✅ Fixed. Next run 2026-07-02 00:00 UTC (~6h).
-- **`Rockin Regi Weekly Comic`**: ⚠️ Stale `error` from 2026-06-28 (agent response failure; model: google/gemini-3-pro-image via openrouter). Not due until 2026-07-05 11:00 UTC America/Chicago (~3 days 17h). Text-only fallback in place.
-- **`Reginald Wednesday Comic`**: ✅ Last run OK (06:00 UTC). Next run 2026-07-08 06:00 UTC (~6 days 12h).
+- **`update_memory`**: ✅ OK. Next run 2026-07-02 00:00 UTC (~2.5h).
+- **`Rockin Regi Weekly Comic`**: ⚠️ Stale `error` from 2026-06-28 (agent response failure; model: google/gemini-3-pro-image via openrouter). Not due until 2026-07-05 11:00 UTC America/Chicago (~3 days 14h). Text-only fallback in place.
+- **`Reginald Wednesday Comic`**: ✅ Last run OK (06:00 UTC). Next run 2026-07-08 06:00 UTC (~6 days 9h).
 - **Queue**: steer (depth 0)
-- **Active sessions**: 0
-- **Git**: `HEARTBEAT.md`, `memory/heartbeat-state.json`, `memory/.dreams/events.jsonl` modified; will commit at next daily backup.
+- **Active sessions**: 0 (cron-event only)
+- **Git**: clean — no pending changes in workspace.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run ~17:56 UTC, next ~18:26 UTC.
+- `openclaw_heartbeat` runs every 30m; last run ~21:19 UTC, next ~21:49 UTC.
 - `ollama_keepalive_serenity` runs every ~2m.
 - Gateway stable since ~16:04 UTC restart.
-- 20:54 heartbeat poll: no changes from 20:32 check.
-- `Ikaris Nightly` last OK at 15:00 UTC; next run 2026-07-02 10:00 UTC (America/Chicago, ~16h).
-- `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~9h).
-- `Daily GitHub Backup` next run 2026-07-02 04:00 UTC (America/Chicago, ~10h).
+- 21:30 heartbeat poll: no changes from 21:19 check.
+- `Ikaris Nightly` last OK at 14:00 UTC; next run 2026-07-02 10:00 UTC (America/Chicago, ~13h).
+- `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~5.5h).
+- `Daily GitHub Backup` next run 2026-07-02 04:00 UTC (America/Chicago, ~6.5h).
 - OpenAI and OpenRouter image credits exhausted; text-only fallbacks active for Reginald/Rockin Regi.
 - Phone/Android connectivity issue back-burnered per user; browser over Tailscale works, app does not.
 
 ## System
-- **Load**: 0.09/0.09/0.12
-- **RAM**: 1.7 Gi used / 7.7 Gi total (6.0 Gi available)
+- **Load**: 1.15/0.57/0.38
+- **RAM**: 2.3 Gi used / 7.7 Gi total (5.3 Gi available)
 - **Swap**: ~30 Mi used / 4.0 Gi total
-- **Disk `/`**: 36G used / 57G total (66%)
+- **Disk `/`**: 36G used / 57G total (67%)
 
 ## Upcoming Cron Runs
-- `ollama_keepalive_serenity`: ~18:22 UTC
-- `openclaw_heartbeat`: ~18:26 UTC (~6m)
-- `update_memory`: 2026-07-02 00:00 UTC (~6h)
-- `Memory Dreaming Promotion`: 2026-07-02 03:00 UTC (~9h)
-- `Daily GitHub Backup`: 2026-07-02 04:00 UTC America/Chicago (~10h)
-- `Reginald Wednesday Comic`: 2026-07-08 06:00 UTC (~6 days 12h)
-- `Ikaris Nightly`: 2026-07-02 10:00 UTC America/Chicago (~16h)
-- `Rockin Regi Weekly Comic`: 2026-07-05 11:00 UTC America/Chicago (~3 days 17h)
+- `ollama_keepalive_serenity`: ~21:32 UTC
+- `openclaw_heartbeat`: ~21:49 UTC (~19m)
+- `update_memory`: 2026-07-02 00:00 UTC (~2.5h)
+- `Memory Dreaming Promotion`: 2026-07-02 03:00 UTC (~5.5h)
+- `Daily GitHub Backup`: 2026-07-02 04:00 UTC America/Chicago (~6.5h)
+- `Ikaris Nightly`: 2026-07-02 10:00 UTC America/Chicago (~13h)
+- `Reginald Wednesday Comic`: 2026-07-08 06:00 UTC (~6 days 9h)
+- `Rockin Regi Weekly Comic`: 2026-07-05 11:00 UTC America/Chicago (~3 days 14h)
 
 ## Next Planned Checks
 - 🔲 Continue watching `update_memory` delivery at midnight UTC.
