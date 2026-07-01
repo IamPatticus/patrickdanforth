@@ -68,7 +68,6 @@ def get_todays_context():
 
 def generate_reginald_art():
     """Generate a single-panel Reginald cartoon via available image models."""
-    from services.blogger.openclaw_tool_fallback import call_image_generate
     from services.blogger.openrouter_image import generate_image
 
     context = get_todays_context()
@@ -87,9 +86,38 @@ def generate_reginald_art():
         f"slightly worn sci-fi hardware aesthetic, bold infographic typography. Landscape 3:2 composition."
     )
 
-    # All paid image providers are currently exhausted (OpenAI billing hard limit; OpenRouter 402).
-    # Skip image generation so the script exits cleanly and we don't burn tokens/time.
-    print("[ART] Paid image providers unavailable. Skipping art generation for today.", file=sys.stderr)
+    try:
+        if generate_image(prompt, IMAGE_PATH, model="openai/gpt-5.4-image-2", width=1536, height=1024, timeout=240):
+            return True
+    except Exception as e:
+        print(f"[ART] OpenRouter GPT-5.4 Image 2 generation error: {e}", file=sys.stderr)
+
+    # Fallback to FLUX.2 Flex
+    print("[ART] Falling back to OpenRouter FLUX.2 Flex...", file=sys.stderr)
+    try:
+        if generate_image(prompt, IMAGE_PATH, model="black-forest-labs/flux.2-flex", width=1536, height=1024, timeout=180):
+            return True
+    except Exception as e:
+        print(f"[ART] FLUX fallback error: {e}", file=sys.stderr)
+
+    # Final fallback to openclaw Gemini route
+    print("[ART] Falling back to openclaw infer image generate...", file=sys.stderr)
+    cmd = [
+        "openclaw", "infer", "image", "generate",
+        "--prompt", prompt,
+        "--size", "1536x1024",
+        "--output", IMAGE_PATH,
+        "--model", "openrouter/google/gemini-3.1-flash-image-preview",
+        "--timeout-ms", "120000"
+    ]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=150)
+        if result.returncode == 0 and os.path.exists(IMAGE_PATH) and os.path.getsize(IMAGE_PATH) > 0:
+            print(f"[ART] Generated via OpenClaw fallback: {IMAGE_PATH}")
+            return True
+        print(f"[ART] openclaw infer fallback failed: {result.stderr}", file=sys.stderr)
+    except Exception as e:
+        print(f"[ART] Fallback generation error: {e}", file=sys.stderr)
     return False
 
 def get_reginald_quote():
