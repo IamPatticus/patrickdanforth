@@ -1,12 +1,12 @@
 {
   "lastChecks": {
-    "heartbeat": 1782898773712,
-    "gateway": 1782898773712,
-    "system": 1782898773712,
-    "poll": 1782898773712
+    "heartbeat": 1782899973937,
+    "gateway": 1782899973937,
+    "system": 1782899973937,
+    "poll": 1782899973937
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T09:39:33Z",
+  "lastUpdated": "2026-07-01T09:59:33Z",
   "polls": {
     "2026-07-01T09:39:33Z": {
       "route": "heartbeat",
@@ -22,6 +22,18 @@
         "No active sessions; no urgent items.",
         "System healthy; no weather/email/calendar checks this beat (separate 4h cron).",
         "Next notable run: Ikaris Nightly at 2026-07-01 15:00 UTC (~6h)."
+      ]
+    },
+    "2026-07-01T09:59:33Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T10:12:00Z",
+      "notes": [
+        "HEARTBEAT_OK: No change since 09:55 UTC.",
+        "Same two cron errors remain: update_memory (Telegram target mismatch) and Rockin Regi Weekly Comic stale failure.",
+        "No active sessions; no urgent items.",
+        "Next wake at 10:12 UTC."
       ]
     }
   }
