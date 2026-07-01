@@ -1,12 +1,12 @@
 {
   "lastChecks": {
-    "heartbeat": 1782906540000,
-    "gateway": 1782906540000,
-    "system": 1782906540000,
-    "poll": 1782906540000
+    "heartbeat": 1782907020000,
+    "gateway": 1782907020000,
+    "system": 1782907020000,
+    "poll": 1782907020000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T11:49:00Z",
+  "lastUpdated": "2026-07-01T11:57:00Z",
   "polls": {
     "2026-07-01T11:49:00Z": {
       "route": "heartbeat",
@@ -21,6 +21,20 @@
         "Reginald Daily image gen blocked by OpenRouter 402 (credits exhausted).",
         "Load/RAM/Swap healthy; disk at 66%.",
         "No active sessions.",
+        "Next wake: openclaw_heartbeat 12:19 UTC."
+      ]
+    },
+    "2026-07-01T11:57:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T12:19:00Z",
+      "notes": [
+        "HEARTBEAT_OK: System healthy, no urgent items.",
+        "Gateway uptime 13h 54m; system uptime 21h 28m.",
+        "Cron: 7/8 jobs OK; Rockin Regi Weekly still in prior error state (not due until 2026-07-05).",
+        "Resources: load 0.22/0.27/0.22, RAM 1.6/7.7 Gi used, swap 30 Mi, disk 66%.",
+        "Git workspace clean except untracked memory/.dreams/events.jsonl.",
         "Next wake: openclaw_heartbeat 12:19 UTC."
       ]
     }
