@@ -1,13 +1,13 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 09:13 UTC
+- **lastChecked**: 2026-07-01 09:25 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **nextWakeAt**: 2026-07-01 09:42 UTC (openclaw_heartbeat)
+- **nextWakeAt**: 2026-07-01 09:55 UTC (openclaw_heartbeat)
 - **pollResult**: OK, no urgent items
 
 ## Quick Status
-- **Uptime**: gateway 11h · system 18h 34m
+- **Uptime**: gateway 11h 18m · system 18h 52m
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 6 ok, 2 error
 - **`update_memory`**: Still `error` — delivery configured as Telegram `8284391571`, but dispatcher enforces Signal target validation. This is a gateway-level bug/config issue, not a cron record problem. Next run 2026-07-02 00:00 UTC in ~15h. **Still needs attention.**
@@ -18,7 +18,7 @@
 - **Git**: 4 files modified, last commit 07:27 UTC — will commit this heartbeat update.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run 09:12:30 UTC, next 09:42:30 UTC.
+- `openclaw_heartbeat` runs every 30m; last run 09:21 UTC, next 09:42 UTC.
 - `Ikaris Nightly` last OK; next run 2026-07-01 15:00 UTC (~6h).
 - `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~18h).
 - `Daily GitHub Backup` next run 2026-07-02 04:00 UTC (~19h).
