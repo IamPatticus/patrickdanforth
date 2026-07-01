@@ -1,16 +1,39 @@
 {
   "lastChecks": {
-    "heartbeat": 1782941400000,
-    "gateway": 1782941400000,
-    "system": 1782941400000,
-    "poll": 1782947040000,
+    "email": 1782494550,
+    "heartbeat": 1782948741000,
+    "gateway": 1782948741000,
+    "system": 1782948741000,
+    "poll": 1782948741000,
     "weather": 1782944177000,
     "calendar": 1782944177000,
     "memoryReview": 1782947040000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T23:03:00.000000Z",
+  "lastUpdated": "2026-07-01T23:33:00.000000Z",
+  "latestPoll": {
+    "time": "2026-07-01T23:33:00Z",
+    "route": "heartbeat",
+    "healthy": true,
+    "notes": [
+      "Heartbeat poll at 23:33 UTC; no urgent items.",
+      "System stable (load 0.40/0.22/0.19, RAM 1.7 Gi used / 7.7 Gi, disk 67%).",
+      "Cron: 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly Comic, not due until 2026-07-05 11:00 UTC America/Chicago).",
+      "update_memory runs in ~27 min at midnight UTC; worth verifying Telegram delivery.",
+      "No calendar events in next 48h; weather already checked at 22:16 UTC (storms possible Thu evening ~70%)."
+    ]
+  },
   "lastPoll": {
+    "2026-07-01T23:29:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "notes": [
+        "Heartbeat poll at 23:29 UTC; no urgent items.",
+        "Email: 10 unread fetched; latest from patticus@proton.me (re: daily summary) and Google security alert (Composio access) from 22:22 UTC.",
+        "System stable; cron stale error (Rockin Regi Weekly Comic) remains until 2026-07-05.",
+        "No new calendar events in next 48h."
+      ]
+    },
     "2026-07-01T23:03:00Z": {
       "route": "heartbeat",
       "healthy": true,
