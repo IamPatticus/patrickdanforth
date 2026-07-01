@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Reginald Daily Cartoon - Generates a single-panel Reginald illustration
+Reginald Wednesday Cartoon - Generates a single-panel Reginald illustration
 and saves to the network archive for the flipbook.
-Runs via cron daily. Saves to /mnt/siliconpower/images/reginald-daily/
+Runs via cron every Wednesday. Saves to /mnt/siliconpower/images/reginald-daily/
 """
 
 import os, sys, time, json, base64, urllib.request, urllib.parse, random, shutil, subprocess, re, argparse
@@ -133,7 +133,7 @@ def get_reginald_quote():
     return random.choice(pool)
 
 def publish_to_github(datestamp, quote, art_generated):
-    """Copy today's comic into the site flipbook and push to GitHub."""
+    """Copy this week's Wednesday comic into the site flipbook and push to GitHub."""
     try:
         if not FLIPBOOK_DIR.exists():
             print(f"[PUBLISH] Flipbook dir not found: {FLIPBOOK_DIR}")
@@ -147,7 +147,7 @@ def publish_to_github(datestamp, quote, art_generated):
             shutil.copy2(IMAGE_PATH, dest_image)
             print(f"[PUBLISH] Copied comic to {dest_image}")
         else:
-            print("[PUBLISH] No art generated today; skipping image copy.")
+            print("[PUBLISH] No art generated this week; skipping image copy.")
 
         # Update index.json
         index_path = FLIPBOOK_DIR / "index.json"
@@ -200,7 +200,7 @@ def publish_to_github(datestamp, quote, art_generated):
 
         subprocess.run(["git", "add", "reginald-flipbook/"], cwd=SITE_ROOT, check=True, timeout=30)
         subprocess.run(
-            ["git", "commit", "-m", f"Daily Regi: {datestamp} - {quote}"],
+            ["git", "commit", "-m", f"Wednesday Regi: {datestamp} - {quote}"],
             cwd=SITE_ROOT,
             capture_output=True,
             text=True,
@@ -215,9 +215,9 @@ def publish_to_github(datestamp, quote, art_generated):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate and publish daily Reginald comic.")
+    parser = argparse.ArgumentParser(description="Generate and publish the weekly Wednesday Reginald comic.")
     parser.add_argument("date", nargs="?", help="Override date (YYYY-MM-DD)")
-    parser.add_argument("--force", action="store_true", help="Force regeneration even if already generated today")
+    parser.add_argument("--force", action="store_true", help="Force regeneration even if already generated this week")
     args = parser.parse_args()
 
     override_date = args.date
@@ -230,17 +230,17 @@ def main():
             print(f"Invalid date format: {override_date}. Use YYYY-MM-DD.")
             sys.exit(1)
 
-    print(f"Reginald Daily: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"Reginald Wednesday: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
     datestamp = override_date or datetime.now().strftime("%Y-%m-%d")
 
-    # Check if already generated today (only skip if no override and not forcing)
+    # Check if already generated this week (only skip if no override and not forcing)
     if not override_date and not force and os.path.exists(STATE_PATH):
         try:
             with open(STATE_PATH) as f:
                 state = json.load(f)
             if state.get("date") == datestamp:
-                print("Already generated today. Skipping. Use --force to regenerate.")
+                print("Already generated this week. Skipping. Use --force to regenerate.")
                 sys.exit(0)
         except:
             pass
@@ -270,7 +270,7 @@ def main():
     else:
         # No art generated because paid providers are exhausted. Still publish a text-only log entry
         # so the daily cron is not marked as a hard failure and the site gets a note.
-        print("Art generation skipped (paid providers exhausted). Publishing text-only update.")
+        print("Art generation skipped (paid providers exhausted). Publishing text-only Wednesday update.")
         quote = get_reginald_quote()
         publish_to_github(datestamp, quote, art_generated=False)
         # Update state so we don't retry today
