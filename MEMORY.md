@@ -1,6 +1,6 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-07-01 00:00 UTC_
+_Last updated: 2026-07-01 11:50 UTC_
 
 ---
 
@@ -63,6 +63,24 @@ _Last updated: 2026-07-01 00:00 UTC_
   - `SITE_ROOT` in both blogger pipelines now points to the workspace root (`~/.openclaw/workspace`) instead of the removed `patrickdanforth-site/` submodule.
 - **Reginald Daily now auto-publishes:** `scripts/reginald_daily.py` copies the generated comic into `reginald-flipbook/images/`, updates `reginald-flipbook/index.json`, busts the cache in `reginald-flipbook/index.html`, and commits/pushes to GitHub so the flipbook stays current.
 - **Auth:** Added `google:default` and `xai:default` profiles to the OpenClaw agent auth store; `xai` key was invalid, but `google` and OpenRouter are working.
+
+### 2026-07-01: OpenRouter credits exhausted
+
+- **Symptom:** Reginald Daily cron ran at 06:01 and 06:05 UTC but produced no comic; OpenRouter returned HTTP 402 Payment Required for `google/gemini-3.1-flash-image-preview` and `FLUX.2 [pro]` / `FLUX.2 Flex` fallbacks.
+- **Impact:** Image-generation pipelines (Reginald Daily, Rockin Regi Weekly, Ikaris Nightly) will fail until a funded provider is available or a non-OpenRouter fallback is configured.
+- **Note:** Cron `lastRunStatus=ok` only means the agent script finished; it does not indicate that an image was actually generated or published.
+
+## GitHub Backup Cron Remote Fix (2026-06-28)
+
+- **Problem:** Daily GitHub Backup cron failed because its payload used `git push origin main`, but the workspace remote is named `site` (`git@github.com:IamPatticus/patrickdanforth.git`).
+- **Fix:** Updated cron payload to reference remote `site`, handle "nothing to commit" cleanly, and report exact errors.
+- **Also:** Resolved divergence between workspace root and the nested `patrickdanforth-site` submodule; cleanup commit was aligned and pushed.
+- **Verification:** Manual backup ran with "Everything up-to-date".
+
+## Rockin Regi Weekly Comic Timeout Fix (2026-06-28)
+
+- **Problem:** `Rockin Regi Weekly Comic` cron timed out at the old 600s limit while generating the comic.
+- **Fix:** Timeout increased to 1200s; automatic retry at 11:10 UTC succeeded and published **"Digital Decay"** → https://patrickdanforth.com/rockinregi/2026-06-28-digital_decay.html.
 
 ## Rockin Regi Redesign (2026-06-28)
 
@@ -161,7 +179,7 @@ All crew members share the same workspace and memory context, but they are used 
 - **Full name:** Reginald J. Crustacean
 - **Role:** Chief Digital Shellfish Analyst
 - **Origin:** Patticus's cybernetic-lobster mythos is now fully canon and tied into the site, artwork, and display routines
-- **Current homes:** `patrickdanforth.com/reginald.html`, `patrickdanforth.com/reginald-flipbook.html`, and here.now Reginald Daily site
+- **Current homes:** `patrickdanforth.com/reginald.html` and `patrickdanforth.com/reginald-flipbook/`
 - **Avatar:** `avatars/reginald-avatar.png`
 - **Use in practice:** Mascot, lore anchor, status display personality, and general chaos ambassador
 
@@ -178,7 +196,7 @@ All crew members share the same workspace and memory context, but they are used 
 ### Memory System
 - The major compaction fix from 2026-05-29 remains important: memory preservation improved after increasing retained context and reducing destructive compaction behavior
 - **2026-06-04 incident:** `MEMORY.md` was lost entirely due to a broken symlink at `vault/MEMORY.md`. It was rebuilt from daily notes and recent session transcripts. The symlink has since been repaired and the file is stable.
-- Daily note auto-creation has been flaky recently; missing daily files were auto-created by health checks on 2026-06-01, 2026-06-04, 2026-06-06, and 2026-06-07
+- **Resolved:** Daily note creation has been reliable since 2026-06-08 after the migration to the Ubuntu backup host (`serenity`).
 
 ### Proton Pass / Secrets Handling
 - Proton Pass is part of Patticus's privacy-first stack
@@ -193,7 +211,7 @@ All crew members share the same workspace and memory context, but they are used 
 
 ### Hosting / Publishing
 - `patrickdanforth.com` is configured in the repo via `CNAME`
-- The Reginald Daily link was corrected on 2026-06-04 to point at the here.now deployment
+- Reginald Daily publishes to `patrickdanforth.com/reginald-flipbook/`; the homepage links there.
 
 ---
 
@@ -219,8 +237,8 @@ All crew members share the same workspace and memory context, but they are used 
 - **Tailscale Serve:** Enabled 2026-06-12 for Control UI — `https://serenity.tail4695cd.ts.net/` proxies to gateway on loopback. HTTPS + Tailscale identity auth = no token pasting, WebCrypto works.
 - **Signal:** Still broken for incoming messages. Telegram is the reliable channel.
 - **Control UI:** Smoother after Tailscale Serve migration. Avatar re-uploaded for new HTTPS origin.
-- **Daily note creation reliability:** Health checks have had to create missing daily files several times — worth investigating root cause when convenient
-- **MEMORY.md resilience:** The 2026-06-04 loss via broken symlink suggests a robustness gap; file is now stable but symlink fragility should be addressed
+- ~~**Daily note creation reliability:**~~ Resolved after host migration; no longer an active issue.
+- ~~**MEMORY.md resilience:**~~ The 2026-06-04 symlink incident was resolved; file is stable. Keep backups.
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient
@@ -268,10 +286,11 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-06-12 | Model allowlist updated to include `:cloud` suffixed variants |
 | 2026-06-23 | Gateway default switched to `ollama-cloud/deepseek-v4-pro:cloud`; `Elephant` remains a fallback alias |
 | 2026-06-23 | Vanny Van solar fully connected and functioning |
-| 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
-| 2026-06-14 | Last memory update before today's Ollama setup |
+| 2026-06-28 | GitHub Backup cron remote fixed (`origin` → `site`) and submodule collision cleaned up |
+| 2026-06-28 | Rockin Regi Weekly Comic timeout increased to 1200s; "Digital Decay" published successfully |
 | 2026-06-28 | E-Ink Pi-hole Display project completed and working on Pi Zero 2 W |
 | 2026-06-28 | Rockin Regi redesign published to patrickdanforth.com/rockinregi/ |
+| 2026-07-01 | OpenRouter credits exhausted; image generation pipelines fail with HTTP 402 until funded or rerouted |
 | 2026-06-30 | Clawcar identity/SOUL/avatar finalized on PiCar‑X |
 
 ## Promoted From Short-Term Memory

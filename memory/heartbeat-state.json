@@ -1,24 +1,27 @@
 {
   "lastChecks": {
-    "heartbeat": 1782904740000,
-    "gateway": 1782904740000,
-    "system": 1782904740000,
-    "poll": 1782904740000
+    "heartbeat": 1782906540000,
+    "gateway": 1782906540000,
+    "system": 1782906540000,
+    "poll": 1782906540000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T11:19:00Z",
+  "lastUpdated": "2026-07-01T11:49:00Z",
   "polls": {
-    "2026-07-01T11:19:00Z": {
+    "2026-07-01T11:49:00Z": {
       "route": "heartbeat",
       "healthy": true,
       "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T11:49:00Z",
+      "nextWakeAt": "2026-07-01T12:19:00Z",
       "notes": [
         "HEARTBEAT_OK: No urgent items; system healthy.",
-        "Gateway healthy; 8 cron jobs, 1 stale error (Rockin Regi Weekly Comic, due 2026-07-05).",
-        "update_memory delivery patched; verify at 2026-07-02 00:00 UTC.",
-        "No active sessions. Load/RAM/Swap healthy; disk at 66%.",
-        "Next wakes: ollama_keepalive_serenity ~11:21 UTC; openclaw_heartbeat 11:49 UTC."
+        "Gateway healthy; 8 cron jobs active.",
+        "update_memory manually forced-run completed OK; delivery delivered via Telegram fallback; MEMORY.md updated.",
+        "Rockin Regi Weekly Comic error remains from 3d ago; not due until 2026-07-05.",
+        "Reginald Daily image gen blocked by OpenRouter 402 (credits exhausted).",
+        "Load/RAM/Swap healthy; disk at 66%.",
+        "No active sessions.",
+        "Next wake: openclaw_heartbeat 12:19 UTC."
       ]
     }
   }

@@ -1,21 +1,21 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 11:19 UTC
+- **lastChecked**: 2026-07-01 11:49 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **nextWakeAt**: 2026-07-01 11:49 UTC
+- **nextWakeAt**: 2026-07-01 12:19 UTC
 - **pollResult**: OK, no urgent items.
 
 ## Quick Status
 - **Uptime**: gateway 13h 10m · system 20h 44m
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 7 ok, 1 error
-- **`update_memory`**: ✅ **Fixed** — delivery forced to `telegram:8284391571`; next run 2026-07-02 00:00 UTC in ~13h. Verify tomorrow.
+- **`update_memory`**: ✅ **Verified fixed** — manually forced run completed OK, MEMORY.md updated, delivery delivered via Telegram fallback. Next scheduled run 2026-07-02 00:00 UTC.
 - **`Rockin Regi Weekly Comic`**: Still `error` from 3d ago. Not due until 2026-07-05 11:00 UTC (~4 days). **Monitor before next run.**
 - **`Reginald Daily Generation`**: July 1st run agent-completed but image gen failed (OpenRouter 402). No July 1st comic. Next run 2026-07-02 06:00 UTC (~19h).
 - **Queue**: steer (depth 0)
 - **Active sessions**: 0
-- **Git**: will commit this heartbeat update.
+- **Git**: MEMORY.md and heartbeat updates committed.
 
 ## Notes
 - `openclaw_heartbeat` runs every 30m; last run 11:19 UTC, next 11:49 UTC.
@@ -43,7 +43,7 @@
 - `Rockin Regi Weekly Comic`: 2026-07-05 11:00 UTC (4 days)
 
 ## Next Planned Checks
-- ✅ `update_memory` delivery patched; verify at next run.
+- ✅ `update_memory` delivery verified fixed.
 - Inspect `Rockin Regi Weekly Comic` before 2026-07-05.
 - Decide whether to fund OpenRouter or switch Reginald image gen to a non-paid fallback.
 - Trim `agents.defaults.model.fallbacks` to remove failing providers (ollama-cloud, OpenRouter, OpenAI).
