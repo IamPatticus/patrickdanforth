@@ -1,9 +1,9 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 09:03 UTC
+- **lastChecked**: 2026-07-01 09:13 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **nextWakeAt**: 2026-07-01 09:12 UTC (openclaw_heartbeat)
+- **nextWakeAt**: 2026-07-01 09:42 UTC (openclaw_heartbeat)
 - **pollResult**: OK, no urgent items
 
 ## Quick Status
@@ -15,10 +15,10 @@
 - **`Reginald Daily Generation`**: July 1st 06:00 UTC run completed agent side, but image generation failed with OpenRouter HTTP 402 (depleted credits). No comic for July 1st. Next run 2026-07-02 06:00 UTC.
 - **Queue**: steer (depth 0)
 - **Active sessions**: 0
-- **Git**: 5 files modified, last commit 07:27 UTC — will commit this heartbeat update.
+- **Git**: 4 files modified, last commit 07:27 UTC — will commit this heartbeat update.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run 09:02:30 UTC, next 09:12:30 UTC.
+- `openclaw_heartbeat` runs every 30m; last run 09:12:30 UTC, next 09:42:30 UTC.
 - `Ikaris Nightly` last OK; next run 2026-07-01 15:00 UTC (~6h).
 - `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~18h).
 - `Daily GitHub Backup` next run 2026-07-02 04:00 UTC (~19h).
@@ -32,7 +32,7 @@
 - Disk `/`: 36G used / 57G total (66%)
 
 ## Upcoming Cron Runs
-- `openclaw_heartbeat`: 09:12 UTC (next ~9 min)
+- `openclaw_heartbeat`: 09:42 UTC (next ~29 min)
 - `Ikaris Nightly`: 15:00 UTC (~6 h)
 - `update_memory`: 2026-07-02 00:00 UTC (~15 h) — **watch this one**
 - `Memory Dreaming Promotion`: 2026-07-02 03:00 UTC (~18 h)

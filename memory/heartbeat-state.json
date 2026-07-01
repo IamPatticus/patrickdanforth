@@ -1,18 +1,18 @@
 {
   "lastChecks": {
-    "heartbeat": 1782896634000,
-    "gateway": 1782896634000,
-    "system": 1782896634000,
-    "poll": 1782896634000
+    "heartbeat": 1782897213417,
+    "gateway": 1782897213417,
+    "system": 1782897213417,
+    "poll": 1782897213417
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T09:03:54Z",
+  "lastUpdated": "2026-07-01T09:13:54Z",
   "polls": {
-    "2026-07-01T09:03:54Z": {
+    "2026-07-01T09:13:54Z": {
       "route": "heartbeat",
       "healthy": true,
       "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T09:12:30Z",
+      "nextWakeAt": "2026-07-01T09:42:30Z",
       "notes": [
         "HEARTBEAT_OK: Gateway healthy; cron active.",
         "8 jobs enabled; 6 ok, 2 error (update_memory, Rockin Regi Weekly Comic).",
