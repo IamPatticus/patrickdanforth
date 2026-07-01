@@ -67,7 +67,9 @@ _Last updated: 2026-07-01 11:50 UTC_
 ### 2026-07-01: OpenRouter credits exhausted
 
 - **Symptom:** Reginald Daily cron ran at 06:01 and 06:05 UTC but produced no comic; OpenRouter returned HTTP 402 Payment Required for `google/gemini-3.1-flash-image-preview` and `FLUX.2 [pro]` / `FLUX.2 Flex` fallbacks.
-- **Impact:** Image-generation pipelines (Reginald Daily, Rockin Regi Weekly, Ikaris Nightly) will fail until a funded provider is available or a non-OpenRouter fallback is configured.
+- **Also confirmed:** OpenAI account has hit a billing hard limit; DALL-E/gpt-image-2 calls fail. No local Ollama image-generation model is available (`kimi-k2.7-code:cloud` is vision-capable but cannot generate images).
+- **Fix:** Updated `services/blogger/rockinregi_pipeline.py` and `scripts/reginald_daily.py` to fall back to text-only posts when all paid art providers return 402/429, preventing cron hard-failures. Added `services/blogger/openclaw_tool_fallback.py` as a future tool-call shim.
+- **Impact:** Image-generation pipelines (Reginald Daily, Rockin Regi Weekly, Ikaris Nightly) will publish text-only until a funded provider is available or a local image model is configured.
 - **Note:** Cron `lastRunStatus=ok` only means the agent script finished; it does not indicate that an image was actually generated or published.
 
 ## GitHub Backup Cron Remote Fix (2026-06-28)

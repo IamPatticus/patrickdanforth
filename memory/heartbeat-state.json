@@ -3,14 +3,34 @@
     "heartbeat": 1782941400000,
     "gateway": 1782941400000,
     "system": 1782941400000,
-    "poll": 1782944157393,
+    "poll": 1782947040000,
     "weather": 1782944177000,
     "calendar": 1782944177000,
-    "memoryReview": 1782930638715
+    "memoryReview": 1782947040000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T22:16:17.000000Z",
+  "lastUpdated": "2026-07-01T23:03:00.000000Z",
   "lastPoll": {
+    "2026-07-01T23:03:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "notes": [
+        "Heartbeat poll at 23:03 UTC; no urgent items.",
+        "System stable; cron 7/8 ok, Rockin Regi error remains stale until 2026-07-05.",
+        "Memory review completed; updated MEMORY.md with 2026-07-01 image-provider fallback details.",
+        "Weather: Walling, TN warm, possible storms Thu Jul 2 evening (~72% chance).",
+        "No calendar events in next 48h."
+      ]
+    },
+    "2026-07-01T22:53:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "notes": [
+        "Heartbeat poll at 22:53 UTC; no urgent items.",
+        "System stable; cron 7/8 ok, Rockin Regi error remains stale until 2026-07-05.",
+        "No calendar events in next 48h. Weather: Walling, TN warm, possible storms Thu evening."
+      ]
+    },
     "2026-07-01T21:59:00Z": {
       "route": "heartbeat",
       "healthy": true,
