@@ -1,55 +1,32 @@
 {
   "lastChecks": {
-    "heartbeat": 1782911037140,
-    "gateway": 1782911037140,
-    "system": 1782911037140,
-    "poll": 1782912262212
+    "heartbeat": 1782918598700,
+    "gateway": 1782918598700,
+    "system": 1782918598700,
+    "poll": 1782918598700
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T13:24:22.210Z",
+  "lastUpdated": "2026-07-01T15:10:00.000Z",
   "polls": {
-    "2026-07-01T13:02:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T13:19:00Z",
-      "notes": [
-        "HEARTBEAT_OK: System healthy, no urgent items.",
-        "Gateway uptime 22h 32m; load 0.20/0.15/0.18.",
-        "Resources: RAM 1.7/7.7 Gi used (6.0 Gi available), swap 30 Mi, disk 66%.",
-        "Cron: 7/8 jobs OK; Rockin Regi Weekly still in prior error state, not due until 2026-07-05 11:00 UTC.",
-        "openclaw_heartbeat due in <1 min.",
-        "No active sessions.",
-        "Updated HEARTBEAT.md and heartbeat-state.json."
-      ]
-    },
-    "2026-07-01T13:03:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T13:49:00Z",
-      "notes": [
-        "HEARTBEAT_OK: System healthy, no urgent items.",
-        "Gateway uptime 22h 34m; system uptime 22h 34m; load 0.63/0.30/0.22.",
-        "Resources: RAM 1.8/7.7 Gi used (5.9 Gi available), swap 30 Mi, disk 66%.",
-        "Cron: 7/8 jobs OK; Rockin Regi Weekly still in prior error state, not due until 2026-07-05 11:00 UTC.",
-        "Reverted spurious __pycache__ modifications detected during heartbeat; workspace now clean.",
-        "No active sessions.",
-        "Next wake: openclaw_heartbeat 13:49 UTC."
-      ]
-    },
-    "2026-07-01T13:18:10.476Z": {
+    "2026-07-01T15:04:00Z": {
       "route": "poll",
       "healthy": true,
       "notes": [
-        "HEARTBEAT_OK: Poll received 13:17 UTC; no urgent items since last heartbeat (13:03)."
+        "HEARTBEAT_OK: Poll received 15:04 UTC; no urgent items since 15:04.",
+        "Ikaris Nightly ran OK at 15:00 UTC (America/Chicago cron 0 10 * * *).",
+        "Rockin Regi Weekly Comic still error from 2026-06-28, not due until 2026-07-05 11:00 UTC.",
+        "No active sessions; cron 8 jobs, 1 error (Rockin Regi).",
+        "update_memory next at 2026-07-02 00:00 UTC (~9h)."
       ]
     },
-    "2026-07-01T13:24:22.210Z": {
-      "route": "poll",
+    "2026-07-01T15:10:00Z": {
+      "route": "heartbeat",
       "healthy": true,
       "notes": [
-        "HEARTBEAT_OK: Poll received 13:23 UTC; no urgent items. Workspace clean except expected heartbeat state updates."
+        "Heartbeat at 15:10 UTC; gateway/system healthy.",
+        "No active sessions; cron 8 jobs, 1 error (Rockin Regi Weekly, stale).",
+        "Uncommitted workspace changes present: HEARTBEAT.md, memory/heartbeat-state.json, memory/.dreams/events.jsonl, plus untracked memory/2026-07-01-1420.md.",
+        "Daily git backup runs at 2026-07-02 04:00 UTC (11h)."
       ]
     }
   }
