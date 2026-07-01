@@ -1,108 +1,41 @@
 {
   "lastChecks": {
-    "heartbeat": 1782909477469,
-    "gateway": 1782909477469,
-    "system": 1782909477469,
-    "poll": 1782909477469
+    "heartbeat": 1782911037140,
+    "gateway": 1782911037140,
+    "system": 1782911037140,
+    "poll": 1782911037140
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T12:37:00+00:00",
+  "lastUpdated": "2026-07-01T13:03:00+00:00",
   "polls": {
-    "2026-07-01T11:49:00Z": {
+    "2026-07-01T13:02:00Z": {
       "route": "heartbeat",
       "healthy": true,
       "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T12:19:00Z",
+      "nextWakeAt": "2026-07-01T13:19:00Z",
       "notes": [
-        "HEARTBEAT_OK: No urgent items; system healthy.",
-        "Gateway healthy; 8 cron jobs active.",
-        "update_memory manually forced-run completed OK; delivery delivered via Telegram fallback; MEMORY.md updated.",
-        "Rockin Regi Weekly Comic error remains from 3d ago; not due until 2026-07-05.",
-        "Reginald Daily image gen blocked by OpenRouter 402 (credits exhausted).",
-        "Load/RAM/Swap healthy; disk at 66%.",
+        "HEARTBEAT_OK: System healthy, no urgent items.",
+        "Gateway uptime 22h 32m; load 0.20/0.15/0.18.",
+        "Resources: RAM 1.7/7.7 Gi used (6.0 Gi available), swap 30 Mi, disk 66%.",
+        "Cron: 7/8 jobs OK; Rockin Regi Weekly still in prior error state, not due until 2026-07-05 11:00 UTC.",
+        "openclaw_heartbeat due in <1 min.",
         "No active sessions.",
-        "Next wake: openclaw_heartbeat 12:19 UTC."
+        "Updated HEARTBEAT.md and heartbeat-state.json."
       ]
     },
-    "2026-07-01T11:57:00Z": {
+    "2026-07-01T13:03:00Z": {
       "route": "heartbeat",
       "healthy": true,
       "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T12:19:00Z",
+      "nextWakeAt": "2026-07-01T13:49:00Z",
       "notes": [
         "HEARTBEAT_OK: System healthy, no urgent items.",
-        "Gateway uptime 13h 54m; system uptime 21h 28m.",
-        "Cron: 7/8 jobs OK; Rockin Regi Weekly still in prior error state (not due until 2026-07-05).",
-        "Resources: load 0.22/0.27/0.22, RAM 1.6/7.7 Gi used, swap 30 Mi, disk 66%.",
-        "Git workspace clean except untracked memory/.dreams/events.jsonl.",
-        "Next wake: openclaw_heartbeat 12:19 UTC."
-      ]
-    },
-    "2026-07-01T12:05:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T12:19:00Z",
-      "notes": [
-        "HEARTBEAT_OK: System healthy, no urgent items.",
-        "Reviewed HEARTBEAT.md and memory/2026-07-01.md; no action needed.",
-        "Git workspace clean except untracked memory/.dreams/events.jsonl.",
-        "Next wake: openclaw_heartbeat 12:19 UTC."
-      ]
-    },
-    "2026-07-01T12:23:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T12:49:00Z",
-      "notes": [
-        "HEARTBEAT_OK: System healthy, no urgent items.",
-        "Gateway uptime 14h 20m; system uptime 21h 54m.",
-        "Cron: 7/8 jobs OK; Rockin Regi Weekly still in prior error state (not due until 2026-07-05).",
-        "Inspected Rockin Regi run history: repeated 'Agent couldn't generate a response' + timeouts; likely model/image-provider failures.",
-        "Resources: RAM 1.6/7.7 Gi used, swap 30 Mi, disk 66%.",
-        "Next wake: openclaw_heartbeat 12:49 UTC."
-      ]
-    },
-    "2026-07-01T12:25:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T12:49:00Z",
-      "notes": [
-        "HEARTBEAT_OK: System healthy, no urgent items.",
-        "Reviewed HEARTBEAT.md and heartbeat-state.json; no action needed.",
+        "Gateway uptime 22h 34m; system uptime 22h 34m; load 0.63/0.30/0.22.",
+        "Resources: RAM 1.8/7.7 Gi used (5.9 Gi available), swap 30 Mi, disk 66%.",
+        "Cron: 7/8 jobs OK; Rockin Regi Weekly still in prior error state, not due until 2026-07-05 11:00 UTC.",
+        "Reverted spurious __pycache__ modifications detected during heartbeat; workspace now clean.",
         "No active sessions.",
-        "Next wake: openclaw_heartbeat 12:49 UTC."
-      ]
-    },
-    "2026-07-01T12:27:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T12:49:00Z",
-      "notes": [
-        "HEARTBEAT_OK: System healthy, no urgent items.",
-        "Gateway uptime 14h 22m; system uptime 21h 58m.",
-        "Cron: 7/8 jobs OK; Rockin Regi Weekly in prior error state, next run 2026-07-05 11:00 UTC.",
-        "Resources: load 0.07/0.13/0.18, disk 66%.",
-        "Reviewed Rockin Regi run history; recurring agent-response failures/timeouts, plus OpenRouter credit issue for image-gen routes.",
-        "No active sessions; no user action required."
-      ]
-    "2026-07-01T12:37:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T12:49:00Z",
-      "notes": [
-        "HEARTBEAT_OK: System healthy, no urgent items.",
-        "Gateway uptime 14h 30m; system uptime 22h 8m.",
-        "Cron: 8 jobs enabled; 7 ok, 1 error (Rockin Regi Weekly Comic).",
-        "Diagnosed image-gen failure: OpenAI billing hard limit; OpenRouter credits exhausted (35.23/35).",
-        "Updated reginald_daily.py and rockinregi_pipeline.py to fall back to text-only posts when art unavailable.",
-        "Committed and pushed heartbeat + image-gen changes.",
-        "Resources: load 0.06/0.20/0.20, RAM 1.6/7.7 Gi used, swap 30 Mi, disk 66%.",
-        "Next wake: openclaw_heartbeat 12:49 UTC."
+        "Next wake: openclaw_heartbeat 13:49 UTC."
       ]
     }
   }
