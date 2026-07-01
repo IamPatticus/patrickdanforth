@@ -1,14 +1,14 @@
 {
   "lastChecks": {
-    "heartbeat": 1782897213417,
-    "gateway": 1782897213417,
-    "system": 1782897213417,
-    "poll": 1782897213417
+    "heartbeat": 1782898773712,
+    "gateway": 1782898773712,
+    "system": 1782898773712,
+    "poll": 1782898773712
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T09:31:33Z",
+  "lastUpdated": "2026-07-01T09:39:33Z",
   "polls": {
-    "2026-07-01T09:13:54Z": {
+    "2026-07-01T09:39:33Z": {
       "route": "heartbeat",
       "healthy": true,
       "cronJobs": 8,
@@ -16,11 +16,11 @@
       "notes": [
         "HEARTBEAT_OK: Gateway healthy; cron active.",
         "8 jobs enabled; 6 ok, 2 error (update_memory, Rockin Regi Weekly Comic).",
-        "update_memory lastError: Signal target validation despite delivery channel: telegram to 8284391571 — gateway dispatcher issue.",
-        "Rockin Regi Weekly Comic lastError: agent generated no response (3d ago).",
-        "Reginald Daily agent run OK on Jul 1 but image generation failed: OpenRouter HTTP 402.",
+        "update_memory still error — Telegram target 8284391571 but dispatcher enforces Signal validation; gateway-level bug.",
+        "Rockin Regi Weekly Comic lastError 3d ago (agent generated no response); next run 2026-07-05 11:00 UTC.",
+        "Reginald Daily agent run OK on Jul 1 but image generation failed OpenRouter HTTP 402.",
         "No active sessions; no urgent items.",
-        "System: 18h34m uptime, load 0.07/0.11/0.09, 6.0Gi available RAM, disk 66%.",
+        "System healthy; no weather/email/calendar checks this beat (separate 4h cron).",
         "Next notable run: Ikaris Nightly at 2026-07-01 15:00 UTC (~6h)."
       ]
     }
