@@ -267,15 +267,19 @@
     // Fallback values from last known Ruuvi broadcast (Jul 1, 2026)
     const fallback = { temperature: 38.4, humidity: 47.7, pressure: 983.15 };
 
+    function cToF(c) {
+      return c === null || c === undefined || isNaN(c) ? null : c * 9 / 5 + 32;
+    }
+
     function fmt(v, unit) {
       return v === null || v === undefined || isNaN(v) ? '—' : `${Number(v).toFixed(1)}${unit}`;
     }
 
     function apply(data) {
-      const t = data?.temperature ?? fallback.temperature;
+      const t = cToF(data?.temperature) ?? cToF(fallback.temperature);
       const h = data?.humidity ?? fallback.humidity;
       const p = data?.pressure ?? fallback.pressure;
-      elTemp.textContent = fmt(t, '°C');
+      elTemp.textContent = fmt(t, '°F');
       elHum.textContent = fmt(h, '%');
       elPres.textContent = fmt(p, ' hPa');
       const updated = data?.updated_at ? new Date(data.updated_at).toLocaleTimeString() : 'fallback';
