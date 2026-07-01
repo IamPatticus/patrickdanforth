@@ -1,25 +1,25 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 10:57 UTC
+- **lastChecked**: 2026-07-01 11:19 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **nextWakeAt**: 2026-07-01 11:27 UTC
+- **nextWakeAt**: 2026-07-01 11:49 UTC
 - **pollResult**: OK, no urgent items.
 
 ## Quick Status
-- **Uptime**: gateway 12h 33m · system 20h 06m
+- **Uptime**: gateway 13h 10m · system 20h 44m
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 7 ok, 1 error
-- **`update_memory`**: ✅ **Fixed** — delivery was resolved to Signal with no target. Forced the job delivery to `telegram:8284391571` and reset consecutive errors. Next run 2026-07-02 00:00 UTC in ~13h. Will verify tomorrow.
-- **`Rockin Regi Weekly Comic`**: Still `error` from 3d ago (agent generated no response). Not due until 2026-07-05 11:00 UTC (~4 days). **Monitor before next run.**
-- **`Reginald Daily Generation`**: July 1st 06:00 UTC run completed agent side, but image generation failed with OpenRouter HTTP 402 (depleted credits). No comic for July 1st. Next run 2026-07-02 06:00 UTC (~19h).
+- **`update_memory`**: ✅ **Fixed** — delivery forced to `telegram:8284391571`; next run 2026-07-02 00:00 UTC in ~13h. Verify tomorrow.
+- **`Rockin Regi Weekly Comic`**: Still `error` from 3d ago. Not due until 2026-07-05 11:00 UTC (~4 days). **Monitor before next run.**
+- **`Reginald Daily Generation`**: July 1st run agent-completed but image gen failed (OpenRouter 402). No July 1st comic. Next run 2026-07-02 06:00 UTC (~19h).
 - **Queue**: steer (depth 0)
 - **Active sessions**: 0
 - **Git**: will commit this heartbeat update.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run 10:12 UTC, next 10:42 UTC.
-- `ollama_keepalive_serenity` runs every ~2m; next 10:27 UTC.
+- `openclaw_heartbeat` runs every 30m; last run 11:19 UTC, next 11:49 UTC.
+- `ollama_keepalive_serenity` runs every ~2m; next ~11:21 UTC.
 - `Ikaris Nightly` last OK; next run 2026-07-01 15:00 UTC (~5h).
 - `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~17h).
 - `Daily GitHub Backup` next run 2026-07-02 04:00 UTC (~18h).
@@ -27,14 +27,14 @@
 - Fallback model list still includes stale/depleted `ollama-cloud` providers after `ollama-cloud/kimi-k2.6:cloud` 404 and OpenRouter 402. Consider trimming to local Ollama models only until credits are restored.
 
 ## System
-- Load: unknown this poll
-- RAM: unknown this poll
-- Swap: unknown this poll
-- Disk `/`: unknown this poll
+- Load: 0.19 0.15 0.17 (1/5/15m)
+- RAM: 1.8 Gi used / 7.7 Gi total (5.9 Gi available incl. cache)
+- Swap: 30 Mi used / 4.0 Gi total
+- Disk `/`: 36G used / 57G total (66%)
 
 ## Upcoming Cron Runs
-- `ollama_keepalive_serenity`: 11:27 UTC (next ~30 min)
-- `openclaw_heartbeat`: 11:27 UTC (~30 min)
+- `ollama_keepalive_serenity`: ~11:21 UTC (next ~2 min)
+- `openclaw_heartbeat`: 11:49 UTC (~30 min)
 - `Ikaris Nightly`: 15:00 UTC (~4 h)
 - `update_memory`: 2026-07-02 00:00 UTC (~13 h) — **watch this one**
 - `Memory Dreaming Promotion`: 2026-07-02 03:00 UTC (~16 h)
@@ -43,10 +43,10 @@
 - `Rockin Regi Weekly Comic`: 2026-07-05 11:00 UTC (4 days)
 
 ## Next Planned Checks
-- ✅ `update_memory` delivery patched; verify it succeeds at next run.
-- Re-run / inspect `Rockin Regi Weekly Comic` before its scheduled run on 2026-07-05.
-- Decide whether to add OpenRouter credits or switch Reginald Daily image generation to a non-paid fallback.
-- Trim `agents.defaults.model.fallbacks` to remove providers that currently fail (ollama-cloud, OpenRouter, OpenAI).
+- ✅ `update_memory` delivery patched; verify at next run.
+- Inspect `Rockin Regi Weekly Comic` before 2026-07-05.
+- Decide whether to fund OpenRouter or switch Reginald image gen to a non-paid fallback.
+- Trim `agents.defaults.model.fallbacks` to remove failing providers (ollama-cloud, OpenRouter, OpenAI).
 
 ## Commands
 - `session_status` — show runtime details
