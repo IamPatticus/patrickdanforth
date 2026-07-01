@@ -103,11 +103,14 @@
       padding: 0 4px;
     }
 
-    .card {
-      padding: 14px 16px;
-      max-width: 370px;
-      width: fit-content;
-      border-radius: 18px;
+    .card.ruuvi { border-color: rgba(126, 255, 178, 0.28); }
+    .card.ruuvi .title { color: var(--green); }
+    .card.ruuvi .v { color: var(--green); }
+    .ruuvi-note {
+      color: var(--muted);
+      font-size: 0.72rem;
+      line-height: 1.5;
+      margin-top: 8px;
     }
 
     .card .title {
@@ -215,6 +218,15 @@
     </div>
 
     <div class="bottom">
+      <div class="card ruuvi">
+        <div class="title">🌡️ Ruuvi Tag</div>
+        <div class="stack" id="ruuviStack">
+          <div class="row"><span class="k">Temperature</span><span class="v" id="ruuviTemp">—</span></div>
+          <div class="row"><span class="k">Humidity</span><span class="v" id="ruuviHum">—</span></div>
+          <div class="row"><span class="k">Pressure</span><span class="v" id="ruuviPres">—</span></div>
+        </div>
+        <div class="ruuvi-note" id="ruuviNote">Waiting for MQTT data from 192.168.1.140…</div>
+      </div>
       <div class="card">
         <div class="title">Quick Read</div>
         <div class="stack">
@@ -244,5 +256,53 @@
       <a class="chip" href="./venus-os.html">Open Companion UI</a>
     </div>
   </div>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.esm.js" type="module"></script>
+  <script type="module">
+    const portalId = 'd83addb6ed53';
+    const topicPrefix = `N/${portalId}/temperature/20/`;
+    const brokerUrl = 'ws://192.168.1.140:9001';
+
+    const elTemp = document.getElementById('ruuviTemp');
+    const elHum = document.getElementById('ruuviHum');
+    const elPres = document.getElementById('ruuviPres');
+    const elNote = document.getElementById('ruuviNote');
+
+    function fmt(v, unit) {
+      return v === null || v === undefined || isNaN(v) ? '—' : `${v.toFixed(1)}${unit}`;
+    }
+
+    try {
+      const client = mqtt.connect(brokerUrl, {
+        clientId: 'overlay-' + Math.random().toString(16).slice(2, 10),
+        reconnectPeriod: 5000,
+        connectTimeout: 10000,
+      });
+
+      client.on('connect', () => {
+        elNote.textContent = 'Connected to Venus OS MQTT. Live updates active.';
+        client.subscribe(`${topicPrefix}+`);
+      });
+
+      client.on('message', (topic, payload) => {
+        const suffix = topic.replace(topicPrefix, '');
+        let data;
+        try { data = JSON.parse(payload.toString()); } catch { return; }
+        const val = data?.value;
+        if (suffix === 'Temperature') elTemp.textContent = fmt(val, '°C');
+        if (suffix === 'Humidity') elHum.textContent = fmt(val, '%');
+        if (suffix === 'Pressure') elPres.textContent = fmt(val, ' hPa');
+      });
+
+      client.on('error', (err) => {
+        elNote.textContent = 'MQTT error: ' + err.message;
+      });
+
+      client.on('offline', () => {
+        elNote.textContent = 'MQTT offline. If this page is loaded over HTTPS, browsers block the non-secure WebSocket. Open via http://192.168.1.140/venus-os-overlay.html or a local copy for live data.';
+      });
+    } catch (err) {
+      elNote.textContent = 'Could not start MQTT: ' + err.message;
+    }
+  </script>
 </body>
 </html>

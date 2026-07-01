@@ -252,6 +252,7 @@
           <li>Sink — <span class="status done">Not installed</span> (no fixed plumbing)</li>
           <li>Vent / fan — <a href="https://www.dometic.com/en-us/product/dometic-1450-vent-roof-fan-9600008500" target="_blank" rel="noopener" style="color:var(--cyan)">Dometic 1450 Vent Roof Fan</a> — <span class="status done">Installed Aug 2019</span></li>
           <li>Solar monitoring — Raspberry Pi running Venus OS (Victron Remote Management), connected to SmartSolar MPPT and shunt — <span class="status done">Installed Jun 16, 2026</span></li>
+          <li>Environmental sensor — <a href="https://ruuvi.com/ruuvitag/" target="_blank" rel="noopener" style="color:var(--cyan)">Ruuvi Tag</a> — Bluetooth temp/humidity/pressure beacon, integrated into Venus OS MQTT — <span class="status done">Added Jul 1, 2026</span></li>
           <li>Mounts — 2× <a href="https://www.amazon.com/gp/product/B006ZOW1U2" target="_blank" rel="noopener" style="color:var(--cyan)">RAM No-Drill seat-rail mounts</a> (phone/tablet holders) — <span class="status done">Installed June 2019</span></li>
           <li>Heater — <span class="status todo">TBD</span></li>
         </ul>
@@ -279,6 +280,7 @@
           <tr><td>2026-06-17</td><td>Wired 12V outlets: USB-C + USB-A installed and powered. Skipped the cigarette socket. Wired DC distribution: LED lights and Dometic fan connected and running. Ordered BougeRV 2000W 12V pure sine wave inverter with Bluetooth. Decided against fixed fridge/sink/plumbing — going with 3× RotopaX 5-gallon water containers and a 1-gallon gas can for water/fuel instead. Interior: bed platform is 8020 extrusion with two slide-out drawers, ceiling is reclaimed pallet wood, no cabinets (drawers handle storage), sun shades on windows, curtain divider between rear and front seats. Exterior: Ironman 4x4 Delta Wing 90° awning installed Nov 2021.</td></tr>
           <tr><td>2026-06-19</td><td>Installed BougeRV 2000W 12V pure sine wave inverter with Bluetooth. Inverter is live and ready for AC loads.</td></tr>
           <tr><td>2026-06-20</td><td>Battery bank wired into bus bars. All connections routed and organized. Waiting on ANL fuse to complete battery-to-inverter run. Disabled always-on LED on fan/lights switch to save power.</td></tr>
+          <tr><td>2026-07-01</td><td>Added a <a href="https://ruuvi.com/ruuvitag/" target="_blank" rel="noopener" style="color:var(--cyan)">Ruuvi Tag</a> to the van for temperature, humidity, and pressure monitoring. It broadcasts via Bluetooth and is picked up by the Venus OS Pi over MQTT at <code>192.168.1.140</code>, appearing on the <a href="./venus-os-overlay.html" style="color:var(--cyan)">Venus OS overlay</a>.</td></tr>
           <tr><td>2026-06-23</td><td>Installed Windynation ANL 150A fuse today. Battery-to-inverter run is now complete and fully protected.</td></tr>
         </tbody>
       </table>
