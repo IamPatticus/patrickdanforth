@@ -1,91 +1,27 @@
 {
   "lastChecks": {
-    "heartbeat": 1782890862,
-    "gateway": 1782890862,
-    "system": 1782890862,
-    "poll": 1782890862
+    "heartbeat": 1782896634000,
+    "gateway": 1782896634000,
+    "system": 1782896634000,
+    "poll": 1782896634000
   },
   "status": "healthy",
-  "uptime": "gateway 8h 57m \u00b7 system 16h 31m",
-  "lastUpdated": "2026-07-01T07:27:30Z",
+  "lastUpdated": "2026-07-01T09:03:54Z",
   "polls": {
-    "2026-07-01T06:00:14Z": {
+    "2026-07-01T09:03:54Z": {
       "route": "heartbeat",
       "healthy": true,
       "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T06:30:00Z",
+      "nextWakeAt": "2026-07-01T09:12:30Z",
       "notes": [
         "HEARTBEAT_OK: Gateway healthy; cron active.",
-        "Reginald Daily Generation failed at 06:00 UTC with stale ollama-cloud/kimi-k2.6 (404). Payload corrected to ollama/kimi-k2.7-code:cloud and force-restarted.",
-        "Ikaris Nightly payload corrected from ollama-cloud/kimi-k2.6 to ollama/kimi-k2.7-code:cloud proactively.",
-        "Rockin Regi Weekly Comic payload corrected from ollama-cloud/deepseek-v4-pro:cloud to ollama/kimi-k2.7-code:cloud.",
-        "update_memory target fixed to Telegram 8284391571; next run 2026-07-02 00:00 UTC will confirm.",
-        "Daily GitHub Backup model corrected to ollama/kimi-k2.7-code:cloud; next run tonight will confirm.",
-        "Disk /home at 67%; no urgent items."
-      ]
-    },
-    "2026-07-01T06:10:29Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T06:30:00Z",
-      "notes": [
-        "HEARTBEAT_OK: Gateway healthy; cron active.",
-        "Reginald Daily rerun at 06:05 UTC still failed: OpenRouter image generation returned HTTP 402 Payment Required.",
-        "This is a funding/credit issue, not a model configuration issue.",
-        "No urgent items; system otherwise quiet."
-      ]
-    },
-    "2026-07-01T06:18:30Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T06:30:30Z",
-      "notes": [
-        "HEARTBEAT_OK: Gateway healthy; cron active.",
-        "No cron runs since 06:10. Reginald Daily OpenRouter 402 issue remains unresolved.",
-        "Disk /home at 66%; no urgent items."
-      ]
-    },
-    "2026-07-01T06:50:30Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T07:10:00Z",
-      "notes": [
-        "HEARTBEAT_OK: Gateway healthy; cron active.",
-        "Reginald Daily lastRunStatus now 'ok' in cron list, but underlying OpenRouter 402 image-generation failure likely still unresolved (job-level status may not reflect internal step failure).",
-        "update_memory and Daily GitHub Backup still lastRunStatus=error; next runs tonight will confirm whether model/target fixes took.",
-        "Rockin Regi Weekly Comic still lastRunStatus=error; next run 2026-07-05.",
-        "Workspace has uncommitted changes: CALENDAR.md, EMAILS.md, LOG.md, SCRATCHPAD.md, clawcar identity files, and dream logs.",
-        "No urgent calendar/email/weather items found in today's memory."
-      ]
-    },
-    "2026-07-01T07:00:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T07:10:00Z",
-      "notes": [
-        "HEARTBEAT_OK: Gateway healthy; cron active.",
-        "Daily GitHub Backup fixed: force-ran successfully, pushed 26 files to site.",
-        "Fallback model list cleaned to prioritize local Ollama models and avoid paid providers with no credits/404.",
-        "update_memory still error; watch next run 2026-07-02 00:00 UTC.",
-        "Reginald Daily shows ok but OpenRouter 402 issue remains unresolved.",
-        "No urgent items."
-      ]
-    },
-    "2026-07-01T07:27:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T07:30:00Z",
-      "notes": [
-        "HEARTBEAT_OK: Gateway healthy; cron active.",
-        "Verified Reginald Daily job config uses ollama/kimi-k2.7-code:cloud; lastRunStatus ok reflects agent-run completion, not image-generation success. OpenRouter 402 issue remains unresolved.",
-        "Verified update_memory job config now has Telegram target 8284391571; next run 2026-07-02 00:00 UTC will confirm delivery fix.",
-        "Rockin Regi Weekly Comic still lastRunStatus=error; next run 2026-07-05 11:00 UTC.",
-        "No urgent items."
+        "8 jobs enabled; 6 ok, 2 error (update_memory, Rockin Regi Weekly Comic).",
+        "update_memory lastError: Signal target validation despite delivery channel: telegram to 8284391571 — gateway dispatcher issue.",
+        "Rockin Regi Weekly Comic lastError: agent generated no response (3d ago).",
+        "Reginald Daily agent run OK on Jul 1 but image generation failed: OpenRouter HTTP 402.",
+        "No active sessions; no urgent items.",
+        "System: 18h34m uptime, load 0.07/0.11/0.09, 6.0Gi available RAM, disk 66%.",
+        "Next notable run: Ikaris Nightly at 2026-07-01 15:00 UTC (~6h)."
       ]
     }
   }

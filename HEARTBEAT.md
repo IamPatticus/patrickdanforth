@@ -1,42 +1,50 @@
-# Heartbeat - OpenClaw Agent
+# Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 07:27 UTC
+- **lastChecked**: 2026-07-01 09:03 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **nextWakeAt**: 2026-07-01T07:30 UTC (openclaw_heartbeat)
+- **nextWakeAt**: 2026-07-01 09:12 UTC (openclaw_heartbeat)
 - **pollResult**: OK, no urgent items
 
 ## Quick Status
-- **Uptime**: gateway 9h 24m · system 16h 58m
+- **Uptime**: gateway 11h · system 18h 34m
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 6 ok, 2 error
-- **update_memory** still `error` from 7h ago — next run 00:00 UTC in ~17h, watch it then
-- **Rockin Regi Weekly Comic** still `error` from 3d ago — not due until 2026-07-05 11:00 UTC
+- **`update_memory`**: Still `error` — delivery configured as Telegram `8284391571`, but dispatcher enforces Signal target validation. This is a gateway-level bug/config issue, not a cron record problem. Next run 2026-07-02 00:00 UTC in ~15h. **Still needs attention.**
+- **`Rockin Regi Weekly Comic`**: Still `error` from 3d ago (agent generated no response). Not due until 2026-07-05 11:00 UTC. **Monitor before next run.**
+- **`Reginald Daily Generation`**: July 1st 06:00 UTC run completed agent side, but image generation failed with OpenRouter HTTP 402 (depleted credits). No comic for July 1st. Next run 2026-07-02 06:00 UTC.
 - **Queue**: steer (depth 0)
 - **Active sessions**: 0
+- **Git**: 5 files modified, last commit 07:27 UTC — will commit this heartbeat update.
 
 ## Notes
-- `Reginald Daily Generation`: Failed at 06:00 UTC with stale `ollama-cloud/kimi-k2.6` (404). Payload corrected to `ollama/kimi-k2.7-code:cloud` and rerun at 06:05 UTC still failed — OpenRouter HTTP 402 Payment Required. This is a funding/credit issue, not a model config issue. No comic for July 1st. Cron list shows lastRunStatus `ok`, but that's because the agent run completed; the image-generation step inside the script failed.
-- `Ikaris Nightly`: Payload corrected to `ollama/kimi-k2.7-code:cloud`. Last run OK, next run 2026-07-01 15:00 UTC.
-- `Rockin Regi Weekly Comic`: Payload corrected from `ollama-cloud/deepseek-v4-pro:cloud` to `ollama/kimi-k2.7-code:cloud`. Last run 3d ago errored. Next run 2026-07-05 11:00 UTC — will verify.
-- `update_memory`: Still shows `error`; delivery target fixed to Telegram `8284391571`. Next run 2026-07-02 00:00 UTC — watch.
-- `Daily GitHub Backup`: ✅ **Fixed** — ran successfully at 07:00 UTC, pushed 26 files to `site` remote. The remaining errors in fallback logs were stale `ollama-cloud` models and depleted OpenRouter/OpenAI credits, so I also cleaned up `agents.defaults.model.fallbacks` to prefer local Ollama models first and avoid paid providers that can't work right now.
-- No urgent messages or calendar items. System otherwise quiet.
+- `openclaw_heartbeat` runs every 30m; last run 09:02:30 UTC, next 09:12:30 UTC.
+- `Ikaris Nightly` last OK; next run 2026-07-01 15:00 UTC (~6h).
+- `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~18h).
+- `Daily GitHub Backup` next run 2026-07-02 04:00 UTC (~19h).
+- Weather/email/calendar handled by separate 4h cron; not checked in this heartbeat.
+- Fallback model list still includes stale/depleted `ollama-cloud` providers after `ollama-cloud/kimi-k2.6:cloud` 404 and OpenRouter 402. Consider trimming to local Ollama models only until credits are restored.
+
+## System
+- Load: 0.07 / 0.11 / 0.09
+- RAM: 1.7Gi used / 7.7Gi total, 6.0Gi available
+- Swap: 30Mi used / 4.0Gi total
+- Disk `/`: 36G used / 57G total (66%)
 
 ## Upcoming Cron Runs
-- `openclaw_heartbeat`: 07:30–07:32 UTC (~3–5 min)
-- `Ikaris Nightly`: 15:00 UTC (~8 h)
-- `update_memory`: 2026-07-02 00:00 UTC (~17 h) — **watch this one**
-- `Memory Dreaming Promotion`: 2026-07-02 03:00 UTC (~20 h)
-- `Daily GitHub Backup`: 2026-07-01 23:00 CDT / 2026-07-02 04:00 UTC (~21 h)
+- `openclaw_heartbeat`: 09:12 UTC (next ~9 min)
+- `Ikaris Nightly`: 15:00 UTC (~6 h)
+- `update_memory`: 2026-07-02 00:00 UTC (~15 h) — **watch this one**
+- `Memory Dreaming Promotion`: 2026-07-02 03:00 UTC (~18 h)
+- `Daily GitHub Backup`: 2026-07-02 04:00 UTC (~19 h)
+- `Reginald Daily Generation`: 2026-07-02 06:00 UTC (~21 h)
 - `Rockin Regi Weekly Comic`: 2026-07-05 11:00 UTC (4 days)
 
 ## Next Planned Checks
-- Decide whether to add OpenRouter credits or configure a non-OpenRouter image fallback for Reginald Daily
-- Verify `update_memory` delivery succeeds at next run after target fix
-- Continue monitoring cron job health
-- Nightly `Daily GitHub Backup` should now run cleanly on schedule
-- Re-run / inspect `Rockin Regi Weekly Comic` before its next scheduled run on 2026-07-05
+- Verify `update_memory` delivery succeeds at next run or escalate the Telegram-vs-Signal dispatcher issue.
+- Re-run / inspect `Rockin Regi Weekly Comic` before its scheduled run on 2026-07-05.
+- Decide whether to add OpenRouter credits or switch Reginald Daily image generation to a non-paid fallback.
+- Trim `agents.defaults.model.fallbacks` to remove providers that currently fail (ollama-cloud, OpenRouter, OpenAI).
 
 ## Commands
 - `session_status` — show runtime details
