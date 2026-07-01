@@ -1,10 +1,10 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 13:03 UTC
+- **lastChecked**: 2026-07-01 13:23 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
 - **nextWakeAt**: 2026-07-01 13:49 UTC (openclaw_heartbeat)
-- **pollResult**: OK, no urgent items.
+- **pollResult**: OK, no urgent items. Workspace clean except expected heartbeat state updates.
 
 ## Quick Status
 - **Uptime**: gateway 22h 34m · system 22h 34m
@@ -26,8 +26,8 @@
 - OpenAI and OpenRouter image credits exhausted; text-only fallbacks active for Reginald/Rockin Regi.
 
 ## System
-- Load: 0.63 / 0.30 / 0.22
-- RAM: ~1.8 Gi used / 7.7 Gi total (5.9 Gi available)
+- Load: 0.43 / 0.20 / 0.18
+- RAM: ~1.6 Gi used / 7.7 Gi total (6.1 Gi available)
 - Swap: ~30 Mi used / 4.0 Gi total
 - Disk `/`: 36G used / 57G total (66%)
 

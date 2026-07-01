@@ -3,10 +3,10 @@
     "heartbeat": 1782911037140,
     "gateway": 1782911037140,
     "system": 1782911037140,
-    "poll": 1782911037140
+    "poll": 1782912262212
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T13:03:00+00:00",
+  "lastUpdated": "2026-07-01T13:24:22.210Z",
   "polls": {
     "2026-07-01T13:02:00Z": {
       "route": "heartbeat",
@@ -36,6 +36,20 @@
         "Reverted spurious __pycache__ modifications detected during heartbeat; workspace now clean.",
         "No active sessions.",
         "Next wake: openclaw_heartbeat 13:49 UTC."
+      ]
+    },
+    "2026-07-01T13:18:10.476Z": {
+      "route": "poll",
+      "healthy": true,
+      "notes": [
+        "HEARTBEAT_OK: Poll received 13:17 UTC; no urgent items since last heartbeat (13:03)."
+      ]
+    },
+    "2026-07-01T13:24:22.210Z": {
+      "route": "poll",
+      "healthy": true,
+      "notes": [
+        "HEARTBEAT_OK: Poll received 13:23 UTC; no urgent items. Workspace clean except expected heartbeat state updates."
       ]
     }
   }
