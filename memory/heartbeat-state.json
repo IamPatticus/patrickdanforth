@@ -1,13 +1,13 @@
 {
   "lastChecks": {
-    "heartbeat": 1782888630,
-    "gateway": 1782888630,
-    "system": 1782888630,
-    "poll": 1782888630
+    "heartbeat": 1782890862,
+    "gateway": 1782890862,
+    "system": 1782890862,
+    "poll": 1782890862
   },
   "status": "healthy",
-  "uptime": "gateway 8h 25m · system 16h 10m",
-  "lastUpdated": "2026-07-01T06:50:30Z",
+  "uptime": "gateway 8h 57m \u00b7 system 16h 31m",
+  "lastUpdated": "2026-07-01T07:27:30Z",
   "polls": {
     "2026-07-01T06:00:14Z": {
       "route": "heartbeat",
@@ -59,6 +59,33 @@
         "Rockin Regi Weekly Comic still lastRunStatus=error; next run 2026-07-05.",
         "Workspace has uncommitted changes: CALENDAR.md, EMAILS.md, LOG.md, SCRATCHPAD.md, clawcar identity files, and dream logs.",
         "No urgent calendar/email/weather items found in today's memory."
+      ]
+    },
+    "2026-07-01T07:00:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T07:10:00Z",
+      "notes": [
+        "HEARTBEAT_OK: Gateway healthy; cron active.",
+        "Daily GitHub Backup fixed: force-ran successfully, pushed 26 files to site.",
+        "Fallback model list cleaned to prioritize local Ollama models and avoid paid providers with no credits/404.",
+        "update_memory still error; watch next run 2026-07-02 00:00 UTC.",
+        "Reginald Daily shows ok but OpenRouter 402 issue remains unresolved.",
+        "No urgent items."
+      ]
+    },
+    "2026-07-01T07:27:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T07:30:00Z",
+      "notes": [
+        "HEARTBEAT_OK: Gateway healthy; cron active.",
+        "Verified Reginald Daily job config uses ollama/kimi-k2.7-code:cloud; lastRunStatus ok reflects agent-run completion, not image-generation success. OpenRouter 402 issue remains unresolved.",
+        "Verified update_memory job config now has Telegram target 8284391571; next run 2026-07-02 00:00 UTC will confirm delivery fix.",
+        "Rockin Regi Weekly Comic still lastRunStatus=error; next run 2026-07-05 11:00 UTC.",
+        "No urgent items."
       ]
     }
   }
