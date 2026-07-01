@@ -1,14 +1,35 @@
 {
   "lastChecks": {
-    "heartbeat": 1782924037090,
-    "gateway": 1782924037090,
-    "system": 1782924037090,
-    "poll": 1782924037090,
-    "commit": 1782924037090
+    "heartbeat": 1782925797745,
+    "gateway": 1782925797745,
+    "system": 1782925797745,
+    "poll": 1782925797745,
+    "memoryReview": 1782925917769
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T16:40:00.000Z",
+  "lastPoll": {
+    "2026-07-01T17:09:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "notes": [
+        "Heartbeat at 17:09 UTC; system healthy, load low.",
+        "Cron 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly, not due until 2026-07-05 11:00 UTC).",
+        "No active sessions or urgent items; gateway uptime ~47m."
+      ]
+    }
+  },
+  "lastUpdated": "2026-07-01T17:09:00.000Z",
   "polls": {
+    "2026-07-01T16:54:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "notes": [
+        "Heartbeat at 16:53 UTC; system healthy, load low (0.11/0.14/0.20).",
+        "Cron 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly, not due until 2026-07-05 11:00 UTC).",
+        "Committed heartbeat and dream log updates locally; no origin remote configured (expected for this repo).",
+        "No active sessions or urgent items."
+      ]
+    },
     "2026-07-01T15:04:00Z": {
       "route": "poll",
       "healthy": true,
