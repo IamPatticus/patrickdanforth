@@ -1,24 +1,25 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-01 10:21 UTC
+- **lastChecked**: 2026-07-01 10:25 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **nextWakeAt**: 2026-07-01 10:42 UTC (openclaw_heartbeat)
+- **nextWakeAt**: 2026-07-01 10:27 UTC (ollama_keepalive_serenity)
 - **pollResult**: OK, no urgent items.
 
 ## Quick Status
-- **Uptime**: gateway 12h 19m · system 19h 53m
+- **Uptime**: gateway 12h 23m · system 19h 56m
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 6 ok, 2 error
-- **`update_memory`**: Still `error` — delivery configured as Telegram `8284391571`, but dispatcher enforces Signal target validation. Next run 2026-07-02 00:00 UTC in ~14h. **Still needs attention.**
+- **`update_memory`**: Still `error` — delivery resolved to Signal with no target (`to: null`), but dispatcher enforces Signal target validation. Cron job itself says Telegram `8284391571`, yet run log shows intended `signal`. Next run 2026-07-02 00:00 UTC in ~14h. **Still needs attention.**
 - **`Rockin Regi Weekly Comic`**: Still `error` from 3d ago (agent generated no response). Not due until 2026-07-05 11:00 UTC (~4 days). **Monitor before next run.**
 - **`Reginald Daily Generation`**: July 1st 06:00 UTC run completed agent side, but image generation failed with OpenRouter HTTP 402 (depleted credits). No comic for July 1st. Next run 2026-07-02 06:00 UTC (~20h).
 - **Queue**: steer (depth 0)
 - **Active sessions**: 0
-- **Git**: 4 files modified, last commit 07:27 UTC — will commit this heartbeat update.
+- **Git**: will commit this heartbeat update.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run 09:42 UTC, next 10:12 UTC.
+- `openclaw_heartbeat` runs every 30m; last run 10:12 UTC, next 10:42 UTC.
+- `ollama_keepalive_serenity` runs every ~2m; next 10:27 UTC.
 - `Ikaris Nightly` last OK; next run 2026-07-01 15:00 UTC (~5h).
 - `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~17h).
 - `Daily GitHub Backup` next run 2026-07-02 04:00 UTC (~18h).
@@ -32,7 +33,8 @@
 - Disk `/`: 36G used / 57G total (66%)
 
 ## Upcoming Cron Runs
-- `openclaw_heartbeat`: 10:12 UTC (next ~17 min)
+- `ollama_keepalive_serenity`: 10:27 UTC (next ~2 min)
+- `openclaw_heartbeat`: 10:42 UTC (~17 min)
 - `Ikaris Nightly`: 15:00 UTC (~5 h)
 - `update_memory`: 2026-07-02 00:00 UTC (~14 h) — **watch this one**
 - `Memory Dreaming Promotion`: 2026-07-02 03:00 UTC (~17 h)
