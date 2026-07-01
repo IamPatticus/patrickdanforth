@@ -1,39 +1,23 @@
 {
   "lastChecks": {
-    "heartbeat": 1782899973937,
-    "gateway": 1782899973937,
-    "system": 1782899973937,
-    "poll": 1782899973937
+    "heartbeat": 1782901500000,
+    "gateway": 1782901500000,
+    "system": 1782901500000,
+    "poll": 1782901500000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T09:59:33Z",
+  "lastUpdated": "2026-07-01T10:25:00Z",
   "polls": {
-    "2026-07-01T09:39:33Z": {
+    "2026-07-01T10:25:00Z": {
       "route": "heartbeat",
       "healthy": true,
       "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T09:42:30Z",
+      "nextWakeAt": "2026-07-01T10:27:00Z",
       "notes": [
-        "HEARTBEAT_OK: Gateway healthy; cron active.",
-        "8 jobs enabled; 6 ok, 2 error (update_memory, Rockin Regi Weekly Comic).",
-        "update_memory still error — Telegram target 8284391571 but dispatcher enforces Signal validation; gateway-level bug.",
-        "Rockin Regi Weekly Comic lastError 3d ago (agent generated no response); next run 2026-07-05 11:00 UTC.",
-        "Reginald Daily agent run OK on Jul 1 but image generation failed OpenRouter HTTP 402.",
+        "HEARTBEAT_OK: No change since 10:12 UTC.",
+        "Same two cron errors remain: update_memory (delivery resolved to signal with null target) and Rockin Regi Weekly Comic stale failure.",
         "No active sessions; no urgent items.",
-        "System healthy; no weather/email/calendar checks this beat (separate 4h cron).",
-        "Next notable run: Ikaris Nightly at 2026-07-01 15:00 UTC (~6h)."
-      ]
-    },
-    "2026-07-01T09:59:33Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "cronJobs": 8,
-      "nextWakeAt": "2026-07-01T10:12:00Z",
-      "notes": [
-        "HEARTBEAT_OK: No change since 09:55 UTC.",
-        "Same two cron errors remain: update_memory (Telegram target mismatch) and Rockin Regi Weekly Comic stale failure.",
-        "No active sessions; no urgent items.",
-        "Next wake at 10:12 UTC."
+        "Next wake: ollama_keepalive_serenity at 10:27 UTC; openclaw_heartbeat at 10:42 UTC."
       ]
     }
   }
