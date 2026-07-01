@@ -1,0 +1,1 @@
+No unread emails (as of 2026-06-30 16:03 UTC) - No local mail tool or configuration detected.

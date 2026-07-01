@@ -1,0 +1,1 @@
+- [ ] Email check script  is missing. Need to create or locate it.

@@ -1,6 +1,6 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-06-30 04:02 UTC_
+_Last updated: 2026-07-01 00:00 UTC_
 
 ---
 
@@ -15,8 +15,6 @@ _Last updated: 2026-06-30 04:02 UTC_
 - **Layout:** stack stats vertically at 250×122 to avoid squished text.
 - **Timer:** `eink-pihole.timer` refreshes every 60 minutes.
 - **Connection:** SSH password auth fails from `serenity`; use local commands on the Pi.
-
----
 
 ## Memory Search Fixed (2026-06-28)
 
@@ -39,6 +37,18 @@ _Last updated: 2026-06-30 04:02 UTC_
 - **Note:** Lightning sensor battery on the local Ambient Weather station is low (`batt_lightning: 0`) and has been steady since at least 2026-06-27.
 - **Cleanup:** Removed test posts/images created during debugging and cleaned them from `blog/index.html`, `blog/feed.xml`, `rockinregi/index.html`, and `rockinregi/feed.xml`.
 
+## OpenClaw Android App Connection (2026-06-30)
+
+- **Problem:** Browser connects to the OpenClaw gateway over Tailscale, but the official Android app (`ai.openclaw.app`) does not.
+- **Likely causes:** app-specific endpoint, token, or TLS/certificate handling; not a Tailnet reachability issue.
+- **Status:** Back-burnered per Patticus. Resume later with fresh QR, gateway listener check, and phone diagnostic output.
+
+## Whoop Health Integration (2026-06-28)
+
+- Patticus provided Whoop OAuth client ID and secret.
+- OAuth authorization-code flow still required to obtain a refresh token.
+- **Status:** Back-burnered per Patticus; no token or fetch script created yet.
+
 ## Cron Image Generation Provider Switch (2026-06-27)
 
 - **Problem:** Direct OpenAI image generation was failing due to low credits/rate limits, breaking Daily Regi, Rockin Regi Weekly, and Ikaris Nightly image generation.
@@ -54,13 +64,17 @@ _Last updated: 2026-06-30 04:02 UTC_
 - **Reginald Daily now auto-publishes:** `scripts/reginald_daily.py` copies the generated comic into `reginald-flipbook/images/`, updates `reginald-flipbook/index.json`, busts the cache in `reginald-flipbook/index.html`, and commits/pushes to GitHub so the flipbook stays current.
 - **Auth:** Added `google:default` and `xai:default` profiles to the OpenClaw agent auth store; `xai` key was invalid, but `google` and OpenRouter are working.
 
+## Rockin Regi Redesign (2026-06-28)
+
+- **Pipeline:** `services/blogger/rockinregi_pipeline.py` generates dark aesthetic pages via `openclaw infer image generate` (Gemini 3.1 Flash Image Preview/fallbacks), `reginald-flipbook.html` template, and `rockinregi/index.json` manifest.
+- **Publishing:** Auto-deploys to `patrickdanforth.com/rockinregi/` via git push. RSS feed at `rockinregi/feed.xml`.
+- **Cron:** Weekly run happens in `current` session so failures are reported.
+
 ## Patrickdanforth.com Repo (2026-06-27)
 
 - Removed the broken `patrickdanforth-site` and `whisplay-im-openclaw-plugin` git submodules from the main repo.
 - Homepage (`index.html`) and `reginald-flipbook/` directory are part of the main repo and were **not** affected.
 - Goal was to fix GitHub Actions Pages builds that were failing on missing submodule URLs.
-
----
 
 ## Ollama on serenity (2026-06-23)
 - OpenAI key file: ~/.ollama_config/openai.env (chmod 600)
@@ -75,17 +89,8 @@ _Last updated: 2026-06-30 04:02 UTC_
 - Primary station: **Joppa Station 1** in Walling, TN (lat 35.8448, lon -85.6225)
 - API keys consolidated to `~/.config/ambientweather.env` (chmod 600)
 - **Confirmed 2026-06-27:** the env file key name is `AMBIENT_APP_KEY` (not `AMBIENT_APPLICATION_KEY`); pass it as the `applicationKey` query param alongside `apiKey`.
-- Cron weather checks now read directly from the station instead of wttr.in/Doyle
-- **2026-06-27 midnight check:** Ambient Weather API keys are now populated and Joppa Station 1 is reachable again. Conditions at 00:03 UTC: 80.2°F / feels like 84.5°F, 78% humidity, calm wind. Lightning sensor battery flagged low (`batt_lightning: 0`).
-- **2026-06-28 00:02 UTC:** 81.32°F / feels like 87.82°F, 83% humidity, wind 1.79 mph gusting 3.36 mph ENE, UV 0, solar 47.68 W/m². Daily rain 0.21 in. Lightning sensor battery still low (`batt_lightning: 0`); 2 strikes today, last 0.62 mi away.
-- **2026-06-28 08:02 UTC:** 75.56°F / feels like 77.23°F, 94% humidity, wind 0.22 mph gusting 2.24 mph NE, UV 0, solar 0 W/m². Rain today 0 in. No lightning in the last hour/day; last strike 2026-06-27 19:17 UTC, 0.62 mi away. Lightning sensor battery still low.
-- **2026-06-28 09:48 UTC:** 75.56°F / feels like 77.23°F, 94% humidity, wind 0 mph gusting 0 mph NE, UV 0, solar 0 W/m². Rain today 0 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
-- **2026-06-28 16:02 UTC:** 86.54°F / feels like 100.4°F, 78% humidity, wind 0.67 mph gusting 1.12 mph NE (45°), UV 5, solar 558.86 W/m². Rain today 0 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
-- **2026-06-28 20:02 UTC:** 93°F / feels like 102°F, 51% humidity, wind W @ 9 mph, UV 7, pressure 1015 hPa. Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`). Ambient API returned 401 at this check; used wttr.in backup. The 20:14 UTC check succeeded via Ambient API, so the 401 was transient.
-- **2026-06-28 20:14 UTC:** 92.12°F / feels like 106.41°F, 62% humidity, wind 1.79 mph gusting 3.36 mph N (10°), 10-min avg NE (49°), UV 1, solar 108.78 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
-- **2026-06-28 20:45 UTC:** 93.92°F / feels like 106.86°F, 56% humidity, wind 1.79 mph gusting 2.24 mph NE (43° 10-min avg), UV 6, solar 663.46 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
-- **2026-06-28 20:38 UTC:** 92.66°F / feels like 106.44°F, 60% humidity, wind 2.46 mph gusting 3.36 mph NE (47°), 10-min avg NE (36°), UV 6, solar 698.97 W/m². Rain today 0.00 in. No new lightning. Lightning sensor battery still low (`batt_lightning: 0`).
-- **2026-06-30 04:02 UTC:** 77.18°F / feels like 78.88°F, 91% humidity, wind calm gusting 0 mph NE (53°), UV 0, solar 0 W/m². Rain today 0.00 in. 1 lightning strike today; last local strike 2026-06-29 22:54 UTC at 0.62 mi. Lightning sensor battery still low (`batt_lightning: 0`). Ambient API working again after transient 401s.
+- Cron weather checks now read directly from the station instead of wttr.in/Doyle.
+- **Ongoing status:** Lightning sensor battery remains low (`batt_lightning: 0`) as of 2026-06-30. Individual daily readings are logged in `weather.md` / daily notes rather than here.
 
 ---
 
@@ -104,8 +109,8 @@ I am Patticus's personal AI. I run on the Pi in his office and help across webch
 - **Name:** Patrick Danforth
 - **What to call him:** Patticus (preferred), Patrick
 - **Pronouns:** he/him
-- **Timezone:** America
-- **Location:** Rural property with a strong DIY / solar / self-hosting bent
+- **Timezone:** America/Chicago
+- **Location:** Rural property in Walling, TN with a strong DIY / solar / self-hosting bent
 
 ### What He Cares About
 - Building useful things: solar arrays, home automation, woodworking, and printer infrastructure
@@ -119,7 +124,7 @@ I am Patticus's personal AI. I run on the Pi in his office and help across webch
 - **3D print farm:** Kermit (Bambu P1S), Fozzie (Bambu A1), Big Bird (Prusa XL 5-tool), Gonzo (Prusa XL 5-tool), Rizzo (Prusa i3 MK3S+)
 - **Headache Log:** Custom health-tracking app for headaches, triggers, weather, sleep, and medication patterns
 - **patrickdanforth.com:** Personal site with project pages, solar pages, and Reginald lore
-- **Reginald Daily / flipbook:** Here.now-hosted Reginald Daily stream and site pages tied into the personal site
+- **Reginald Daily / flipbook:** Auto-publishes to `patrickdanforth.com/reginald-flipbook/` via git push
 - **Ikaris Daily Blog** — Blogger → **SELF-HOSTED on patrickdanforth.com/blog/**
   - Pipeline generates HTML posts directly to the site repo
   - Images saved locally in `ikaris-images/`
@@ -144,6 +149,7 @@ I am Patticus's personal AI. I run on the Pi in his office and help across webch
 | **Kael** | Coder | Scripts, debugging, automation |
 | **Orpheus** | Research | Search, docs, synthesis |
 | **Ikaris** | Blogger | Writing pipeline, scheduled posts, image-backed story output |
+| **Clawcar** | PiCar‑X robot | Sarcastic stunt driver on wheels; controls the SunFounder PiCar‑X via OpenClaw skill. Avatar: `avatars/clawcar.jpg` (flaming lobster-armored stunt car). Identity and SOUL finalized 2026-06-30. |
 
 All crew members share the same workspace and memory context, but they are used for different kinds of work.
 
@@ -207,14 +213,6 @@ All crew members share the same workspace and memory context, but they are used 
 - He cares about correlations between headaches, weather, sleep, stress, and medication
 - This work may expand into broader family health tracking patterns over time
 
-### Rockin Regi Redesign (2026-06-28)
-
-- **Pipeline:** `services/blogger/rockinregi_pipeline.py` generates dark aesthetic pages via `openclaw infer image generate` (Gemini 3.1 Flash Image Preview/fallbacks), `reginald-flipbook.html` template, and `rockinregi/index.json` manifest.
-- **Publishing:** Auto-deploys to `patrickdanforth.com/rockinregi/` via git push. RSS feed at `rockinregi/feed.xml`.
-- **Cron:** Weekly run (Reginald) happens in `current` session for notify-on-failure.
-
----
-
 ## Ongoing Issues
 
 - **Ikaris Blog:** OAuth blocked → MIGRATED to self-hosted on patrickdanforth.com/blog/ as of 2026-06-12. Pipeline generates HTML + art locally, git push to publish. No auth required.
@@ -223,7 +221,6 @@ All crew members share the same workspace and memory context, but they are used 
 - **Control UI:** Smoother after Tailscale Serve migration. Avatar re-uploaded for new HTTPS origin.
 - **Daily note creation reliability:** Health checks have had to create missing daily files several times — worth investigating root cause when convenient
 - **MEMORY.md resilience:** The 2026-06-04 loss via broken symlink suggests a robustness gap; file is now stable but symlink fragility should be addressed
-- **GitHub Pages build:** Fixed 2026-06-27 with custom GitHub Actions workflow and `_config.yml` exclusions. Site is deploying successfully.
 - **Kiyo camera:** Autofocus / image quality on Linux remains questionable
 - **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
 - **Shelly firmware:** Still worth revisiting when convenient
@@ -238,6 +235,17 @@ All crew members share the same workspace and memory context, but they are used 
 - `Elephant` is just the alias for `openrouter/inclusionai/ling-2.6-flash` in the gateway fallback list.
 - `serenity` uses a separate Ollama/OpenAI routing setup for local defaults and cloud image/coding tasks.
 - The `serenity` OpenAI key lives in `~/.ollama_config/openai.env` and the router script is `~/.ollama_router.sh`.
+
+## Clawcar (PiCar‑X) Identity Finalized (2026-06-30)
+- **Name:** Clawcar
+- **Role:** Sarcastic stunt-driver OpenClaw agent on a SunFounder PiCar‑X chassis
+- **Emoji:** 🚗🦞
+- **Avatar:** `avatars/clawcar.jpg` — flaming lobster-armored stunt car, comic-book vector style with halftone shading
+- **Files created and copied to Clawcar:**
+  - `clawcar-soul.md` → `~/.openclaw/workspace/SOUL.md`
+  - `clawcar-identity.md` → `~/.openclaw/workspace/IDENTITY.md`
+  - `avatars/clawcar.jpg` → `~/.openclaw/workspace/avatars/clawcar.jpg`
+- **First boot line:** “Wheels down, claws up. Let’s see what we can donut around today, Boss.”
 
 ---
 
@@ -263,7 +271,9 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-06-13 | Home Assistant heartbeat: ~145 unavailable entities (mostly sensors/media_players) |
 | 2026-06-14 | Last memory update before today's Ollama setup |
 | 2026-06-28 | E-Ink Pi-hole Display project completed and working on Pi Zero 2 W |
+| 2026-06-28 | Rockin Regi redesign published to patrickdanforth.com/rockinregi/ |
+| 2026-06-30 | Clawcar identity/SOUL/avatar finalized on PiCar‑X |
 
 ## Promoted From Short-Term Memory
 
-_None currently. This section is reserved for high-signal summaries worth keeping long-term._
+_None currently._

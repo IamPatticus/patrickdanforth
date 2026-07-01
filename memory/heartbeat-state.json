@@ -1,7 +1,65 @@
 {
   "lastChecks": {
-    "email": 1782835157,
-    "calendar": 1782835157,
-    "weather": 1782835157
+    "heartbeat": 1782888630,
+    "gateway": 1782888630,
+    "system": 1782888630,
+    "poll": 1782888630
+  },
+  "status": "healthy",
+  "uptime": "gateway 8h 25m · system 16h 10m",
+  "lastUpdated": "2026-07-01T06:50:30Z",
+  "polls": {
+    "2026-07-01T06:00:14Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T06:30:00Z",
+      "notes": [
+        "HEARTBEAT_OK: Gateway healthy; cron active.",
+        "Reginald Daily Generation failed at 06:00 UTC with stale ollama-cloud/kimi-k2.6 (404). Payload corrected to ollama/kimi-k2.7-code:cloud and force-restarted.",
+        "Ikaris Nightly payload corrected from ollama-cloud/kimi-k2.6 to ollama/kimi-k2.7-code:cloud proactively.",
+        "Rockin Regi Weekly Comic payload corrected from ollama-cloud/deepseek-v4-pro:cloud to ollama/kimi-k2.7-code:cloud.",
+        "update_memory target fixed to Telegram 8284391571; next run 2026-07-02 00:00 UTC will confirm.",
+        "Daily GitHub Backup model corrected to ollama/kimi-k2.7-code:cloud; next run tonight will confirm.",
+        "Disk /home at 67%; no urgent items."
+      ]
+    },
+    "2026-07-01T06:10:29Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T06:30:00Z",
+      "notes": [
+        "HEARTBEAT_OK: Gateway healthy; cron active.",
+        "Reginald Daily rerun at 06:05 UTC still failed: OpenRouter image generation returned HTTP 402 Payment Required.",
+        "This is a funding/credit issue, not a model configuration issue.",
+        "No urgent items; system otherwise quiet."
+      ]
+    },
+    "2026-07-01T06:18:30Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T06:30:30Z",
+      "notes": [
+        "HEARTBEAT_OK: Gateway healthy; cron active.",
+        "No cron runs since 06:10. Reginald Daily OpenRouter 402 issue remains unresolved.",
+        "Disk /home at 66%; no urgent items."
+      ]
+    },
+    "2026-07-01T06:50:30Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T07:10:00Z",
+      "notes": [
+        "HEARTBEAT_OK: Gateway healthy; cron active.",
+        "Reginald Daily lastRunStatus now 'ok' in cron list, but underlying OpenRouter 402 image-generation failure likely still unresolved (job-level status may not reflect internal step failure).",
+        "update_memory and Daily GitHub Backup still lastRunStatus=error; next runs tonight will confirm whether model/target fixes took.",
+        "Rockin Regi Weekly Comic still lastRunStatus=error; next run 2026-07-05.",
+        "Workspace has uncommitted changes: CALENDAR.md, EMAILS.md, LOG.md, SCRATCHPAD.md, clawcar identity files, and dream logs.",
+        "No urgent calendar/email/weather items found in today's memory."
+      ]
+    }
   }
 }
