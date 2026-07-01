@@ -1,12 +1,12 @@
 {
   "lastChecks": {
-    "heartbeat": 1782909037347,
-    "gateway": 1782909037347,
-    "system": 1782909037347,
-    "poll": 1782909037347
+    "heartbeat": 1782909477469,
+    "gateway": 1782909477469,
+    "system": 1782909477469,
+    "poll": 1782909477469
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-01T12:27:00+00:00",
+  "lastUpdated": "2026-07-01T12:37:00+00:00",
   "polls": {
     "2026-07-01T11:49:00Z": {
       "route": "heartbeat",
@@ -88,6 +88,21 @@
         "Resources: load 0.07/0.13/0.18, disk 66%.",
         "Reviewed Rockin Regi run history; recurring agent-response failures/timeouts, plus OpenRouter credit issue for image-gen routes.",
         "No active sessions; no user action required."
+      ]
+    "2026-07-01T12:37:00Z": {
+      "route": "heartbeat",
+      "healthy": true,
+      "cronJobs": 8,
+      "nextWakeAt": "2026-07-01T12:49:00Z",
+      "notes": [
+        "HEARTBEAT_OK: System healthy, no urgent items.",
+        "Gateway uptime 14h 30m; system uptime 22h 8m.",
+        "Cron: 8 jobs enabled; 7 ok, 1 error (Rockin Regi Weekly Comic).",
+        "Diagnosed image-gen failure: OpenAI billing hard limit; OpenRouter credits exhausted (35.23/35).",
+        "Updated reginald_daily.py and rockinregi_pipeline.py to fall back to text-only posts when art unavailable.",
+        "Committed and pushed heartbeat + image-gen changes.",
+        "Resources: load 0.06/0.20/0.20, RAM 1.6/7.7 Gi used, swap 30 Mi, disk 66%.",
+        "Next wake: openclaw_heartbeat 12:49 UTC."
       ]
     }
   }
