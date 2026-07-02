@@ -1,25 +1,25 @@
 {
   "lastChecks": {
-    "email": 1782971439000,
-    "heartbeat": 1782971439000,
-    "gateway": 1782969382000,
-    "poll": 1782971439000,
-    "weather": 1782971434000,
-    "calendar": 1782971439000,
-    "memoryReview": 1782969382000
+    "email": 1782985240000,
+    "heartbeat": 1782991920000,
+    "gateway": 1782984760000,
+    "poll": 1782984760000,
+    "weather": 1782985240000,
+    "calendar": 1782973963614,
+    "memoryReview": 1782984760000
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T05:50:39.000000Z",
+  "lastUpdated": "2026-07-02T10:14:00.000Z",
   "latestPoll": {
-    "time": "2026-07-02T05:50:00Z",
+    "time": "2026-07-02T10:12:00.000Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 05:50 UTC.",
-      "Email: 20 unread pulled (201 estimate). Important items unchanged: Google security alert from Composio OAuth (expected); Patticus reply 'Thanks!' (no action needed). No new urgent messages.",
-      "Calendar: Google Calendar still not connected. Initiated OAuth link during this heartbeat (expires ~10 min).",
-      "Weather: Walling TN — Clear, 84°F, 61% humidity, 3mph wind, 0.00in precip.",
-      "Workspace git: 3 modified files (HEARTBEAT.md, memory/.dreams/events.jsonl, heartbeat-state.json)."
+      "Heartbeat poll at 10:12 UTC.",
+      "No urgent items. Gateway stable, cron 8 jobs (1 stale error on Rockin Regi Weekly Comic, not due until 2026-07-05).",
+      "Gmail: 201 unread; no urgent action needed.",
+      "Google Calendar OAuth still pending.",
+      "Weather (Walling TN): not refreshed this poll."
     ]
   }
 }
