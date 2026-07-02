@@ -1,26 +1,24 @@
 {
   "lastChecks": {
     "email": 1782993397000,
-    "heartbeat": 1782993397000,
-    "gateway": 1782993397000,
-    "poll": 1782993397000,
+    "heartbeat": 1782993717164,
+    "gateway": 1782993717164,
+    "poll": 1782993717164,
     "weather": 1782993397000,
     "calendar": 1782993397000,
     "memoryReview": 1782989085000
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T11:56:37.000Z",
+  "lastUpdated": "2026-07-02T12:01:57.164Z",
   "latestPoll": {
-    "time": "2026-07-02T11:55:00.000Z",
+    "time": "2026-07-02T12:01:57.164Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 11:55 UTC.",
-      "No urgent items.",
-      "Gmail: 201 unread, no new urgent personal mail since 11:49 UTC. Patrick's Proton reply is a simple 'Thanks!' and already handled.",
-      "Google Calendar still not connected via Composio (requires user OAuth action during a direct session).",
-      "Weather: Walling TN 74°F sunny.",
-      "Cron: 7 ok, 1 stale error (Rockin Regi Weekly Comic, not due until Jul 5; already patched to skip paid image routes when OpenRouter key absent)."
+      "Heartbeat poll at 12:01 UTC.",
+      "Gateway healthy on port 18790.",
+      "Cron: 7 ok, 1 stale error (Rockin Regi Weekly Comic, not due until Jul 5).",
+      "Full weather/email/calendar check covered by the 4-hourly openclaw_heartbeat cron at 12:02 UTC."
     ]
   }
 }
