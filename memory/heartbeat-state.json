@@ -1,26 +1,27 @@
 {
   "lastChecks": {
-    "email": 1782964701,
-    "heartbeat": 1782966141000,
-    "gateway": 1782966141000,
-    "system": 1782966141000,
-    "poll": 1782966141000,
+    "email": 1782966141000,
+    "heartbeat": 1782967238000,
+    "gateway": 1782967238000,
+    "system": 1782967238000,
+    "poll": 1782967238000,
     "weather": 1782966141000,
     "calendar": 1782966141000,
-    "memoryReview": 1782964941253
+    "memoryReview": 1782967238000
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T04:22:21.000000Z",
+  "lastUpdated": "2026-07-02T04:40:38.000000Z",
   "latestPoll": {
-    "time": "2026-07-02T04:22:21Z",
+    "time": "2026-07-02T04:40:38Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 04:22 UTC.",
+      "Heartbeat poll at 04:40 UTC.",
       "Gateway stable; cron 7 ok / 1 stale error (Rockin Regi Weekly, not due until 2026-07-05).",
       "No urgent emails, calendar events, or notifications.",
       "Image generation remains text-only fallback.",
-      "Weather Walling TN: sunny 94F; possible storms this evening (~72% chance)."
+      "Weather Walling TN: sunny 94F; possible storms this evening (~72% chance).",
+      "Memory dreaming promotion ran at 03:00 UTC OK."
     ]
   }
 }
