@@ -66,7 +66,7 @@ status = {"art_generated": False, "post_created": False, "deployed": False}
 # ── Step 1: Generate Comic Art ──────────────────────────────
 
 def generate_art(title, script):
-    """Generate comic art via OpenClaw image generation (daily comic model), return local file path."""
+    """Generate comic art via available image providers, return local file path."""
     if POST_TYPE == "log":
         print("[ART] Log entry — skipping art generation")
         return None
@@ -85,13 +85,55 @@ def generate_art(title, script):
         f"Title: '{title}'. The scene: {script[:500]}"
     )
 
-    print(f"[ART] Generating {POST_TYPE} art via openclaw infer (daily comic model)...")
-
     slug = "_".join(re.sub(r'[^\w\s]', '', title).lower().split()[:4])
     local_path = IMAGES_DIR / f"regi_{DATE_STR}_{slug}.png"
 
-    # All paid image providers are currently exhausted. Post text-only automatically.
-    print("[ART] Paid image providers unavailable (OpenAI billing limit / OpenRouter credits exhausted). Posting text-only.")
+    # Try OpenRouter GPT-5.4 Image 2
+    from services.blogger.openrouter_image import generate_image
+    print(f"[ART] Generating {POST_TYPE} art via OpenRouter GPT-5.4 Image 2...")
+    try:
+        if generate_image(prompt, str(local_path), model="openai/gpt-5.4-image-2", width=1536, height=1024, timeout=240):
+            return local_path
+    except Exception as e:
+        print(f"[ART] OpenRouter GPT-5.4 Image 2 error: {e}")
+
+    # Fallback to FLUX.2 Flex
+    print("[ART] Falling back to OpenRouter FLUX.2 Flex...")
+    try:
+        if generate_image(prompt, str(local_path), model="black-forest-labs/flux.2-flex", width=1536, height=1024, timeout=180):
+            return local_path
+    except Exception as e:
+        print(f"[ART] FLUX fallback error: {e}")
+
+    # Fallback to openclaw Gemini route
+    print("[ART] Falling back to openclaw infer image generate...")
+    cmd = [
+        "openclaw", "infer", "image", "generate",
+        "--prompt", prompt,
+        "--size", "1536x1024",
+        "--output", str(local_path),
+        "--model", "openrouter/google/gemini-3.1-flash-image-preview",
+        "--timeout-ms", "120000"
+    ]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=150)
+        if result.returncode == 0 and local_path.exists() and local_path.stat().st_size > 0:
+            print(f"[ART] Generated via OpenClaw fallback: {local_path}")
+            return local_path
+        print(f"[ART] openclaw infer fallback failed: {result.stderr}")
+    except Exception as e:
+        print(f"[ART] openclaw fallback error: {e}")
+
+    # Final fallback: Composio + Gemini
+    print("[ART] Falling back to Composio Gemini image generation...")
+    try:
+        from services.blogger.composio_image import generate_image as composio_generate_image
+        if composio_generate_image(prompt, str(local_path), model="gemini-2.5-flash-image", aspect_ratio="3:2", image_size="2K", timeout=300):
+            return local_path
+    except Exception as e:
+        print(f"[ART] Composio Gemini fallback error: {e}")
+
+    print("[ART] All image providers unavailable. Posting text-only.")
     return None
 
 # ── Step 2: Generate HTML Post ──────────────────────────────

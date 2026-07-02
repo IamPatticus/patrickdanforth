@@ -102,6 +102,15 @@ def generate_art(title, story):
     except Exception as e:
         print(f"[ART] Fallback failed: {e}")
 
+    # Fallback to Composio + Gemini
+    print("[ART] Falling back to Composio Gemini image generation...")
+    try:
+        from services.blogger.composio_image import generate_image as composio_generate_image
+        if composio_generate_image(prompt, str(local_path), model="gemini-2.5-flash-image", aspect_ratio="1:1", image_size="2K", timeout=300):
+            return str(local_path.name)
+    except Exception as e:
+        print(f"[ART] Composio Gemini fallback error: {e}")
+
     # Fallback to cached image
     import glob, os
     cached = sorted(glob.glob(str(IMAGES_DIR / "ikaris_*.png")), key=lambda x: -os.path.getmtime(x))

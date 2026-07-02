@@ -118,6 +118,16 @@ def generate_reginald_art():
         print(f"[ART] openclaw infer fallback failed: {result.stderr}", file=sys.stderr)
     except Exception as e:
         print(f"[ART] Fallback generation error: {e}", file=sys.stderr)
+
+    # Final final fallback: Composio + Gemini
+    print("[ART] Falling back to Composio Gemini image generation...", file=sys.stderr)
+    try:
+        from services.blogger.composio_image import generate_image as composio_generate_image
+        if composio_generate_image(prompt, IMAGE_PATH, model="gemini-2.5-flash-image", aspect_ratio="3:2", image_size="2K", timeout=300):
+            return True
+    except Exception as e:
+        print(f"[ART] Composio Gemini fallback error: {e}", file=sys.stderr)
+
     return False
 
 def get_reginald_quote():
