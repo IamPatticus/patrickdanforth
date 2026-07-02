@@ -1,12 +1,12 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-02 11:39 UTC
+- **lastChecked**: 2026-07-02 11:55 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **pollResult**: OK, no urgent items at 11:34 UTC.
+- **pollResult**: OK, no urgent items at 11:55 UTC.
 - **Memory review**: 2026-07-02 11:10 UTC — nothing new to promote.
-- **Gmail**: 201 unread; top items: Google security alert (Composio access), Patrick's Proton reply, AgentMail newsletters. No urgent action needed.
-- **Google Calendar**: still not connected via Composio (OAuth pending; link generated at 11:34 UTC expired before activation).
+- **Gmail**: 201 unread; no new urgent mail since 11:49 UTC. Patrick's Proton reply is a simple "Thanks!" and already handled. Remaining unread items are newsletters and Google account notices.
+- **Google Calendar**: still not connected via Composio (OAuth pending; requires activation in a direct session).
 
 ## Quick Status
 - **Uptime**: gateway ~1d 20h · system 1d 20h
