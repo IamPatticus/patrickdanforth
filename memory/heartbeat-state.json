@@ -1,28 +1,28 @@
 {
   "lastChecks": {
-    "email": 1782998054000,
-    "heartbeat": 1782998054000,
-    "gateway": 1782999120000,
-    "poll": 1782999120000,
-    "weather": 1782999120000,
+    "email": 1783001834000,
+    "heartbeat": 1783003302573,
+    "gateway": 1783002172152,
+    "poll": 1783003302573,
+    "weather": 1783001834000,
     "calendar": 1782993397000,
     "memoryReview": 1782989085000
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T13:32:00.000Z",
+  "lastUpdated": "2026-07-02T14:41:42.573422Z",
   "latestPoll": {
-    "time": "2026-07-02T13:32:00.000Z",
+    "time": "2026-07-02T14:41:42.573422Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 13:32 UTC.",
-      "Cron status: 8 jobs; 7 ok / 1 stale non-urgent error (Rockin Regi, due Jul 5).",
-      "Weather Walling, TN: +82°F sunny.",
+      "Heartbeat poll at 14:40 UTC.",
+      "Weather Walling, TN: 82\u00b0F sunny, feels like 86\u00b0F.",
+      "Daily note current; memory review not due (<24h).",
       "No urgent items; HEARTBEAT_OK."
     ]
   },
   "heartbeatPoll": {
-    "time": "2026-07-02T13:13:00.000Z",
+    "time": "2026-07-02T14:41:42.573422Z",
     "response": "HEARTBEAT_OK"
   }
 }
