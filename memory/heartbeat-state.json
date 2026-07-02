@@ -1,24 +1,25 @@
 {
   "lastChecks": {
-    "email": 1782993397000,
-    "heartbeat": 1782993717164,
-    "gateway": 1782993717164,
-    "poll": 1782993717164,
-    "weather": 1782993397000,
+    "email": 1782994708000,
+    "heartbeat": 1782994708000,
+    "gateway": 1782994708000,
+    "poll": 1782994708000,
+    "weather": 1782994708000,
     "calendar": 1782993397000,
     "memoryReview": 1782989085000
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T12:01:57.164Z",
+  "lastUpdated": "2026-07-02T12:18:28.000Z",
   "latestPoll": {
-    "time": "2026-07-02T12:01:57.164Z",
+    "time": "2026-07-02T12:18:00.000Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 12:01 UTC.",
-      "Gateway healthy on port 18790.",
-      "Cron: 7 ok, 1 stale error (Rockin Regi Weekly Comic, not due until Jul 5).",
-      "Full weather/email/calendar check covered by the 4-hourly openclaw_heartbeat cron at 12:02 UTC."
+      "Heartbeat poll at 12:18 UTC.",
+      "Gateway healthy; 8 cron jobs, 7 ok / 1 stale non-urgent error (Rockin Regi, due Jul 5).",
+      "Gmail: 201 unread; no new urgent personal items; Patrick/Composio security alert remain notable.",
+      "Google Calendar still not connected via Composio (OAuth pending, requires direct session activation).",
+      "Weather updated from wttr.in: Walling, TN 74°F sunny, 91% humidity, 0.00 in precip."
     ]
   }
 }

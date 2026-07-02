@@ -1,11 +1,11 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-02 11:55 UTC
+- **lastChecked**: 2026-07-02 12:18 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **pollResult**: OK, no urgent items at 11:55 UTC.
+- **pollResult**: OK, no urgent items at 12:18 UTC.
 - **Memory review**: 2026-07-02 11:10 UTC — nothing new to promote.
-- **Gmail**: 201 unread; no new urgent mail since 11:49 UTC. Patrick's Proton reply is a simple "Thanks!" and already handled. Remaining unread items are newsletters and Google account notices.
+- **Gmail**: 201 unread; no new urgent mail. Patrick's Proton reply thread and Google Composio security alert remain the notable items. Remaining unread items are newsletters and Google account notices.
 - **Google Calendar**: still not connected via Composio (OAuth pending; requires activation in a direct session).
 
 ## Quick Status
@@ -39,7 +39,7 @@
 - **Disk `/`**: 36G used / 57G total (67%)
 
 ## Weather
-- Walling, TN (wttr.in backup): Sunny, +74°F (feels like 64°F), wind NW 3 mph, humidity 89%, 0.00 in precip.
+- Walling, TN (wttr.in backup): Sunny, +74°F (feels like +65°F), wind NW 3 mph, humidity 91%, 0.00 in precip.
 - Today's forecast: high ~96°F (feels like 111°F), low ~68°F, patchy rain possible late afternoon/evening (~59% chance), UV 10.
 - Tomorrow (Jul 3): cooler, high ~89°F (feels like 93°F), low ~66°F, patchy rain possible evening (~20%).
 - Saturday (Jul 4): partly cloudy morning, sunny noon, patchy rain possible evening/night, high ~87°F (feels like 93°F).

@@ -5,13 +5,13 @@ title: Weather Dashboard
 
 # Weather Dashboard
 
-_Last updated: 2026-07-02 11:39 UTC_
+_Last updated: 2026-07-02 12:18 UTC_
 
 ## Current Conditions (wttr.in)
 **Location:** Walling, TN
 
-- **Sampled at:** 2026-07-02 11:39 UTC (local 06:39 CDT)
-- **Temperature:** 74°F (feels like 64°F)
+- **Sampled at:** 2026-07-02 12:18 UTC (local 07:18 CDT)
+- **Temperature:** 74°F (feels like 65°F)
 - **Condition:** Sunny
 - **Wind:** NW 3 mph
 - **Visibility:** 6 mi
