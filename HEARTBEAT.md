@@ -1,35 +1,39 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-02 16:39 UTC
+- **lastChecked**: 2026-07-02 16:55 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **pollResult**: OK, no urgent items at 16:39 UTC. `openclaw_heartbeat` just ran (<1m ago).
-- **Memory review**: 2026-07-02 11:10 UTC — nothing new to promote.
-- **Gmail**: 201 unread; no new mail in last ~18m. Patrick's Proton reply thread asking "Can you respond back to emails?" (14:53 UTC today) remains the notable unread item. Google Composio security alert also unread. Rest are newsletters and Google account notices. Checked at 16:32 UTC.
+- **pollResult**: OK. No new urgent items since 16:41 UTC.
+- **Memory review**: 2026-07-02 16:55 UTC — reviewed daily file, no new long-term promotions.
+- **Gmail**: 201 unread (fetched at 16:55 UTC). Notable unread items:
+  - Patrick's Proton reply thread asking "Can you respond back to emails?" (14:53 UTC today, thread `19f1fc1e216b6612`).
+  - Google Composio security alert (22:22 UTC yesterday).
+  - Remaining unread are newsletters and Google account notices.
 - **Google Calendar**: still not connected via Composio (OAuth pending; requires activation in a direct session).
-- **Weather (Walling, TN)**: 95°F, mainly clear, feels like 105°F, WSW wind 1 mph, humidity 50%, 0.00 in precip. Checked at 16:32 UTC. Exa / current conditions as of ~17:00 CDT.
+- **Twitter/X**: not connected via Composio.
+- **Weather (Walling, TN)**: 97°F sunny, feels like 109°F, N wind 3 mph, humidity 47%, 0.00 in precip. Checked at 16:55 UTC via wttr.in.
 
 ## Quick Status
-- **Uptime**: gateway 4m 26s · system 1d 23h
+- **Uptime**: gateway 2h 43m · system 2d 2h
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 7 ok, 1 error
-- **`update_memory`**: ✅ Ran OK at 2026-07-02 00:00 UTC. Next run 2026-07-03 00:00 UTC (~8h).
-- **`Rockin Regi Weekly Comic`**: ⚠️ Stale `error` from 2026-06-28 (agent response failure; model: google/gemini-3-pro-image via openrouter). Not due until 2026-07-05 11:00 UTC America/Chicago (~2 days 19h). Text-only fallback in place; patched pipeline to skip paid routes when OpenRouter key is missing.
+- **`update_memory`**: ✅ Ran OK at 2026-07-02 00:00 UTC. Next run 2026-07-03 00:00 UTC (~7h).
+- **`Rockin Regi Weekly Comic`**: ⚠️ Stale `error` from 2026-06-28 (agent response failure; model: google/gemini-3-pro-image via openrouter). Not due until 2026-07-05 11:00 UTC America/Chicago (~2 days 18h). Text-only fallback in place; patched pipeline to skip paid routes when OpenRouter key is missing.
 - **`Reginald Wednesday Comic`**: ✅ Last run OK (2026-06-25 06:00 UTC). Next run 2026-07-08 06:00 UTC (~6 days).
 - **Queue**: steer (depth 0)
 - **Active sessions**: 0 (cron-event only)
 - **Git**: working tree clean; nothing to commit.
 - **Google Calendar**: OAuth pending; will need a fresh link during a direct session.
-- **Notable unread**: Patrick's Proton email asks "Can you respond back to emails?" — Gmail/Composio is now active, so I can reply if directed.
+- **Notable unread**: Patrick's Proton email asks "Can you respond back to emails?" — Gmail/Composio is active, so I can reply if directed.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run 16:39 UTC, next ~17:09 UTC.
-- **Email/calendar/Signal**: Checked via Composio. Gmail has 201 unread; no urgent personal items beyond Patrick's reply thread and Composio security alert. Google Calendar still not connected via Composio.
-- **Weather**: Walling, TN (exa.ai current conditions): 95°F mainly clear, feels like 105°F, WSW wind 1 mph, humidity 50%, 0.00 in precip. Forecast high ~100°F, low ~73°F.
+- `openclaw_heartbeat` runs every 30m; last run 16:55 UTC, next ~17:25 UTC.
+- **Email/calendar/Signal/Twitter**: Gmail checked via Composio. Google Calendar and Twitter/X are not connected. Signal not configured via Composio.
+- **Weather**: Walling, TN (wttr.in): 97°F sunny, feels like 109°F, N wind 3 mph, humidity 47%, 0.00 in precip.
 - `ollama_keepalive_serenity` runs every ~2m.
-- Gateway restarted at 14:12 UTC (uptime 4m 26s at poll time).
-- `Memory Dreaming Promotion` last OK at 03:00 UTC; next run 2026-07-03 03:00 UTC (~11h).
-- `Daily GitHub Backup` last OK at 2026-07-02 04:00 UTC America/Chicago (~10h ago); next run 2026-07-03 04:00 UTC America/Chicago (~14h).
+- Gateway restarted at 14:12 UTC (uptime 2h 43m at poll time).
+- `Memory Dreaming Promotion` last OK at 03:00 UTC; next run 2026-07-03 03:00 UTC (~10h).
+- `Daily GitHub Backup` last OK at 2026-07-02 04:00 UTC America/Chicago (~9h ago); next run 2026-07-03 04:00 UTC America/Chicago (~13h).
 - Image generation remains text-only fallback (OpenAI/OpenRouter credits exhausted).
 - Phone/Android connectivity issue back-burnered per user; browser over Tailscale works, app does not.
 
@@ -40,18 +44,18 @@
 - **Disk `/`**: 37G used / 57G total (67%)
 
 ## Weather
-- Walling, TN (exa.ai current conditions): 95°F mainly clear, feels like 105°F, wind WSW 1 mph, humidity 50%, 0.00 in precip.
-- Today (Jul 2): mainly clear, high ~100°F, low ~73°F.
-- Tomorrow (Jul 3): high ~91°F, low ~68°F, patchy rain nearby evening.
-- Saturday (Jul 4): high ~87°F, low ~73°F, patchy light rain evening/night.
+- Walling, TN (wttr.in current conditions): 97°F sunny, feels like 109°F, wind N 3 mph, humidity 47%, 0.00 in precip.
+- Today (Jul 2): sunny, high ~100°F, low ~73°F.
+- Tomorrow (Jul 3): high ~94°F, low ~67°F.
+- Saturday (Jul 4): high ~92°F, low ~64°F.
 
 ## Upcoming Cron Runs
 - `ollama_keepalive_serenity`: in ~2m
-- `openclaw_heartbeat`: ~16:44 UTC (~30m)
-- `update_memory`: 2026-07-03 00:00 UTC (~8h)
-- `Memory Dreaming Promotion`: 2026-07-03 03:00 UTC (~11h)
-- `Daily GitHub Backup`: 2026-07-03 04:00 UTC America/Chicago (~14h)
-- `Rockin Regi Weekly Comic`: 2026-07-05 11:00 UTC America/Chicago (~2 days 19h)
+- `openclaw_heartbeat`: ~17:25 UTC (~30m)
+- `update_memory`: 2026-07-03 00:00 UTC (~7h)
+- `Memory Dreaming Promotion`: 2026-07-03 03:00 UTC (~10h)
+- `Daily GitHub Backup`: 2026-07-03 04:00 UTC America/Chicago (~13h)
+- `Rockin Regi Weekly Comic`: 2026-07-05 11:00 UTC America/Chicago (~2 days 18h)
 - `Reginald Wednesday Comic`: 2026-07-08 06:00 UTC (~6 days)
 
 ## Next Planned Checks

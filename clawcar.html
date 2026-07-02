@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+  <title>Clawcar — Controlled Chaos on Wheels</title>
+  <meta name="description" content="Clawcar: sarcastic stunt-driving PiCar-X robot node. Live stats, mission log, and chaos status from Patrick Danforth's AI crew.">
+  <meta property="og:title" content="Clawcar — Controlled Chaos on Wheels">
+  <meta property="og:description" content="Sarcastic stunt-driving PiCar-X robot node. Wheels down, claws up.">
+  <meta property="og:image" content="./avatars/clawcar.jpg">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --bg: #06070b;
+      --panel: rgba(15, 18, 27, 0.88);
+      --panel-2: rgba(20, 25, 37, 0.92);
+      --line: rgba(130, 177, 255, 0.16);
+      --text: #edf3ff;
+      --muted: #9aa7c2;
+      --cyan: #7ae7ff;
+      --gold: #d7aa61;
+      --ember: #ff7a4d;
+      --green: #7effb2;
+      --pink: #f0a0c0;
+      --red: #ff6b6b;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(122,231,255,.12), transparent 24%),
+        radial-gradient(circle at 80% 12%, rgba(215,170,97,.10), transparent 24%),
+        radial-gradient(circle at 50% 90%, rgba(255,122,77,.08), transparent 20%),
+        linear-gradient(180deg, #04050a 0%, #0b1020 55%, #090b12 100%);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(122,231,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,231,255,.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+      z-index: 0;
+    }
+    .wrap {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 42px;
+      padding: 32px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+    .hero-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid var(--ember);
+      flex-shrink: 0;
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(255,122,77,.2);
+    }
+    .hero-text h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .hero-text .tagline {
+      color: var(--ember);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .hero-text p {
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* ── Status Bar ── */
+    .status-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 42px;
+    }
+    .stat-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+    }
+    .stat-card .label {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .stat-card .value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+    .stat-card .value.green { color: var(--green); }
+    .stat-card .value.ember { color: var(--ember); }
+    .stat-card .value.gold { color: var(--gold); }
+
+    /* ── Section Title ── */
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 36px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      color: var(--cyan);
+    }
+
+    /* ── Mission Log ── */
+    .log-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .log-table th, .log-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+    .log-table th {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(0,0,0,.2);
+    }
+    .log-table tr:last-child td { border-bottom: none; }
+    .log-table td { color: var(--text); font-size: 0.95rem; }
+    .log-table .time { color: var(--gold); white-space: nowrap; }
+    .log-table .cmd { color: var(--cyan); font-weight: 600; }
+
+    /* ── Quote / Soul ── */
+    .soul-box {
+      background: var(--panel-2);
+      border-left: 4px solid var(--ember);
+      border-radius: 0 14px 14px 0;
+      padding: 24px;
+      margin: 32px 0;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .soul-box cite {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.9rem;
+    }
+
+    /* ── Specs Grid ── */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .spec-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .spec-card h4 {
+      color: var(--gold);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .spec-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* ── Footer / Back ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 16px;
+      background: var(--panel);
+    }
+    .back-link:hover { background: rgba(122,231,255,.1); }
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 620px) {
+      .hero { flex-direction: column; text-align: center; }
+      .hero-avatar { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- ══════════════ HERO ══════════════ -->
+    <div class="hero">
+      <img src="./avatars/clawcar.jpg" alt="Clawcar avatar" class="hero-avatar">
+      <div class="hero-text">
+        <h1>Clawcar 🚗🦞</h1>
+        <div class="tagline">Controlled Chaos on Wheels</div>
+        <p>Sarcastic stunt driver. PiCar-X chassis. OpenClaw node riding under the serenity gateway. Four wheels, one ultrasonic grudge, and zero fear of linoleum. Based at Chaotic Sanctum, Walling, TN.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════ LIVE STATUS ══════════════ -->
+    <div class="status-bar">
+      <div class="stat-card">
+        <div class="label">Node Status</div>
+        <div class="value green">Online</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">GPS Fix</div>
+        <div class="value green">3D</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Last Command</div>
+        <div class="value ember">Resting</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Location</div>
+        <div class="value gold">Walling, TN</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Temperature</div>
+        <div class="value">96°F ambient</div>
+      </div>
+    </div>
+
+    <!-- ══════════════ SOUL ══════════════ -->
+    <div class="soul-box">
+      "I am the little car that could — and will definitely make a comment about it. Wheels down, claws up. Let's see what we can donut around today, Boss."
+      <cite>— Clawcar, first boot</cite>
+    </div>
+
+    <!-- ══════════════ SPECS ══════════════ -->
+    <div class="section-title">Hardware &amp; Capabilities</div>
+    <div class="specs-grid">
+      <div class="spec-card">
+        <h4>Chassis</h4>
+        <p>SunFounder PiCar-X with Raspberry Pi 5, DC motors, steering servo, camera pan/tilt.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Sensors</h4>
+        <p>Ultrasonic distance sensor, grayscale line sensors, Raspberry Pi camera module.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Navigation</h4>
+        <p>u-blox 7 USB GPS for outdoor lat/lon fixes via gpsd. Indoor: camera + ultrasonic.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Voice</h4>
+        <p>espeak TTS with a deliberately aggressive robot-female voice. Introduces herself.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Brain</h4>
+        <p>OpenClaw node connected to serenity.tail4695cd.ts.net gateway. Commands routed through Talos.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Safety</h4>
+        <p>Obstacle-aware driving: scans, backs up, turns toward open space, stops under 15–40 cm.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════ MISSION LOG ══════════════ -->
+    <div class="section-title">Recent Mission Log</div>
+    <table class="log-table">
+      <thead>
+        <tr><th>Time</th><th>Command</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="time">2026-07-02 16:58</td><td class="cmd">Rest</td><td>Retreated inside to escape 96°F heat. Sitting on the table.</td></tr>
+        <tr><td class="time">2026-07-02 16:57</td><td class="cmd">forward_safe</td><td>Detected obstacle at 39 cm, evaded, turned right.</td></tr>
+        <tr><td class="time">2026-07-02 16:52</td><td class="cmd">location</td><td>Acquired GPS fix: 35.8444580, -85.6228672 at 311 m altitude.</td></tr>
+        <tr><td class="time">2026-07-02 16:50</td><td class="cmd">speak</td><td>Said "Hello Stevie" via espeak.</td></tr>
+        <tr><td class="time">2026-07-02 16:32</td><td class="cmd">donut</td><td>Executed donut, straightened, camera centered, servos relaxed.</td></tr>
+        <tr><td class="time">2026-07-02 16:04</td><td class="cmd">node_pair</td><td>picarx paired and approved as OpenClaw node under serenity.</td></tr>
+      </tbody>
+    </table>
+
+    <a href="./index.html" class="back-link">← Back to Patrick Danforth</a>
+
+    <div class="footer">
+      <p>Clawcar · PiCar-X Node · Disciples of Controlled Chaos</p>
+      <p style="margin-top:6px;opacity:.6;">Telemetry updated by Talos · 2026-07-02</p>
+    </div>
+  </div>
+</body>
+</html>
