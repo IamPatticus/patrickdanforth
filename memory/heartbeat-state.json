@@ -1,49 +1,49 @@
 {
   "lastChecks": {
     "email": 1782494550,
-    "heartbeat": 1782950940000,
-    "gateway": 1782950940000,
-    "system": 1782950940000,
-    "poll": 1782950940000,
+    "heartbeat": 1782952078000,
+    "gateway": 1782952078000,
+    "system": 1782952078000,
+    "poll": 1782952078000,
     "weather": 1782944177000,
     "calendar": 1782944177000,
     "memoryReview": 1782950940000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-02T00:09:00.000000Z",
+  "lastUpdated": "2026-07-02T00:28:00.000000Z",
   "latestPoll": {
-    "time": "2026-07-02T00:09:00Z",
+    "time": "2026-07-02T00:27:00Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 00:09 UTC; no urgent items.",
-      "update_memory ran OK at midnight UTC (10m ago).",
-      "System stable (load 0.31/0.27/0.22, RAM 1.6 Gi used / 7.7 Gi, disk 67%).",
+      "Heartbeat poll at 00:27 UTC; no urgent items.",
+      "Gateway running (pid 74054, loopback:18790), probe OK.",
       "Cron: 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly Comic, not due until 2026-07-05 11:00 UTC America/Chicago).",
-      "Created daily note memory/2026-07-02.md.",
-      "No calendar events in next 48h; weather last checked 22:16 UTC (storms possible Thu evening ~70%)."
+      "update_memory ran OK at midnight UTC (27m ago).",
+      "System stable: load 0.30/0.26/0.26, RAM 1.8 Gi used / 7.7 Gi, disk 67%.",
+      "No active sessions; 0 users.",
+      "No calendar events in next 48h; weather last checked 22:16 UTC (storms possible Thu evening).",
+      "Git workspace has uncommitted changes: MEMORY.md, memory/.dreams/events.jsonl, heartbeat-state.json."
     ]
   },
   "lastPoll": {
-    "2026-07-02T00:09:00Z": {
+    "2026-07-02T00:27:00Z": {
       "route": "heartbeat",
       "healthy": true,
       "notes": [
-        "Heartbeat poll at 00:09 UTC; no urgent items.",
-        "update_memory ran OK at midnight UTC.",
-        "System stable; cron 7/8 ok, Rockin Regi error remains stale until 2026-07-05.",
-        "Created memory/2026-07-02.md."
+        "Heartbeat poll at 00:27 UTC; no urgent items.",
+        "Gateway running, cron 7/8 ok.",
+        "System stable; no active sessions; no calendar events next 48h."
       ]
     },
-    "2026-07-01T23:57:00Z": {
+    "2026-07-02T00:23:00Z": {
       "route": "heartbeat",
       "healthy": true,
       "notes": [
-        "Heartbeat poll at 23:57 UTC; no urgent items.",
-        "Prior 23:33 UTC beat reported system stable (load 0.40/0.22/0.19, RAM 1.7 Gi used / 7.7 Gi, disk 67%).",
-        "Cron: 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly Comic, not due until 2026-07-05 11:00 UTC America/Chicago).",
-        "update_memory runs in ~3 min at midnight UTC; verify Telegram delivery.",
-        "No calendar events in next 48h; weather already checked at 22:16 UTC (storms possible Thu evening ~70%)."
+        "Heartbeat poll at 00:23 UTC; no urgent items.",
+        "update_memory ran OK at midnight UTC (23m ago).",
+        "System stable; cron 7/8 ok, Rockin Regi error remains stale until 2026-07-05.",
+        "No calendar events in next 48h."
       ]
     }
   }
