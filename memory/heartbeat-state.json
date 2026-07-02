@@ -1,28 +1,30 @@
 {
   "lastChecks": {
-    "email": 1783001834000,
-    "heartbeat": 1783003302573,
-    "gateway": 1783002172152,
-    "poll": 1783003302573,
-    "weather": 1783001834000,
+    "email": 1783003404000,
+    "heartbeat": 1783003404000,
+    "gateway": 1783003404000,
+    "poll": 1783003404000,
+    "weather": 1783003404000,
     "calendar": 1782993397000,
     "memoryReview": 1782989085000
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T14:41:42.573422Z",
+  "lastUpdated": "2026-07-02T14:43:24.000Z",
   "latestPoll": {
-    "time": "2026-07-02T14:41:42.573422Z",
+    "time": "2026-07-02T14:43:24.000Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 14:40 UTC.",
-      "Weather Walling, TN: 82\u00b0F sunny, feels like 86\u00b0F.",
+      "Heartbeat poll at 14:42 UTC.",
+      "Gmail 201 unread; no new urgent mail since last check.",
+      "Google Calendar still not connected via Composio.",
+      "Weather Walling, TN: 87°F sunny, feels like 95°F.",
       "Daily note current; memory review not due (<24h).",
       "No urgent items; HEARTBEAT_OK."
     ]
   },
   "heartbeatPoll": {
-    "time": "2026-07-02T14:41:42.573422Z",
+    "time": "2026-07-02T14:43:24.000Z",
     "response": "HEARTBEAT_OK"
   }
 }

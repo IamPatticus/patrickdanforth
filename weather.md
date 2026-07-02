@@ -1,31 +1,21 @@
----
-layout: default
-title: Weather Dashboard
----
+# Weather — Walling, TN
 
-# Weather Dashboard
+**Last updated:** 2026-07-02 14:43 UTC
 
-_Last updated: 2026-07-02 14:17 UTC_
-
-## Current Conditions (wttr.in)
-**Location:** Walling, TN
-
-- **Sampled at:** 2026-07-02 14:17 UTC (local 09:17 CDT)
-- **Temperature:** 82°F (feels like 86°F)
+## Current
 - **Condition:** Sunny
-- **Wind:** ESE 2 mph
-- **Visibility:** 6 mi
+- **Temperature:** 87°F (31°C)
+- **Feels like:** 95°F (35°C)
+- **Humidity:** 63%
+- **Wind:** ESE 2 mph (4 km/h)
 - **Precipitation:** 0.00 in
-- **UV Index:** 2
+- **Pressure:** 30.12 in / 1020 hPa
+- **Visibility:** 6 miles
+- **UV Index:** 4
 
-## 3-Day Forecast
+## Forecast
+- **Today:** High ~100°F, low ~68°F. Patchy rain possible late evening (~2% chance).
+- **Tomorrow (Jul 3):** High ~92°F, low ~66°F. Sunny noon; patchy rain nearby evening.
+- **Saturday (Jul 4):** High ~92°F, low ~71°F. Sunny noon; patchy rain nearby evening/night.
 
-- **Today (Jul 2):** Sunny and very hot. High ~100°F / Low ~68°F. Patchy rain possible late evening (~2% chance). UV high.
-- **Tomorrow (Jul 3):** Sunny noon, patchy rain nearby evening. High ~92°F / Low ~66°F. Rain chance ~2%.
-- **Saturday (Jul 4):** Sunny noon, patchy rain nearby evening/night. High ~92°F / Low ~71°F. Rain chance ~3%.
-
-## Station Integrity (Joppa Station 1)
-
-- **Status:** Ambient Weather API returning `401 Unauthorized` since 2026-06-30 04:02 UTC.
-- **Fallback:** wttr.in (WorldWeatherOnline) active.
-- **Sensor note:** Lightning sensor battery reported low in prior checks; station offline due to API key issue, not sensor.
+_Source: wttr.in (World Weather Online)_
