@@ -2,11 +2,11 @@
   "lastChecks": {
     "email": 1782895893,
     "calendar": 1782895893,
-    "weather": 1782952484,
+    "weather": 1783003260,
     "git_status": 1782952484,
     "disk": 1782585370270,
     "memory_maintenance": 1782505357,
     "git": 1782952484
   },
-  "notes": "08:11 UTC heartbeat: gateway/cron healthy, 8 jobs enabled (6 ok, 2 error). update_memory target fixed; watch next run at 00:00 UTC. Rockin Regi not due until 2026-07-05. No urgent items."
+  "notes": "15:21 UTC heartbeat: gateway/cron healthy, 8 jobs enabled (7 ok, 1 stale non-urgent error). Rockin Regi not due until 2026-07-05. No urgent items; skipped re-checks since 14:40 beat."
 }
