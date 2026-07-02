@@ -88,14 +88,28 @@ def generate_art(title, script):
     slug = "_".join(re.sub(r'[^\w\s]', '', title).lower().split()[:4])
     local_path = IMAGES_DIR / f"regi_{DATE_STR}_{slug}.png"
 
-    # Try OpenRouter GPT-5.4 Image 2
+    # Skip DALL-E / OpenRouter paid routes if key/credits missing
     from services.blogger.openrouter_image import generate_image
-    print(f"[ART] Generating {POST_TYPE} art via OpenRouter GPT-5.4 Image 2...")
+    openrouter_key = getattr(generate_image, '__module__', None)
     try:
-        if generate_image(prompt, str(local_path), model="openai/gpt-5.4-image-2", width=1536, height=1024, timeout=240):
-            return local_path
-    except Exception as e:
-        print(f"[ART] OpenRouter GPT-5.4 Image 2 error: {e}")
+        import os, json
+        from pathlib import Path
+        cfg = Path.home() / ".openclaw" / "openclaw.json"
+        openrouter_key = os.environ.get("OPENROUTER_API_KEY") or os.environ.get("OPENROUTER_KEY")
+        if not openrouter_key and cfg.exists():
+            data = json.loads(cfg.read_text())
+            openrouter_key = data.get("models", {}).get("providers", {}).get("openrouter", {}).get("apiKey")
+    except Exception:
+        openrouter_key = None
+
+    if openrouter_key:
+        # Try OpenRouter GPT-5.4 Image 2
+        print(f"[ART] Generating {POST_TYPE} art via OpenRouter GPT-5.4 Image 2...")
+        try:
+            if generate_image(prompt, str(local_path), model="openai/gpt-5.4-image-2", width=1536, height=1024, timeout=240):
+                return local_path
+        except Exception as e:
+            print(f"[ART] OpenRouter GPT-5.4 Image 2 error: {e}")
 
     # Fallback to FLUX.2 Flex
     print("[ART] Falling back to OpenRouter FLUX.2 Flex...")

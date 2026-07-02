@@ -5,23 +5,24 @@ title: Weather Dashboard
 
 # Weather Dashboard
 
-_Last updated: 2026-07-02 09:14 UTC_
+_Last updated: 2026-07-02 11:39 UTC_
 
 ## Current Conditions (wttr.in)
 **Location:** Walling, TN
 
-- **Sampled at:** 2026-07-02 09:14 UTC (local 04:14 CDT)
-- **Temperature:** 77°F
-- **Condition:** Clear
-- **Wind:** ↑ 2 mph
-- **Humidity:** 85%
+- **Sampled at:** 2026-07-02 11:39 UTC (local 06:39 CDT)
+- **Temperature:** 74°F (feels like 64°F)
+- **Condition:** Sunny
+- **Wind:** NW 3 mph
+- **Visibility:** 6 mi
 - **Precipitation:** 0.00 in
+- **UV Index:** 0
 
 ## 3-Day Forecast
 
-- **Today (Jul 2):** Clear early; storms/rain possible later. High 96°F / Low 66°F. Forecast precip ~1.2 mm with ~70% chance. UV 10.
-- **Tomorrow (Jul 3):** Sunny/clear. High 92°F / Low 64°F. UV 10.
-- **Saturday (Jul 4):** Likely sunny. High ~92°F / Low ~66°F (check closer to date).
+- **Today (Jul 2):** Sunny and very hot. High ~96°F (feels like 111°F) / Low ~68°F. Patchy rain possible in late afternoon/evening (~59% chance, 0.0 in). UV 10.
+- **Tomorrow (Jul 3):** Partly cloudy and cooler. High ~89°F (feels like 93°F) / Low ~66°F. Patchy rain possible evening (~20% chance). UV 10.
+- **Saturday (Jul 4):** Partly cloudy morning, sunny noon, patchy rain possible evening/night. High ~87°F (feels like 93°F) / Low ~71°F. UV moderate.
 
 ## Station Integrity (Joppa Station 1)
 

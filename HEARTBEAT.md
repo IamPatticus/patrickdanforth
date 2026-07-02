@@ -1,28 +1,29 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-02 10:20 UTC
+- **lastChecked**: 2026-07-02 11:39 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **pollResult**: OK, no urgent items at 10:20 UTC.
-- **Memory review**: 2026-07-02 10:20 UTC — nothing new to promote.
+- **pollResult**: OK, no urgent items at 11:34 UTC.
+- **Memory review**: 2026-07-02 11:10 UTC — nothing new to promote.
+- **Gmail**: 201 unread; top items: Google security alert (Composio access), Patrick's Proton reply, AgentMail newsletters. No urgent action needed.
+- **Google Calendar**: still not connected via Composio (OAuth pending; link generated at 11:34 UTC expired before activation).
 
 ## Quick Status
-- **Uptime**: gateway ~1d 19h · system 1d 19h
+- **Uptime**: gateway ~1d 20h · system 1d 20h
 - **Model**: ollama/kimi-k2.7-code:cloud
 - **Cron**: 8 jobs enabled; 7 ok, 1 error
 - **`update_memory`**: ✅ Ran OK at 2026-07-02 00:00 UTC. Next run 2026-07-03 00:00 UTC (~17h).
-- **`Rockin Regi Weekly Comic`**: ⚠️ Stale `error` from 2026-06-28 (agent response failure; model: google/gemini-3-pro-image via openrouter). Not due until 2026-07-05 11:00 UTC America/Chicago (~3 days 4h). Text-only fallback in place.
+- **`Rockin Regi Weekly Comic`**: ⚠️ Stale `error` from 2026-06-28 (agent response failure; model: google/gemini-3-pro-image via openrouter). Not due until 2026-07-05 11:00 UTC America/Chicago (~3 days 4h). Text-only fallback in place; patched pipeline to skip paid routes when OpenRouter key is missing.
 - **`Reginald Wednesday Comic`**: ✅ Last run OK (2026-06-25 06:00 UTC). Next run 2026-07-08 06:00 UTC (~6 days).
 - **Queue**: steer (depth 0)
 - **Active sessions**: 0 (cron-event only)
-- **Git**: modified `HEARTBEAT.md`, `memory/heartbeat-state.json` (heartbeat updates); nothing urgent to commit.
-- **Google Calendar**: OAuth link generated at 2026-07-02 05:52 UTC; still pending activation before events can be read.
+- **Git**: uncommitted changes: HEARTBEAT.md, heartbeat-state.json, weather.md, daily log, .dreams/events.jsonl, and rockinregi_pipeline.py.
+- **Google Calendar**: OAuth pending; will need a fresh link during a direct session.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run ~08:33 UTC, next ~09:03 UTC.
-- **Email/calendar/Signal**: Not checked by this heartbeat; dedicated cron every 4h / other tooling handles email. Google Calendar still not connected via Composio.
-- **Weather**: Walling, TN (wttr.in backup): Clear, +77°F, wind 2 mph, 0.00 in precip.
-- **Gmail unread**: 201 total; 10 sampled. One personal reply from Patrick (2026-07-01) + Google security alert from Composio OAuth; rest newsletters/updates. No urgent action needed.
+- `openclaw_heartbeat` runs every 30m; last run ~11:04 UTC, next ~11:34 UTC.
+- **Email/calendar/Signal**: Checked via Composio. Gmail has 201 unread; no urgent personal items beyond existing Patrick reply and Composio security alert. Google Calendar still not connected via Composio.
+- **Weather**: Walling, TN (wttr.in backup): 74°F, sunny, NW wind 3 mph, 89% humidity, 0.00 in precip.
 - `ollama_keepalive_serenity` runs every ~2m.
 - Gateway stable since ~16:04 UTC restart.
 - `Ikaris Nightly` last OK at 14:00 UTC; next run 2026-07-02 10:00 UTC America/Chicago (~8.5h).
@@ -38,11 +39,14 @@
 - **Disk `/`**: 36G used / 57G total (67%)
 
 ## Weather
-- Walling, TN (wttr.in backup): Clear, +77°F, wind 2 mph, 0.00 in precip.
+- Walling, TN (wttr.in backup): Sunny, +74°F (feels like 64°F), wind NW 3 mph, humidity 89%, 0.00 in precip.
+- Today's forecast: high ~96°F (feels like 111°F), low ~68°F, patchy rain possible late afternoon/evening (~59% chance), UV 10.
+- Tomorrow (Jul 3): cooler, high ~89°F (feels like 93°F), low ~66°F, patchy rain possible evening (~20%).
+- Saturday (Jul 4): partly cloudy morning, sunny noon, patchy rain possible evening/night, high ~87°F (feels like 93°F).
 
 ## Upcoming Cron Runs
 - `ollama_keepalive_serenity`: in ~2m
-- `openclaw_heartbeat`: ~08:50 UTC (~30m)
+- `openclaw_heartbeat`: ~11:34 UTC (~30m)
 - `Ikaris Nightly`: 2026-07-02 10:00 UTC America/Chicago (~8.5h)
 - `update_memory`: 2026-07-03 00:00 UTC (~17h)
 - `Memory Dreaming Promotion`: 2026-07-03 03:00 UTC (~20h)
@@ -51,8 +55,9 @@
 - `Reginald Wednesday Comic`: 2026-07-08 06:00 UTC (~6 days)
 
 ## Next Planned Checks
+- 🔲 Activate Google Calendar via Composio (needs new OAuth link in direct session; last links expired before activation).
 - 🔲 Decide whether to fund image providers or deploy a local image-generation model for Reginald/Rockin Regi art.
-- 🔲 Connect Google Calendar via Composio (OAuth link pending activation since 2026-07-02 05:52 UTC).
+- 🔲 Commit heartbeat and weather updates after this poll.
 
 ## Commands
 - `session_status` — show runtime details
