@@ -1,29 +1,28 @@
 {
   "lastChecks": {
-    "email": 1782994708000,
-    "heartbeat": 1782995999000,
-    "gateway": 1782994708000,
-    "poll": 1782995999000,
-    "weather": 1782994708000,
+    "email": 1782998054000,
+    "heartbeat": 1782998054000,
+    "gateway": 1782999120000,
+    "poll": 1782999120000,
+    "weather": 1782999120000,
     "calendar": 1782993397000,
     "memoryReview": 1782989085000
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T12:39:59.000Z",
+  "lastUpdated": "2026-07-02T13:32:00.000Z",
   "latestPoll": {
-    "time": "2026-07-02T12:39:59.000Z",
+    "time": "2026-07-02T13:32:00.000Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 12:39 UTC.",
-      "System stable; load 0.29/0.22/0.15, RAM 1.6/7.7 GiB, disk 67%.",
-      "8 cron jobs; 7 ok / 1 stale non-urgent error (Rockin Regi, due Jul 5).",
-      "Skipped Gmail/weather re-checks; state unchanged since 11:34 UTC poll.",
-      "Committed pending heartbeat-state.json change."
+      "Heartbeat poll at 13:32 UTC.",
+      "Cron status: 8 jobs; 7 ok / 1 stale non-urgent error (Rockin Regi, due Jul 5).",
+      "Weather Walling, TN: +82°F sunny.",
+      "No urgent items; HEARTBEAT_OK."
     ]
   },
   "heartbeatPoll": {
-    "time": "2026-07-02T12:39:59.000Z",
+    "time": "2026-07-02T13:13:00.000Z",
     "response": "HEARTBEAT_OK"
   }
 }
