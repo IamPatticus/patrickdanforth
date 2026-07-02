@@ -305,3 +305,10 @@ All crew members share the same workspace and memory context, but they are used 
 - 2026-07-01: OpenClaw Android app connection issue documented and back-burnered.
 - 2026-06-30: Clawcar identity/SOUL/avatar finalized on PiCar‑X.
 - 2026-06-28: Memory search switched to FTS/BM25 (provider `none`) after OpenAI embeddings quota exhausted.
+
+## Promoted From Short-Term Memory (2026-07-02)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-28.md:5:8 -->
+- 9:40 AM UTC Heartbeat: Quick check only.; Weather (wttr.in, Walling TN): +76°F, light rain/clouds.; Email/calendar: skipped; handled by dedicated cron every 4h.; Git: workspace root clean. Yesterday’s nested `patrickdanforth-site` cleanup was already pushed/aligned at 09:18 UTC beat. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-28.md:5-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-28.md:9:11 -->
+- 9:40 AM UTC Heartbeat: Disk: 61% on `/`. Memory: 1.9Gi/7.7Gi used, 5.8Gi avail.; Memory maintenance: nothing new to promote. Embedding provider quota still exhausted; memory search unavailable.; State: no urgent action. Quiet Sunday morning. [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-28.md:9-11]

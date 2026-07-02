@@ -1,27 +1,27 @@
 {
   "lastChecks": {
-    "email": 1782494550,
-    "heartbeat": 1782963260929,
+    "email": 1782964733,
+    "heartbeat": 1782964701202,
     "gateway": 1782954240000,
     "system": 1782954240000,
-    "poll": 1782963240000,
+    "poll": 1782964701202,
     "weather": 1782944177000,
     "calendar": 1782944177000,
     "memoryReview": 1782954240000
   },
-  "status": "healthy",
-  "lastUpdated": "2026-07-02T03:34:30.000000Z",
+  "status": "attention",
+  "lastUpdated": "2026-07-02T03:58:53.000000Z",
   "latestPoll": {
-    "time": "2026-07-02T03:34:30Z",
+    "time": "2026-07-02T03:58:53Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 03:34 UTC.",
-      "Gateway healthy; cron 7 ok, 1 stale error (Rockin Regi Weekly Comic not due until 2026-07-05 11:00 UTC America/Chicago).",
-      "Memory Dreaming Promotion ran OK at 03:00 UTC.",
-      "Git workspace has expected dreaming churn; no urgent commit needed.",
-      "Skipped email/calendar/weather re-checks; openclaw_heartbeat handled ~5m ago.",
-      "No urgent items or external actions required."
+      "Heartbeat poll at 03:58 UTC.",
+      "Gmail checked: 201 unread total; one personal reply from Patrick Danforth (2026-07-01 22:18Z) likely needs response.",
+      "Google security alert about Composio access (2026-07-01 22:22Z) — likely expected from setup, but verify if unexpected.",
+      "Google Calendar not connected; skipped calendar check.",
+      "Weather tool requires Composio dashboard approval; skipped weather check.",
+      "No other urgent items."
     ]
   }
 }
