@@ -1,13 +1,13 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-02 16:20 UTC
+- **lastChecked**: 2026-07-02 16:39 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **pollResult**: OK, no urgent items at 16:20 UTC.
+- **pollResult**: OK, no urgent items at 16:39 UTC. `openclaw_heartbeat` just ran (<1m ago).
 - **Memory review**: 2026-07-02 11:10 UTC — nothing new to promote.
-- **Gmail**: 201 unread; no new mail in last ~6m. Patrick's Proton reply thread asking "Can you respond back to emails?" (14:53 UTC today) remains the notable unread item. Google Composio security alert also unread. Rest are newsletters and Google account notices. Checked at 16:20 UTC.
+- **Gmail**: 201 unread; no new mail in last ~18m. Patrick's Proton reply thread asking "Can you respond back to emails?" (14:53 UTC today) remains the notable unread item. Google Composio security alert also unread. Rest are newsletters and Google account notices. Checked at 16:32 UTC.
 - **Google Calendar**: still not connected via Composio (OAuth pending; requires activation in a direct session).
-- **Weather (Walling, TN)**: 97°F, sunny, feels like 109°F, N wind 3 mph, humidity 47%, 0.00 in precip. Checked at 16:20 UTC.
+- **Weather (Walling, TN)**: 95°F, mainly clear, feels like 105°F, WSW wind 1 mph, humidity 50%, 0.00 in precip. Checked at 16:32 UTC. Exa / current conditions as of ~17:00 CDT.
 
 ## Quick Status
 - **Uptime**: gateway 4m 26s · system 1d 23h
@@ -23,9 +23,9 @@
 - **Notable unread**: Patrick's Proton email asks "Can you respond back to emails?" — Gmail/Composio is now active, so I can reply if directed.
 
 ## Notes
-- `openclaw_heartbeat` runs every 30m; last run ~16:14 UTC, next ~16:44 UTC.
+- `openclaw_heartbeat` runs every 30m; last run 16:39 UTC, next ~17:09 UTC.
 - **Email/calendar/Signal**: Checked via Composio. Gmail has 201 unread; no urgent personal items beyond Patrick's reply thread and Composio security alert. Google Calendar still not connected via Composio.
-- **Weather**: Walling, TN (wttr.in backup): 97°F sunny, feels 109°F, variable wind 3 mph, humidity 47%, 0.00 in precip.
+- **Weather**: Walling, TN (exa.ai current conditions): 95°F mainly clear, feels like 105°F, WSW wind 1 mph, humidity 50%, 0.00 in precip. Forecast high ~100°F, low ~73°F.
 - `ollama_keepalive_serenity` runs every ~2m.
 - Gateway restarted at 14:12 UTC (uptime 4m 26s at poll time).
 - `Memory Dreaming Promotion` last OK at 03:00 UTC; next run 2026-07-03 03:00 UTC (~11h).
@@ -40,8 +40,8 @@
 - **Disk `/`**: 37G used / 57G total (67%)
 
 ## Weather
-- Walling, TN (wttr.in backup): Sunny, +97°F (feels like +109°F), wind N 3 mph, humidity 47%, 0.00 in precip.
-- Today's forecast: high ~98°F, low ~87°F, sunny.
+- Walling, TN (exa.ai current conditions): 95°F mainly clear, feels like 105°F, wind WSW 1 mph, humidity 50%, 0.00 in precip.
+- Today (Jul 2): mainly clear, high ~100°F, low ~73°F.
 - Tomorrow (Jul 3): high ~91°F, low ~68°F, patchy rain nearby evening.
 - Saturday (Jul 4): high ~87°F, low ~73°F, patchy light rain evening/night.
 
