@@ -1,27 +1,25 @@
 {
   "lastChecks": {
-    "email": 1782966141000,
-    "heartbeat": 1782967238000,
-    "gateway": 1782967238000,
-    "system": 1782967238000,
-    "poll": 1782967238000,
-    "weather": 1782966141000,
-    "calendar": 1782966141000,
-    "memoryReview": 1782967238000
+    "email": 1782971439000,
+    "heartbeat": 1782971439000,
+    "gateway": 1782969382000,
+    "poll": 1782971439000,
+    "weather": 1782971434000,
+    "calendar": 1782971439000,
+    "memoryReview": 1782969382000
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T04:40:38.000000Z",
+  "lastUpdated": "2026-07-02T05:50:39.000000Z",
   "latestPoll": {
-    "time": "2026-07-02T04:40:38Z",
+    "time": "2026-07-02T05:50:00Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 04:40 UTC.",
-      "Gateway stable; cron 7 ok / 1 stale error (Rockin Regi Weekly, not due until 2026-07-05).",
-      "No urgent emails, calendar events, or notifications.",
-      "Image generation remains text-only fallback.",
-      "Weather Walling TN: sunny 94F; possible storms this evening (~72% chance).",
-      "Memory dreaming promotion ran at 03:00 UTC OK."
+      "Heartbeat poll at 05:50 UTC.",
+      "Email: 20 unread pulled (201 estimate). Important items unchanged: Google security alert from Composio OAuth (expected); Patticus reply 'Thanks!' (no action needed). No new urgent messages.",
+      "Calendar: Google Calendar still not connected. Initiated OAuth link during this heartbeat (expires ~10 min).",
+      "Weather: Walling TN — Clear, 84°F, 61% humidity, 3mph wind, 0.00in precip.",
+      "Workspace git: 3 modified files (HEARTBEAT.md, memory/.dreams/events.jsonl, heartbeat-state.json)."
     ]
   }
 }
