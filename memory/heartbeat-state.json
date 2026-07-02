@@ -1,50 +1,25 @@
 {
   "lastChecks": {
     "email": 1782494550,
-    "heartbeat": 1782952078000,
-    "gateway": 1782952078000,
-    "system": 1782952078000,
-    "poll": 1782952078000,
+    "heartbeat": 1782952440000,
+    "gateway": 1782952440000,
+    "system": 1782952440000,
+    "poll": 1782952440000,
     "weather": 1782944177000,
     "calendar": 1782944177000,
-    "memoryReview": 1782950940000
+    "memoryReview": 1782952440000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-02T00:28:00.000000Z",
+  "lastUpdated": "2026-07-02T00:34:00.000000Z",
   "latestPoll": {
-    "time": "2026-07-02T00:27:00Z",
+    "time": "2026-07-02T00:34:00Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 00:27 UTC; no urgent items.",
-      "Gateway running (pid 74054, loopback:18790), probe OK.",
-      "Cron: 8 jobs enabled; 7 ok, 1 stale error (Rockin Regi Weekly Comic, not due until 2026-07-05 11:00 UTC America/Chicago).",
-      "update_memory ran OK at midnight UTC (27m ago).",
-      "System stable: load 0.30/0.26/0.26, RAM 1.8 Gi used / 7.7 Gi, disk 67%.",
-      "No active sessions; 0 users.",
-      "No calendar events in next 48h; weather last checked 22:16 UTC (storms possible Thu evening).",
-      "Git workspace has uncommitted changes: MEMORY.md, memory/.dreams/events.jsonl, heartbeat-state.json."
+      "Heartbeat poll at 00:34 UTC; no urgent items.",
+      "Heartbeat file reviewed/updated; nothing new to report.",
+      "System stable; cron 7/8 ok, Rockin Regi error remains stale until 2026-07-05.",
+      "No calendar events in next 48h."
     ]
-  },
-  "lastPoll": {
-    "2026-07-02T00:27:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "notes": [
-        "Heartbeat poll at 00:27 UTC; no urgent items.",
-        "Gateway running, cron 7/8 ok.",
-        "System stable; no active sessions; no calendar events next 48h."
-      ]
-    },
-    "2026-07-02T00:23:00Z": {
-      "route": "heartbeat",
-      "healthy": true,
-      "notes": [
-        "Heartbeat poll at 00:23 UTC; no urgent items.",
-        "update_memory ran OK at midnight UTC (23m ago).",
-        "System stable; cron 7/8 ok, Rockin Regi error remains stale until 2026-07-05.",
-        "No calendar events in next 48h."
-      ]
-    }
   }
 }
