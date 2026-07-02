@@ -1,25 +1,27 @@
 {
   "lastChecks": {
     "email": 1782494550,
-    "heartbeat": 1782960837561,
+    "heartbeat": 1782963260929,
     "gateway": 1782954240000,
     "system": 1782954240000,
-    "poll": 1782960837561,
+    "poll": 1782963240000,
     "weather": 1782944177000,
     "calendar": 1782944177000,
     "memoryReview": 1782954240000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-02T02:53:57.561000Z",
+  "lastUpdated": "2026-07-02T03:34:30.000000Z",
   "latestPoll": {
-    "time": "2026-07-02T02:53:57Z",
+    "time": "2026-07-02T03:34:30Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Lightweight heartbeat poll at 02:53 UTC.",
-      "Workspace git clean; latest commit 7217a89 at 2026-07-02 02:48 UTC.",
-      "memory/2026-07-02.md present.",
-      "No urgent items; skipped email/calendar/weather re-checks (interval <30m)."
+      "Heartbeat poll at 03:34 UTC.",
+      "Gateway healthy; cron 7 ok, 1 stale error (Rockin Regi Weekly Comic not due until 2026-07-05 11:00 UTC America/Chicago).",
+      "Memory Dreaming Promotion ran OK at 03:00 UTC.",
+      "Git workspace has expected dreaming churn; no urgent commit needed.",
+      "Skipped email/calendar/weather re-checks; openclaw_heartbeat handled ~5m ago.",
+      "No urgent items or external actions required."
     ]
   }
 }
