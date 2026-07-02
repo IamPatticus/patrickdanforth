@@ -1,6 +1,6 @@
 # Weather — Walling, TN
 
-**Last updated:** 2026-07-02 14:43 UTC
+**Last updated:** 2026-07-02 15:58 UTC
 
 ## Current
 - **Condition:** Sunny
@@ -14,8 +14,8 @@
 - **UV Index:** 4
 
 ## Forecast
-- **Today:** High ~100°F, low ~68°F. Patchy rain possible late evening (~2% chance).
-- **Tomorrow (Jul 3):** High ~92°F, low ~66°F. Sunny noon; patchy rain nearby evening.
-- **Saturday (Jul 4):** High ~92°F, low ~71°F. Sunny noon; patchy rain nearby evening/night.
+- **Today:** High ~98°F, low ~87°F. Sunny all day; feels like 95–109°F. 0–4% rain.
+- **Tomorrow (Jul 3):** High ~91°F, low ~68°F. Sunny noon; patchy rain nearby evening; misty night.
+- **Saturday (Jul 4):** High ~87°F, low ~73°F. Sunny noon; patchy light rain evening/night.
 
 _Source: wttr.in (World Weather Online)_

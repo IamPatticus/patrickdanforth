@@ -1,12 +1,12 @@
 {
   "lastChecks": {
-    "email": 1782895893,
-    "calendar": 1782895893,
-    "weather": 1783003260,
-    "git_status": 1782952484,
-    "disk": 1782585370270,
+    "email": 1783007909,
+    "calendar": 1783007909,
+    "weather": 1783007914,
+    "git_status": 1783007909,
+    "disk": 1783007909,
     "memory_maintenance": 1782505357,
-    "git": 1782952484
+    "git": 1783007909
   },
-  "notes": "15:21 UTC heartbeat: gateway/cron healthy, 8 jobs enabled (7 ok, 1 stale non-urgent error). Rockin Regi not due until 2026-07-05. No urgent items; skipped re-checks since 14:40 beat."
+  "notes": "15:58 UTC heartbeat: gateway/cron healthy, 8 jobs enabled (7 ok, 1 stale non-urgent error). Rockin Regi not due until 2026-07-05. Patrick Proton reply thread still awaiting response; no other urgent email. Calendar still not connected. Weather updated."
 }
