@@ -1,27 +1,27 @@
 {
   "lastChecks": {
-    "email": 1782964733,
-    "heartbeat": 1782964701202,
+    "email": 1782964701,
+    "heartbeat": 1782964941253,
     "gateway": 1782954240000,
     "system": 1782954240000,
-    "poll": 1782964701202,
+    "poll": 1782964941253,
     "weather": 1782944177000,
     "calendar": 1782944177000,
-    "memoryReview": 1782954240000
+    "memoryReview": 1782964941253
   },
-  "status": "attention",
-  "lastUpdated": "2026-07-02T03:58:53.000000Z",
+  "status": "ok",
+  "lastUpdated": "2026-07-02T04:02:21.253000Z",
   "latestPoll": {
-    "time": "2026-07-02T03:58:53Z",
+    "time": "2026-07-02T04:02:21Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 03:58 UTC.",
-      "Gmail checked: 201 unread total; one personal reply from Patrick Danforth (2026-07-01 22:18Z) likely needs response.",
-      "Google security alert about Composio access (2026-07-01 22:22Z) — likely expected from setup, but verify if unexpected.",
-      "Google Calendar not connected; skipped calendar check.",
-      "Weather tool requires Composio dashboard approval; skipped weather check.",
-      "No other urgent items."
+      "Heartbeat poll at 04:02 UTC.",
+      "4h cron handles email/calendar/weather; skipped here.",
+      "MEMORY.md reviewed — updated at 2026-07-02 00:00 UTC, no new promotions.",
+      "Flagged from previous poll: Gmail has a personal reply from Patrick Danforth (~2026-07-01 22:18Z) likely needing a response; Google security alert about Composio access (~2026-07-01 22:22Z).",
+      "Image generation remains text-only fallback (OpenAI/OpenRouter credits exhausted).",
+      "No urgent action required."
     ]
   }
 }
