@@ -1,27 +1,26 @@
 {
   "lastChecks": {
     "email": 1782964701,
-    "heartbeat": 1782964941253,
-    "gateway": 1782954240000,
-    "system": 1782954240000,
-    "poll": 1782964941253,
-    "weather": 1782944177000,
-    "calendar": 1782944177000,
+    "heartbeat": 1782966141000,
+    "gateway": 1782966141000,
+    "system": 1782966141000,
+    "poll": 1782966141000,
+    "weather": 1782966141000,
+    "calendar": 1782966141000,
     "memoryReview": 1782964941253
   },
   "status": "ok",
-  "lastUpdated": "2026-07-02T04:02:21.253000Z",
+  "lastUpdated": "2026-07-02T04:22:21.000000Z",
   "latestPoll": {
-    "time": "2026-07-02T04:02:21Z",
+    "time": "2026-07-02T04:22:21Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 04:02 UTC.",
-      "4h cron handles email/calendar/weather; skipped here.",
-      "MEMORY.md reviewed — updated at 2026-07-02 00:00 UTC, no new promotions.",
-      "Flagged from previous poll: Gmail has a personal reply from Patrick Danforth (~2026-07-01 22:18Z) likely needing a response; Google security alert about Composio access (~2026-07-01 22:22Z).",
-      "Image generation remains text-only fallback (OpenAI/OpenRouter credits exhausted).",
-      "No urgent action required."
+      "Heartbeat poll at 04:22 UTC.",
+      "Gateway stable; cron 7 ok / 1 stale error (Rockin Regi Weekly, not due until 2026-07-05).",
+      "No urgent emails, calendar events, or notifications.",
+      "Image generation remains text-only fallback.",
+      "Weather Walling TN: sunny 94F; possible storms this evening (~72% chance)."
     ]
   }
 }

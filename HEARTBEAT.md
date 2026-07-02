@@ -1,9 +1,9 @@
 # Heartbeat - OpenClaw
 
 ## Last Checks
-- **lastChecked**: 2026-07-02 02:34 UTC
+- **lastChecked**: 2026-07-02 04:22 UTC
 - **heartbeat**: OK — gateway responding, cron active with 8 jobs.
-- **pollResult**: OK, no urgent items.
+- **pollResult**: OK, no urgent items at 04:22 UTC.
 - **memoryReviewed**: 2026-07-02 01:32 UTC
 
 ## Quick Status
@@ -19,13 +19,14 @@
 
 ## Notes
 - `openclaw_heartbeat` runs every 30m; last run 00:27 UTC, next 00:57 UTC.
-- Weather (Walling, TN): warm; possible storms Thu Jul 2 evening (~72% chance, ~0.1 in rain). No active calendar events next 48h.
+- **Email**: 2 unread in last 12h — Google security alert (expected, Composio auth); Patrick Danforth reply "Thanks!" to daily summary (no action needed).
+- **Calendar**: Google Calendar not connected via Composio; existing report shows no events next 48h.
 - `ollama_keepalive_serenity` runs every ~2m.
 - Gateway stable since ~16:04 UTC restart.
 - `Ikaris Nightly` last OK at 14:00 UTC; next run 2026-07-02 10:00 UTC America/Chicago (~9.5h).
 - `Memory Dreaming Promotion` next run 2026-07-02 03:00 UTC (~4h).
 - `Daily GitHub Backup` next run 2026-07-02 04:00 UTC America/Chicago (~5.5h).
-- OpenAI and OpenRouter image credits exhausted; text-only fallbacks active for Reginald/Rockin Regi.
+- Image generation remains text-only fallback (OpenAI/OpenRouter credits exhausted).
 - Phone/Android connectivity issue back-burnered per user; browser over Tailscale works, app does not.
 - MEMORY.md updated with 2026-07-01 image-provider fallback details.
 - Git workspace clean at 02:34 UTC.
