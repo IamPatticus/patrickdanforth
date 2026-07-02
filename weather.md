@@ -1,13 +1,13 @@
 # Weather — Walling, TN
 
-**Last updated:** 2026-07-02 15:58 UTC
+**Last updated:** 2026-07-02 16:14 UTC
 
 ## Current
 - **Condition:** Sunny
-- **Temperature:** 87°F (31°C)
-- **Feels like:** 95°F (35°C)
-- **Humidity:** 63%
-- **Wind:** ESE 2 mph (4 km/h)
+- **Temperature:** 97°F (36°C)
+- **Feels like:** 109°F (43°C)
+- **Humidity:** 47%
+- **Wind:** variable 3 mph (5 km/h)
 - **Precipitation:** 0.00 in
 - **Pressure:** 30.12 in / 1020 hPa
 - **Visibility:** 6 miles
