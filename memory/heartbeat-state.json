@@ -1,23 +1,24 @@
 {
   "lastChecks": {
     "email": 1782494550,
-    "heartbeat": 1782956879047,
+    "heartbeat": 1782957962000,
     "gateway": 1782954240000,
     "system": 1782954240000,
-    "poll": 1782956879047,
+    "poll": 1782957962000,
     "weather": 1782944177000,
     "calendar": 1782944177000,
     "memoryReview": 1782954240000
   },
   "status": "healthy",
-  "lastUpdated": "2026-07-02T01:48:00.000000Z",
+  "lastUpdated": "2026-07-02T02:05:00.000000Z",
   "latestPoll": {
-    "time": "2026-07-02T01:48:00Z",
+    "time": "2026-07-02T02:05:00Z",
     "route": "heartbeat",
     "healthy": true,
     "notes": [
-      "Heartbeat poll at 01:18 UTC; previous check at 01:04 UTC found no urgent items.",
-      "Skipped re-checking email/calendar/weather/system due to 14-minute interval.",
+      "Lightweight heartbeat poll at 02:05 UTC; only 15 minutes since main-session crossover.",
+      "Committed modified memory/.dreams/events.jsonl.",
+      "Skipped email/calendar/weather/system re-checks (interval <30m, no urgent items expected).",
       "No new events since last beat."
     ]
   }
