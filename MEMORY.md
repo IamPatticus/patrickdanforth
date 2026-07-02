@@ -1,6 +1,6 @@
 # MEMORY.md — Talos's Long-Term Memory
 
-_Last updated: 2026-07-01 11:50 UTC_
+_Last updated: 2026-07-02 00:00 UTC_
 
 ---
 
@@ -37,11 +37,12 @@ _Last updated: 2026-07-01 11:50 UTC_
 - **Note:** Lightning sensor battery on the local Ambient Weather station is low (`batt_lightning: 0`) and has been steady since at least 2026-06-27.
 - **Cleanup:** Removed test posts/images created during debugging and cleaned them from `blog/index.html`, `blog/feed.xml`, `rockinregi/index.html`, and `rockinregi/feed.xml`.
 
-## OpenClaw Android App Connection (2026-06-30)
+## OpenClaw Android App Connection (2026-06-30 / 2026-07-01)
 
 - **Problem:** Browser connects to the OpenClaw gateway over Tailscale, but the official Android app (`ai.openclaw.app`) does not.
-- **Likely causes:** app-specific endpoint, token, or TLS/certificate handling; not a Tailnet reachability issue.
-- **Status:** Back-burnered per Patticus. Resume later with fresh QR, gateway listener check, and phone diagnostic output.
+- **Likely causes:** app-specific endpoint, token, TLS/certificate handling, or CORS/origin checks; not a Tailnet reachability issue.
+- **Troubleshooting recorded:** confirmed same tailnet, browser works, app fails; checked QR, gateway listener (`ss -tlnp | grep 6127`), `openclaw nodes status`, and app-specific settings.
+- **Status:** Back-burnered per Patticus pending app updates. Resume later with fresh QR, gateway listener check, and phone diagnostic output.
 
 ## Whoop Health Integration (2026-06-28)
 
@@ -64,10 +65,10 @@ _Last updated: 2026-07-01 11:50 UTC_
 - **Reginald Daily now auto-publishes:** `scripts/reginald_daily.py` copies the generated comic into `reginald-flipbook/images/`, updates `reginald-flipbook/index.json`, busts the cache in `reginald-flipbook/index.html`, and commits/pushes to GitHub so the flipbook stays current.
 - **Auth:** Added `google:default` and `xai:default` profiles to the OpenClaw agent auth store; `xai` key was invalid, but `google` and OpenRouter are working.
 
-### 2026-07-01: OpenRouter credits exhausted
+### 2026-07-01: OpenAI and OpenRouter image generation unavailable
 
 - **Symptom:** Reginald Daily cron ran at 06:01 and 06:05 UTC but produced no comic; OpenRouter returned HTTP 402 Payment Required for `google/gemini-3.1-flash-image-preview` and `FLUX.2 [pro]` / `FLUX.2 Flex` fallbacks.
-- **Also confirmed:** OpenAI account has hit a billing hard limit; DALL-E/gpt-image-2 calls fail. No local Ollama image-generation model is available (`kimi-k2.7-code:cloud` is vision-capable but cannot generate images).
+- **Also confirmed:** OpenAI account has hit a billing hard limit; DALL-E/gpt-image-2 calls fail. No local Ollama image-generation model is currently configured (`kimi-k2.7-code:cloud` is vision-capable but cannot generate images).
 - **Fix:** Updated `services/blogger/rockinregi_pipeline.py` and `scripts/reginald_daily.py` to fall back to text-only posts when all paid art providers return 402/429, preventing cron hard-failures. Added `services/blogger/openclaw_tool_fallback.py` as a future tool-call shim.
 - **Impact:** Image-generation pipelines (Reginald Daily, Rockin Regi Weekly, Ikaris Nightly) will publish text-only until a funded provider is available or a local image model is configured.
 - **Note:** Cron `lastRunStatus=ok` only means the agent script finished; it does not indicate that an image was actually generated or published.
@@ -235,26 +236,29 @@ All crew members share the same workspace and memory context, but they are used 
 
 ## Ongoing Issues
 
-- **Ikaris Blog:** OAuth blocked → MIGRATED to self-hosted on patrickdanforth.com/blog/ as of 2026-06-12. Pipeline generates HTML + art locally, git push to publish. No auth required.
+- **Ikaris Blog:** OAuth blocked → MIGRATED to self-hosted on patrickdanforth.com/blog/ as of 2026-06-12. Pipeline generates HTML locally, git push to publish. No auth required. Image generation currently falls back to text-only when art providers are unavailable.
 - **Tailscale Serve:** Enabled 2026-06-12 for Control UI — `https://serenity.tail4695cd.ts.net/` proxies to gateway on loopback. HTTPS + Tailscale identity auth = no token pasting, WebCrypto works.
 - **Signal:** Still broken for incoming messages. Telegram is the reliable channel.
 - **Control UI:** Smoother after Tailscale Serve migration. Avatar re-uploaded for new HTTPS origin.
+- **OpenClaw Android app:** Browser connects over Tailscale; official `ai.openclaw.app` does not. Back-burnered pending app updates.
+- **Image generation funding:** OpenAI billing hard limit reached and OpenRouter credits exhausted as of 2026-07-01. Pipelines fall back to text-only until a funded provider or local image model is available.
 - ~~**Daily note creation reliability:**~~ Resolved after host migration; no longer an active issue.
 - ~~**MEMORY.md resilience:**~~ The 2026-06-04 symlink incident was resolved; file is stable. Keep backups.
-- **Kiyo camera:** Autofocus / image quality on Linux remains questionable
-- **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem
-- **Shelly firmware:** Still worth revisiting when convenient
+- **Kiyo camera:** Autofocus / image quality on Linux remains questionable.
+- **Strix laptop:** Random shutdown behavior still points toward a Modern Standby-style problem.
+- **Shelly firmware:** Still worth revisiting when convenient.
 - **Venus OS Pi display timeout:** On `192.168.1.140`, the working screen-off path was `Gui/DisplayOff` set via SSH/DBus, with the actual blank target at `/sys/class/backlight/rpi_backlight/bl_power` in `/etc/venus/blank_display_device`. The GUI menu can hide the item; if needed, switch `Gui/RunningVersion` to `1` and restart `/service/gui`.
 
 ---
 
 ## Gateway / Models
 
-- OpenClaw gateway default is now `ollama-cloud/deepseek-v4-pro:cloud`.
-- Current session can be reset to that default with `session_status model=default` if it gets pinned to something else.
+- OpenClaw gateway default was previously `ollama-cloud/deepseek-v4-pro:cloud`, but the active/current model has shifted to `ollama/kimi-k2.7-code:cloud`.
+- Current session can be reset to the configured default with `session_status model=default` if it gets pinned to something else.
 - `Elephant` is just the alias for `openrouter/inclusionai/ling-2.6-flash` in the gateway fallback list.
 - `serenity` uses a separate Ollama/OpenAI routing setup for local defaults and cloud image/coding tasks.
 - The `serenity` OpenAI key lives in `~/.ollama_config/openai.env` and the router script is `~/.ollama_router.sh`.
+- No local Ollama image-generation model is currently available; `kimi-k2.7-code:cloud` is a text/vision model and cannot generate images.
 
 ## Clawcar (PiCar‑X) Identity Finalized (2026-06-30)
 - **Name:** Clawcar
@@ -292,9 +296,12 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-06-28 | Rockin Regi Weekly Comic timeout increased to 1200s; "Digital Decay" published successfully |
 | 2026-06-28 | E-Ink Pi-hole Display project completed and working on Pi Zero 2 W |
 | 2026-06-28 | Rockin Regi redesign published to patrickdanforth.com/rockinregi/ |
-| 2026-07-01 | OpenRouter credits exhausted; image generation pipelines fail with HTTP 402 until funded or rerouted |
+| 2026-07-01 | OpenAI billing hard limit reached; OpenRouter credits exhausted; image pipelines fallback to text-only |
 | 2026-06-30 | Clawcar identity/SOUL/avatar finalized on PiCar‑X |
 
 ## Promoted From Short-Term Memory
 
-_None currently._
+- 2026-07-01: OpenAI/OpenRouter image-generation funding exhausted; pipelines now fall back to text-only.
+- 2026-07-01: OpenClaw Android app connection issue documented and back-burnered.
+- 2026-06-30: Clawcar identity/SOUL/avatar finalized on PiCar‑X.
+- 2026-06-28: Memory search switched to FTS/BM25 (provider `none`) after OpenAI embeddings quota exhausted.
