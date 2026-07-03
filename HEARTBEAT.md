@@ -9,6 +9,7 @@
 - **heartbeat_poll**: 2026-07-03 16:55 UTC ✅
 - **cron_status**: 2026-07-03 16:55 UTC (5 ok, 2 error)
 - **git_status**: 2026-07-03 16:55 UTC (working tree clean)
+- **system_health**: 2026-07-03 17:00 UTC (load 0.10/0.37/0.50, 1.4Gi/7.7Gi, 68% disk)
 
 ## Current Status
 - **Uptime**: gateway ~42m · system ~42m
