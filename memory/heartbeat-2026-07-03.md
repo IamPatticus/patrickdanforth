@@ -1,0 +1,10 @@
+- **Time:** 2026-07-03 07:51 UTC
+- **Source:** OpenClaw gateway — cron-event route
+- **Uptime:** gateway 3h 39m · system 2d 16h
+- **Model:** openrouter/inclusionai/ling-2.6-flash
+- **Tokens:** 19k in / 30 out (10% context)
+- **Compactions:** 0 (no recent compaction)
+- **Route context:** active: to heartbeat
+- **Health:** all systems nominal; no urgent action required
+- **Notes:** Heartbeat poll responded successfully; system load light, cron jobs healthy, memory search remains unavailable (FTS-only index), image-generation pipelines on text-only fallback due to exhausted credits.
+- **Next check:** per heartbeat schedule (next poll likely next heartbeat ~30 min later unless cron event triggers sooner)
