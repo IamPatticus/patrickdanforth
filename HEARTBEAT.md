@@ -1,26 +1,24 @@
-# Heartbeat State
+# OpenClaw Heartbeat Log
 
 ## Last Checks
-- **heartbeat**: 1783064157 (2026-07-03 07:35:57 UTC)
-- **email**: 0
-- **calendar**: 0
-- **mentions**: 0
-- **weather**: 0
+- **email**: 1783094936
+- **calendar**: 1783094936
+- **weather**: 1783094936
+- **memory**: 1783094936
+- **health**: 1783094936
 
-## Next Check
-- Re-evaluate important checks around next heartbeat (approx. 30 min interval typical)
+## Current Status
+- **Uptime**: gateway 5h 32m · system 2d 18h
+- **Model**: openrouter/poolside/laguna-xs-2.1:free (Elephant alias) — confirmed working 2026-07-03 16:06 UTC
+- **Tokens**: 19k in / 44 out (10% context usage)
+- **Last heartbeat**: 2026-07-03 16:06 UTC - ✅ Healthy
 
-## Last Heartbeat Response
-- **timestamp**: 2026-07-03T07:17:57Z
-- **status**: OK
-- **uptime**: gateway 4h 19m · system 2d 16h
-- **session**: agent:main:cron:cd3012be-818b-4e4b-8b04-991a78cbd2fb:run:1783063077933 • duration 5s • updated just now
+## Model Config
+- Primary: `openrouter/poolside/laguna-xs-2.1:free`
+- Fallback 1: `google/gemini-2.5-flash`
+- Fallback 2: `openai/o3-mini`
 
-## Checks Summary
-- All systems operational
-- No alerts triggered
-- Cron jobs: 7 active
-
-## Recent Heartbeat Log
-- [Fri 2026-07-03 07:17 UTC] [OpenClaw heartbeat poll] - Received and processed successfully
-- [Fri 2026-07-03 07:35 UTC] [OpenClaw heartbeat poll] - Received and processed successfully
+## Next Checks Due
+- Rotate checks every 30 minutes during active hours
+- Email/calendar maintenance: daily
+- Weather monitoring: as needed for travel planning

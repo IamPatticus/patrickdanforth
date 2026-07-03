@@ -1,10 +1,1 @@
-{
-  "lastChecks": {
-    "email": "2026-07-03 06:25 UTC",
-    "calendar": "never",
-    "weather": "2026-07-02 17:26 UTC",
-    "memory": "2026-07-02 17:02 UTC",
-    "health": "2026-07-02 17:02 UTC",
-    "heartbeat_poll": "2026-07-03 07:27 UTC"
-  }
-}
+{"lastChecks": {"heartbeat": 1783094936}}
