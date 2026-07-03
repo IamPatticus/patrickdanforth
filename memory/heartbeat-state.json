@@ -5,12 +5,9 @@
     "weather": 1783095882000,
     "memory": 1783096496888,
     "health": 1783096496888,
-    "heartbeat_poll": 1783096496888,
-    "cron_status": 1783096496888,
-    "git_status": 1783096496888,
-    "model_check": 1783096976000,
-    "cron_list": 1783097700000,
-    "cron_fixes": 1783098084000
+    "heartbeat_poll": 1783096916911,
+    "cron_status": 1783097700000,
+    "git_status": 1783096916911
   },
-  "lastUpdate": "2026-07-03T16:44:00Z"
+  "lastUpdate": "2026-07-03T16:46:00Z"
 }
