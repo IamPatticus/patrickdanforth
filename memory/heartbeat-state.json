@@ -1,1 +1,14 @@
-{"lastChecks": {"heartbeat": 1783094936}}
+{
+  "lastChecks": {
+    "email": 1783095882000,
+    "calendar": 1783096496888,
+    "weather": 1783095882000,
+    "memory": 1783096496888,
+    "health": 1783096496888,
+    "heartbeat_poll": 1783096496888,
+    "cron_status": 1783096496888,
+    "git_status": 1783096496888,
+    "model_check": 1783096976000
+  },
+  "lastUpdate": "2026-07-03T16:34:00Z"
+}
