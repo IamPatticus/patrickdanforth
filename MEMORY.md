@@ -1,6 +1,6 @@
 # MEMORY.md - Talos's Long-Term Memory
 
-_Last updated: 2026-07-03 16:51 UTC_
+_Last updated: 2026-07-03 18:00 UTC_
 
 ---
 
@@ -255,4 +255,17 @@ The following items were reviewed and **removed** from MEMORY.md as outdated or 
 
 The memory now reflects current operational state as of 2026-07-03 16:32 UTC: image-generation pipelines are text-only due to funding/credit limits; memory search is active via FTS/BM25 after the embedding quota was exhausted; the E-Ink Pi-hole display is operational; GitHub Pages and GitHub Backup crons are healthy; Rockin Regi weekly comic is publishing again after the timeout fix; Clawcar's identity is finalized; the current model is `openrouter/poolside/laguna-xs-2.1:free` (Elephant alias) confirmed working; and pending items include re-authing Gmail Composio, fixing Ollama embeddings, and restoring image generation funding.
 
-_Last full review and consolidation: 2026-07-03 16:32 UTC_
+_Last full review and consolidation: 2026-07-03 18:00 UTC_
+
+## Current Status (2026-07-03 18:00 UTC)
+
+### Fixed Today
+- **Ikaris Nightly**: Updated from `ollama/kimi-k2.7-code:cloud` to `openrouter/inclusionai/ling-2.6-flash` - now working ✅
+- **Rockin Regi Weekly Comic**: Updated to use `openrouter/inclusionai/ling-2.6-flash` - now working ✅
+
+### Ongoing Issues
+- **update_memory cron**: Failing due to Ollama weekly rate limit + all fallback models at quota (next run 2026-07-04 00:00 UTC)
+- **Gmail**: 401 Composio auth error - needs re-auth in direct session
+- **Image generation**: Text-only fallback due to OpenAI/OpenRouter credit limits
+- **Memory search**: Using FTS/BM25 (semantic search disabled due to quota exhaustion)
+- **OpenClaw Android app**: Connection issues over Tailscale (documented above)
