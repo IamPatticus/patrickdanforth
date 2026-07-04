@@ -1,14 +1,12 @@
 {
   "lastChecks": {
-    "email": 1783103520000,
-    "calendar": 1783103520000,
-    "weather": 1783103520000,
-    "memory": 1783103520000,
-    "health": 1783103520000,
-    "heartbeat_poll": 1783103520000,
-    "cron_status": 1783103520000,
-    "git_status": 1783103520000,
-    "current_check": 1783103520000
-  },
-  "lastUpdate": "2026-07-03T18:13:00Z"
+    "email": 1783137294000,
+    "calendar": 1783137294000,
+    "weather": 1783137294000,
+    "memory": 1783137294000,
+    "health": 1783137294000,
+    "heartbeat_poll": 1783137294000,
+    "git_status": 1783137294000,
+    "system_health": 1783137294000
+  }
 }
