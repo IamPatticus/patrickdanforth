@@ -287,6 +287,6 @@ All crew members share the same workspace and memory context, but they are used 
 - Consolidated conflicting cron model notes: early 2026-07-03 fixes used safer generic routes, then Ikaris/Rockin Regi were finalized on `openrouter/inclusionai/ling-2.6-flash` with fallbacks.
 - Preserved durable operational facts and removed transient weather/system snapshots unless they describe an ongoing watch item.
 
-_Last full review and consolidation: 2026-07-04 00:00 UTC_
+_Last full review and consolidation: 2026-07-05 02:31 UTC - Fixed Ikaris Nightly cron model allowlist error, manually triggered Reginald Wednesday Comic_
 
 **Memory maintenance completed:** 2026-07-04 04:07 UTC - Reviewed daily logs from 2026-07-01 through 2026-07-04, extracted significant events, and updated MEMORY.md. Outdated weather snapshots and transient system states removed; persistent operational facts preserved.

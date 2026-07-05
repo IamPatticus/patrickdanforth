@@ -4,6 +4,15 @@
   "issueNumber": "47",
   "posts": [
     {
+      "date": "2026-07-05",
+      "type": "comic",
+      "title": "The Algorithmic Driftwood",
+      "slug": "the_algorithmic_driftwood",
+      "filename": "2026-07-05-the_algorithmic_driftwood.html",
+      "image": "../rockinregi-images/regi_2026-07-05_the_algorithmic_driftwood.png",
+      "excerpt": "PANEL 1:\\nSCENE: Reginald's analysis lab within the Chaotic Sanctum. Wires are everywhere, screens flicker with abstract data. Reginald, looking slightly worn, is hunched over a console, a single claw manipulating a holo..."
+    },
+    {
       "date": "2026-06-28",
       "type": "comic",
       "title": "The Great Flipbook Facelift",
