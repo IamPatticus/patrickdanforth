@@ -33,14 +33,14 @@ All crew members share the same workspace and memory context, but they are used 
 
 ## Current Operational Status (2026-07-04 00:00 UTC)
 
-- **System:** serenity is healthy; recent heartbeats showed low load, ~1.3-1.9 GiB RAM used of 7.7 GiB, and disk around 67-68% used.
-- **Cron:** Daily GitHub Backup, Ikaris Nightly, Rockin Regi Weekly Comic, Reginald Wednesday Comic, heartbeat, and Ollama keepalive are configured and generally healthy after model fixes on 2026-07-03.
-- **Model routing:** Current working route confirmed 2026-07-03: `openrouter/poolside/laguna-xs-2.1:free` (Elephant alias). Ikaris/Rockin Regi cron jobs now use `openrouter/inclusionai/ling-2.6-flash` with fallbacks.
-- **Memory search:** Uses FTS/BM25 keyword retrieval because semantic embedding providers hit quota/build issues.
-- **Image generation:** OpenAI billing hard limit and OpenRouter credit exhaustion mean image-backed pipelines fall back to text-only until a funded provider or local image model is available.
-- **Gmail/Composio:** Outbound Gmail reply worked on 2026-07-02, but by 2026-07-03 Composio Gmail auth was returning 401 and needs re-auth in a direct session.
+- **System:** serenity is healthy; low load (~0.33), RAM ~1.9-2.0 GiB used of 7.7 GiB, disk ~67% used.
+- **Cron:** Daily GitHub Backup, Ikaris Nightly, heartbeat, and Ollama keepalive are healthy. Reginald Wednesday Comic is healthy. Rockin Regi Weekly Comic last ran 2026-06-28.
+- **Model routing:** Primary: `openrouter/poolside/laguna-xs-2.1:free`. Fallbacks: `openrouter/inclusionai/ling-2.6-flash`, `google/gemini-2.5-flash`.
+- **Memory search:** Uses FTS/BM25 keyword retrieval; semantic embedding provider unavailable due to OpenAI quota exhaustion.
+- **Image generation:** Text-only fallback active due to OpenAI billing hard limit and OpenRouter credit exhaustion. No local image model configured.
+- **Gmail/Composio:** Outbound Gmail reply worked on 2026-07-02; inbound fetch returns 401 as of 2026-07-03, needs re-auth.
 - **Google Calendar / X:** Not connected through Composio; OAuth/setup pending.
-- **Weather:** Walling, TN was dangerously hot July 1-3 (~97-99°F, feels-like often >105°F). Routine readings belong in `weather.md` and daily notes, not long-term memory.
+- **Weather:** Walling, TN dangerously hot July 1-3 (~97-99°F, feels-like >105°F). Routine readings in `weather.md`.
 
 ---
 
@@ -184,7 +184,7 @@ All crew members share the same workspace and memory context, but they are used 
   - `forward`, `backward`, `left`, `right`, `donut`
   - `center` (camera + wheels)
   - `forward_safe [speed] [stop_cm] [timeout]` — obstacle-aware driving
-  - `approach` — drives close without evading
+  - `approach` — drives up close without evading
   - `location` — reports GPS fix
   - `speak` — uses speech output
 - Added ultrasonic collision avoidance with median-filtered readings; on obstacle detection, Clawcar backs up, scans left/right, and turns toward clearer space.
@@ -246,6 +246,7 @@ All crew members share the same workspace and memory context, but they are used 
 - **OpenClaw Android app:** Browser works over Tailscale, official Android app does not; back-burnered pending app updates.
 - **Signal:** Still broken for incoming messages. Telegram is the reliable channel.
 - **Ambient lightning sensor:** Battery low (`batt_lightning: 0`).
+- **update_memory cron:** Failing due to Ollama weekly rate limit + all fallback models at quota limits.
 
 ---
 
@@ -274,6 +275,7 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-07-02 | Gmail/Composio outbound reply confirmed working, before later 401 auth issue |
 | 2026-07-03 | Cron provider/model configs fixed; Ikaris Nightly and Rockin Regi updated to `openrouter/inclusionai/ling-2.6-flash` with fallbacks |
 | 2026-07-03 | Patticus clarified Kimi 2.7 cost issue; avoid Kimi 2.7 for defaults/fallbacks/crons |
+| 2026-07-04 | update_memory cron blocked by Ollama weekly rate limit; all fallback models at quota |
 
 ---
 
@@ -286,3 +288,5 @@ All crew members share the same workspace and memory context, but they are used 
 - Preserved durable operational facts and removed transient weather/system snapshots unless they describe an ongoing watch item.
 
 _Last full review and consolidation: 2026-07-04 00:00 UTC_
+
+**Memory maintenance completed:** 2026-07-04 04:07 UTC - Reviewed daily logs from 2026-07-01 through 2026-07-04, extracted significant events, and updated MEMORY.md. Outdated weather snapshots and transient system states removed; persistent operational facts preserved.
