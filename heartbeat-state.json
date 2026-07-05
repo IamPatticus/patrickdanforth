@@ -1,20 +1,10 @@
 {
-  "lastPoll": "2026-07-05T06:14:00Z",
-  "uptime": "1d 14h",
-  "gatewayUptime": "4h 4m",
-  "cron": {
-    "enabled": 8,
-    "ok": 6,
-    "error": 2,
-    "errors": [
-      {
-        "name": "update_memory",
-        "issue": "telegram target verification needed"
-      },
-      {
-        "name": "Rockin Regi Weekly Comic",
-        "issue": "stale — not due until 2026-07-05 11:00 UTC"
-      }
-    ]
+  "lastChecks": {
+    "heartbeat": "2026-07-05T06:40:00Z",
+    "weather": "2026-07-05T06:40:00Z",
+    "memory": "2026-07-05T06:40:00Z"
   },
-  "notes": "Stable. No active sessions. No urgent items."
+  "uptime": "gateway 4h 53m · system 1d 14h",
+  "session": "agent:main:cron:cd3012be-818b-4e4b-8b04-991a78cbd2fb:run:1783233600565",
+  "notes": "heartbeat-state.json was updated on 2026-07-05 at 06:40 UTC via cron-event; origin remote not found (site remote exists)"
+}
