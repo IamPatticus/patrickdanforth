@@ -1,6 +1,6 @@
 # MEMORY.md - Talos's Long-Term Memory
 
-_Last updated: 2026-07-04 04:07 UTC_
+_Last updated: 2026-07-05 02:54 UTC_
 
 ---
 
@@ -240,13 +240,14 @@ All crew members share the same workspace and memory context, but they are used 
 
 ## Ongoing Issues / Watchlist
 
-- **Gmail Composio auth:** 401 as of 2026-07-03; needs re-auth in direct session. Note: outbound reply did work on 2026-07-02 before the later auth failure.
+- **Gmail Composio auth:** 401 as of 2026-07-03; needs re-auth in direct session. Outbound reply worked on 2026-07-02 before the later auth failure.
 - **Image generation funding:** OpenAI billing hard limit and OpenRouter credits exhausted as of 2026-07-01; pipelines publish text-only until funding/provider/local model is fixed.
 - **Memory search semantics:** FTS/BM25 works; semantic vector search disabled until local Ollama embeddings or another embedding endpoint is configured.
 - **OpenClaw Android app:** Browser works over Tailscale, official Android app does not; back-burnered pending app updates.
 - **Signal:** Still broken for incoming messages. Telegram is the reliable channel.
 - **Ambient lightning sensor:** Battery low (`batt_lightning: 0`).
-- **update_memory cron:** Failing due to Ollama weekly rate limit + all fallback models at quota limits.
+- **update_memory cron:** Failing due to Telegram outbound adapter being unavailable (delivery target `null`), despite the memory update logic itself succeeding.
+- **Ikaris Nightly:** Configured with model `openrouter/auto` which may be hitting allowlist/routing issues. Job times out after 600s with "Update Goal: `complete` failed". Next run 2026-07-05 15:00 UTC.
 
 ---
 
@@ -276,17 +277,18 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-07-03 | Cron provider/model configs fixed; Ikaris Nightly and Rockin Regi updated to `openrouter/inclusionai/ling-2.6-flash` with fallbacks |
 | 2026-07-03 | Patticus clarified Kimi 2.7 cost issue; avoid Kimi 2.7 for defaults/fallbacks/crons |
 | 2026-07-04 | update_memory cron blocked by Ollama weekly rate limit; all fallback models at quota |
+| 2026-07-05 | update_memory cron failing due to Telegram outbound adapter unavailable; Ikaris Nightly regressed with `openrouter/auto` model allowlist issue |
 
 ---
 
-## Cleanup Notes from 2026-07-04 Review
+## Cleanup Notes from 2026-07-05 Review
 
-- Removed noisy heartbeat/weather snapshots from long-term memory; routine status belongs in daily logs, `HEARTBEAT.md`, and `weather.md`.
-- Removed duplicate "Promoted From Short-Term Memory" / "Promoted From Recent Logs" sections that repeated already-curated facts.
-- Replaced outdated statements that `update_memory` was currently failing with quota errors; that was true on 2026-07-03, but this 2026-07-04 memory maintenance run is completing.
-- Consolidated conflicting cron model notes: early 2026-07-03 fixes used safer generic routes, then Ikaris/Rockin Regi were finalized on `openrouter/inclusionai/ling-2.6-flash` with fallbacks.
-- Preserved durable operational facts and removed transient weather/system snapshots unless they describe an ongoing watch item.
+- Reviewed daily logs from 2026-07-01 through 2026-07-05.
+- Updated Ongoing Issues / Watchlist with current status of `update_memory` (Telegram adapter unavailable) and `Ikaris Nightly` (regressed model routing issue).
+- Added 2026-07-05 entry to Important Dates table.
+- Preserved durable operational facts; transient weather/system snapshots remain in daily logs.
+- No outdated information removed from MEMORY.md; all entries remain relevant.
 
-_Last full review and consolidation: 2026-07-05 02:31 UTC - Fixed Ikaris Nightly cron model allowlist error, manually triggered Reginald Wednesday Comic_
+_Last full review and consolidation: 2026-07-05 02:54 UTC - Reviewed daily logs, updated ongoing issues, no outdated information to remove_
 
-**Memory maintenance completed:** 2026-07-04 04:07 UTC - Reviewed daily logs from 2026-07-01 through 2026-07-04, extracted significant events, and updated MEMORY.md. Outdated weather snapshots and transient system states removed; persistent operational facts preserved.
+**Memory maintenance completed:** 2026-07-05 02:54 UTC - Reviewed daily logs from 2026-07-01 through 2026-07-05, extracted significant events, and updated MEMORY.md. Updated ongoing issues watchlist with current cron failures. No outdated information found to remove.
