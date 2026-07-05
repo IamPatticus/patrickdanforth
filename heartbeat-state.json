@@ -1,10 +1,13 @@
 {
   "lastChecks": {
-    "heartbeat": "2026-07-05T06:40:00Z",
-    "weather": "2026-07-05T06:40:00Z",
-    "memory": "2026-07-05T06:40:00Z"
+    "heartbeat": 1783246443,
+    "github": 1783246443
   },
-  "uptime": "gateway 4h 53m · system 1d 14h",
-  "session": "agent:main:cron:cd3012be-818b-4e4b-8b04-991a78cbd2fb:run:1783233600565",
-  "notes": "heartbeat-state.json was updated on 2026-07-05 at 06:40 UTC via cron-event; origin remote not found (site remote exists)"
+  "summary": {
+    "lastUpdated": "2026-07-05T10:14:00Z",
+    "uptime": "8h 27m",
+    "activeJobs": 7,
+    "successfulJobs": 6,
+ "errorJobs": 1
+  }
 }

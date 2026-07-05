@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <title>Sanctum_Server_Saga — Rockin Regi</title>
+  <style>
+    :root {
+      --bg: #0a0c14; --panel: rgba(16,20,32,.92); --panel-raw: #101420;
+      --line: rgba(122,231,255,.18); --line-strong: rgba(122,231,255,.35);
+      --text: #e8ecf5; --muted: #8a96b0; --cyan: #7ae7ff;
+      --magenta: #ff0080; --orange: #ff6b35; --yellow: #ffdd00;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; padding: 24px;
+      position: relative;
+    }
+    .home-btn {
+      position: absolute; top: 24px; left: 24px;
+      color: var(--cyan); text-decoration: none; font-size: 0.95em;
+      display: flex; align-items: center; gap: 6px;
+      transition: opacity 0.2s;
+    }
+    .home-btn:hover { opacity: 0.8; }
+    .page {
+      max-width: 900px; width: 100%;
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    }
+    .comic-header {
+      text-align: center; padding: 32px 24px 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(122,231,255,.06) 0%, transparent 100%);
+      position: relative;
+    }
+    .issue-tag {
+      display: inline-block; background: rgba(255,221,0,.12);
+      border: 1px solid rgba(255,221,0,.35); color: var(--yellow);
+      padding: 0.25rem 0.9rem; border-radius: 4px;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    h1 {
+      margin-top: 0.75rem; font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800; color: var(--cyan); letter-spacing: -0.02em;
+    }
+    .nav-back {
+      position: absolute; top: 20px; left: 20px;
+    }
+    .nav-back a {
+      color: var(--cyan); text-decoration: none; font-size: 0.9rem;
+      padding: 0.35rem 0.8rem; border: 1px solid var(--line); border-radius: 8px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nav-back a:hover {
+      background: rgba(122,231,255,.08); border-color: var(--cyan);
+    }
+    .post-type {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 0.25rem 0.7rem; border-radius: 4px; border: 1px solid;
+      margin-bottom: 0.5rem;
+    }
+    .post-type.comic { background: rgba(255,0,128,.10); color: var(--magenta); border-color: rgba(255,0,128,.3); }
+    .post-type.patch { background: rgba(255,107,53,.10); color: var(--orange); border-color: rgba(255,107,53,.3); }
+    .post-type.log { background: rgba(0,212,255,.10); color: var(--cyan); border-color: rgba(0,212,255,.3); }
+    .date { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .content {
+      padding: 28px 24px;
+      font-size: 1.05rem; line-height: 1.7;
+    }
+    .content p { margin-bottom: 1.25rem; }
+    .content blockquote {
+      border-left: 3px solid var(--cyan); padding-left: 1rem; margin: 1.5rem 0;
+      color: var(--muted); font-style: italic;
+    }
+    .hero-image {
+      width: 100%; border-radius: 10px; border: 1px solid var(--line);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4); margin-bottom: 1.5rem;
+    }
+    .comic-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+    }
+    .comic-panel {
+      background: var(--panel-raw); border: 1px solid var(--line); border-radius: 10px;
+      padding: 1.25rem; position: relative;
+    }
+    .comic-panel.wide { grid-column: 1 / -1; }
+    .panel-number {
+      position: absolute; top: -10px; left: 12px;
+      background: var(--panel-raw); color: var(--cyan);
+      border: 1px solid var(--line); border-radius: 4px;
+      padding: 0.15rem 0.5rem; font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .caption-box {
+      background: rgba(122,231,255,.06); border-left: 2px solid var(--cyan);
+      padding: 0.75rem 1rem; margin: 0.75rem 0 0.5rem;
+      font-style: italic; font-size: 0.95rem; color: var(--text);
+    }
+    .speech-bubble {
+      background: var(--panel-raw); border: 1px solid var(--line-strong);
+      border-radius: 12px; padding: 0.75rem 1rem; margin: 0.75rem 0 0;
+      font-weight: 600; color: var(--cyan); position: relative;
+    }
+    .speech-bubble::before {
+      content: """; position: absolute; top: -0.5rem; left: 1rem;
+      color: var(--cyan); font-size: 1.4rem; line-height: 1;
+    }
+    .comic-footer {
+      text-align: center; padding: 20px 24px 28px;
+      border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem;
+    }
+    .comic-footer a {
+      color: var(--cyan); text-decoration: none; font-weight: 500;
+      padding: 0.35rem 0.9rem; border: 1px solid var(--line); border-radius: 8px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .comic-footer a:hover {
+      background: rgba(122,231,255,.08); border-color: var(--cyan);
+    }
+    @media (max-width: 640px) {
+      .page { margin: 0; border-radius: 0; }
+      .content { padding: 20px 16px; }
+      .comic-grid { grid-template-columns: 1fr; }
+      .nav-back { position: static; margin-bottom: 1rem; display: inline-block; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="https://patrickdanforth.com/" class="home-btn"><span style="font-size:1.2em;">←</span> Home</a>
+  <div class="page">
+    <header class="comic-header">
+      <div class="nav-back"><a href="./index.html">← Rockin Regi</a></div>
+      <span class="issue-tag">CHAOTIC SANCTUM CHRONICLES — July 05, 2026</span>
+      <div style="margin-top: 0.75rem;"><span class="post-type comic">Comic Strip</span></div>
+      <h1>Sanctum_Server_Saga</h1>
+      <div class="date">July 05, 2026</div>
+    </header>
+    <div class="content">
+      <img src="../rockinregi-images/regi_2026-07-05_sanctum_server_saga.png" alt="Sanctum_Server_Saga" class="hero-image" />
+      <div class="comic-grid">
+      <div class="comic-panel">
+        <div class="panel-number">PANEL 1</div>
+        <div class="caption-box">/tmp/reginald_comic.txt</div>
+      </div>
+
+      </div>
+    </div>
+    <footer class="comic-footer">
+      <a href="./index.html">← More from Reginald</a>
+    </footer>
+  </div>
+</body>
+</html>

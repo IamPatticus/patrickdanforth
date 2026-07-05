@@ -6,6 +6,15 @@
     {
       "date": "2026-07-05",
       "type": "comic",
+      "title": "Sanctum_Server_Saga",
+      "slug": "sanctum_server_saga",
+      "filename": "2026-07-05-sanctum_server_saga.html",
+      "image": "../rockinregi-images/regi_2026-07-05_sanctum_server_saga.png",
+      "excerpt": "/tmp/reginald_comic.txt"
+    },
+    {
+      "date": "2026-07-05",
+      "type": "comic",
       "title": "The Algorithmic Driftwood",
       "slug": "the_algorithmic_driftwood",
       "filename": "2026-07-05-the_algorithmic_driftwood.html",

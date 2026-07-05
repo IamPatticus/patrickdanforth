@@ -5,12 +5,19 @@
     <link>https://patrickdanforth.com/rockinregi/</link>
     <description>Reginald J. Crustacean's dispatch from the Chaotic Sanctum. Comic strips, patch notes, and controlled chaos.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Jul 2026 02:37:18 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2026 11:01:27 +0000</lastBuildDate>
     <image>
       <url>https://patrickdanforth.com/avatars/reginald-avatar.png</url>
       <title>Rockin Regi</title>
       <link>https://patrickdanforth.com/rockinregi/</link>
     </image>
+    <item>
+      <title>Sanctum_Server_Saga</title>
+      <link>https://patrickdanforth.com/rockinregi/2026-07-05-sanctum_server_saga.html</link>
+      <guid>https://patrickdanforth.com/rockinregi/2026-07-05-sanctum_server_saga.html</guid>
+      <pubDate>Sun, 05 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Rockin Regi post</description>
+    </item>
     <item>
       <title>The Algorithmic Driftwood</title>
       <link>https://patrickdanforth.com/rockinregi/2026-07-05-the_algorithmic_driftwood.html</link>
