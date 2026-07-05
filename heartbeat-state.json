@@ -1,9 +1,20 @@
 {
-  "lastChecks": {
-    "email": 1783057677,
-    "calendar": 0,
-    "weather": 1783057677,
-    "memory": 1783057677,
-    "health": 1783057677
-  }
-}
+  "lastPoll": "2026-07-05T03:44:00Z",
+  "uptime": "1d 11h",
+  "gatewayUptime": "9h 24m",
+  "cron": {
+    "enabled": 8,
+    "ok": 6,
+    "error": 2,
+    "errors": [
+      {
+        "name": "update_memory",
+        "issue": "telegram target verification needed"
+      },
+      {
+        "name": "Rockin Regi Weekly Comic",
+        "issue": "stale — not due until 2026-07-05 11:00 UTC"
+      }
+    ]
+  },
+  "notes": "Stable. No active sessions. No urgent items."
