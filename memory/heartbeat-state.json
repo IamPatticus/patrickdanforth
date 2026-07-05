@@ -1,11 +1,8 @@
 {
   "lastChecks": {
-    "email": 1751705707,
-    "calendar": 1751705707,
-    "weather": 1751705707,
-    "heartbeat": 1751705707,
-    "memory": 1751705707
-  },
-  "lastUpdated": "2026-07-05T10:55:00Z",
-  "uptime": "gateway 9h 9m · system 1d 18h"
+    "heartbeat": 1759674195,
+    "email": 0,
+    "calendar": 0,
+    "weather": 0
+  }
 }
