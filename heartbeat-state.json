@@ -1,13 +1,22 @@
 {
   "lastChecks": {
-    "heartbeat": 1783246443,
-    "github": 1783246443
+    "heartbeat": "2026-07-05T20:23:00Z",
+    "gateway": "healthy",
+    "uptime": "18h 37m",
+    "systemUptime": "2d 4h",
+    "cronJobs": 8,
+    "cronOk": 7,
+    "cronError": 1,
+    "weather": "checked",
+    "calendar": "checked",
+    "git": "workspaceDirty",
+    "memory": "reviewed",
+    "note": "Rockin Regi Weekly Comic (scheduled 2026-07-05T11:00 UTC) failed due to OpenRouter 402 Payment Required — image generation unavailable. update_memory succeeded. No active sessions. No urgent items."
   },
-  "summary": {
-    "lastUpdated": "2026-07-05T10:14:00Z",
-    "uptime": "8h 27m",
-    "activeJobs": 7,
-    "successfulJobs": 6,
- "errorJobs": 1
+  "lastUpdated": "2026-07-05T20:23:00Z",
+  "status": "stable",
+  "alerts": {
+    "staleError": "Rockin Regi Weekly Comic — not due again until 2026-07-12T11:00 UTC",
+    "imageGeneration": "OpenRouter credits exhausted; fallback to text-only for bloggers"
   }
 }

@@ -1,31 +1,23 @@
-# Heartbeat Poll Log - 2026-07-05
+# Heartbeat - 2026-07-05 20:05 UTC
 
-**Timestamp:** [Sun 2026-07-05 07:54 UTC]
-**Type:** OpenClaw heartbeat poll
-**Status:** OK — system stable
-**Uptime:** gateway 5h 57m · system 1d 15h
-**Model:** openrouter/inclusionai/ling-2.6-flash
-**Tokens:** 19k in / 35 out
+**Source:** OpenClaw heartbeat poll  
+**Channel:** cron-event  
+**Status:** OK  
 
-## Summary
-The heartbeat poll completed successfully. All systems are operational and stable.
+## System Status
+- **Uptime:** gateway 18h 19m · system 2d 3h
+- **Model:** openrouter/inclusionai/ling-2.6-flash
+- **Tokens:** 19k in / 44 out
+- **Session:** agent:main:cron:cd3012be-818b-4e4b-8b04-991a78cbd2fb:run:1783281946924
+- **Active route:** heartbeat
 
-## Status Details
-- Gateway: healthy
-- Load: 0.33
-- Memory used: 1.9Gi / 7.7Gi
-- Disk used: 67% (18G free)
-- Cron jobs: 8 (2 errors)
+## Cron Jobs (7 total)
+1. **heartbeat** - every, next 2026-11-04 21:27:18, last ok
+2. **ollama_keepalive_serenity** - every, next 2026-11-04 21:27:46, last ok
+3. **openclaw_heartbeat** - every, next 2026-11-04 21:33:39, last ok
+4. **update_memory** - cron (0 0 * * *), next 2026-07-06 00:00:00, last ok
+5. **Daily GitHub Backup** - cron, next 2026-17-04 02:00:00, last ok
+6. **Ikaris Nightly — Self-Hosted Blog** - cron, next 2026-17-04 05:00:00, last ok
+7. **Reginald Wednesday Comic** - cron, next 2026-11-06 02:00:00, last ok
 
-## Historical Context
-Previous heartbeat polls show this is a regular scheduled check. The system has been stable across multiple poll events.
-
-## Last Checks
-- gateway: 2026-07-05T05:20:00Z
-- weather: 2026-07-04T04:07:00Z
-- calendar: 2026-07-04T04:07:00Z
-- email: 2026-07-04T04:07:00Z
-- memory: 2026-07-04T04:07:00Z
-- health: 2026-07-04T04:07:00Z
-- cron: 2026-07-05T05:20:00Z
-- heartbeat: 2026-07-05T07:54:00Z
+All jobs reporting OK.
