@@ -1,12 +1,26 @@
 {
+  "lastUpdated": "2026-07-05T05:58:00Z",
   "lastChecks": {
-    "heartbeat": 1783223717534,
-    "email": 1783223717534,
-    "calendar": 1783223717534,
-    "weather": 1783223717534,
-    "memory": 1783223717534,
-    "health": 1783223717534
+    "gateway": "2026-07-05T05:20:00Z",
+    "weather": "2026-07-04T04:07:00Z",
+    "calendar": "2026-07-04T04:07:00Z",
+    "email": "2026-07-04T04:07:00Z",
+    "memory": "2026-07-04T04:07:00Z",
+    "health": "2026-07-04T04:07:00Z",
+    "cron": "2026-07-05T05:20:00Z",
+    "heartbeat": "2026-07-05T05:58:00Z",
+    "note": "OpenClaw heartbeat poll 2026-07-05 05:58 UTC"
   },
-  "lastHeartbeat": "2026-07-05T03:55:00Z",
-  "status": "ok"
+  "status": {
+    "gateway": "healthy",
+    "uptime": "1d 13h",
+    "load": 0.33,
+    "memoryUsed": "1.9Gi",
+    "memoryTotal": "7.7Gi",
+    "diskUsed": "67%",
+    "diskFree": "18G",
+    "cronJobs": 8,
+    "cronErrors": 2
+  },
+  "alerts": []
 }

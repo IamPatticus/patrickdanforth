@@ -1,7 +1,7 @@
 {
-  "lastPoll": "2026-07-05T03:44:00Z",
-  "uptime": "1d 11h",
-  "gatewayUptime": "9h 24m",
+  "lastPoll": "2026-07-05T06:14:00Z",
+  "uptime": "1d 14h",
+  "gatewayUptime": "4h 4m",
   "cron": {
     "enabled": 8,
     "ok": 6,
