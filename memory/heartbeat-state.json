@@ -1,12 +1,9 @@
 {
   "lastChecks": {
-    "email": 1783310160000,
-    "calendar": 1783310160000,
-    "weather": 1783310160000,
-    "twitter": 1783310160000,
-    "mentions": 1783310160000,
-    "crons": 1783310160000
+    "heartbeat": 1783329614643,
+    "weather": 1783329614,
+    "memory": 1783329614,
+    "git": 1783329614
   },
-  "lastHeartbeat": 1783310160000,
-  "version": "1.0"
+  "notes": "Updated at Mon 2026-07-06 09:20 UTC (OpenClaw heartbeat poll). System stable."
 }
