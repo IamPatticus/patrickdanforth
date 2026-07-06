@@ -1,9 +1,18 @@
 {
-  "lastChecks": {
-    "email": 1783309473,
-    "calendar": 1783309473,
-    "weather": 1783309473,
-    "heartbeat": 1783309473
-  },
-  "lastUpdate": 1783309473,
-  "notes": "HEARTBEAT_OK — system operational. Uptime: gateway 1d 2h · system 2d 12h. Model: openrouter/poolside/laguna-xs-2.1:free. 7 active crons. Cache: 66% hit (76k). Tokens: 38k in / 488 out. Pending: Telegram adapter, OpenAI credits, Gmail Composio re-auth. Weather: Walling TN 98°F, feels like 106°F (dangerously hot). No new calendar events in next 48h. Email status: unable to fetch."
+  "lastChecks": [
+    {
+      "timestamp": "2026-07-06T08:09:00Z",
+      "status": "HEARTBEAT_OK",
+      "uptime": "~2d",
+      "systemUptime": "~3d",
+      "model": "openrouter/poolside/laguna-xs-2.1:free",
+      "cronJobs": 7,
+      "tokensIn": 51000,
+      "tokensOut": 497,
+      "cacheHitRate": "33%",
+      "contextUsage": "20k/200k (10%)",
+      "plugins": "OK",
+      "queueDepth": 0
+    }
+  ]
+}
