@@ -1,9 +1,9 @@
 {
   "lastChecks": {
-    "memory": 1751748831,
-    "heartbeat": 1751748831,
-    "weather": 1751748831
+    "email": 1783309473,
+    "calendar": 1783309473,
+    "weather": 1783309473,
+    "heartbeat": 1783309473
   },
-  "notes": "HEARTBEAT_OK — stable polling cycle. Uptime tracked since last successful poll. Last checked: Sun 2026-07-05 22:53 UTC",
-  "lastUpdate": 1751748831
-}
+  "lastUpdate": 1783309473,
+  "notes": "HEARTBEAT_OK — system operational. Uptime: gateway 1d 2h · system 2d 12h. Model: openrouter/poolside/laguna-xs-2.1:free. 7 active crons. Cache: 66% hit (76k). Tokens: 38k in / 488 out. Pending: Telegram adapter, OpenAI credits, Gmail Composio re-auth. Weather: Walling TN 98°F, feels like 106°F (dangerously hot). No new calendar events in next 48h. Email status: unable to fetch."

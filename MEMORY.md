@@ -1,6 +1,13 @@
 # MEMORY.md - Talos's Long-Term Memory
 
-_Last updated: 2026-07-05 02:54 UTC_
+_Last updated: 2026-07-05 18:20 UTC_
+
+### 2026-07-05 Maintenance Summary
+- Reviewed daily logs (2026-07-01 through 2026-07-05) and updated MEMORY.md
+- Extracted significant events: update_memory failures (Ollama rate limit + quota exhaustion), image generation crisis (OpenAI/OpenRouter credits exhausted, code pipelines now text-only fallback), Clawcar GPS/speech verification successful
+- Updated Ongoing Issues watchlist with current cron statuses, weather, and model routing fixes
+- Added 2026-07-05 entries to Important Dates
+- No outdated information removed; all existing entries remain relevant
 
 ---
 
@@ -246,8 +253,9 @@ All crew members share the same workspace and memory context, but they are used 
 - **OpenClaw Android app:** Browser works over Tailscale, official Android app does not; back-burnered pending app updates.
 - **Signal:** Still broken for incoming messages. Telegram is the reliable channel.
 - **Ambient lightning sensor:** Battery low (`batt_lightning: 0`).
-- **update_memory cron:** Failing due to Telegram outbound adapter being unavailable (delivery target `null`), despite the memory update logic itself succeeding.
+- **update_memory cron:** Failing due to Telegram outbound adapter being unavailable (delivery target `null`), despite the memory update logic itself succeeding. All fallback models (Ollama, OpenRouter, OpenAI) at quota as of 2026-07-04/05.
 - **Ikaris Nightly:** Configured with model `openrouter/auto` which may be hitting allowlist/routing issues. Job times out after 600s with "Update Goal: `complete` failed". Next run 2026-07-05 15:00 UTC.
+- **Weather:** Walling, TN dangerously hot — 97-99°F actual, feels like 106-109°F as of July 1-5. Limit outdoor activities.
 
 ---
 
@@ -278,6 +286,8 @@ All crew members share the same workspace and memory context, but they are used 
 | 2026-07-03 | Patticus clarified Kimi 2.7 cost issue; avoid Kimi 2.7 for defaults/fallbacks/crons |
 | 2026-07-04 | update_memory cron blocked by Ollama weekly rate limit; all fallback models at quota |
 | 2026-07-05 | update_memory cron failing due to Telegram outbound adapter unavailable; Ikaris Nightly regressed with `openrouter/auto` model allowlist issue |
+| 2026-07-05 | Memory search updated to FTS/BM25 (`none` provider) after embedding quota exhaustion; code pipelines added text-only fallbacks |
+| 2026-07-05 | Maintenance review: updated Ongoing Issues watchlist; preserved durable operational facts; no outdated information removed |
 
 ---
 

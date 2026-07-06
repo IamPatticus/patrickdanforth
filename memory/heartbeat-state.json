@@ -1,8 +1,12 @@
 {
   "lastChecks": {
-    "heartbeat": 1759674195,
-    "email": 0,
-    "calendar": 0,
-    "weather": 0
-  }
+    "email": 1783310160000,
+    "calendar": 1783310160000,
+    "weather": 1783310160000,
+    "twitter": 1783310160000,
+    "mentions": 1783310160000,
+    "crons": 1783310160000
+  },
+  "lastHeartbeat": 1783310160000,
+  "version": "1.0"
 }
