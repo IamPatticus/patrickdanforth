@@ -1,18 +1,41 @@
 {
-  "lastChecks": [
-    {
-      "timestamp": "2026-07-06T08:09:00Z",
-      "status": "HEARTBEAT_OK",
-      "uptime": "~2d",
-      "systemUptime": "~3d",
-      "model": "openrouter/poolside/laguna-xs-2.1:free",
-      "cronJobs": 7,
-      "tokensIn": 51000,
-      "tokensOut": 497,
-      "cacheHitRate": "33%",
-      "contextUsage": "20k/200k (10%)",
-      "plugins": "OK",
-      "queueDepth": 0
+  "lastUpdated": "2026-07-06T09:07:00Z",
+  "lastChecks": {
+    "heartbeat": "2026-07-06T09:07:00Z",
+    "gateway": "2026-07-06T09:07:00Z",
+    "cron": "2026-07-06T09:07:00Z",
+    "memory": "2026-07-06T09:07:00Z",
+    "weather": "2026-07-05"
+  },
+  "gateway": {
+    "status": "healthy",
+    "uptime": "1d 7h",
+    "systemUptime": "2d 16h",
+    "model": "openrouter/inclusionai/ling-2.6-flash"
+  },
+  "cron": {
+    "enabledJobs": 8,
+    "ok": 7,
+    "errors": 1,
+    "errorDetails": [
+      {
+        "job": "Rockin Regi Weekly Comic",
+        "status": "stale",
+        "note": "not due until 2026-07-05 11:00 UTC"
+      }
+    ]
+  },
+  "system": {
+    "load": [0.39, 0.33, 0.28],
+    "memory": {
+      "used": "1.6 Gi",
+      "total": "7.7 Gi"
     }
-  ]
+  },
+  "git": {
+    "modified": [
+      "memory/heartbeat-state.json"
+    ]
+  },
+  "notes": "Heartbeat poll completed successfully. All checks passed except one stale cron job (Rockin Regi Weekly Comic, not due until July 5)."
 }
