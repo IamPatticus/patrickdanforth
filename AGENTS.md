@@ -174,6 +174,14 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 }
 ```
 
+## Heartbeat Poll Handling
+
+When triggered by the "OpenClaw heartbeat poll", respond with `HEARTBEAT_OK` and update `HEARTBEAT.md` with the current timestamp and status. Example cron jobs that responded:
+- `OpenClaw heartbeat monitor` - monitors OpenClaw health
+- `openclaw_heartbeat_monitor` - main OpenClaw heartbeat
+- `heartbeat` - core heartbeat process
+- All heartbeat jobs reported **ok** status at time of poll.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.

@@ -1,8 +1,13 @@
 {
-  "lastChecks": {
-    "heartbeat": 1783369678,
-    "memory": 1783369678
-  },
-  "status": "ok",
-  "updated": "2026-07-06T20:27:00Z",
-  "notes": "HEARTBEAT_OK received; uptime stable (~9h). Memory and heartbeat checks recorded."}
+  "lastUpdated": "2026-07-07T03:53:18Z",
+  "checks": {
+    "env": "ok",
+    "storage": "ok",
+    "entropy": "ok",
+    "skills": {
+      "browser-automation": "ok",
+      "notion": "ok",
+      "portainer": "ok"
+    }
+  }
+}

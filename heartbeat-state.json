@@ -1,41 +1,9 @@
 {
-  "lastUpdated": "2026-07-06T09:07:00Z",
   "lastChecks": {
-    "heartbeat": "2026-07-06T09:07:00Z",
-    "gateway": "2026-07-06T09:07:00Z",
-    "cron": "2026-07-06T09:07:00Z",
-    "memory": "2026-07-06T09:07:00Z",
-    "weather": "2026-07-05"
+    "heartbeat": 1751879480,
+    "email": 1751874898,
+    "calendar": 1751874905,
+    "mentions": 1751874860,
+    "weather": 1751874877
   },
-  "gateway": {
-    "status": "healthy",
-    "uptime": "1d 7h",
-    "systemUptime": "2d 16h",
-    "model": "openrouter/inclusionai/ling-2.6-flash"
-  },
-  "cron": {
-    "enabledJobs": 8,
-    "ok": 7,
-    "errors": 1,
-    "errorDetails": [
-      {
-        "job": "Rockin Regi Weekly Comic",
-        "status": "stale",
-        "note": "not due until 2026-07-05 11:00 UTC"
-      }
-    ]
-  },
-  "system": {
-    "load": [0.39, 0.33, 0.28],
-    "memory": {
-      "used": "1.6 Gi",
-      "total": "7.7 Gi"
-    }
-  },
-  "git": {
-    "modified": [
-      "memory/heartbeat-state.json"
-    ]
-  },
-  "notes": "Heartbeat poll completed successfully. All checks passed except one stale cron job (Rockin Regi Weekly Comic, not due until July 5)."
-}
+  "notes": "Heartbeat polling active; system stable. Latest poll at 22:58 UTC on 2026-07-06."}
