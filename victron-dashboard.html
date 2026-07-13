@@ -146,17 +146,17 @@
   </div>
 
   <script>
-    // Fetch data from victron-data.json
+    // Fetch data from victron-data.js
     async function loadData() {
       try {
-        const response = await fetch('victron-data.json');
+        const response = await fetch('victron-data.js');
         if (!response.ok) throw new Error('Failed to fetch');
         const data = await response.json();
         renderDashboard(data);
       } catch (e) {
         document.getElementById('dashboard').innerHTML = 
           '<div style="text-align:center;color:var(--red);padding:40px;">' +
-          'Failed to load data. Make sure victron-data.json is in the same directory.' +
+          'Failed to load data. Make sure victron-data.js is in the same directory.' +
           '</div>';
       }
     }
