@@ -40,6 +40,9 @@
     .footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.8rem; }
     .footer a { color: var(--cyan); text-decoration: none; }
     @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 1.4rem; } }
+    .card-links { text-align: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(130, 177, 255, 0.1); }
+    .cerbo-link { display: inline-block; padding: 6px 14px; background: rgba(122, 231, 255, 0.1); color: var(--cyan); text-decoration: none; border-radius: 6px; font-size: 0.8rem; border: 1px solid rgba(122, 231, 255, 0.2); transition: all 0.2s; }
+    .cerbo-link:hover { background: rgba(122, 231, 255, 0.2); border-color: var(--cyan); }
   </style>
 </head>
 <body>
@@ -185,6 +188,7 @@
         html += '<div class="card">';
         html += '<div class="card-header"><span class="card-title">' + dev.name + '</span>';
         html += '<span class="status-badge ' + (online ? 'status-online' : 'status-offline') + '"\u003e' + (online ? '● Online' : '● Offline') + '</span></div>';
+        html += '<div class="card-links"><a href="http://' + dev.ip + '/gui-v2/" target="_blank" class="cerbo-link">⚙️ Cerbo</a></div>';
         
         html += '<div class="metric"><span class="metric-label">Battery SOC</span>';
         html += '<span class="metric-value" style="color:' + (sc === 'soc-high' ? '#7effb2' : sc === 'soc-medium' ? '#d7aa61' : '#ff7a4d') + '">' + soc.toFixed(1) + '%</span></div>';
