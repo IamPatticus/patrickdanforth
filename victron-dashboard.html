@@ -50,11 +50,6 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       padding: 20px;
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: var(--cyan);
     }
     .card-header {
       display: flex;
@@ -86,17 +81,9 @@
       padding: 10px 0;
       border-bottom: 1px solid rgba(130, 177, 255, 0.08);
     }
-    .metric:last-child {
-      border-bottom: none;
-    }
-    .metric-label {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .metric-value {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
+    .metric:last-child { border-bottom: none; }
+    .metric-label { color: var(--muted); font-size: 0.9rem; }
+    .metric-value { font-weight: 600; font-size: 0.95rem; }
     .soc-bar {
       width: 100%;
       height: 8px;
@@ -121,10 +108,7 @@
       color: var(--muted);
       font-size: 0.8rem;
     }
-    .footer a {
-      color: var(--cyan);
-      text-decoration: none;
-    }
+    .footer a { color: var(--cyan); text-decoration: none; }
     @media (max-width: 768px) {
       .grid { grid-template-columns: 1fr; }
       .header h1 { font-size: 1.4rem; }
@@ -146,27 +130,34 @@
   </div>
 
   <script>
-    // Fetch data from victron-data.js
-    async function loadData() {
-      try {
-        const response = await fetch('victron-data.js');
-        if (!response.ok) throw new Error('Failed to fetch');
-        const data = await response.json();
-        renderDashboard(data);
-      } catch (e) {
-        document.getElementById('dashboard').innerHTML = 
-          '<div style="text-align:center;color:var(--red);padding:40px;">' +
-          'Failed to load data. Make sure victron-data.js is in the same directory.' +
-          '</div>';
+    // Embedded Victron data - updated every 5 minutes
+    const VICTRON_DATA = {
+      "timestamp": "2026-07-12T20:25:04.279059",
+      "devices": {
+        "house": {
+          "name": "House", "ip": "192.168.1.243", "online": true,
+          "battery": {"soc": 79.5, "voltage": 52.98, "current": -10.0, "power": -530, "time_to_go": 110000, "name": "Homestead"},
+          "solar": {"power": 0}, "ac": {"consumption": 520}
+        },
+        "shop": {
+          "name": "Shop", "ip": "192.168.1.128", "online": true,
+          "battery": {"soc": 79.8, "voltage": 52.71, "current": -3.4, "power": -179, "time_to_go": 274800, "name": "SmartShunt Shop"},
+          "solar": {"power": 0}, "ac": {"consumption": 0}
+        },
+        "van": {
+          "name": "Van", "ip": "192.168.1.140", "online": true,
+          "battery": {"soc": 99.7, "voltage": 13.35, "current": -0.7, "power": -9.3, "time_to_go": 553200, "name": "Vanny Van Shunt"},
+          "solar": {"power": 0}, "ac": {"consumption": 0}
+        }
       }
-    }
+    };
 
     function formatDuration(seconds) {
       if (!seconds || seconds <= 0) return 'N/A';
       const hours = Math.floor(seconds / 3600);
       const days = Math.floor(hours / 24);
-      if (days > 0) return `${days}d ${hours % 24}h`;
-      return `${hours}h`;
+      if (days > 0) return days + 'd ' + (hours % 24) + 'h';
+      return hours + 'h';
     }
 
     function getSocClass(soc) {
@@ -175,15 +166,15 @@
       return 'soc-low';
     }
 
-    function renderDashboard(data) {
+    function renderDashboard() {
       const dashboard = document.getElementById('dashboard');
       const timestamp = document.getElementById('timestamp');
       
-      timestamp.textContent = `Last updated: ${new Date(data.timestamp).toLocaleString()}`;
+      timestamp.textContent = 'Last updated: ' + new Date(VICTRON_DATA.timestamp).toLocaleString();
       
       let html = '';
       
-      for (const [key, device] of Object.entries(data.devices)) {
+      for (const [key, device] of Object.entries(VICTRON_DATA.devices)) {
         const battery = device.battery || {};
         const solar = device.solar || {};
         const ac = device.ac || {};
@@ -256,9 +247,8 @@
       dashboard.innerHTML = html;
     }
 
-    // Load data immediately and refresh every 30 seconds
-    loadData();
-    setInterval(loadData, 30000);
+    // Render immediately on load
+    renderDashboard();
   </script>
 </body>
 </html>
