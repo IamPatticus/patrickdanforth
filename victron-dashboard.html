@@ -8,7 +8,7 @@
     :root {
       --bg: #06070b; --panel: rgba(15, 18, 27, 0.95); --line: rgba(130, 177, 255, 0.2);
       --text: #edf3ff; --muted: #9aa7c2; --cyan: #7ae7ff; --gold: #d7aa61;
-      --ember: #ff7a4d; --green: #7effb2; --red: #ff6b6b;
+      --ember: #ff7a4d; --green: #7effb2; --red: #ff6b6b; --blue: #6b9fff;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px; }
@@ -30,6 +30,13 @@
     .soc-fill { height: 100%; border-radius: 4px; }
     .soc-high { background: var(--green); } .soc-medium { background: var(--gold); } .soc-low { background: var(--ember); }
     .power-positive { color: var(--green); } .power-negative { color: var(--ember); }
+    .temp-section { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(130, 177, 255, 0.15); }
+    .temp-title { font-size: 0.85rem; color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+    .temp-item { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
+    .temp-value { font-weight: 600; }
+    .temp-cold { color: var(--cyan); }
+    .temp-warm { color: var(--ember); }
+    .temp-normal { color: var(--green); }
     .footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.8rem; }
     .footer a { color: var(--cyan); text-decoration: none; }
     @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 1.4rem; } }
@@ -47,18 +54,18 @@
 
   <script>
     var VICTRON_DATA = {
-  "timestamp": "2026-07-12T20:35:05.265170",
+  "timestamp": "2026-07-12T20:39:02.278959",
   "devices": {
     "house": {
       "name": "House",
       "ip": "192.168.1.243",
-      "online": false,
+      "online": true,
       "battery": {
-        "soc": 79.5,
-        "voltage": 52.98,
-        "current": -10.0,
-        "power": -530,
-        "time_to_go": 110000,
+        "soc": 78.0999984741211,
+        "voltage": 52.83000183105469,
+        "current": -15.699999809265137,
+        "power": -829.4310302734375,
+        "time_to_go": 68400.0,
         "name": "Homestead"
       },
       "solar": {
@@ -66,12 +73,13 @@
       },
       "ac": {
         "consumption": 520
-      }
+      },
+      "temperatures": []
     },
     "shop": {
       "name": "Shop",
       "ip": "192.168.1.128",
-      "online": false,
+      "online": true,
       "battery": {
         "soc": 79.8,
         "voltage": 52.71,
@@ -85,12 +93,24 @@
       },
       "ac": {
         "consumption": 0
-      }
+      },
+      "temperatures": [
+        {
+          "id": 24,
+          "name": "Freezer",
+          "temperature": -17.11020278930664
+        },
+        {
+          "id": 25,
+          "name": "Shop Ambient",
+          "temperature": 30.260135650634766
+        }
+      ]
     },
     "van": {
       "name": "Van",
       "ip": "192.168.1.140",
-      "online": false,
+      "online": true,
       "battery": {
         "soc": 99.7,
         "voltage": 13.35,
@@ -104,7 +124,8 @@
       },
       "ac": {
         "consumption": 0
-      }
+      },
+      "temperatures": []
     }
   }
 };
@@ -120,14 +141,22 @@
       return s >= 80 ? 'soc-high' : s >= 50 ? 'soc-medium' : 'soc-low';
     }
 
+    function tempClass(t) {
+      if (t < 0) return 'temp-cold';
+      if (t > 35) return 'temp-warm';
+      return 'temp-normal';
+    }
+
     function render() {
       document.getElementById('timestamp').textContent = 'Last updated: ' + new Date(VICTRON_DATA.timestamp).toLocaleString();
       var html = '';
+      
       for (var key in VICTRON_DATA.devices) {
         var dev = VICTRON_DATA.devices[key];
         var bat = dev.battery || {};
         var sol = dev.solar || {};
         var ac = dev.ac || {};
+        var temps = dev.temperatures || [];
         var soc = bat.soc || 0;
         var sc = socClass(soc);
         var online = dev.online;
@@ -146,7 +175,25 @@
         html += '<div class="metric"><span class="metric-label">Solar Production</span><span class="metric-value ' + (sol.power > 0 ? 'power-positive' : '') + '">' + (sol.power !== undefined ? sol.power.toFixed(0) + 'W' : 'N/A') + '</span></div>';
         html += '<div class="metric"><span class="metric-label">AC Load</span><span class="metric-value">' + (ac.consumption ? ac.consumption.toFixed(0) + 'W' : 'N/A') + '</span></div>';
         html += '<div class="metric"><span class="metric-label">Time to Go</span><span class="metric-value">' + fmtDur(bat.time_to_go) + '</span></div>';
-        html += '<div class="metric"><span class="metric-label">Device</span><span class="metric-value" style="font-size:0.8rem;color:var(--muted)">' + (bat.name || 'Unknown') + '</span></div>';
+        
+        // Temperature section
+        if (temps.length > 0) {
+          html += '<div class="temp-section">';
+          html += '<div class="temp-title">🌡️ Temperatures</div>';
+          for (var i = 0; i < temps.length; i++) {
+            var t = temps[i];
+            var tc = tempClass(t.temperature);
+            var extra = '';
+            if (t.humidity) extra += ' · ' + t.humidity.toFixed(1) + '% RH';
+            if (t.pressure) extra += ' · ' + t.pressure.toFixed(1) + ' hPa';
+            html += '<div class="temp-item">';
+            html += '<span>' + t.name + extra + '</span>';
+            html += '<span class="temp-value ' + tc + '">' + t.temperature.toFixed(1) + '°C</span>';
+            html += '</div>';
+          }
+          html += '</div>';
+        }
+        
         html += '</div>';
       }
       document.getElementById('dashboard').innerHTML = html;
