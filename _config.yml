@@ -11,8 +11,11 @@ exclude:
   - whisplay-im-openclaw-plugin/
   - "*.sh"
   - "*.py"
-  - "*.json"
   - "*.log"
   - "*.state"
+  - "victron-logger.py"
+  - "victron-api.py"
+  - "victron-update.sh"
+  - "update-victron.sh"
   - EOF
   - "1"
