@@ -70,50 +70,101 @@
 
   <script>
     var VICTRON_DATA = {
-  "timestamp": "2026-07-12T20:55:43.332219",
+  "timestamp": "2026-07-12T21:11:59.845109",
   "devices": {
     "house": {
       "name": "House",
       "ip": "192.168.1.243",
-      "online": false,
-      "battery": {},
-      "solar": {},
-      "ac": {},
-      "temperatures": []
+      "online": true,
+      "battery": {
+        "soc": 76.4,
+        "voltage": 52.71,
+        "current": -15.6,
+        "power": -822.3,
+        "time_to_go": 66720,
+        "name": "Homestead"
+      },
+      "solar": {
+        "power": 0
+      },
+      "ac": {
+        "consumption": 822
+      },
+      "temperatures": [
+        {
+          "id": 20,
+          "name": "Home Ruuvi",
+          "temperature": 25.0,
+          "humidity": 52.8,
+          "pressure": 982.3
+        }
+      ]
     },
     "shop": {
       "name": "Shop",
       "ip": "192.168.1.128",
       "online": true,
-      "battery": {},
-      "solar": {},
-      "ac": {},
+      "battery": {
+        "soc": 79.8,
+        "voltage": 52.71,
+        "current": -3.4,
+        "power": -179,
+        "time_to_go": 274800,
+        "name": "SmartShunt Shop"
+      },
+      "solar": {
+        "power": 0
+      },
+      "ac": {
+        "consumption": 0
+      },
       "temperatures": [
         {
           "id": 20,
-          "name": "Sensor 20",
-          "temperature": 26.440000534057617
+          "name": "Shop Ruuvi",
+          "temperature": 26.7,
+          "humidity": 77.5,
+          "pressure": 982.2
         },
         {
           "id": 24,
-          "name": "Sensor 24",
-          "temperature": -14.684150695800781
+          "name": "Freezer",
+          "temperature": -13.5
         },
         {
           "id": 25,
-          "name": "Sensor 25",
-          "temperature": 30.24437713623047
+          "name": "Shop Ambient",
+          "temperature": 30.4
         }
       ]
     },
     "van": {
       "name": "Van",
       "ip": "192.168.1.140",
-      "online": false,
-      "battery": {},
-      "solar": {},
-      "ac": {},
-      "temperatures": []
+      "online": true,
+      "battery": {
+        "soc": 99.2,
+        "voltage": 13.31,
+        "current": -0.7,
+        "power": -9.3,
+        "time_to_go": 487020,
+        "name": "Vanny Van Shunt"
+      },
+      "solar": {
+        "power": 0
+      },
+      "ac": {
+        "consumption": 0
+      },
+      "temperatures": [
+        {
+          "id": 20,
+          "name": "Van Ruuvi",
+          "temperature": 28.5,
+          "humidity": 63.8,
+          "pressure": 982.5
+        }
+      ]
     }
   }
 };

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Victron API collector with temperature sensors"""
+"""Victron API collector - fast version"""
 
 import json
 import subprocess
@@ -11,8 +11,8 @@ DEVICES = {
     "van": {"ip": "192.168.1.140", "serial": "d83addb6ed53", "name": "Van"},
 }
 
-def get_mqtt_value(host, topic, timeout=3):
-    """Get latest MQTT value from topic."""
+def get_mqtt_value(host, topic, timeout=2):
+    """Get latest MQTT value from topic with short timeout."""
     try:
         cmd = f"timeout {timeout} mosquitto_sub -h {host} -t '{topic}' -C 1 -W {timeout}"
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout+1)
@@ -24,25 +24,55 @@ def get_mqtt_value(host, topic, timeout=3):
         pass
     return None
 
+def get_battery_data(ip, serial):
+    """Get battery data quickly."""
+    # Try the main battery topic first
+    battery = get_mqtt_value(ip, f"N/{serial}/system/0/Batteries", timeout=2)
+    if battery and isinstance(battery, list) and len(battery) > 0:
+        bat = battery[0]
+        return {
+            "soc": bat.get("soc"),
+            "voltage": bat.get("voltage"),
+            "current": bat.get("current"),
+            "power": bat.get("power"),
+            "time_to_go": bat.get("timetogo"),
+            "name": bat.get("name", "Unknown"),
+        }
+    
+    # Fallback: try individual battery topics
+    soc = get_mqtt_value(ip, f"N/{serial}/system/0/Dc/Battery/Soc", timeout=1)
+    if soc is not None:
+        voltage = get_mqtt_value(ip, f"N/{serial}/system/0/Dc/Battery/Voltage", timeout=1)
+        current = get_mqtt_value(ip, f"N/{serial}/system/0/Dc/Battery/Current", timeout=1)
+        power = get_mqtt_value(ip, f"N/{serial}/system/0/Dc/Battery/Power", timeout=1)
+        return {
+            "soc": soc,
+            "voltage": voltage,
+            "current": current,
+            "power": power,
+            "name": "Battery"
+        }
+    
+    return None
+
 def discover_temperatures(ip, serial):
-    """Discover all temperature sensors on a device."""
+    """Discover temperature sensors quickly."""
     temps = []
-    # Try common sensor IDs (20-30)
-    for sensor_id in range(20, 31):
-        temp = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Temperature")
+    # Only check IDs 20-25 (common range)
+    for sensor_id in range(20, 26):
+        temp = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Temperature", timeout=1)
         if temp is not None:
-            name = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/CustomName")
+            name = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/CustomName", timeout=1)
             if not name:
                 name = f"Sensor {sensor_id}"
             
             sensor_data = {"id": sensor_id, "name": name, "temperature": temp}
             
-            # Check for additional data
-            humidity = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Humidity")
+            humidity = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Humidity", timeout=1)
             if humidity is not None:
                 sensor_data["humidity"] = humidity
             
-            pressure = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Pressure")
+            pressure = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Pressure", timeout=1)
             if pressure is not None:
                 sensor_data["pressure"] = pressure
             
@@ -51,7 +81,7 @@ def discover_temperatures(ip, serial):
     return temps
 
 def generate_dashboard_data():
-    """Generate JSON data file for web dashboard."""
+    """Generate JSON data for web dashboard."""
     all_data = {
         "timestamp": datetime.now().isoformat(),
         "devices": {}
@@ -68,30 +98,13 @@ def generate_dashboard_data():
             "temperatures": []
         }
         
-        # Try to get battery data
-        battery = get_mqtt_value(info["ip"], f"N/{info['serial']}/system/0/Batteries")
-        if battery and isinstance(battery, list) and len(battery) > 0:
-            bat = battery[0]
-            data["battery"] = {
-                "soc": bat.get("soc"),
-                "voltage": bat.get("voltage"),
-                "current": bat.get("current"),
-                "power": bat.get("power"),
-                "time_to_go": bat.get("timetogo"),
-                "name": bat.get("name", "Unknown"),
-            }
+        # Get battery data (quick timeout)
+        battery = get_battery_data(info["ip"], info["serial"])
+        if battery:
+            data["battery"] = battery
             data["online"] = True
-        else:
-            # Fallback: try to get basic battery info
-            soc = get_mqtt_value(info["ip"], f"N/{info['serial']}/system/0/Dc/Battery/Soc")
-            if soc is not None:
-                data["online"] = True
-                data["battery"] = {
-                    "soc": soc,
-                    "name": info["name"]
-                }
         
-        # Discover temperature sensors
+        # Get temperatures
         temps = discover_temperatures(info["ip"], info["serial"])
         if temps:
             data["temperatures"] = temps
