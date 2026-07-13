@@ -6,132 +6,47 @@
   <title>Victron Live Monitor — Patticus Power Grid</title>
   <style>
     :root {
-      --bg: #06070b;
-      --panel: rgba(15, 18, 27, 0.95);
-      --line: rgba(130, 177, 255, 0.2);
-      --text: #edf3ff;
-      --muted: #9aa7c2;
-      --cyan: #7ae7ff;
-      --gold: #d7aa61;
-      --ember: #ff7a4d;
-      --green: #7effb2;
-      --red: #ff6b6b;
+      --bg: #06070b; --panel: rgba(15, 18, 27, 0.95); --line: rgba(130, 177, 255, 0.2);
+      --text: #edf3ff; --muted: #9aa7c2; --cyan: #7ae7ff; --gold: #d7aa61;
+      --ember: #ff7a4d; --green: #7effb2; --red: #ff6b6b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 20px;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .header h1 {
-      font-size: 1.8rem;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .header .timestamp {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 20px;
-    }
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .card-title {
-      font-size: 1.2rem;
-      color: var(--cyan);
-    }
-    .status-badge {
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .status-online {
-      background: rgba(126, 255, 178, 0.15);
-      color: var(--green);
-    }
-    .status-offline {
-      background: rgba(255, 107, 107, 0.15);
-      color: var(--red);
-    }
-    .metric {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(130, 177, 255, 0.08);
-    }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px; }
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 { font-size: 1.8rem; color: var(--gold); margin-bottom: 8px; }
+    .header .timestamp { color: var(--muted); font-size: 0.85rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .card-title { font-size: 1.2rem; color: var(--cyan); }
+    .status-badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+    .status-online { background: rgba(126, 255, 178, 0.15); color: var(--green); }
+    .status-offline { background: rgba(255, 107, 107, 0.15); color: var(--red); }
+    .metric { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(130, 177, 255, 0.08); }
     .metric:last-child { border-bottom: none; }
     .metric-label { color: var(--muted); font-size: 0.9rem; }
     .metric-value { font-weight: 600; font-size: 0.95rem; }
-    .soc-bar {
-      width: 100%;
-      height: 8px;
-      background: rgba(130, 177, 255, 0.1);
-      border-radius: 4px;
-      margin-top: 8px;
-      overflow: hidden;
-    }
-    .soc-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 0.5s ease;
-    }
-    .soc-high { background: var(--green); }
-    .soc-medium { background: var(--gold); }
-    .soc-low { background: var(--ember); }
-    .power-positive { color: var(--green); }
-    .power-negative { color: var(--ember); }
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
+    .soc-bar { width: 100%; height: 8px; background: rgba(130, 177, 255, 0.1); border-radius: 4px; margin-top: 8px; overflow: hidden; }
+    .soc-fill { height: 100%; border-radius: 4px; }
+    .soc-high { background: var(--green); } .soc-medium { background: var(--gold); } .soc-low { background: var(--ember); }
+    .power-positive { color: var(--green); } .power-negative { color: var(--ember); }
+    .footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.8rem; }
     .footer a { color: var(--cyan); text-decoration: none; }
-    @media (max-width: 768px) {
-      .grid { grid-template-columns: 1fr; }
-      .header h1 { font-size: 1.4rem; }
-    }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 1.4rem; } }
   </style>
 </head>
 <body>
   <div class="header">
     <h1>⚡ Victron Live Monitor</h1>
-    <p class="timestamp" id="timestamp">Loading...</p>
+    <p class="timestamp" id="timestamp">Last updated: Loading...</p>
   </div>
-
-  <div class="grid" id="dashboard">
-    <!-- Cards will be generated by JavaScript -->
-  </div>
-
+  <div id="dashboard" class="grid"></div>
   <div class="footer">
     <p>Data from Victron Cerbo/SmartShunt via MQTT | <a href="solar.html">← Solar Overview</a></p>
   </div>
 
   <script>
-    // Embedded Victron data - updated every 5 minutes
-    const VICTRON_DATA = {
+    var VICTRON_DATA = {
       "timestamp": "2026-07-12T20:25:04.279059",
       "devices": {
         "house": {
@@ -152,103 +67,50 @@
       }
     };
 
-    function formatDuration(seconds) {
-      if (!seconds || seconds <= 0) return 'N/A';
-      const hours = Math.floor(seconds / 3600);
-      const days = Math.floor(hours / 24);
-      if (days > 0) return days + 'd ' + (hours % 24) + 'h';
-      return hours + 'h';
+    function fmtDur(s) {
+      if (!s || s <= 0) return 'N/A';
+      var h = Math.floor(s / 3600);
+      var d = Math.floor(h / 24);
+      return d > 0 ? d + 'd ' + (h % 24) + 'h' : h + 'h';
     }
 
-    function getSocClass(soc) {
-      if (soc >= 80) return 'soc-high';
-      if (soc >= 50) return 'soc-medium';
-      return 'soc-low';
+    function socClass(s) {
+      return s >= 80 ? 'soc-high' : s >= 50 ? 'soc-medium' : 'soc-low';
     }
 
-    function renderDashboard() {
-      const dashboard = document.getElementById('dashboard');
-      const timestamp = document.getElementById('timestamp');
-      
-      timestamp.textContent = 'Last updated: ' + new Date(VICTRON_DATA.timestamp).toLocaleString();
-      
-      let html = '';
-      
-      for (const [key, device] of Object.entries(VICTRON_DATA.devices)) {
-        const battery = device.battery || {};
-        const solar = device.solar || {};
-        const ac = device.ac || {};
+    function render() {
+      document.getElementById('timestamp').textContent = 'Last updated: ' + new Date(VICTRON_DATA.timestamp).toLocaleString();
+      var html = '';
+      for (var key in VICTRON_DATA.devices) {
+        var dev = VICTRON_DATA.devices[key];
+        var bat = dev.battery || {};
+        var sol = dev.solar || {};
+        var ac = dev.ac || {};
+        var soc = bat.soc || 0;
+        var sc = socClass(soc);
+        var online = dev.online;
         
-        const soc = battery.soc || 0;
-        const socClass = getSocClass(soc);
-        const isOnline = device.online;
+        html += '<div class="card">';
+        html += '<div class="card-header"><span class="card-title">' + dev.name + '</span>';
+        html += '<span class="status-badge ' + (online ? 'status-online' : 'status-offline') + '"\u003e' + (online ? '● Online' : '● Offline') + '</span></div>';
         
-        html += `
-          <div class="card">
-            <div class="card-header">
-              <span class="card-title">${device.name}</span>
-              <span class="status-badge ${isOnline ? 'status-online' : 'status-offline'}">
-                ${isOnline ? '● Online' : '● Offline'}
-              </span>
-            </div>
-            
-            <div class="metric">
-              <span class="metric-label">Battery SOC</span>
-              <span class="metric-value" style="color: var(--${socClass === 'soc-high' ? 'green' : socClass === 'soc-medium' ? 'gold' : 'ember'})">${soc.toFixed(1)}%</span>
-            </div>
-            <div class="soc-bar">
-              <div class="soc-fill ${socClass}" style="width: ${soc}%"></div>
-            </div>
-            
-            <div class="metric">
-              <span class="metric-label">Voltage</span>
-              <span class="metric-value">${battery.voltage ? battery.voltage.toFixed(2) + 'V' : 'N/A'}</span>
-            </div>
-            
-            <div class="metric">
-              <span class="metric-label">Current</span>
-              <span class="metric-value ${battery.current < 0 ? 'power-negative' : 'power-positive'}">
-                ${battery.current ? battery.current.toFixed(1) + 'A' : 'N/A'}
-              </span>
-            </div>
-            
-            <div class="metric">
-              <span class="metric-label">Power</span>
-              <span class="metric-value ${battery.power < 0 ? 'power-negative' : 'power-positive'}">
-                ${battery.power ? battery.power.toFixed(0) + 'W' : 'N/A'}
-              </span>
-            </div>
-            
-            <div class="metric">
-              <span class="metric-label">Solar Production</span>
-              <span class="metric-value ${solar.power > 0 ? 'power-positive' : ''}">
-                ${solar.power !== undefined ? solar.power.toFixed(0) + 'W' : 'N/A'}
-              </span>
-            </div>
-            
-            <div class="metric">
-              <span class="metric-label">AC Load</span>
-              <span class="metric-value">${ac.consumption ? ac.consumption.toFixed(0) + 'W' : 'N/A'}</span>
-            </div>
-            
-            <div class="metric">
-              <span class="metric-label">Time to Go</span>
-              <span class="metric-value">${formatDuration(battery.time_to_go)}</span>
-            </div>
-            
-            <div class="metric">
-              <span class="metric-label">Device</span>
-              <span class="metric-value" style="font-size:0.8rem;color:var(--muted)">${battery.name || 'Unknown'}</span>
-            </div>
-          </div>
-        `;
+        html += '<div class="metric"><span class="metric-label">Battery SOC</span>';
+        html += '<span class="metric-value" style="color:' + (sc === 'soc-high' ? '#7effb2' : sc === 'soc-medium' ? '#d7aa61' : '#ff7a4d') + '">' + soc.toFixed(1) + '%</span></div>';
+        html += '<div class="soc-bar"><div class="soc-fill ' + sc + '" style="width:' + soc + '%"></div></div>';
+        
+        html += '<div class="metric"><span class="metric-label">Voltage</span><span class="metric-value">' + (bat.voltage ? bat.voltage.toFixed(2) + 'V' : 'N/A') + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Current</span><span class="metric-value ' + (bat.current < 0 ? 'power-negative' : 'power-positive') + '">' + (bat.current ? bat.current.toFixed(1) + 'A' : 'N/A') + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Power</span><span class="metric-value ' + (bat.power < 0 ? 'power-negative' : 'power-positive') + '">' + (bat.power ? bat.power.toFixed(0) + 'W' : 'N/A') + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Solar Production</span><span class="metric-value ' + (sol.power > 0 ? 'power-positive' : '') + '">' + (sol.power !== undefined ? sol.power.toFixed(0) + 'W' : 'N/A') + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">AC Load</span><span class="metric-value">' + (ac.consumption ? ac.consumption.toFixed(0) + 'W' : 'N/A') + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Time to Go</span><span class="metric-value">' + fmtDur(bat.time_to_go) + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Device</span><span class="metric-value" style="font-size:0.8rem;color:var(--muted)">' + (bat.name || 'Unknown') + '</span></div>';
+        html += '</div>';
       }
-      
-      dashboard.innerHTML = html;
+      document.getElementById('dashboard').innerHTML = html;
     }
 
-    // Render immediately on load
-    renderDashboard();
+    render();
   </script>
 </body>
 </html>
