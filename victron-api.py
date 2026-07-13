@@ -5,19 +5,10 @@ import json
 import subprocess
 from datetime import datetime
 
-# Victron devices
 DEVICES = {
     "house": {"ip": "192.168.1.243", "serial": "c0619ab582b2", "name": "House"},
     "shop": {"ip": "192.168.1.128", "serial": "c0619ab53f7e", "name": "Shop"},
     "van": {"ip": "192.168.1.140", "serial": "d83addb6ed53", "name": "Van"},
-}
-
-TEMPERATURE_SENSORS = {
-    "shop": [
-        {"id": 20, "name": "Shop Ruuvi", "has_humidity": True, "has_pressure": True},
-        {"id": 24, "name": "Freezer", "has_humidity": False, "has_pressure": False},
-        {"id": 25, "name": "Shop Ambient", "has_humidity": False, "has_pressure": False},
-    ]
 }
 
 def get_mqtt_value(host, topic, timeout=3):
@@ -33,6 +24,32 @@ def get_mqtt_value(host, topic, timeout=3):
         pass
     return None
 
+def discover_temperatures(ip, serial):
+    """Discover all temperature sensors on a device."""
+    temps = []
+    # Try common sensor IDs (20-30)
+    for sensor_id in range(20, 31):
+        temp = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Temperature")
+        if temp is not None:
+            name = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/CustomName")
+            if not name:
+                name = f"Sensor {sensor_id}"
+            
+            sensor_data = {"id": sensor_id, "name": name, "temperature": temp}
+            
+            # Check for additional data
+            humidity = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Humidity")
+            if humidity is not None:
+                sensor_data["humidity"] = humidity
+            
+            pressure = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Pressure")
+            if pressure is not None:
+                sensor_data["pressure"] = pressure
+            
+            temps.append(sensor_data)
+    
+    return temps
+
 def generate_dashboard_data():
     """Generate JSON data file for web dashboard."""
     all_data = {
@@ -40,35 +57,16 @@ def generate_dashboard_data():
         "devices": {}
     }
     
-    # Fallback data based on manual collection
-    fallback = {
-        "house": {
-            "name": "House", "ip": "192.168.1.243", "online": True,
-            "battery": {"soc": 79.5, "voltage": 52.98, "current": -10.0, "power": -530, "time_to_go": 110000, "name": "Homestead"},
-            "solar": {"power": 0}, "ac": {"consumption": 520},
-            "temperatures": []
-        },
-        "shop": {
-            "name": "Shop", "ip": "192.168.1.128", "online": True,
-            "battery": {"soc": 79.8, "voltage": 52.71, "current": -3.4, "power": -179, "time_to_go": 274800, "name": "SmartShunt Shop"},
-            "solar": {"power": 0}, "ac": {"consumption": 0},
-            "temperatures": [
-                {"id": 20, "name": "Shop Ruuvi", "temperature": 26.7, "humidity": 77.5, "pressure": 982.2},
-                {"id": 24, "name": "Freezer", "temperature": -17.2},
-                {"id": 25, "name": "Shop Ambient", "temperature": 30.4}
-            ]
-        },
-        "van": {
-            "name": "Van", "ip": "192.168.1.140", "online": True,
-            "battery": {"soc": 99.7, "voltage": 13.35, "current": -0.7, "power": -9.3, "time_to_go": 553200, "name": "Vanny Van Shunt"},
-            "solar": {"power": 0}, "ac": {"consumption": 0},
+    for key, info in DEVICES.items():
+        data = {
+            "name": info["name"],
+            "ip": info["ip"],
+            "online": False,
+            "battery": {},
+            "solar": {},
+            "ac": {},
             "temperatures": []
         }
-    }
-    
-    # Try to get live data for each device
-    for key, info in DEVICES.items():
-        data = fallback[key].copy()
         
         # Try to get battery data
         battery = get_mqtt_value(info["ip"], f"N/{info['serial']}/system/0/Batteries")
@@ -83,25 +81,21 @@ def generate_dashboard_data():
                 "name": bat.get("name", "Unknown"),
             }
             data["online"] = True
+        else:
+            # Fallback: try to get basic battery info
+            soc = get_mqtt_value(info["ip"], f"N/{info['serial']}/system/0/Dc/Battery/Soc")
+            if soc is not None:
+                data["online"] = True
+                data["battery"] = {
+                    "soc": soc,
+                    "name": info["name"]
+                }
         
-        # Try to get temperature data
-        if key in TEMPERATURE_SENSORS:
-            temps = []
-            for sensor in TEMPERATURE_SENSORS[key]:
-                temp = get_mqtt_value(info["ip"], f"N/{info['serial']}/temperature/{sensor['id']}/Temperature")
-                if temp is not None:
-                    sensor_data = {"id": sensor["id"], "name": sensor["name"], "temperature": temp}
-                    if sensor.get("has_humidity"):
-                        hum = get_mqtt_value(info["ip"], f"N/{info['serial']}/temperature/{sensor['id']}/Humidity")
-                        if hum is not None:
-                            sensor_data["humidity"] = hum
-                    if sensor.get("has_pressure"):
-                        pres = get_mqtt_value(info["ip"], f"N/{info['serial']}/temperature/{sensor['id']}/Pressure")
-                        if pres is not None:
-                            sensor_data["pressure"] = pres
-                    temps.append(sensor_data)
-            if temps:
-                data["temperatures"] = temps
+        # Discover temperature sensors
+        temps = discover_temperatures(info["ip"], info["serial"])
+        if temps:
+            data["temperatures"] = temps
+            data["online"] = True
         
         all_data["devices"][key] = data
     

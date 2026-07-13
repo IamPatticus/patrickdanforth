@@ -54,18 +54,18 @@
 
   <script>
     var VICTRON_DATA = {
-  "timestamp": "2026-07-12T20:40:19.850925",
+  "timestamp": "2026-07-12T20:45:00",
   "devices": {
     "house": {
       "name": "House",
       "ip": "192.168.1.243",
       "online": true,
       "battery": {
-        "soc": 78.0,
-        "voltage": 52.83000183105469,
-        "current": -15.699999809265137,
-        "power": -829.4310302734375,
-        "time_to_go": 68220.0,
+        "soc": 79.5,
+        "voltage": 52.98,
+        "current": -10.0,
+        "power": -530,
+        "time_to_go": 110000,
         "name": "Homestead"
       },
       "solar": {
@@ -74,7 +74,15 @@
       "ac": {
         "consumption": 520
       },
-      "temperatures": []
+      "temperatures": [
+        {
+          "id": 20,
+          "name": "Home Ruuvi",
+          "temperature": 25.0,
+          "humidity": 52.8,
+          "pressure": 982.3
+        }
+      ]
     },
     "shop": {
       "name": "Shop",
@@ -96,9 +104,21 @@
       },
       "temperatures": [
         {
+          "id": 20,
+          "name": "Shop Ruuvi",
+          "temperature": 26.7,
+          "humidity": 77.5,
+          "pressure": 982.2
+        },
+        {
           "id": 24,
           "name": "Freezer",
-          "temperature": -17.204734802246094
+          "temperature": -17.2
+        },
+        {
+          "id": 25,
+          "name": "Shop Ambient",
+          "temperature": 30.4
         }
       ]
     },
