@@ -145,6 +145,10 @@
   }
 };
 
+    function cToF(c) {
+      return (c * 9/5) + 32;
+    }
+
     function fmtDur(s) {
       if (!s || s <= 0) return 'N/A';
       var h = Math.floor(s / 3600);
@@ -203,7 +207,7 @@
             if (t.pressure) extra += ' · ' + t.pressure.toFixed(1) + ' hPa';
             html += '<div class="temp-item">';
             html += '<span>' + t.name + extra + '</span>';
-            html += '<span class="temp-value ' + tc + '">' + t.temperature.toFixed(1) + '°C</span>';
+            html += '<span class="temp-value ' + tc + '">' + t.temperature.toFixed(1) + '°C / ' + cToF(t.temperature).toFixed(1) + '°F</span>';
             html += '</div>';
           }
           html += '</div>';
