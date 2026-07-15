@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Patrick Danforth</title>
+  <meta name="description" content="Project build logs, parts lists, and progress tracking for Patrick Danforth's builds." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-a: #04050a;
+      --bg-b: #0b1020;
+      --panel: rgba(15, 18, 27, 0.88);
+      --panel-2: rgba(20, 25, 37, 0.92);
+      --border: rgba(130, 177, 255, 0.16);
+      --accent: #d7aa61;
+      --text: #edf3ff;
+      --muted: #9aa7c2;
+      --cyan: #7ae7ff;
+      --green: #7effb2;
+      --ember: #ff7a4d;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+      --radius: 22px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(122,231,255,.12), transparent 24%),
+        radial-gradient(circle at 80% 12%, rgba(215,170,97,.10), transparent 24%),
+        radial-gradient(circle at 50% 90%, rgba(255,122,77,.08), transparent 20%),
+        linear-gradient(180deg, #04050a 0%, #0b1020 55%, #090b12 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(4, 5, 10, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      filter: drop-shadow(0 0 16px rgba(215, 170, 97, 0.26));
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    .link:hover { color: var(--accent); }
+
+    main { padding: 32px 0 72px; }
+
+    .page-head {
+      text-align: center;
+      padding: 52px 0 36px;
+    }
+
+    .page-head h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .page-head p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 60ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 28px;
+      padding: 20px 0 60px;
+    }
+
+    .project-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    .project-hero {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-body {
+      padding: 30px;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .project-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .status-planned {
+      background: rgba(122, 231, 255, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(122, 231, 255, 0.25);
+    }
+
+    .status-progress {
+      background: rgba(215, 170, 97, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(215, 170, 97, 0.25);
+    }
+
+    .status-complete {
+      background: rgba(126, 255, 178, 0.12);
+      color: var(--green);
+      border: 1px solid rgba(126, 255, 178, 0.25);
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .specs-section {
+      margin-bottom: 20px;
+    }
+
+    .specs-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .parts-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .parts-table th,
+    .parts-table td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(130, 177, 255, 0.08);
+    }
+
+    .parts-table th {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.88rem;
+    }
+
+    .parts-table td {
+      color: var(--text);
+    }
+
+    .parts-table tr:hover td {
+      background: rgba(130, 177, 255, 0.04);
+    }
+
+    .check-yes { color: var(--green); font-weight: 600; }
+    .check-no  { color: var(--ember); font-weight: 600; }
+    .check-need { color: var(--cyan); font-weight: 600; }
+
+    .software-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .software-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: var(--panel-2);
+      border: 1px solid rgba(130, 177, 255, 0.12);
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+
+    .notes {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: rgba(215, 170, 97, 0.06);
+      border: 1px solid rgba(215, 170, 97, 0.15);
+      border-radius: 14px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .notes strong {
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 60px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 720px) {
+      .project-header {
+        flex-direction: column;
+      }
+      .project-hero {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="/">
+        <img src="./avatars/patticus-avatar.png" alt="Patrick Danforth" />
+        <span>Patrick Danforth</span>
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/solar.html">Solar</a>
+        <a href="/reginald.html">Reginald</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="page-head">
+      <h1>Projects</h1>
+      <p>Build logs, parts lists, and progress tracking. Because every project deserves a paper trail — even the digital ones.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Njord: Digital Photo Display -->
+      <article class="project-card">
+        <img class="project-hero" src="./assets/njord-project-display.png" alt="Njord Digital Photo Display — van-mounted Pi and Waveshare screen showing chickens and ducks" />
+        <div class="project-body">
+          <div class="project-header">
+            <h2 class="project-title">Njord — Digital Photo Display</h2>
+            <span class="status-badge status-planned">🛒 Planned</span>
+          </div>
+          <p class="project-desc">
+            A solar-powered digital photo display for the van. Raspberry Pi Zero 2 W drives a 10.4" Waveshare QLED screen showing photos of our chickens and ducks. Off-grid capable with LiFePO4 battery and solar charging.
+          </p>
+
+          <div class="specs-section">
+            <div class="specs-title">Hardware / Parts</div>
+            <table class="parts-table">
+              <thead>
+                <tr><th>Component</th><th>Status</th><th>Notes</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Raspberry Pi Zero 2 W</td><td class="check-yes">✅ Have</td><td>Fresh board, not Ragnar</td></tr>
+                <tr><td>Waveshare 10.4" QLED (1600×720)</td><td class="check-need">🛒 Need</td><td>HDMI interface, capacitive touch</td></tr>
+                <tr><td>Mini-HDMI to HDMI adapter</td><td class="check-need">🛒 Need</td><td>For Zero 2 W connection</td></tr>
+                <tr><td>LiFePO4 12V 10Ah battery</td><td class="check-yes">✅ Have</td><td>Nermak pack</td></tr>
+                <tr><td>12V solar panel + controller</td><td class="check-yes">✅ Have</td><td>Existing van solar</td></tr>
+                <tr><td>Buck converter 12V→5V</td><td class="check-yes">✅ Have</td><td>Pi power supply</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="specs-section">
+            <div class="specs-title">Software</div>
+            <div class="software-list">
+              <span class="software-tag">Raspberry Pi OS Lite</span>
+              <span class="software-tag">feh</span>
+              <span class="software-tag">Python 3</span>
+              <span class="software-tag">unclutter</span>
+              <span class="software-tag">rsync / SMB</span>
+            </div>
+          </div>
+
+          <div class="notes">
+            <strong>Build Notes:</strong> Originally planned as Njord sensor hub (GPS, environmental monitoring). Pivoted to photo display after realizing the hardware is perfect for a van-mounted slideshow. May add sensor logging later as Phase 2. Display will cycle through chicken and duck photos stored locally on USB or pulled from home server via Tailscale.
+          </div>
+        </div>
+      </article>
+
+      <!-- Template for next project -->
+      <!--
+      <article class="project-card">
+        <img class="project-hero" src="./assets/project-image.png" alt="Project description" />
+        <div class="project-body">
+          <div class="project-header">
+            <h2 class="project-title">Project Name</h2>
+            <span class="status-badge status-progress">🔨 In Progress</span>
+          </div>
+          <p class="project-desc">Description here.</p>
+          <div class="specs-section">
+            <div class="specs-title">Hardware / Parts</div>
+            <table class="parts-table">...</table>
+          </div>
+          <div class="specs-section">
+            <div class="specs-title">Software</div>
+            <div class="software-list">...</div>
+          </div>
+        </div>
+      </article>
+      -->
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <p>Built with chaos and competence by <a href="/">Patrick Danforth</a> · <a href="https://github.com/iampatticus">GitHub</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
