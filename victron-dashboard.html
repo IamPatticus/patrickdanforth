@@ -70,13 +70,20 @@
 
   <script>
     var VICTRON_DATA = {
-  "timestamp": "2026-07-14T23:30:44.472080",
+  "timestamp": "2026-07-15T00:31:23.713684",
   "devices": {
     "house": {
       "name": "House",
       "ip": "192.168.1.243",
-      "online": false,
-      "battery": {},
+      "online": true,
+      "battery": {
+        "soc": 64.5,
+        "voltage": 52.38999938964844,
+        "current": -7.800000190734863,
+        "power": -408.6419982910156,
+        "time_to_go": 110639.9921875,
+        "name": "Homestead"
+      },
       "solar": {},
       "ac": {},
       "temperatures": []
@@ -92,7 +99,12 @@
         {
           "id": 24,
           "name": "Sensor 24",
-          "temperature": -14.904497146606445
+          "temperature": -14.968536376953125
+        },
+        {
+          "id": 25,
+          "name": "Sensor 25",
+          "temperature": 31.203105926513672
         }
       ]
     },
