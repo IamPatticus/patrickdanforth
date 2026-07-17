@@ -53,11 +53,6 @@
     .footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.8rem; }
     .footer a { color: var(--cyan); text-decoration: none; }
     @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 1.4rem; } }
-    .gps-section { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(130, 177, 255, 0.15); }
-    .gps-title { font-size: 0.85rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
-    .gps-item { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
-    .gps-value { font-weight: 600; color: var(--cyan); font-family: monospace; }
-    .gps-coords { font-size: 0.85rem; color: var(--muted); }
     .card-links { text-align: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(130, 177, 255, 0.1); }
     .cerbo-link { display: inline-block; padding: 6px 14px; background: rgba(122, 231, 255, 0.1); color: var(--cyan); text-decoration: none; border-radius: 6px; font-size: 0.8rem; border: 1px solid rgba(122, 231, 255, 0.2); transition: all 0.2s; }
     .cerbo-link:hover { background: rgba(122, 231, 255, 0.2); border-color: var(--cyan); }
@@ -199,17 +194,6 @@
             html += '<span class="temp-value ' + tc + '">' + t.temperature.toFixed(1) + '°C / ' + cToF(t.temperature).toFixed(1) + '°F</span>';
             html += '</div>';
           }
-          html += '</div>';
-        }
-        
-        // GPS section (van only)
-        var gps = dev.gps || {};
-        if (gps.latitude !== undefined && gps.longitude !== undefined) {
-          html += '<div class="gps-section">';
-          html += '<div class="gps-title">📍 GPS Location</div>';
-          html += '<div class="gps-item"><span>Latitude</span><span class="gps-value">' + gps.latitude.toFixed(6) + '°N</span></div>';
-          html += '<div class="gps-item"><span>Longitude</span><span class="gps-value">' + gps.longitude.toFixed(6) + '°W</span></div>';
-          html += '<div class="gps-coords">Last fix: ' + new Date(VICTRON_DATA.timestamp).toLocaleTimeString() + '</div>';
           html += '</div>';
         }
         

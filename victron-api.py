@@ -21,7 +21,6 @@ def collect_device_data(device_key, device_info):
         "battery": {},
         "solar": {},
         "ac": {},
-        "gps": {},
     }
     
     # Quick MQTT check (2 second timeout max)
@@ -81,32 +80,6 @@ def generate_dashboard_data():
         "van": {"ip": "192.168.1.140", "serial": "d83addb6ed53", "name": "Van"},
     }
     
-    # Collect GPS data for van (from Cerbo MQTT)
-    van_serial = DEVICES["van"]["serial"]
-    van_host = DEVICES["van"]["ip"]
-    gps_data = {}
-    try:
-        # Try to get GPS lat/long from van Cerbo MQTT
-        lat_cmd = f"timeout 2 mosquitto_sub -h {van_host} -t 'N/{van_serial}/gps/0/Position/Latitude' -C 1 -W 2"
-        lon_cmd = f"timeout 2 mosquitto_sub -h {van_host} -t 'N/{van_serial}/gps/0/Position/Longitude' -C 1 -W 2"
-        
-        lat_result = subprocess.run(lat_cmd, shell=True, capture_output=True, text=True, timeout=3)
-        lon_result = subprocess.run(lon_cmd, shell=True, capture_output=True, text=True, timeout=3)
-        
-        if lat_result.stdout and lon_result.stdout:
-            lat_line = lat_result.stdout.strip()
-            lon_line = lon_result.stdout.strip()
-            # Parse value from Victron MQTT format: {"value": 35.1234}
-            if '"value"' in lat_line:
-                lat_json = json.loads(lat_line[lat_line.index("{"):])
-                lon_json = json.loads(lon_line[lon_line.index("{"):])
-                gps_data = {
-                    "latitude": lat_json.get("value"),
-                    "longitude": lon_json.get("value"),
-                }
-    except:
-        pass
-    
     for key, info in DEVICES.items():
         live = collect_device_data(key, info)
         if live.get("online") and live.get("battery"):
@@ -116,10 +89,6 @@ def generate_dashboard_data():
             # Use fallback with offline flag
             all_data["devices"][key] = fallback[key]
             all_data["devices"][key]["online"] = False
-        
-        # Attach GPS data to van device
-        if key == "van" and gps_data:
-            all_data["devices"][key]["gps"] = gps_data
     
     return all_data
 
