@@ -70,13 +70,19 @@
 
   <script>
     var VICTRON_DATA = {
-  "timestamp": "2026-07-17T02:51:53.347079",
+  "timestamp": "2026-07-17T03:52:28.253595",
   "devices": {
     "house": {
       "name": "House",
       "ip": "192.168.1.243",
-      "online": false,
-      "battery": {},
+      "online": true,
+      "battery": {
+        "soc": 72.0999984741211,
+        "voltage": null,
+        "current": -5.400000095367432,
+        "power": -278.25,
+        "name": "Battery"
+      },
       "solar": {},
       "ac": {},
       "temperatures": []
@@ -85,17 +91,21 @@
       "name": "Shop",
       "ip": "192.168.1.128",
       "online": true,
-      "battery": {
-        "soc": 89.69999694824219,
-        "voltage": 53.06999969482422,
-        "current": -6.699999809265137,
-        "power": -355.5690002441406,
-        "time_to_go": 157079.984375,
-        "name": "SmartShunt Shop"
-      },
+      "battery": {},
       "solar": {},
       "ac": {},
-      "temperatures": []
+      "temperatures": [
+        {
+          "id": 24,
+          "name": "Sensor 24",
+          "temperature": -14.60912036895752
+        },
+        {
+          "id": 25,
+          "name": "Sensor 25",
+          "temperature": 30.509521484375
+        }
+      ]
     },
     "van": {
       "name": "Van",
