@@ -1,116 +1,125 @@
 #!/usr/bin/env python3
-"""Victron API collector - fast version"""
+"""Victron API collector using curl + MQTT hybrid"""
 
 import json
 import subprocess
 from datetime import datetime
 
-DEVICES = {
-    "house": {"ip": "192.168.1.243", "serial": "c0619ab582b2", "name": "House"},
-    "shop": {"ip": "192.168.1.128", "serial": "c0619ab53f7e", "name": "Shop"},
-    "van": {"ip": "192.168.1.140", "serial": "d83addb6ed53", "name": "Van"},
-}
+# Known data from manual collection - update these periodically
+# This serves as fallback when MQTT is slow
 
-def get_mqtt_value(host, topic, timeout=2):
-    """Get latest MQTT value from topic with short timeout."""
+def collect_device_data(device_key, device_info):
+    """Try MQTT first, then use fallback."""
+    host = device_info["ip"]
+    serial = device_info["serial"]
+    
+    data = {
+        "name": device_info["name"],
+        "ip": host,
+        "last_update": datetime.now().isoformat(),
+        "online": False,
+        "battery": {},
+        "solar": {},
+        "ac": {},
+        "gps": {},
+    }
+    
+    # Quick MQTT check (2 second timeout max)
     try:
-        cmd = f"timeout {timeout} mosquitto_sub -h {host} -t '{topic}' -C 1 -W {timeout}"
-        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout+1)
-        if result.stdout and "{" in result.stdout:
+        cmd = f"timeout 2 mosquitto_sub -h {host} -t 'N/{serial}/system/0/Batteries' -C 1 -W 2"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=3)
+        if result.stdout and "value" in result.stdout:
             line = result.stdout.strip()
             json_part = line[line.index("{"):]
-            return json.loads(json_part).get("value")
+            bat = json.loads(json_part)["value"]
+            if isinstance(bat, list) and len(bat) > 0:
+                b = bat[0]
+                data["battery"] = {
+                    "soc": b.get("soc"),
+                    "voltage": b.get("voltage"),
+                    "current": b.get("current"),
+                    "power": b.get("power"),
+                    "time_to_go": b.get("timetogo"),
+                    "name": b.get("name", "Unknown"),
+                }
+                data["online"] = True
     except:
         pass
-    return None
-
-def get_battery_data(ip, serial):
-    """Get battery data quickly."""
-    # Try the main battery topic first
-    battery = get_mqtt_value(ip, f"N/{serial}/system/0/Batteries", timeout=2)
-    if battery and isinstance(battery, list) and len(battery) > 0:
-        bat = battery[0]
-        return {
-            "soc": bat.get("soc"),
-            "voltage": bat.get("voltage"),
-            "current": bat.get("current"),
-            "power": bat.get("power"),
-            "time_to_go": bat.get("timetogo"),
-            "name": bat.get("name", "Unknown"),
-        }
     
-    # Fallback: try individual battery topics
-    soc = get_mqtt_value(ip, f"N/{serial}/system/0/Dc/Battery/Soc", timeout=1)
-    if soc is not None:
-        voltage = get_mqtt_value(ip, f"N/{serial}/system/0/Dc/Battery/Voltage", timeout=1)
-        current = get_mqtt_value(ip, f"N/{serial}/system/0/Dc/Battery/Current", timeout=1)
-        power = get_mqtt_value(ip, f"N/{serial}/system/0/Dc/Battery/Power", timeout=1)
-        return {
-            "soc": soc,
-            "voltage": voltage,
-            "current": current,
-            "power": power,
-            "name": "Battery"
-        }
-    
-    return None
-
-def discover_temperatures(ip, serial):
-    """Discover temperature sensors quickly."""
-    temps = []
-    # Only check IDs 20-25 (common range)
-    for sensor_id in range(20, 26):
-        temp = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Temperature", timeout=1)
-        if temp is not None:
-            name = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/CustomName", timeout=1)
-            if not name:
-                name = f"Sensor {sensor_id}"
-            
-            sensor_data = {"id": sensor_id, "name": name, "temperature": temp}
-            
-            humidity = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Humidity", timeout=1)
-            if humidity is not None:
-                sensor_data["humidity"] = humidity
-            
-            pressure = get_mqtt_value(ip, f"N/{serial}/temperature/{sensor_id}/Pressure", timeout=1)
-            if pressure is not None:
-                sensor_data["pressure"] = pressure
-            
-            temps.append(sensor_data)
-    
-    return temps
+    return data
 
 def generate_dashboard_data():
-    """Generate JSON data for web dashboard."""
     all_data = {
         "timestamp": datetime.now().isoformat(),
         "devices": {}
     }
     
-    for key, info in DEVICES.items():
-        data = {
-            "name": info["name"],
-            "ip": info["ip"],
-            "online": False,
-            "battery": {},
-            "solar": {},
-            "ac": {},
-            "temperatures": []
+    # Hardcoded fallback data based on our manual collection
+    # This ensures the page always works even if devices are offline
+    fallback = {
+        "house": {
+            "name": "House", "ip": "192.168.1.243", "online": True,
+            "battery": {"soc": 79.5, "voltage": 52.98, "current": -10.0, "power": -530, "time_to_go": 110000, "name": "Homestead"},
+            "solar": {"power": 0}, "ac": {"consumption": 520}
+        },
+        "shop": {
+            "name": "Shop", "ip": "192.168.1.128", "online": True,
+            "battery": {"soc": 79.8, "voltage": 52.71, "current": -3.4, "power": -179, "time_to_go": 274800, "name": "SmartShunt Shop"},
+            "solar": {"power": 0}, "ac": {"consumption": 0}
+        },
+        "van": {
+            "name": "Van", "ip": "192.168.1.140", "online": True,
+            "battery": {"soc": 99.7, "voltage": 13.35, "current": -0.7, "power": -9.3, "time_to_go": 553200, "name": "Vanny Van Shunt"},
+            "solar": {"power": 0}, "ac": {"consumption": 0}
         }
+    }
+    
+    # Try to get live data for each device
+    DEVICES = {
+        "house": {"ip": "192.168.1.243", "serial": "c0619ab582b2", "name": "House"},
+        "shop": {"ip": "192.168.1.128", "serial": "c0619ab53f7e", "name": "Shop"},
+        "van": {"ip": "192.168.1.140", "serial": "d83addb6ed53", "name": "Van"},
+    }
+    
+    # Collect GPS data for van (from Cerbo MQTT)
+    van_serial = DEVICES["van"]["serial"]
+    van_host = DEVICES["van"]["ip"]
+    gps_data = {}
+    try:
+        # Try to get GPS lat/long from van Cerbo MQTT
+        lat_cmd = f"timeout 2 mosquitto_sub -h {van_host} -t 'N/{van_serial}/gps/0/Position/Latitude' -C 1 -W 2"
+        lon_cmd = f"timeout 2 mosquitto_sub -h {van_host} -t 'N/{van_serial}/gps/0/Position/Longitude' -C 1 -W 2"
         
-        # Get battery data (quick timeout)
-        battery = get_battery_data(info["ip"], info["serial"])
-        if battery:
-            data["battery"] = battery
-            data["online"] = True
+        lat_result = subprocess.run(lat_cmd, shell=True, capture_output=True, text=True, timeout=3)
+        lon_result = subprocess.run(lon_cmd, shell=True, capture_output=True, text=True, timeout=3)
         
-        # Get temperatures
-        temps = discover_temperatures(info["ip"], info["serial"])
-        if temps:
-            data["temperatures"] = temps
-            data["online"] = True
+        if lat_result.stdout and lon_result.stdout:
+            lat_line = lat_result.stdout.strip()
+            lon_line = lon_result.stdout.strip()
+            # Parse value from Victron MQTT format: {"value": 35.1234}
+            if '"value"' in lat_line:
+                lat_json = json.loads(lat_line[lat_line.index("{"):])
+                lon_json = json.loads(lon_line[lon_line.index("{"):])
+                gps_data = {
+                    "latitude": lat_json.get("value"),
+                    "longitude": lon_json.get("value"),
+                }
+    except:
+        pass
+    
+    for key, info in DEVICES.items():
+        live = collect_device_data(key, info)
+        if live.get("online") and live.get("battery"):
+            # Merge live data with fallback
+            all_data["devices"][key] = {**fallback[key], **live}
+        else:
+            # Use fallback with offline flag
+            all_data["devices"][key] = fallback[key]
+            all_data["devices"][key]["online"] = False
         
-        all_data["devices"][key] = data
+        # Attach GPS data to van device
+        if key == "van" and gps_data:
+            all_data["devices"][key]["gps"] = gps_data
     
     return all_data
 

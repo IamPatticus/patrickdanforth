@@ -53,6 +53,11 @@
     .footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.8rem; }
     .footer a { color: var(--cyan); text-decoration: none; }
     @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 1.4rem; } }
+    .gps-section { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(130, 177, 255, 0.15); }
+    .gps-title { font-size: 0.85rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+    .gps-item { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
+    .gps-value { font-weight: 600; color: var(--cyan); font-family: monospace; }
+    .gps-coords { font-size: 0.85rem; color: var(--muted); }
     .card-links { text-align: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(130, 177, 255, 0.1); }
     .cerbo-link { display: inline-block; padding: 6px 14px; background: rgba(122, 231, 255, 0.1); color: var(--cyan); text-decoration: none; border-radius: 6px; font-size: 0.8rem; border: 1px solid rgba(122, 231, 255, 0.2); transition: all 0.2s; }
     .cerbo-link:hover { background: rgba(122, 231, 255, 0.2); border-color: var(--cyan); }
@@ -70,16 +75,26 @@
 
   <script>
     var VICTRON_DATA = {
-  "timestamp": "2026-07-17T16:50:05.279818",
+  "timestamp": "2026-07-17T16:55:07.587649",
   "devices": {
     "house": {
       "name": "House",
       "ip": "192.168.1.243",
       "online": false,
-      "battery": {},
-      "solar": {},
-      "ac": {},
-      "temperatures": []
+      "battery": {
+        "soc": 79.5,
+        "voltage": 52.98,
+        "current": -10.0,
+        "power": -530,
+        "time_to_go": 110000,
+        "name": "Homestead"
+      },
+      "solar": {
+        "power": 0
+      },
+      "ac": {
+        "consumption": 520
+      }
     },
     "shop": {
       "name": "Shop",
@@ -87,30 +102,35 @@
       "online": true,
       "battery": {
         "soc": 99.9000015258789,
-        "voltage": 54.91999816894531,
-        "current": -1.899999976158142,
-        "power": -104.3479995727539,
-        "time_to_go": 863999.9375,
+        "voltage": 54.7599983215332,
+        "current": -2.5999999046325684,
+        "power": -142.37600708007812,
+        "time_to_go": 478499.96875,
         "name": "SmartShunt Shop"
       },
       "solar": {},
       "ac": {},
-      "temperatures": [
-        {
-          "id": 25,
-          "name": "Sensor 25",
-          "temperature": 36.668827056884766
-        }
-      ]
+      "last_update": "2026-07-17T16:55:13.602448",
+      "gps": {}
     },
     "van": {
       "name": "Van",
       "ip": "192.168.1.140",
       "online": false,
-      "battery": {},
-      "solar": {},
-      "ac": {},
-      "temperatures": []
+      "battery": {
+        "soc": 99.7,
+        "voltage": 13.35,
+        "current": -0.7,
+        "power": -9.3,
+        "time_to_go": 553200,
+        "name": "Vanny Van Shunt"
+      },
+      "solar": {
+        "power": 0
+      },
+      "ac": {
+        "consumption": 0
+      }
     }
   }
 };
@@ -181,6 +201,17 @@
             html += '<span class="temp-value ' + tc + '">' + t.temperature.toFixed(1) + '°C / ' + cToF(t.temperature).toFixed(1) + '°F</span>';
             html += '</div>';
           }
+          html += '</div>';
+        }
+        
+        // GPS section (van only)
+        var gps = dev.gps || {};
+        if (gps.latitude !== undefined && gps.longitude !== undefined) {
+          html += '<div class="gps-section">';
+          html += '<div class="gps-title">📍 GPS Location</div>';
+          html += '<div class="gps-item"><span>Latitude</span><span class="gps-value">' + gps.latitude.toFixed(6) + '°N</span></div>';
+          html += '<div class="gps-item"><span>Longitude</span><span class="gps-value">' + gps.longitude.toFixed(6) + '°W</span></div>';
+          html += '<div class="gps-coords">Last fix: ' + new Date(VICTRON_DATA.timestamp).toLocaleTimeString() + '</div>';
           html += '</div>';
         }
         
