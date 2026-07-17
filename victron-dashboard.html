@@ -70,39 +70,45 @@
 
   <script>
     var VICTRON_DATA = {
-  "timestamp": "2026-07-17T17:10:03.979085",
+  "timestamp": "2026-07-17T17:15:05.078143",
   "devices": {
     "house": {
       "name": "House",
       "ip": "192.168.1.243",
-      "online": true,
+      "online": false,
       "battery": {
-        "soc": 91.19999694824219,
-        "voltage": 53.209999084472656,
-        "current": -7.599999904632568,
-        "power": -404.39599609375,
-        "time_to_go": 238799.984375,
+        "soc": 79.5,
+        "voltage": 52.98,
+        "current": -10.0,
+        "power": -530,
+        "time_to_go": 110000,
         "name": "Homestead"
       },
-      "solar": {},
-      "ac": {},
-      "last_update": "2026-07-17T17:10:03.979120"
+      "solar": {
+        "power": 0
+      },
+      "ac": {
+        "consumption": 520
+      }
     },
     "shop": {
       "name": "Shop",
       "ip": "192.168.1.128",
-      "online": true,
+      "online": false,
       "battery": {
-        "soc": 99.80000305175781,
-        "voltage": 54.310001373291016,
-        "current": -2.200000047683716,
-        "power": -119.48200225830078,
-        "time_to_go": 688379.9375,
+        "soc": 79.8,
+        "voltage": 52.71,
+        "current": -3.4,
+        "power": -179,
+        "time_to_go": 274800,
         "name": "SmartShunt Shop"
       },
-      "solar": {},
-      "ac": {},
-      "last_update": "2026-07-17T17:10:05.025637"
+      "solar": {
+        "power": 0
+      },
+      "ac": {
+        "consumption": 0
+      }
     },
     "van": {
       "name": "Van",
