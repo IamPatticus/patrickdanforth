@@ -70,23 +70,26 @@
 
   <script>
     var VICTRON_DATA = {
-  "timestamp": "2026-07-17T22:30:04.868366",
+  "timestamp": "2026-07-17T22:35:06.658575",
   "devices": {
     "house": {
       "name": "House",
       "ip": "192.168.1.243",
-      "online": true,
+      "online": false,
       "battery": {
-        "soc": 79.5999984741211,
-        "voltage": 52.91999816894531,
-        "current": -10.600000381469727,
-        "power": -560.9520263671875,
-        "time_to_go": 101879.9921875,
+        "soc": 79.5,
+        "voltage": 52.98,
+        "current": -10.0,
+        "power": -530,
+        "time_to_go": 110000,
         "name": "Homestead"
       },
-      "solar": {},
-      "ac": {},
-      "last_update": "2026-07-17T22:30:04.868401"
+      "solar": {
+        "power": 0
+      },
+      "ac": {
+        "consumption": 520
+      }
     },
     "shop": {
       "name": "Shop",
